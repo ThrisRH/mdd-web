@@ -1672,8 +1672,10 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "default": ()=>Home
+    "default": ()=>Home,
+    "generateMetadata": ()=>generateMetadata
 });
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Heading$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Typography/Heading.styles.ts [app-client] (ecmascript)");
@@ -1690,6 +1692,51 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+const API_URL = ("TURBOPACK compile-time value", "http://localhost:1337");
+async function getBlogs(pageNumber) {
+    try {
+        const res = await fetch("\n        ".concat(API_URL, "/api/blogs?pagination[page]=").concat(pageNumber, "&pagination[pageSize]=3&populate=*&sort=createdAt:desc\n      "), {
+            cache: "no-store"
+        });
+        if (!res.ok) throw new Error("Failed to fetch posts");
+        const data = await res.json();
+        return data.data || null;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+async function generateMetadata(param) {
+    let { searchParams } = param;
+    var _searchParams_page;
+    const pageNumber = parseInt((_searchParams_page = searchParams === null || searchParams === void 0 ? void 0 : searchParams.page) !== null && _searchParams_page !== void 0 ? _searchParams_page : "1");
+    try {
+        var _posts__cover, _posts_;
+        const data = await getBlogs(pageNumber);
+        const posts = data.data;
+        const description = posts.map((p)=>{
+            var _p_subContent;
+            return Array.isArray(p.subContent) ? p.subContent.map((c)=>c.content).join(" ") : (_p_subContent = p.subContent) !== null && _p_subContent !== void 0 ? _p_subContent : "";
+        }).join(" | ").slice(0, 160) || "Blog về chủ đề thú vị";
+        return {
+            title: "Trang Blog",
+            description,
+            openGraph: {
+                title: "Trang Blog",
+                description,
+                images: ((_posts_ = posts[0]) === null || _posts_ === void 0 ? void 0 : (_posts__cover = _posts_.cover) === null || _posts__cover === void 0 ? void 0 : _posts__cover.url) ? [
+                    {
+                        url: posts[0].cover.url
+                    }
+                ] : []
+            }
+        };
+    } catch (e) {
+        return {
+            title: "Trang Blog"
+        };
+    }
+}
 function Home() {
     _s();
     const [posts, setPosts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
@@ -1719,7 +1766,7 @@ function Home() {
     ]);
     if (loading) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Main$2f$Loading$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
         fileName: "[project]/src/app/page.tsx",
-        lineNumber: 41,
+        lineNumber: 95,
         columnNumber: 23
     }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Main$2f$PageContainer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1730,7 +1777,7 @@ function Home() {
                     children: "Blog"
                 }, void 0, false, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 45,
+                    lineNumber: 99,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1740,12 +1787,12 @@ function Home() {
                             post: post
                         }, post.documentId, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 50,
+                            lineNumber: 104,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 48,
+                    lineNumber: 102,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Pagination$2f$PaginationBar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1754,18 +1801,18 @@ function Home() {
                     onPageChange: (p)=>setPage(p)
                 }, void 0, false, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 54,
+                    lineNumber: 108,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/page.tsx",
-            lineNumber: 44,
+            lineNumber: 98,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/page.tsx",
-        lineNumber: 43,
+        lineNumber: 97,
         columnNumber: 5
     }, this);
 }

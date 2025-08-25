@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { PageNumber, PaginationContainer } from "./PaginationBar.styles";
 import Arrow from "@/assets/svg/arrowdown";

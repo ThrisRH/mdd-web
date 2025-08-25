@@ -1,61 +1,82 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
 import { H0 } from "@/components/Typography/Heading.styles";
 import PageContainer from "@/components/Main/PageContainer";
 import PostCard from "@/components/PostCard/PostCard";
 import PaginationBar from "@/components/Pagination/PaginationBar";
 import { BlogDetails } from "@/types/blog";
-import Loading from "@/components/Main/Loading";
-import Splash from "@/components/Splash/Splash";
+import PaginationWrapper from "@/components/Pagination/PaginationWrapper";
 
-export default function Home() {
-  const [posts, setPosts] = useState<BlogDetails[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
-  const [pageCount, setPageCount] = useState(1);
+interface PageProps {
+  searchParams?: { page?: string };
+}
 
-  const handleGetPost = async (pageNumber: number) => {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `http://localhost:1337/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`
-      );
-      const data = await response.json();
+async function getBlogs(pageNumber: number) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`,
+    { cache: "no-store" }
+  );
+  if (!res.ok) throw new Error("Failed to fetch posts");
+  return res.json();
+}
 
-      if (!response.ok) return;
+export async function generateMetadata() {
+  try {
+    const data = await getBlogs(1);
+    const blogs: BlogDetails[] = data.data;
 
-      setPosts(data.data);
-      setPageCount(data.meta.pagination.pageCount);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    const description =
+      blogs
+        .map((p) =>
+          Array.isArray(p.subContent)
+            ? p.subContent.map((c) => c.content).join(" ")
+            : p.subContent ?? ""
+        )
+        .join(" | ")
+        .slice(0, 160) || "";
 
-  useEffect(() => {
-    handleGetPost(page);
-  }, [page]);
+    const title =
+      blogs
+        .map((p) =>
+          Array.isArray(p.title)
+            ? p.title.map((c) => c.content).join(" ")
+            : p.title ?? ""
+        )
+        .join(" | ")
+        .slice(0, 160) || "";
 
-  if (loading) return <Loading />;
+    return {
+      title: "my MMD diary",
+      description,
+      openGraph: {
+        title: title,
+        description,
+        images: blogs[0]?.cover?.url ? [{ url: blogs[0].cover.url }] : [],
+      },
+    };
+  } catch {
+    return { title: "my MMD diary" };
+  }
+}
+
+export default async function Home({ searchParams }: PageProps) {
+  const pageNumber = parseInt(searchParams?.page ?? "1");
+
+  let data;
+  try {
+    data = await getBlogs(pageNumber);
+  } catch {
+    return <div>Error loading posts</div>;
+  }
+
+  const posts: BlogDetails[] = data.data;
+  const pageCount = data.meta.pagination.pageCount;
+
   return (
     <PageContainer>
       <div className="flex-2 flex flex-col items-center gap-10 md:gap-[50px]">
         <H0>Blog</H0>
 
-        {/* List posts */}
-        <div className="flex w-full flex-col gap-[50px]">
-          {posts.map((post, index) => (
-            <PostCard index={index} post={post} key={post.documentId} />
-          ))}
-        </div>
-
-        <PaginationBar
-          currentPage={page}
-          totalPages={pageCount}
-          onPageChange={(p) => setPage(p)}
-        />
+        {/* Client wrapper pagination */}
+        <PaginationWrapper page={pageNumber} totalPages={pageCount} />
       </div>
     </PageContainer>
   );
