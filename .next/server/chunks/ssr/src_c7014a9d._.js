@@ -18,14 +18,20 @@ const bounce = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$s
     transform: scale(1);
   }
 `;
-const LoaderWrapper = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const LoaderWrapper = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "Loading.styles__LoaderWrapper",
+    componentId: "sc-c35f802e-0"
+})`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
   height:80vh;
 `;
-const Dot = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const Dot = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "Loading.styles__Dot",
+    componentId: "sc-c35f802e-1"
+})`
   width: 28px;
   height: 28px;
   background-color: #F1DBC4;

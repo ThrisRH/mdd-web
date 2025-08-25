@@ -169,7 +169,10 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-components/dist/styled-components.esm.js [app-ssr] (ecmascript)");
 ;
-const ButtonContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].button`
+const ButtonContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].button.withConfig({
+    displayName: "Button.styles__ButtonContainer",
+    componentId: "sc-88c754c5-0"
+})`
     width: 100%;
     height: ${(props)=>props.$height || "44px"};
     background-color: ${(props)=>props.$primary ? "#EA8E31" : "#F1DBC4"};
@@ -177,7 +180,10 @@ const ButtonContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_mod
     padding: 10px;
     cursor: pointer;
 `;
-const Content = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].p`
+const Content = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].p.withConfig({
+    displayName: "Button.styles__Content",
+    componentId: "sc-88c754c5-1"
+})`
     font-family: var(--font-lora),serif;
     font-weight: 600;
     font-size: 18px;
@@ -914,7 +920,10 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-components/dist/styled-components.esm.js [app-ssr] (ecmascript)");
 ;
-const CardContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const CardContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__CardContainer",
+    componentId: "sc-7405774b-0"
+})`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -922,12 +931,18 @@ const CardContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modul
     width: 100%;
     gap: 24px;
 `;
-const Title = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].h3`
+const Title = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].h3.withConfig({
+    displayName: "PostCard.styles__Title",
+    componentId: "sc-7405774b-1"
+})`
     color: black;
     font-weight: bold;
     font-size: 24px;
 `;
-const ImageContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const ImageContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__ImageContainer",
+    componentId: "sc-7405774b-2"
+})`
     position: relative;
     height: 180px;
     width:100%;
@@ -937,7 +952,10 @@ const ImageContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modu
         height: 400px;
     }
 `;
-const TimeArea = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const TimeArea = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__TimeArea",
+    componentId: "sc-7405774b-3"
+})`
     width:100%;
     display: flex;
     flex-direction: row;
@@ -945,14 +963,20 @@ const TimeArea = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f
     justify-content: center;
     gap: 6px;
 `;
-const LineContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const LineContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__LineContainer",
+    componentId: "sc-7405774b-4"
+})`
     flex:1;
     display: flex;
     align-items: center;
     flex-direction: row;
     position: relative;
 `;
-const Container = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const Container = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__Container",
+    componentId: "sc-7405774b-5"
+})`
     flex: ${(props)=>props.$flex};
     display: flex;
     flex-direction: row;
@@ -960,24 +984,36 @@ const Container = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2
     justify-content: center;
     gap: 12px;
 `;
-const VectorContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const VectorContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__VectorContainer",
+    componentId: "sc-7405774b-6"
+})`
     position:absolute;
     ${({ $left })=>$left ? "left: -5px" : "right: -5px"};
     ${({ $left })=>$left ? "" : "transform: rotate(180deg)"}
 `;
-const Line = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const Line = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__Line",
+    componentId: "sc-7405774b-7"
+})`
   background: #000;
   height: 2px;
 
   ${({ $width })=>$width ? `width: ${$width}px;` : `flex: 1;`}
 `;
-const Dot = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const Dot = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__Dot",
+    componentId: "sc-7405774b-8"
+})`
     width: 6px;
     height: 6px;
     border-radius:100%;
     background: #000;
 `;
-const SmallPostContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const SmallPostContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__SmallPostContainer",
+    componentId: "sc-7405774b-9"
+})`
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -1197,12 +1233,18 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-components/dist/styled-components.esm.js [app-ssr] (ecmascript)");
 ;
-const PaginationContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const PaginationContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PaginationBar.styles__PaginationContainer",
+    componentId: "sc-d999f75d-0"
+})`
   display: flex;
   align-items: center;
   gap: 8px;
 `;
-const PageNumber = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].button`
+const PageNumber = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].button.withConfig({
+    displayName: "PaginationBar.styles__PageNumber",
+    componentId: "sc-d999f75d-1"
+})`
   border: none;
   background: ${({ $active })=>$active ? "#F1DBC4" : "transparent"};
   color: ${({ $active })=>$active ? "black" : "white"};
@@ -1313,14 +1355,20 @@ const bounce = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$s
     transform: scale(1);
   }
 `;
-const LoaderWrapper = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const LoaderWrapper = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "Loading.styles__LoaderWrapper",
+    componentId: "sc-c35f802e-0"
+})`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
   height:80vh;
 `;
-const Dot = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const Dot = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "Loading.styles__Dot",
+    componentId: "sc-c35f802e-1"
+})`
   width: 28px;
   height: 28px;
   background-color: #F1DBC4;

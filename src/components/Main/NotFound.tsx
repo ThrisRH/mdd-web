@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import NotFoundIC from "@/assets/svg/notfound";
 import { H1 } from "../Typography/Heading.styles";

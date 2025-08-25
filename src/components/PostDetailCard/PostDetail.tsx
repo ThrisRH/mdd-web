@@ -1,3 +1,4 @@
+"use client";
 import React, { memo } from "react";
 import { Body3 } from "../Typography/Body.styles";
 import Vector from "@/assets/svg/vector";
