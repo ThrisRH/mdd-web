@@ -67,7 +67,6 @@ export default async function Home({ searchParams }: PageProps) {
     return <div>Error loading posts</div>;
   }
 
-  const posts: BlogDetails[] = data.data;
   const pageCount = data.meta.pagination.pageCount;
 
   return (
@@ -75,7 +74,6 @@ export default async function Home({ searchParams }: PageProps) {
       <div className="flex-2 flex flex-col items-center gap-10 md:gap-[50px]">
         <H0>Blog</H0>
 
-        {/* Client wrapper pagination */}
         <PaginationWrapper page={pageNumber} totalPages={pageCount} />
       </div>
     </PageContainer>
