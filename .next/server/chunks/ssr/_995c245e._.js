@@ -1,0 +1,1232 @@
+module.exports = {
+
+"[project]/src/components/Left/Info/InfoCard.styles.ts [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "Container": ()=>Container,
+    "Field": ()=>Field
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-components/dist/styled-components.esm.js [app-ssr] (ecmascript)");
+;
+const Container = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    gap: 6px;
+`;
+const Field = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+`;
+}),
+"[project]/src/assets/svg/fb.jsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>__TURBOPACK__default__export__
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+;
+;
+const SVGComponent = (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        fill: "#000000",
+        width: "24px",
+        height: "24px",
+        viewBox: "0 0 24 24",
+        xmlns: "http://www.w3.org/2000/svg",
+        "data-name": "Layer 1",
+        ...props,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M20.9,2H3.1A1.1,1.1,0,0,0,2,3.1V20.9A1.1,1.1,0,0,0,3.1,22h9.58V14.25h-2.6v-3h2.6V9a3.64,3.64,0,0,1,3.88-4,20.26,20.26,0,0,1,2.33.12v2.7H17.3c-1.26,0-1.5.6-1.5,1.47v1.93h3l-.39,3H15.8V22h5.1A1.1,1.1,0,0,0,22,20.9V3.1A1.1,1.1,0,0,0,20.9,2Z"
+        }, void 0, false, {
+            fileName: "[project]/src/assets/svg/fb.jsx",
+            lineNumber: 12,
+            columnNumber: 5
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/assets/svg/fb.jsx",
+        lineNumber: 3,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const __TURBOPACK__default__export__ = SVGComponent;
+}),
+"[project]/src/assets/svg/x.jsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>__TURBOPACK__default__export__
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+;
+;
+const SVGComponent = (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: "24px",
+        height: "24px",
+        viewBox: "0 0 15 15",
+        fill: "none",
+        xmlns: "http://www.w3.org/2000/svg",
+        ...props,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M14.9773 1.46694C14.964 1.26637 14.8319 1.09326 14.642 1.02752C14.452 0.961775 14.2412 1.01618 14.1067 1.16562C13.7611 1.54977 13.3243 1.81009 12.881 1.92878C12.2644 1.35315 11.436 1.00002 10.5256 1.00002C8.57181 1.00002 6.98923 2.58615 6.98923 4.54112V4.98092C3.99799 4.74976 2.39838 2.47748 1.96675 1.3247C1.89698 1.13836 1.72337 1.01112 1.52468 1.00071C1.32598 0.990288 1.14002 1.09867 1.05114 1.27669C0.00441813 3.37338 -0.156858 5.40696 0.603899 7.13863C1.27032 8.65556 2.61055 9.86392 4.51008 10.6645C3.64679 11.2763 2.19379 12 0.500039 12C0.279771 12 0.0854497 12.1442 0.0215445 12.355C-0.0423608 12.5658 0.0392055 12.7935 0.222392 12.9158C1.8465 14.0003 3.54865 14.0001 5.13184 14L5.1803 14C10.041 14 13.98 10.0538 13.98 5.18751V4.70922C14.3434 4.33984 14.6264 3.96173 14.7998 3.4729C14.9932 2.92746 15.0322 2.295 14.9773 1.46694Z",
+            fill: "#000000"
+        }, void 0, false, {
+            fileName: "[project]/src/assets/svg/x.jsx",
+            lineNumber: 11,
+            columnNumber: 5
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/assets/svg/x.jsx",
+        lineNumber: 3,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const __TURBOPACK__default__export__ = SVGComponent;
+}),
+"[project]/src/assets/svg/ig.jsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>__TURBOPACK__default__export__
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+;
+;
+const SVGComponent = (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: "24px",
+        height: "24px",
+        viewBox: "0 0 0.72 0.72",
+        fill: "none",
+        xmlns: "http://www.w3.org/2000/svg",
+        ...props,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M0.09 0.33c0 -0.113 0 -0.17 0.035 -0.205S0.217 0.09 0.33 0.09h0.06c0.113 0 0.17 0 0.205 0.035S0.63 0.217 0.63 0.33v0.06c0 0.113 0 0.17 -0.035 0.205S0.503 0.63 0.39 0.63h-0.06c-0.113 0 -0.17 0 -0.205 -0.035S0.09 0.503 0.09 0.39z",
+                stroke: "#000",
+                strokeWidth: 0.06
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/ig.jsx",
+                lineNumber: 11,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                cx: 16.5,
+                cy: 7.5,
+                r: 1.5,
+                fill: "#000",
+                d: "M0.54 0.225A0.045 0.045 0 0 1 0.495 0.27A0.045 0.045 0 0 1 0.45 0.225A0.045 0.045 0 0 1 0.54 0.225z"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/ig.jsx",
+                lineNumber: 16,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                cx: 12,
+                cy: 12,
+                r: 3,
+                stroke: "#000",
+                strokeWidth: 0.06,
+                d: "M0.45 0.36A0.09 0.09 0 0 1 0.36 0.45A0.09 0.09 0 0 1 0.27 0.36A0.09 0.09 0 0 1 0.45 0.36z"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/ig.jsx",
+                lineNumber: 23,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/assets/svg/ig.jsx",
+        lineNumber: 3,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const __TURBOPACK__default__export__ = SVGComponent;
+}),
+"[project]/src/assets/svg/linkedin.jsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>__TURBOPACK__default__export__
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+;
+;
+const SVGComponent = (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        fill: "#000000",
+        width: "24px",
+        height: "24px",
+        viewBox: "0 0 0.72 0.72",
+        xmlns: "http://www.w3.org/2000/svg",
+        "data-name": "Layer 1",
+        ...props,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M0.614 0.06H0.106a0.043 0.043 0 0 0 -0.044 0.043v0.514A0.043 0.043 0 0 0 0.106 0.66h0.508a0.043 0.043 0 0 0 0.044 -0.043V0.103A0.043 0.043 0 0 0 0.614 0.06M0.243 0.562h-0.09v-0.27h0.09ZM0.198 0.254a0.047 0.047 0 1 1 0 -0.094 0.047 0.047 0 1 1 0 0.094m0.37 0.308h-0.09v-0.145c0 -0.036 -0.013 -0.06 -0.046 -0.06A0.049 0.049 0 0 0 0.385 0.39a0.06 0.06 0 0 0 -0.003 0.022v0.15h-0.09v-0.27h0.09V0.33a0.09 0.09 0 0 1 0.081 -0.045c0.06 0 0.103 0.039 0.103 0.122Z"
+        }, void 0, false, {
+            fileName: "[project]/src/assets/svg/linkedin.jsx",
+            lineNumber: 12,
+            columnNumber: 5
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/assets/svg/linkedin.jsx",
+        lineNumber: 3,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const __TURBOPACK__default__export__ = SVGComponent;
+}),
+"[project]/src/components/Left/Info/InfoCard.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>__TURBOPACK__default__export__
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Left$2f$Info$2f$InfoCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Left/Info/InfoCard.styles.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Heading$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Typography/Heading.styles.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Body$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Typography/Body.styles.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$fb$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/assets/svg/fb.jsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$x$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/assets/svg/x.jsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$ig$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/assets/svg/ig.jsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$linkedin$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/assets/svg/linkedin.jsx [app-ssr] (ecmascript)");
+"use client";
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const InfoCard = ()=>{
+    const [info, setInfo] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const handleGetInfo = async ()=>{
+        setLoading(true);
+        try {
+            const response = await fetch("http://localhost:1337/api/authors?populate=*", {
+                method: "GET"
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                setLoading(false);
+            }
+            setInfo(data.data);
+        } catch (error) {
+            console.log("Error: " + error);
+        } finally{
+            setLoading(false);
+        }
+    };
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        handleGetInfo();
+    }, []);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Left$2f$Info$2f$InfoCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Container"], {
+        children: info?.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Left$2f$Info$2f$InfoCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Container"], {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        className: " rounded-full",
+                        src: `http://localhost:1337${item.avatar.url}`,
+                        alt: "image",
+                        objectFit: "cover",
+                        width: 220,
+                        height: 220
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                        lineNumber: 78,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Heading$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["H2"], {
+                        children: [
+                            "my ",
+                            item.fullname,
+                            " diary"
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                        lineNumber: 86,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Left$2f$Info$2f$InfoCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Field"], {
+                        children: item.interest.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Body$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Body3"], {
+                                children: item.interest
+                            }, index, false, {
+                                fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                                lineNumber: 89,
+                                columnNumber: 15
+                            }, ("TURBOPACK compile-time value", void 0)))
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                        lineNumber: 87,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "h-1.5"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                        lineNumber: 92,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Body$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Body3"], {
+                        $align: "center",
+                        children: item.biography
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                        lineNumber: 93,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Left$2f$Info$2f$InfoCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Field"], {
+                        children: item.contact.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                href: item.url,
+                                children: item.platform === "fb" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$fb$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                    fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                                    lineNumber: 98,
+                                    columnNumber: 19
+                                }, ("TURBOPACK compile-time value", void 0)) : item.platform == "ig" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$ig$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                    fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                                    lineNumber: 100,
+                                    columnNumber: 19
+                                }, ("TURBOPACK compile-time value", void 0)) : item.platform === "x" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$x$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                    fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                                    lineNumber: 102,
+                                    columnNumber: 19
+                                }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$linkedin$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                    fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                                    lineNumber: 104,
+                                    columnNumber: 19
+                                }, ("TURBOPACK compile-time value", void 0))
+                            }, index, false, {
+                                fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                                lineNumber: 96,
+                                columnNumber: 15
+                            }, ("TURBOPACK compile-time value", void 0)))
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                        lineNumber: 94,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, index, true, {
+                fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+                lineNumber: 77,
+                columnNumber: 9
+            }, ("TURBOPACK compile-time value", void 0)))
+    }, void 0, false, {
+        fileName: "[project]/src/components/Left/Info/InfoCard.tsx",
+        lineNumber: 75,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const __TURBOPACK__default__export__ = InfoCard;
+}),
+"[project]/src/components/Left/SendContent/SendContent.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>__TURBOPACK__default__export__
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$arrowdown$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/assets/svg/arrowdown.jsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Body$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Typography/Body.styles.ts [app-ssr] (ecmascript)");
+"use client";
+;
+;
+;
+;
+const SendContent = ()=>{
+    const [cate, setCate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const handleGetCate = async ()=>{
+        try {
+            const response = await fetch("http://localhost:1337/api/cates?populate=*", {
+                method: "GET"
+            });
+            const data = await response.json();
+            setCate(data.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        handleGetCate();
+    }, []);
+    if (cate.length == 0) return null;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "relative w-full max-w-sm mx-auto p-4",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute -top-4 left-1/2 -translate-x-1/2 bg-[#d5cfa0] px-4 py-1 rounded-md shadow-md",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                    className: "font-bold text-sm",
+                    children: "KHÁM PHÁ CHỦ ĐỀ"
+                }, void 0, false, {
+                    fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
+                    lineNumber: 40,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
+                lineNumber: 39,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-[#f8f8f8] border border-[#d5cfa0] rounded-lg px-4 py-3 cursor-pointer flex justify-between items-center",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Body$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Body2"], {
+                        $color: "#000"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
+                        lineNumber: 45,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$arrowdown$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                        fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
+                        lineNumber: 46,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
+                lineNumber: 44,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex justify-center items-center mt-4 gap-2 text-[#d5cfa0]",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "w-2 h-1 bg-current rounded-full"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
+                        lineNumber: 51,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "w-2 h-1 bg-current rounded-full"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
+                        lineNumber: 52,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "w-2 h-1 bg-current rounded-full"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
+                        lineNumber: 53,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
+                lineNumber: 50,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
+        lineNumber: 37,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const __TURBOPACK__default__export__ = SendContent;
+}),
+"[project]/src/assets/svg/topicSelect.jsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>__TURBOPACK__default__export__
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+;
+;
+const SVGComponent = (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: 324,
+        height: 157,
+        viewBox: "0 0 324 157",
+        fill: "none",
+        xmlns: "http://www.w3.org/2000/svg",
+        ...props,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                x: 11,
+                y: 40.4497,
+                width: 302,
+                height: 101,
+                rx: 16,
+                fill: "#F4F4F4"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 11,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M142 152.45H71.5H25C11.7452 152.45 1 141.705 1 128.45V54.4497C1 41.1949 11.7452 30.4497 25 30.4497H299C312.255 30.4497 323 41.1949 323 54.4497V128.45C323 141.705 312.255 152.45 299 152.45H182",
+                stroke: "#D0C693"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 12,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M137 148.45L143 152.45L137 156.45L115 152.45L137 148.45Z",
+                fill: "#D0C693"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 16,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M187 148.45L181 152.45L187 156.45L209 152.45L187 148.45Z",
+                fill: "#D0C693"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 20,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: 150,
+                cy: 152.45,
+                r: 3,
+                fill: "#D0C693"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 24,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: 162,
+                cy: 152.45,
+                r: 2,
+                fill: "#D0C693"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 25,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: 3,
+                cy: 3,
+                r: 3,
+                transform: "matrix(-1 0 0 1 177 149.45)",
+                fill: "#D0C693"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 26,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M53 13.2668C66.1676 16.6806 77.1667 12.1002 82.5 12.7668L94.5 52.4497C86.6667 53.4497 54.4 53.4965 48 51.0965C41.6 48.6965 33.3333 49.4298 30 50.0965L48 30.7669C46 27.1669 34.8333 19.6002 30 16.7669C34 18.7668 39.5 9.76689 53 13.2668Z",
+                fill: "#C1B67A"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 33,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M94.5 52.4497L68 42.9497H94.5V52.4497Z",
+                fill: "#8C8151"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 37,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M271.5 13.2668C258.332 16.6806 247.333 12.1002 242 12.7668L230 52.4497C237.833 53.4497 270.1 53.4965 276.5 51.0965C282.9 48.6965 291.167 49.4298 294.5 50.0965L276.5 30.7669C278.5 27.1669 289.667 19.6002 294.5 16.7669C290.5 18.7668 285 9.76689 271.5 13.2668Z",
+                fill: "#C1B67A"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 38,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M230 52.4497L256.5 42.9497H230V52.4497Z",
+                fill: "#8C8151"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 42,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M67 4.54937C67 3.56515 67.6988 2.73297 68.6743 2.60214C76.8684 1.50317 114.444 -2.79172 166 2.84024C215.284 8.22398 246.115 4.53654 254.606 3.24107C255.851 3.05111 257 4.01232 257 5.27177V41.4498C257 42.5543 256.097 43.4493 254.992 43.454C220.689 43.599 196.901 47.3736 166 43.4498C135.046 39.5191 106.803 43.3136 69.0072 43.4462C67.9026 43.4501 67 42.5543 67 41.4498V4.54937Z",
+                fill: "#D0C693"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 43,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M82.0664 28.4497V27.5697C82.365 27.559 82.5944 27.511 82.7544 27.4257C82.9144 27.3297 83.0264 27.1697 83.0904 26.9457C83.1544 26.711 83.1864 26.391 83.1864 25.9857V19.6017C83.1864 19.335 83.1917 19.079 83.2024 18.8337C83.2237 18.5884 83.2397 18.3964 83.2504 18.2577C83.069 18.2684 82.861 18.279 82.6264 18.2897C82.3917 18.2897 82.205 18.295 82.0664 18.3057V17.2497H86.3224V18.1297C86.0344 18.1404 85.805 18.1937 85.6344 18.2897C85.4744 18.375 85.3624 18.5297 85.2984 18.7537C85.2344 18.9777 85.2024 19.2977 85.2024 19.7137V22.2097H86.3704L87.8584 19.7617C88.0184 19.4737 88.1997 19.1804 88.4024 18.8817C88.605 18.583 88.7917 18.3697 88.9624 18.2417C88.7917 18.2524 88.6157 18.263 88.4344 18.2737C88.253 18.2737 88.093 18.279 87.9544 18.2897V17.2497H91.7144V18.1297C91.4157 18.151 91.117 18.2044 90.8184 18.2897C90.5197 18.375 90.221 18.5457 89.9224 18.8017C89.6237 19.047 89.3144 19.4257 88.9944 19.9377L87.4424 22.4177C87.6877 22.567 87.8957 22.7324 88.0664 22.9137C88.2477 23.095 88.413 23.287 88.5624 23.4897L90.2584 25.8417C90.5357 26.215 90.7917 26.5297 91.0264 26.7857C91.2717 27.0417 91.5064 27.2337 91.7304 27.3617C91.965 27.4897 92.1997 27.559 92.4344 27.5697V28.4497H90.1464C90.0504 28.439 89.9064 28.3484 89.7144 28.1777C89.533 28.007 89.3357 27.799 89.1224 27.5537C88.9197 27.2977 88.733 27.0577 88.5624 26.8337L86.8664 24.4337C86.7064 24.2097 86.5357 23.991 86.3544 23.7777C86.173 23.5537 86.0024 23.383 85.8424 23.2657L85.2024 23.2817V26.0657C85.2024 26.3537 85.197 26.6204 85.1864 26.8657C85.1757 27.111 85.1597 27.303 85.1384 27.4417C85.3197 27.431 85.5277 27.4204 85.7624 27.4097C85.997 27.399 86.1837 27.3937 86.3224 27.3937V28.4497H82.0664ZM93.3008 28.4497V27.5697C93.5994 27.559 93.8288 27.511 93.9888 27.4257C94.1488 27.3297 94.2608 27.1697 94.3248 26.9457C94.3888 26.711 94.4208 26.391 94.4208 25.9857V19.6017C94.4208 19.335 94.4261 19.079 94.4368 18.8337C94.4581 18.5884 94.4741 18.3964 94.4848 18.2577C94.3034 18.2684 94.0954 18.279 93.8608 18.2897C93.6261 18.2897 93.4394 18.295 93.3008 18.3057V17.2497H97.5568V18.1297C97.2688 18.1404 97.0394 18.1937 96.8688 18.2897C96.7088 18.375 96.5968 18.5297 96.5328 18.7537C96.4688 18.9777 96.4368 19.2977 96.4368 19.7137V22.2577H101.269V19.6017C101.269 19.335 101.274 19.079 101.285 18.8337C101.295 18.5884 101.311 18.3964 101.333 18.2577C101.151 18.2684 100.943 18.279 100.709 18.2897C100.474 18.2897 100.287 18.295 100.149 18.3057V17.2497H104.405V18.1297C104.117 18.1404 103.887 18.1937 103.717 18.2897C103.557 18.375 103.445 18.5297 103.381 18.7537C103.317 18.9777 103.285 19.2977 103.285 19.7137V26.0657C103.285 26.3537 103.279 26.6204 103.269 26.8657C103.258 27.111 103.242 27.303 103.221 27.4417C103.402 27.431 103.61 27.4204 103.845 27.4097C104.09 27.399 104.277 27.3937 104.405 27.3937V28.4497H100.149V27.5697C100.447 27.559 100.677 27.511 100.837 27.4257C100.997 27.3297 101.109 27.1697 101.173 26.9457C101.237 26.711 101.269 26.391 101.269 25.9857V23.2817L96.4368 23.3457V26.0657C96.4368 26.3537 96.4314 26.6204 96.4208 26.8657C96.4101 27.111 96.3941 27.303 96.3728 27.4417C96.5541 27.431 96.7621 27.4204 96.9968 27.4097C97.2314 27.399 97.4181 27.3937 97.5568 27.3937V28.4497H93.3008ZM109.954 16.4017L109.458 15.7137L111.314 13.8257C111.485 13.6657 111.656 13.5644 111.826 13.5217C112.008 13.4684 112.173 13.463 112.322 13.5057C112.482 13.5484 112.61 13.639 112.706 13.7777C112.802 13.9057 112.845 14.055 112.834 14.2257C112.834 14.3857 112.781 14.5457 112.674 14.7057C112.578 14.8657 112.434 15.0044 112.242 15.1217L109.954 16.4017ZM105.25 28.4497V27.5377C105.549 27.5377 105.789 27.4524 105.97 27.2817C106.152 27.111 106.301 26.887 106.418 26.6097C106.536 26.3217 106.658 26.0017 106.786 25.6497L109.97 16.9617H110.834L114.306 25.8097C114.37 25.991 114.456 26.247 114.562 26.5777C114.669 26.9084 114.728 27.1964 114.738 27.4417C114.92 27.431 115.096 27.4204 115.266 27.4097C115.437 27.399 115.586 27.3937 115.714 27.3937V28.4497H111.634V27.5697C111.965 27.5697 112.189 27.5004 112.306 27.3617C112.424 27.223 112.472 27.0417 112.45 26.8177C112.44 26.5937 112.386 26.3644 112.29 26.1297L111.89 25.0417L108.178 25.1057L107.826 26.1777C107.762 26.359 107.688 26.567 107.602 26.8017C107.517 27.0257 107.432 27.2284 107.346 27.4097C107.538 27.399 107.746 27.3884 107.97 27.3777C108.205 27.367 108.392 27.3617 108.53 27.3617V28.4497H105.25ZM108.53 24.0817H111.538L110.674 21.7297C110.546 21.367 110.424 21.0044 110.306 20.6417C110.2 20.2684 110.109 19.927 110.034 19.6177H110.002C109.938 19.831 109.858 20.1084 109.762 20.4497C109.677 20.791 109.554 21.1804 109.394 21.6177L108.53 24.0817ZM122.359 28.6097C121.964 27.6604 121.564 26.7217 121.159 25.7937C120.764 24.855 120.37 23.911 119.975 22.9617C119.868 22.7164 119.746 22.4124 119.607 22.0497C119.468 21.687 119.33 21.287 119.191 20.8497C119.052 20.4124 118.919 19.9644 118.791 19.5057C118.812 19.943 118.823 20.359 118.823 20.7537C118.834 21.1377 118.834 21.511 118.823 21.8737C118.823 22.1617 118.818 22.4764 118.807 22.8177C118.807 23.159 118.802 23.511 118.791 23.8737C118.78 24.2364 118.77 24.6044 118.759 24.9777C118.759 25.3404 118.759 25.6924 118.759 26.0337C118.748 26.3004 118.738 26.5617 118.727 26.8177C118.716 27.0737 118.7 27.2817 118.679 27.4417C118.871 27.431 119.084 27.4204 119.319 27.4097C119.564 27.399 119.756 27.3937 119.895 27.3937V28.4497H116.439V27.5697C116.716 27.559 116.935 27.5164 117.095 27.4417C117.255 27.3564 117.372 27.2124 117.447 27.0097C117.522 26.807 117.559 26.519 117.559 26.1457L117.735 19.6337C117.746 19.367 117.751 19.111 117.751 18.8657C117.762 18.6204 117.772 18.4177 117.783 18.2577C117.612 18.2684 117.41 18.279 117.175 18.2897C116.94 18.2897 116.748 18.295 116.599 18.3057V17.2497H119.783L122.311 23.4897C122.418 23.767 122.53 24.0657 122.647 24.3857C122.775 24.7057 122.898 25.0204 123.015 25.3297C123.132 25.639 123.234 25.911 123.319 26.1457H123.335C123.474 25.8044 123.607 25.4524 123.735 25.0897C123.863 24.7164 123.991 24.3697 124.119 24.0497C124.546 22.919 124.978 21.7937 125.415 20.6737C125.863 19.543 126.311 18.4017 126.759 17.2497H130.007V18.1297C129.762 18.1297 129.548 18.167 129.367 18.2417C129.196 18.3164 129.068 18.4604 128.983 18.6737C128.898 18.8764 128.86 19.1964 128.871 19.6337L129.175 26.1457C129.196 26.4017 129.196 26.647 129.175 26.8817C129.164 27.1164 129.154 27.303 129.143 27.4417C129.324 27.4204 129.532 27.4097 129.767 27.4097C130.012 27.399 130.204 27.3937 130.343 27.3937V28.4497H126.183V27.5697C126.45 27.559 126.668 27.511 126.839 27.4257C127.01 27.3404 127.132 27.191 127.207 26.9777C127.282 26.7537 127.308 26.4284 127.287 26.0017L127.095 21.9857C127.095 21.847 127.084 21.6444 127.063 21.3777C127.042 21.111 127.026 20.823 127.015 20.5137C127.004 20.2044 126.994 19.911 126.983 19.6337C126.951 19.7084 126.914 19.783 126.871 19.8577C126.839 19.9324 126.812 20.007 126.791 20.0817L123.511 28.6097H122.359ZM136.004 27.5697C136.303 27.559 136.532 27.511 136.692 27.4257C136.852 27.3297 136.964 27.1697 137.028 26.9457C137.092 26.711 137.124 26.391 137.124 25.9857V19.6017C137.124 19.335 137.129 19.079 137.14 18.8337C137.161 18.5884 137.177 18.3964 137.188 18.2577C137.007 18.2684 136.799 18.279 136.564 18.2897C136.329 18.2897 136.143 18.295 136.004 18.3057V17.2497C136.697 17.239 137.396 17.2337 138.1 17.2337C138.804 17.2337 139.508 17.2284 140.212 17.2177C141.183 17.207 142.02 17.3297 142.724 17.5857C143.428 17.831 143.967 18.2097 144.34 18.7217C144.713 19.223 144.9 19.8737 144.9 20.6737C144.9 21.1004 144.809 21.527 144.628 21.9537C144.457 22.3697 144.18 22.759 143.796 23.1217C143.423 23.4737 142.927 23.7617 142.308 23.9857C141.7 24.2097 140.964 24.3324 140.1 24.3537C139.929 24.3537 139.764 24.3537 139.604 24.3537C139.444 24.3537 139.289 24.3484 139.14 24.3377V26.0497C139.14 26.3484 139.135 26.6204 139.124 26.8657C139.113 27.111 139.097 27.303 139.076 27.4417C139.215 27.431 139.369 27.4257 139.54 27.4257C139.711 27.415 139.881 27.4097 140.052 27.4097C140.233 27.399 140.372 27.3937 140.468 27.3937V28.4497H136.004V27.5697ZM139.14 23.3297C139.279 23.3404 139.412 23.351 139.54 23.3617C139.668 23.3724 139.807 23.3777 139.956 23.3777C140.553 23.3777 141.055 23.271 141.46 23.0577C141.876 22.8444 142.191 22.5404 142.404 22.1457C142.617 21.7404 142.724 21.2497 142.724 20.6737C142.724 20.151 142.649 19.7244 142.5 19.3937C142.351 19.063 142.153 18.8124 141.908 18.6417C141.663 18.4604 141.391 18.3377 141.092 18.2737C140.793 18.2097 140.495 18.1777 140.196 18.1777C139.919 18.1777 139.7 18.2204 139.54 18.3057C139.391 18.391 139.284 18.5457 139.22 18.7697C139.167 18.983 139.14 19.2764 139.14 19.6497V23.3297ZM145.957 28.4497V27.5697C146.256 27.559 146.485 27.511 146.645 27.4257C146.805 27.3297 146.917 27.1697 146.981 26.9457C147.045 26.711 147.077 26.391 147.077 25.9857V19.6017C147.077 19.335 147.082 19.079 147.093 18.8337C147.114 18.5884 147.13 18.3964 147.141 18.2577C146.96 18.2684 146.752 18.279 146.517 18.2897C146.282 18.2897 146.096 18.295 145.957 18.3057V17.2497H150.213V18.1297C149.925 18.1404 149.696 18.1937 149.525 18.2897C149.365 18.375 149.253 18.5297 149.189 18.7537C149.125 18.9777 149.093 19.2977 149.093 19.7137V22.2577H153.925V19.6017C153.925 19.335 153.93 19.079 153.941 18.8337C153.952 18.5884 153.968 18.3964 153.989 18.2577C153.808 18.2684 153.6 18.279 153.365 18.2897C153.13 18.2897 152.944 18.295 152.805 18.3057V17.2497H157.061V18.1297C156.773 18.1404 156.544 18.1937 156.373 18.2897C156.213 18.375 156.101 18.5297 156.037 18.7537C155.973 18.9777 155.941 19.2977 155.941 19.7137V26.0657C155.941 26.3537 155.936 26.6204 155.925 26.8657C155.914 27.111 155.898 27.303 155.877 27.4417C156.058 27.431 156.266 27.4204 156.501 27.4097C156.746 27.399 156.933 27.3937 157.061 27.3937V28.4497H152.805V27.5697C153.104 27.559 153.333 27.511 153.493 27.4257C153.653 27.3297 153.765 27.1697 153.829 26.9457C153.893 26.711 153.925 26.391 153.925 25.9857V23.2817L149.093 23.3457V26.0657C149.093 26.3537 149.088 26.6204 149.077 26.8657C149.066 27.111 149.05 27.303 149.029 27.4417C149.21 27.431 149.418 27.4204 149.653 27.4097C149.888 27.399 150.074 27.3937 150.213 27.3937V28.4497H145.957ZM162.611 16.4017L162.115 15.7137L163.971 13.8257C164.141 13.6657 164.312 13.5644 164.483 13.5217C164.664 13.4684 164.829 13.463 164.979 13.5057C165.139 13.5484 165.267 13.639 165.363 13.7777C165.459 13.9057 165.501 14.055 165.491 14.2257C165.491 14.3857 165.437 14.5457 165.331 14.7057C165.235 14.8657 165.091 15.0044 164.899 15.1217L162.611 16.4017ZM157.907 28.4497V27.5377C158.205 27.5377 158.445 27.4524 158.627 27.2817C158.808 27.111 158.957 26.887 159.075 26.6097C159.192 26.3217 159.315 26.0017 159.443 25.6497L162.627 16.9617H163.491L166.963 25.8097C167.027 25.991 167.112 26.247 167.219 26.5777C167.325 26.9084 167.384 27.1964 167.395 27.4417C167.576 27.431 167.752 27.4204 167.923 27.4097C168.093 27.399 168.243 27.3937 168.371 27.3937V28.4497H164.291V27.5697C164.621 27.5697 164.845 27.5004 164.963 27.3617C165.08 27.223 165.128 27.0417 165.107 26.8177C165.096 26.5937 165.043 26.3644 164.947 26.1297L164.547 25.0417L160.835 25.1057L160.483 26.1777C160.419 26.359 160.344 26.567 160.259 26.8017C160.173 27.0257 160.088 27.2284 160.003 27.4097C160.195 27.399 160.403 27.3884 160.627 27.3777C160.861 27.367 161.048 27.3617 161.187 27.3617V28.4497H157.907ZM161.187 24.0817H164.195L163.331 21.7297C163.203 21.367 163.08 21.0044 162.963 20.6417C162.856 20.2684 162.765 19.927 162.691 19.6177H162.659C162.595 19.831 162.515 20.1084 162.419 20.4497C162.333 20.791 162.211 21.1804 162.051 21.6177L161.187 24.0817ZM181.843 20.8337C181.715 19.9057 181.4 19.2017 180.899 18.7217C180.397 18.231 179.747 17.9857 178.947 17.9857C178.381 17.9857 177.875 18.1137 177.427 18.3697C176.989 18.615 176.616 18.9564 176.307 19.3937C176.008 19.8204 175.779 20.3217 175.619 20.8977C175.459 21.463 175.379 22.071 175.379 22.7217C175.379 23.671 175.528 24.5084 175.827 25.2337C176.136 25.959 176.563 26.5297 177.107 26.9457C177.661 27.3617 178.307 27.5697 179.043 27.5697C179.725 27.5697 180.397 27.4044 181.059 27.0737C181.731 26.7324 182.285 26.2524 182.723 25.6337L183.379 26.2257C182.877 26.9084 182.344 27.431 181.779 27.7937C181.213 28.1457 180.659 28.3857 180.115 28.5137C179.581 28.6417 179.096 28.7057 178.659 28.7057C177.837 28.7057 177.091 28.5617 176.419 28.2737C175.757 27.975 175.181 27.5697 174.691 27.0577C174.211 26.535 173.837 25.9324 173.571 25.2497C173.315 24.5564 173.187 23.8097 173.187 23.0097C173.187 22.2737 173.299 21.5484 173.523 20.8337C173.757 20.119 174.104 19.4737 174.562 18.8977C175.032 18.3217 175.619 17.863 176.323 17.5217C177.027 17.1697 177.843 16.9937 178.771 16.9937C179.24 16.9937 179.731 17.0684 180.243 17.2177C180.755 17.3564 181.235 17.5644 181.683 17.8417L181.619 17.1057H182.723V20.8337H181.843ZM184.473 28.4497V27.5697C184.771 27.559 185.001 27.511 185.161 27.4257C185.321 27.3297 185.433 27.1697 185.497 26.9457C185.561 26.711 185.593 26.391 185.593 25.9857V19.6017C185.593 19.335 185.598 19.079 185.609 18.8337C185.63 18.5884 185.646 18.3964 185.657 18.2577C185.475 18.2684 185.267 18.279 185.033 18.2897C184.798 18.2897 184.611 18.295 184.473 18.3057V17.2497H188.729V18.1297C188.441 18.1404 188.211 18.1937 188.041 18.2897C187.881 18.375 187.769 18.5297 187.705 18.7537C187.641 18.9777 187.609 19.2977 187.609 19.7137V22.2577H192.441V19.6017C192.441 19.335 192.446 19.079 192.457 18.8337C192.467 18.5884 192.483 18.3964 192.505 18.2577C192.323 18.2684 192.115 18.279 191.881 18.2897C191.646 18.2897 191.459 18.295 191.321 18.3057V17.2497H195.577V18.1297C195.289 18.1404 195.059 18.1937 194.889 18.2897C194.729 18.375 194.617 18.5297 194.553 18.7537C194.489 18.9777 194.457 19.2977 194.457 19.7137V26.0657C194.457 26.3537 194.451 26.6204 194.441 26.8657C194.43 27.111 194.414 27.303 194.393 27.4417C194.574 27.431 194.782 27.4204 195.017 27.4097C195.262 27.399 195.449 27.3937 195.577 27.3937V28.4497H191.321V27.5697C191.619 27.559 191.849 27.511 192.009 27.4257C192.169 27.3297 192.281 27.1697 192.345 26.9457C192.409 26.711 192.441 26.391 192.441 25.9857V23.2817L187.609 23.3457V26.0657C187.609 26.3537 187.603 26.6204 187.593 26.8657C187.582 27.111 187.566 27.303 187.545 27.4417C187.726 27.431 187.934 27.4204 188.169 27.4097C188.403 27.399 188.59 27.3937 188.729 27.3937V28.4497H184.473ZM201.11 18.1297C200.833 18.1404 200.609 18.1884 200.438 18.2737C200.278 18.359 200.161 18.4977 200.086 18.6897C200.022 18.871 199.99 19.1324 199.99 19.4737V23.7617C199.99 24.4017 200.049 24.9617 200.166 25.4417C200.294 25.911 200.476 26.3057 200.71 26.6257C200.945 26.9457 201.233 27.1857 201.574 27.3457C201.926 27.5057 202.332 27.5857 202.79 27.5857C203.43 27.607 203.969 27.4737 204.406 27.1857C204.854 26.8977 205.19 26.4764 205.414 25.9217C205.638 25.367 205.75 24.6897 205.75 23.8897L205.766 19.6017C205.766 19.335 205.772 19.079 205.782 18.8337C205.793 18.5884 205.809 18.3964 205.83 18.2577C205.649 18.2684 205.441 18.279 205.206 18.2897C204.972 18.2897 204.785 18.295 204.646 18.3057V17.2497H208.102V18.1297C207.814 18.1404 207.585 18.1937 207.414 18.2897C207.254 18.375 207.142 18.5297 207.078 18.7537C207.014 18.9777 206.982 19.2977 206.982 19.7137L206.966 23.6177C206.966 24.4604 206.865 25.2017 206.662 25.8417C206.47 26.471 206.182 26.999 205.798 27.4257C205.414 27.8524 204.95 28.1724 204.406 28.3857C203.862 28.599 203.244 28.7057 202.55 28.7057C201.665 28.7057 200.924 28.583 200.326 28.3377C199.74 28.0924 199.27 27.7404 198.918 27.2817C198.577 26.8124 198.332 26.263 198.182 25.6337C198.044 24.9937 197.974 24.279 197.974 23.4897V19.8257C197.974 19.5484 197.98 19.2604 197.99 18.9617C198.012 18.6524 198.028 18.4177 198.038 18.2577C197.857 18.2684 197.649 18.279 197.414 18.2897C197.18 18.2897 196.993 18.295 196.854 18.3057V17.2497H201.11V18.1297ZM202.278 16.2737C202.278 16.0604 202.348 15.8897 202.486 15.7617C202.625 15.6337 202.764 15.5057 202.902 15.3777C202.988 15.2924 203.052 15.1964 203.094 15.0897C203.148 14.983 203.174 14.8657 203.174 14.7377C203.174 14.5244 203.1 14.3537 202.95 14.2257C202.801 14.087 202.604 14.0177 202.358 14.0177C202.102 14.0177 201.905 14.071 201.766 14.1777C201.628 14.2844 201.548 14.3804 201.526 14.4657C201.644 14.4764 201.729 14.519 201.782 14.5937C201.846 14.6577 201.878 14.7377 201.878 14.8337C201.878 14.9617 201.83 15.0737 201.734 15.1697C201.638 15.2657 201.505 15.3137 201.334 15.3137C201.132 15.3137 200.961 15.2444 200.822 15.1057C200.684 14.967 200.614 14.7857 200.614 14.5617C200.614 14.3377 200.678 14.1244 200.806 13.9217C200.945 13.7084 201.148 13.5324 201.414 13.3937C201.681 13.255 201.996 13.1857 202.358 13.1857C202.966 13.1857 203.436 13.319 203.766 13.5857C204.108 13.8524 204.278 14.1937 204.278 14.6097C204.278 14.887 204.209 15.1057 204.07 15.2657C203.942 15.4257 203.788 15.5644 203.606 15.6817C203.478 15.7884 203.372 15.8897 203.286 15.9857C203.201 16.0817 203.158 16.1777 203.158 16.2737H202.278ZM213.135 23.3297V22.2737H219.311V23.2977L213.135 23.3297ZM213.567 27.5697C213.865 27.559 214.095 27.511 214.255 27.4257C214.415 27.3297 214.527 27.1697 214.591 26.9457C214.655 26.711 214.687 26.391 214.687 25.9857V19.6017C214.687 19.335 214.692 19.079 214.703 18.8337C214.724 18.5884 214.74 18.3964 214.751 18.2577C214.569 18.2684 214.361 18.279 214.127 18.2897C213.892 18.2897 213.705 18.295 213.567 18.3057V17.2497L217.919 17.2337C218.943 17.2337 219.844 17.3777 220.623 17.6657C221.412 17.943 222.068 18.3377 222.591 18.8497C223.113 19.3617 223.508 19.9537 223.775 20.6257C224.052 21.2977 224.191 22.0177 224.191 22.7857C224.191 23.4577 224.068 24.1297 223.823 24.8017C223.588 25.4737 223.22 26.087 222.719 26.6417C222.228 27.1857 221.588 27.623 220.799 27.9537C220.02 28.2844 219.092 28.4497 218.015 28.4497H213.567V27.5697ZM216.703 26.0657C216.703 26.3537 216.697 26.6204 216.687 26.8657C216.676 27.111 216.66 27.303 216.639 27.4417C216.809 27.4417 216.996 27.447 217.199 27.4577C217.401 27.4577 217.599 27.463 217.791 27.4737C217.983 27.4737 218.127 27.4737 218.223 27.4737C218.841 27.4737 219.385 27.351 219.855 27.1057C220.324 26.8604 220.713 26.5297 221.023 26.1137C221.343 25.6977 221.583 25.223 221.743 24.6897C221.903 24.1457 221.983 23.575 221.983 22.9777C221.983 21.9217 221.817 21.0417 221.487 20.3377C221.167 19.623 220.703 19.0844 220.095 18.7217C219.487 18.3484 218.735 18.1564 217.839 18.1457C217.54 18.135 217.305 18.1777 217.135 18.2737C216.964 18.3697 216.847 18.5297 216.783 18.7537C216.729 18.9777 216.703 19.2924 216.703 19.6977V26.0657ZM231.101 24.4977C231.101 24.039 231.032 23.7137 230.893 23.5217C230.765 23.319 230.573 23.1964 230.317 23.1537C230.072 23.1004 229.773 23.079 229.421 23.0897L228.765 23.1217V26.0817C228.765 26.3697 228.76 26.6364 228.749 26.8817C228.738 27.1164 228.722 27.303 228.701 27.4417L231.149 27.4257C231.522 27.4257 231.864 27.3564 232.173 27.2177C232.482 27.0684 232.733 26.823 232.925 26.4817C233.117 26.1297 233.213 25.655 233.213 25.0577H234.093L234.013 28.4497H225.629V27.5697C225.928 27.559 226.157 27.511 226.317 27.4257C226.477 27.3297 226.589 27.1697 226.653 26.9457C226.717 26.711 226.749 26.391 226.749 25.9857V19.6017C226.749 19.335 226.754 19.079 226.765 18.8337C226.786 18.5884 226.802 18.3964 226.813 18.2577C226.632 18.2684 226.424 18.279 226.189 18.2897C225.954 18.2897 225.768 18.295 225.629 18.3057V17.2497H233.517L233.613 20.2577H232.733C232.733 19.6497 232.632 19.1964 232.429 18.8977C232.237 18.5884 231.986 18.3804 231.677 18.2737C231.368 18.167 231.048 18.119 230.717 18.1297L229.885 18.1457C229.597 18.1564 229.373 18.2044 229.213 18.2897C229.053 18.375 228.936 18.5297 228.861 18.7537C228.797 18.967 228.765 19.287 228.765 19.7137V22.1617L231.005 22.1777L230.925 20.7857H231.981V24.4977H231.101ZM231.821 16.3217L230.013 15.1857L228.205 16.3057L227.837 15.7937L229.997 13.8417H230.157L232.189 15.7777L231.821 16.3217ZM232.317 14.3697L230.429 12.6737C230.28 12.5137 230.168 12.3484 230.093 12.1777C230.029 11.9964 230.013 11.8204 230.045 11.6497C230.088 11.479 230.173 11.3404 230.301 11.2337C230.429 11.1377 230.568 11.0844 230.717 11.0737C230.877 11.063 231.037 11.1004 231.197 11.1857C231.368 11.2604 231.517 11.3937 231.645 11.5857L232.957 13.8097L232.317 14.3697Z",
+                fill: "black"
+            }, void 0, false, {
+                fileName: "[project]/src/assets/svg/topicSelect.jsx",
+                lineNumber: 47,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/assets/svg/topicSelect.jsx",
+        lineNumber: 3,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const __TURBOPACK__default__export__ = SVGComponent;
+}),
+"[project]/src/components/Left/Topic/Topic.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>__TURBOPACK__default__export__
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$topicSelect$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/assets/svg/topicSelect.jsx [app-ssr] (ecmascript)");
+"use client";
+;
+;
+;
+const Topic = ()=>{
+    const [cate, setCate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const handleGetCate = async ()=>{
+        try {
+            const response = await fetch("http://localhost:1337/api/cates?populate=*", {
+                method: "GET"
+            });
+            const data = await response.json();
+            setCate(data.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        handleGetCate();
+    }, []);
+    if (cate.length == 0) return null;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "relative w-full h-[157px] flex items-center justify-center",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "relative",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$topicSelect$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                    className: "w-full h-[157px]"
+                }, void 0, false, {
+                    fileName: "[project]/src/components/Left/Topic/Topic.tsx",
+                    lineNumber: 35,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute inset-0 flex items-center justify-center",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "relative top-6 w-4/5 h-10 px-3 bg-white rounded-lg flex flex-row items-center justify-center",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                            className: "flex-1 outline-0",
+                            children: cate.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                    children: item.tile
+                                }, item.id, false, {
+                                    fileName: "[project]/src/components/Left/Topic/Topic.tsx",
+                                    lineNumber: 41,
+                                    columnNumber: 17
+                                }, ("TURBOPACK compile-time value", void 0)))
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/Left/Topic/Topic.tsx",
+                            lineNumber: 39,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Left/Topic/Topic.tsx",
+                        lineNumber: 38,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0))
+                }, void 0, false, {
+                    fileName: "[project]/src/components/Left/Topic/Topic.tsx",
+                    lineNumber: 37,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/components/Left/Topic/Topic.tsx",
+            lineNumber: 34,
+            columnNumber: 7
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/components/Left/Topic/Topic.tsx",
+        lineNumber: 33,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const __TURBOPACK__default__export__ = Topic;
+}),
+"[project]/src/components/Button/Button.styles.ts [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "ButtonContainer": ()=>ButtonContainer,
+    "Content": ()=>Content
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-components/dist/styled-components.esm.js [app-ssr] (ecmascript)");
+;
+const ButtonContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].button`
+    width: 100%;
+    height: ${(props)=>props.$height || 44}px;
+    background-color: ${(props)=>props.$primary ? "#EA8E31" : "#F1DBC4"};
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+`;
+const Content = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].p`
+    font-family: var(--font-lora),serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+`;
+}),
+"[project]/src/components/Button/button.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>__TURBOPACK__default__export__
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$Button$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Button/Button.styles.ts [app-ssr] (ecmascript)");
+;
+;
+const Button = ({ className, children, primary, onClickFunc, height })=>{
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$Button$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ButtonContainer"], {
+        $height: height || 44,
+        className: className,
+        $primary: primary,
+        onClick: onClickFunc,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$Button$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Content"], {
+            children: children
+        }, void 0, false, {
+            fileName: "[project]/src/components/Button/button.tsx",
+            lineNumber: 26,
+            columnNumber: 7
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/components/Button/button.tsx",
+        lineNumber: 20,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const __TURBOPACK__default__export__ = Button;
+}),
+"[project]/src/assets/svg/vector.jsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>__TURBOPACK__default__export__
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+;
+;
+const SvgComponent = (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: 28,
+        height: 8,
+        fill: "none",
+        ...props,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            fill: "#000",
+            d: "M6 0 0 4l6 4 22-4L6 0Z"
+        }, void 0, false, {
+            fileName: "[project]/src/assets/svg/vector.jsx",
+            lineNumber: 10,
+            columnNumber: 5
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/assets/svg/vector.jsx",
+        lineNumber: 3,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const __TURBOPACK__default__export__ = SvgComponent;
+}),
+"[project]/src/components/PostCard/PostCard.styles.ts [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "CardContainer": ()=>CardContainer,
+    "Container": ()=>Container,
+    "Dot": ()=>Dot,
+    "ImageContainer": ()=>ImageContainer,
+    "Line": ()=>Line,
+    "LineContainer": ()=>LineContainer,
+    "TimeArea": ()=>TimeArea,
+    "Title": ()=>Title,
+    "VectorContainer": ()=>VectorContainer
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-components/dist/styled-components.esm.js [app-ssr] (ecmascript)");
+;
+const CardContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 24px;
+`;
+const Title = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].h3`
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+`;
+const ImageContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+    position: relative;
+    height: 400px;
+    width:100%;
+    border-radius: 16px;
+`;
+const TimeArea = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+`;
+const LineContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+    flex:1;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+`;
+const Container = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+    flex: ${(props)=>props.$flex};
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+    gap: 12px;
+`;
+const VectorContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+    position:absolute;
+    ${({ $left })=>$left ? "left: -5px" : "right: -5px"};
+    ${({ $left })=>$left ? "" : "transform: rotate(180deg)"}
+`;
+const Line = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+    flex: 1;
+    background: #000;
+    height:2px
+`;
+const Dot = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+    width: 6px;
+    height: 6px;
+    border-radius:100%;
+    background: #000;
+`;
+}),
+"[project]/src/components/PostCard/PostCard.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>__TURBOPACK__default__export__
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Button/button.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$vector$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/assets/svg/vector.jsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/PostCard/PostCard.styles.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Body$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Typography/Body.styles.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Heading$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Typography/Heading.styles.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
+"use client";
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const PostCard = ({ index, post })=>{
+    const [blogAvatar, setBlogAvatar] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])();
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
+    const handleGetInfo = async ()=>{
+        setLoading(true);
+        try {
+            const response = await fetch(`http://localhost:1337/api/blogs/${post.documentId}?populate=*`, {
+                method: "GET"
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                setLoading(false);
+                return;
+            }
+            setBlogAvatar(data.data);
+        } catch (error) {
+            console.log("Error: " + error);
+        } finally{
+            setLoading(false);
+        }
+    };
+    const handleToDetail = (postDocId)=>{
+        router.push(`http://localhost:3000/topic/${postDocId}`);
+    };
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        handleGetInfo();
+    }, []);
+    const formatDate = (postDate)=>{
+        const date = new Date(postDate);
+        const formatted = date.toLocaleDateString("de-DE");
+        return formatted;
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContainer"], {
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TimeArea"], {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Container"], {
+                        $flex: 3,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["LineContainer"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Line"], {}, void 0, false, {
+                                        fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                                        lineNumber: 111,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VectorContainer"], {
+                                        $left: false,
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$vector$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                            fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                                            lineNumber: 113,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                                        lineNumber: 112,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                                lineNumber: 110,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dot"], {}, void 0, false, {
+                                fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                                lineNumber: 116,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                        lineNumber: 109,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Body$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Body3"], {
+                        children: formatDate(post.publishedAt)
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                        lineNumber: 118,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Container"], {
+                        $flex: 3,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dot"], {}, void 0, false, {
+                                fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                                lineNumber: 120,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["LineContainer"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VectorContainer"], {
+                                        $left: true,
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$vector$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                            fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                                            lineNumber: 123,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                                        lineNumber: 122,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Line"], {}, void 0, false, {
+                                        fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                                        lineNumber: 125,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                                lineNumber: 121,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                        lineNumber: 119,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                lineNumber: 108,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Heading$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["H1"], {
+                children: post.title
+            }, void 0, false, {
+                fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                lineNumber: 129,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ImageContainer"], {
+                children: blogAvatar?.cover && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                    className: "w-full h-[400px] rounded-xl",
+                    src: `http://localhost:1337${blogAvatar.cover.url}`,
+                    alt: "image",
+                    objectFit: "cover",
+                    fill: true
+                }, void 0, false, {
+                    fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                    lineNumber: 132,
+                    columnNumber: 11
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                lineNumber: 130,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Body$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Body2"], {
+                children: post.mainContent
+            }, void 0, false, {
+                fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                lineNumber: 141,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                primary: false,
+                onClickFunc: ()=>handleToDetail(post.documentId),
+                children: "Xem thêm"
+            }, void 0, false, {
+                fileName: "[project]/src/components/PostCard/PostCard.tsx",
+                lineNumber: 142,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/PostCard/PostCard.tsx",
+        lineNumber: 107,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const __TURBOPACK__default__export__ = PostCard;
+}),
+"[project]/src/assets/image/ig_pic.png (static in ecmascript)": ((__turbopack_context__) => {
+
+__turbopack_context__.v("/_next/static/media/ig_pic.cd7e901e.png");}),
+"[project]/src/assets/image/ig_pic.png.mjs { IMAGE => \"[project]/src/assets/image/ig_pic.png (static in ecmascript)\" } [app-ssr] (structured image object, ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>__TURBOPACK__default__export__
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$image$2f$ig_pic$2e$png__$28$static__in__ecmascript$29$__ = __turbopack_context__.i("[project]/src/assets/image/ig_pic.png (static in ecmascript)");
+;
+const __TURBOPACK__default__export__ = {
+    src: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$image$2f$ig_pic$2e$png__$28$static__in__ecmascript$29$__["default"],
+    width: 644,
+    height: 644,
+    blurWidth: 8,
+    blurHeight: 8,
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAABE0lEQVR42gEIAff+AGxkRP+PfVP/pY9g9JKagf2Tl2/9iHlP9HRZO/+FbUz/AGVgXf9/dm//o45q9I+AVv2gjm39h21K9JtuP/92TCf/AEM+NfRiWk70enZb6paVb/KcmXfybGZS6lNCNPRpSzr0AJuGPf2Ie0r9d3lw8rS/vvuxurr7iIyO8pCJiP13c3L9AGJVNf2Dd0/9kotq8niBgft/g377gX988nFra/1qbGz9AIiCffSFf3f0e3506lloVfI+NifyhoKA6rKvsPSur7L0AKejov+YmZ3/g4B29F5iPf1NTD79WVpf9HBqa/9ta2z/AKSio//O0ND/oJaK9HhrTv1JTVn9LzA09ComI/8pKSX/1QOUnavUB3UAAAAASUVORK5CYII="
+};
+}),
+"[project]/src/app/page.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "default": ()=>Home
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Left$2f$Info$2f$InfoCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Left/Info/InfoCard.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Left$2f$SendContent$2f$SendContent$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Left/SendContent/SendContent.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Left$2f$Topic$2f$Topic$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Left/Topic/Topic.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/PostCard/PostCard.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Heading$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Typography/Heading.styles.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$image$2f$ig_pic$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$image$2f$ig_pic$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/src/assets/image/ig_pic.png.mjs { IMAGE => "[project]/src/assets/image/ig_pic.png (static in ecmascript)" } [app-ssr] (structured image object, ecmascript)');
+"use client";
+;
+;
+;
+;
+;
+;
+;
+;
+;
+function Home() {
+    const [posts, setPosts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const handleGetPost = async ()=>{
+        setLoading(true);
+        try {
+            const response = await fetch("http://localhost:1337/api/blogs?populate=*");
+            const data = await response.json();
+            if (!response.ok) {
+                setLoading(false);
+                return;
+            }
+            console.log(data.data);
+            setPosts(data.data);
+        } catch (error) {
+            console.log(error);
+        } finally{
+            setLoading(false);
+        }
+    };
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        handleGetPost();
+    }, []);
+    console.log("test: ");
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "font-sans flex flex-row items-start justify-items-start min-h-screen p-8 pb-20 gap-16 sm:p-20",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex-1 sm:flex-2 flex flex-col items-center gap-[50px]",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Heading$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["H0"], {
+                        children: "Blog"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 58,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex w-full  flex-col gap-[50px]",
+                        children: posts.map((post, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCard$2f$PostCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                index: index,
+                                post: post
+                            }, index, false, {
+                                fileName: "[project]/src/app/page.tsx",
+                                lineNumber: 61,
+                                columnNumber: 13
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 59,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/page.tsx",
+                lineNumber: 57,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex-1 hidden sm:flex flex-col gap-20 items-center mt-[110px]",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Left$2f$Info$2f$InfoCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 66,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Left$2f$Topic$2f$Topic$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 67,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Left$2f$SendContent$2f$SendContent$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 68,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        src: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$image$2f$ig_pic$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$image$2f$ig_pic$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
+                        alt: "Ig Image",
+                        width: 322,
+                        height: 322
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 69,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/page.tsx",
+                lineNumber: 65,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/app/page.tsx",
+        lineNumber: 56,
+        columnNumber: 5
+    }, this);
+}
+}),
+"[project]/node_modules/next/dist/shared/lib/image-external.js [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    default: null,
+    getImageProps: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    default: function() {
+        return _default;
+    },
+    getImageProps: function() {
+        return getImageProps;
+    }
+});
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-ssr] (ecmascript)");
+const _getimgprops = __turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/get-img-props.js [app-ssr] (ecmascript)");
+const _imagecomponent = __turbopack_context__.r("[project]/node_modules/next/dist/client/image-component.js [app-ssr] (ecmascript)");
+const _imageloader = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/image-loader.js [app-ssr] (ecmascript)"));
+function getImageProps(imgProps) {
+    const { props } = (0, _getimgprops.getImgProps)(imgProps, {
+        defaultLoader: _imageloader.default,
+        // This is replaced by webpack define plugin
+        imgConf: ("TURBOPACK compile-time value", JSON.parse('{"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default","dangerouslyAllowSVG":false,"unoptimized":false,"domains":["localhost"],"remotePatterns":[]}'))
+    });
+    // Normally we don't care about undefined props because we pass to JSX,
+    // but this exported function could be used by the end user for anything
+    // so we delete undefined props to clean it up a little.
+    for (const [key, value] of Object.entries(props)){
+        if (value === undefined) {
+            delete props[key];
+        }
+    }
+    return {
+        props
+    };
+}
+const _default = _imagecomponent.Image; //# sourceMappingURL=image-external.js.map
+}}),
+"[project]/node_modules/next/image.js [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+module.exports = __turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/image-external.js [app-ssr] (ecmascript)");
+}}),
+
+};
+
+//# sourceMappingURL=_995c245e._.js.map

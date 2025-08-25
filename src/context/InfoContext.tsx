@@ -1,0 +1,50 @@
+"use client";
+import { createContext, useContext, useEffect, useState } from "react";
+
+interface InfoProps {
+  fullname: string;
+  biography: string;
+  contact: { id: number; platform: string; url: string }[];
+  interest: { id: number; interest: string }[];
+  avatar: { id: string; url: string; name: string };
+}
+
+interface InfoContextType {
+  info: InfoProps[] | null;
+  loading: boolean;
+}
+
+const InfoContext = createContext<InfoContextType>({
+  info: null,
+  loading: false,
+});
+
+export const InfoProvider = ({ children }: { children: React.ReactNode }) => {
+  const [info, setInfo] = useState<InfoProps[] | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const fetchInfo = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch("http://localhost:1337/api/authors?populate=*");
+      const data = await res.json();
+      setInfo(data.data);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchInfo();
+  }, []);
+
+  return (
+    <InfoContext.Provider value={{ info, loading }}>
+      {children}
+    </InfoContext.Provider>
+  );
+};
+
+export const useInfo = () => useContext(InfoContext);
