@@ -49,12 +49,15 @@ async function getRelatedBlogs(categoryId: string): Promise<BlogDetails[]> {
 export async function generateMetadata({ params }: PageProps) {
   const blog = await getBlog(params["blog-slug"]);
   if (!blog) return {};
+
   return {
     title: blog.title,
-    description: blog.subContent,
+    description: blog.subContent ?? "",
     openGraph: {
       title: blog.title,
-      description: blog.subContent,
+      description: Array.isArray(blog.subContent)
+        ? blog.subContent.map((item) => item.content).join(" ")
+        : blog.subContent ?? "",
       images: blog.cover?.url ? [{ url: blog.cover.url }] : [],
     },
   };
