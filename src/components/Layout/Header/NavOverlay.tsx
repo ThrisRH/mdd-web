@@ -48,6 +48,7 @@ const NavOverlayMenu: React.FC<Props> = ({
           cate={cate}
           open={open}
           setOpen={setOpen}
+          onNavPhoneClose={onClose}
           handleSearchByCate={handleSearchByCate}
           isRelative={true}
           onSearch={onSearch}

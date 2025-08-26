@@ -180,23 +180,20 @@ async function generateMetadata() {
         const data = await getBlogs(1);
         const blogs = data.data;
         const description = blogs.map((p)=>Array.isArray(p.subContent) ? p.subContent.map((c)=>c.content).join(" ") : p.subContent ?? "").join(" | ").slice(0, 160) || "";
-        const title = blogs.map((p)=>Array.isArray(p.title) ? p.title.map((c)=>c.content).join(" ") : p.title ?? "").join(" | ").slice(0, 160) || "";
+        const title = blogs.map((item)=>item.title || "");
+        const image = blogs.map((item)=>item.cover.url || "");
         return {
-            title: "my MMD diary",
+            title: "my MDD diary",
             description,
             openGraph: {
                 title: title,
-                description,
-                images: blogs[0]?.cover?.url ? [
-                    {
-                        url: blogs[0].cover.url
-                    }
-                ] : []
+                description: description,
+                images: image
             }
         };
     } catch  {
         return {
-            title: "my MMD diary"
+            title: "my MDD diary"
         };
     }
 }
@@ -210,11 +207,10 @@ async function Home({ searchParams }) {
             children: "Error loading posts"
         }, void 0, false, {
             fileName: "[project]/src/app/page.tsx",
-            lineNumber: 67,
+            lineNumber: 61,
             columnNumber: 12
         }, this);
     }
-    const posts = data.data;
     const pageCount = data.meta.pagination.pageCount;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Main$2f$PageContainer$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -224,7 +220,7 @@ async function Home({ searchParams }) {
                     children: "Blog"
                 }, void 0, false, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 76,
+                    lineNumber: 69,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Pagination$2f$PaginationWrapper$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
@@ -232,18 +228,18 @@ async function Home({ searchParams }) {
                     totalPages: pageCount
                 }, void 0, false, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 79,
+                    lineNumber: 71,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/page.tsx",
-            lineNumber: 75,
+            lineNumber: 68,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/page.tsx",
-        lineNumber: 74,
+        lineNumber: 67,
         columnNumber: 5
     }, this);
 }

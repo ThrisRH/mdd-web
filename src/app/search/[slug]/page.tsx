@@ -1,75 +1,96 @@
-"use client";
+// app/search/[slug]/page.tsx
 import PageContainer from "@/components/Main/PageContainer";
-import { useParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
 import { H0 } from "@/components/Typography/Heading.styles";
 import PostCard from "@/components/PostCard/PostCard";
 import { BlogDetails } from "@/types/blog";
 import NotFound from "@/components/Main/NotFound";
-import PaginationBar from "@/components/Pagination/PaginationBar";
+import PaginationBar from "@/components/Pagination/PaginationBar"; // nếu PaginationBar cần state thì để nó thành client component
 import Loading from "@/components/Main/Loading";
+import PaginationWrapper from "@/components/Pagination/PaginationWrapper";
+import { title } from "process";
 
-const page = () => {
-  const params = useParams<{ slug: string }>();
-  const title = decodeURIComponent(params.slug);
-  const [page, setPage] = useState(1);
-  const [pageCount, setPageCount] = useState(1);
+interface SearchPageProps {
+  params: { slug: string };
+  searchParams: { page?: string }; // lấy query ?page=1 từ URL
+}
 
-  const [blog, setBlog] = useState<BlogDetails[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const handleGetCate = async (pageNumber: number) => {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `http://localhost:1337/api/blogs/by-title/${params.slug}?page=${pageNumber}&pageSize=3&populate=*`
-      );
-      const data = await response.json();
-      console.log(data.data);
-
-      if (!response.ok) {
-        setLoading(false);
-        return;
-      }
-      setBlog(data.data);
-      setPageCount(data.meta.pagination.pageCount);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    handleGetCate(page);
-  }, [page]);
-
-  if (loading) return <Loading />;
-  if (blog.length != 0) {
-    return (
-      <PageContainer>
-        <div className="flex-2 flex flex-col items-center gap-[50px]">
-          <H0>Kết quả tiềm kiếm cho: {title}</H0>
-          <div className="flex w-full  flex-col gap-[50px]">
-            {blog.map((item) => (
-              <PostCard post={item} key={item.documentId} />
-            ))}
-          </div>
-          <PaginationBar
-            currentPage={page}
-            totalPages={pageCount}
-            onPageChange={(p) => setPage(p)}
-          />
-        </div>
-      </PageContainer>
+async function getBlogsByName(title: string, pageNumber: number) {
+  try {
+    const res = await fetch(
+      `http://localhost:1337/api/blogs/by-title/${title}?page=${pageNumber}&pageSize=3&populate=*`,
+      { cache: "no-store" }
     );
-  } else {
+
+    const data = await res.json();
+    return data || null;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch posts");
+  }
+}
+
+export async function generateMetadata({ params }: SearchPageProps) {
+  try {
+    const data = await getBlogsByName(params.slug, 1);
+    const blogs: BlogDetails[] = data.data;
+
+    const title = blogs.map((item) => item.title || "");
+    const description =
+      blogs
+        .map((item) =>
+          Array.isArray(item.subContent)
+            ? item.subContent.map((subItem) => subItem.content).join(" ")
+            : item.subContent ?? ""
+        )
+        .join(" | ")
+        .slice(0, 160) || "";
+
+    const image = blogs.map((item) => item.cover.url || "");
+    return {
+      title: "my MDD diary | Search",
+      description,
+      openGraph: {
+        title: title,
+        description: description,
+        image: image,
+      },
+    };
+  } catch (error) {
+    return {
+      title: "my MDD diary | Search",
+      description: "Blog not found",
+      image: "",
+    };
+  }
+}
+
+export default async function SearchPage({
+  params,
+  searchParams,
+}: SearchPageProps) {
+  const title = decodeURIComponent(params.slug);
+  const page = Number(searchParams.page) || 1;
+
+  let res;
+  try {
+    res = await getBlogsByName(title, page);
+  } catch (error) {
     return (
       <PageContainer>
         <NotFound />
       </PageContainer>
     );
   }
-};
 
-export default page;
+  const pageCount = res.meta.pagination.pageCount;
+
+  return (
+    <PageContainer>
+      <div className="flex-2 flex flex-col items-center gap-[50px]">
+        <H0>Kết quả tìm kiếm cho: {title}</H0>
+
+        <PaginationWrapper page={page} totalPages={pageCount} slug={title} />
+      </div>
+    </PageContainer>
+  );
+}

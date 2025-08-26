@@ -504,6 +504,10 @@
     height: 100%;
   }
 
+  .max-h-\[377px\] {
+    max-height: 377px;
+  }
+
   .min-h-screen {
     min-height: 100vh;
   }
@@ -534,6 +538,10 @@
 
   .max-w-\[322px\] {
     max-width: 322px;
+  }
+
+  .max-w-\[510px\] {
+    max-width: 510px;
   }
 
   .min-w-\[60px\] {

@@ -1134,7 +1134,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 ;
 ;
-const NavItems = ({ pathname, cate, open, setOpen, handleSearchByCate, isRelative = false, onSearch })=>{
+const NavItems = ({ pathname, cate, open, setOpen, onNavPhoneClose, handleSearchByCate, isRelative = false, onSearch })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Layout$2f$Header$2f$Header$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavItem"], {
@@ -1142,21 +1142,22 @@ const NavItems = ({ pathname, cate, open, setOpen, handleSearchByCate, isRelativ
                     href: "/",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Heading$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["H5"], {
                         $size: 18,
+                        onClick: onNavPhoneClose ?? onNavPhoneClose,
                         $color: pathname === "/" ? "#EA8E31" : "#fff",
                         children: "TRANG CHỦ"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                        lineNumber: 40,
+                        lineNumber: 42,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                    lineNumber: 39,
+                    lineNumber: 41,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                lineNumber: 38,
+                lineNumber: 40,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Layout$2f$Header$2f$Header$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavItem"], {
@@ -1164,21 +1165,22 @@ const NavItems = ({ pathname, cate, open, setOpen, handleSearchByCate, isRelativ
                     href: "/about",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Heading$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["H5"], {
                         $size: 18,
+                        onClick: onNavPhoneClose ?? onNavPhoneClose,
                         $color: pathname === "/about" ? "#EA8E31" : "#fff",
                         children: "GIỚI THIỆU"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                        lineNumber: 48,
+                        lineNumber: 54,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                    lineNumber: 47,
+                    lineNumber: 53,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                lineNumber: 46,
+                lineNumber: 52,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Layout$2f$Header$2f$Header$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavItem"], {
@@ -1197,7 +1199,7 @@ const NavItems = ({ pathname, cate, open, setOpen, handleSearchByCate, isRelativ
                                 children: "CHỦ ĐỀ"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                                lineNumber: 56,
+                                lineNumber: 66,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$arrowdown$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1205,13 +1207,13 @@ const NavItems = ({ pathname, cate, open, setOpen, handleSearchByCate, isRelativ
                                 fill: pathname.startsWith("/topic") || pathname.startsWith("/blogs") ? "#EA8E31" : "#fff"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                                lineNumber: 66,
+                                lineNumber: 76,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                        lineNumber: 55,
+                        lineNumber: 65,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     open && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Layout$2f$Header$2f$Header$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dropdown"], {
@@ -1221,27 +1223,28 @@ const NavItems = ({ pathname, cate, open, setOpen, handleSearchByCate, isRelativ
                                 onClick: ()=>handleSearchByCate(item.documentId),
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Body$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Body2"], {
                                     $color: "#fff",
+                                    onClick: onNavPhoneClose ?? onNavPhoneClose,
                                     $hoverColor: "#EA8E31",
                                     children: item.tile
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                                    lineNumber: 83,
+                                    lineNumber: 93,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, i, false, {
                                 fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                                lineNumber: 78,
+                                lineNumber: 88,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)))
                     }, void 0, false, {
                         fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                        lineNumber: 76,
+                        lineNumber: 86,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                lineNumber: 54,
+                lineNumber: 64,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Layout$2f$Header$2f$Header$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavItem"], {
@@ -1249,33 +1252,34 @@ const NavItems = ({ pathname, cate, open, setOpen, handleSearchByCate, isRelativ
                     href: "/FAQ",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Heading$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["H5"], {
                         $size: 18,
+                        onClick: onNavPhoneClose ?? onNavPhoneClose,
                         $color: pathname === "/FAQ" ? "#EA8E31" : "#fff",
                         children: "HỎI ĐÁP"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                        lineNumber: 94,
+                        lineNumber: 108,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                    lineNumber: 93,
+                    lineNumber: 107,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                lineNumber: 92,
+                lineNumber: 106,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             onSearch && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Layout$2f$Header$2f$Header$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavItem"], {
                 onClick: onSearch,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$search$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                    lineNumber: 102,
+                    lineNumber: 120,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/Layout/Header/NavItems.tsx",
-                lineNumber: 101,
+                lineNumber: 119,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         ]
@@ -1344,6 +1348,7 @@ const NavOverlayMenu = ({ cate, pathname, open, setOpen, handleSearchByCate, onC
                     cate: cate,
                     open: open,
                     setOpen: setOpen,
+                    onNavPhoneClose: onClose,
                     handleSearchByCate: handleSearchByCate,
                     isRelative: true,
                     onSearch: onSearch

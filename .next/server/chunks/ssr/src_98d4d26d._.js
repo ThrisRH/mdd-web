@@ -169,7 +169,10 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-components/dist/styled-components.esm.js [app-ssr] (ecmascript)");
 ;
-const ButtonContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].button`
+const ButtonContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].button.withConfig({
+    displayName: "Button.styles__ButtonContainer",
+    componentId: "sc-88c754c5-0"
+})`
     width: 100%;
     height: ${(props)=>props.$height || "44px"};
     background-color: ${(props)=>props.$primary ? "#EA8E31" : "#F1DBC4"};
@@ -177,7 +180,10 @@ const ButtonContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_mod
     padding: 10px;
     cursor: pointer;
 `;
-const Content = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].p`
+const Content = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].p.withConfig({
+    displayName: "Button.styles__Content",
+    componentId: "sc-88c754c5-1"
+})`
     font-family: var(--font-lora),serif;
     font-weight: 600;
     font-size: 18px;
@@ -260,6 +266,7 @@ const SendContent = ()=>{
                     }
                 })
             });
+            setEmail("");
         } catch (error) {
             console.log(error);
         }
@@ -277,7 +284,7 @@ const SendContent = ()=>{
                 children: "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
             }, void 0, false, {
                 fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
-                lineNumber: 58,
+                lineNumber: 59,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -289,12 +296,12 @@ const SendContent = ()=>{
                     onChange: (e)=>setEmail(e.target.value)
                 }, void 0, false, {
                     fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
-                    lineNumber: 64,
+                    lineNumber: 65,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
-                lineNumber: 63,
+                lineNumber: 64,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -305,18 +312,18 @@ const SendContent = ()=>{
                     children: "Đăng ký"
                 }, void 0, false, {
                     fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
-                    lineNumber: 73,
+                    lineNumber: 74,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
-                lineNumber: 72,
+                lineNumber: 73,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/Left/SendContent/SendContent.tsx",
-        lineNumber: 57,
+        lineNumber: 58,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -913,7 +920,10 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-components/dist/styled-components.esm.js [app-ssr] (ecmascript)");
 ;
-const CardContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const CardContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__CardContainer",
+    componentId: "sc-7405774b-0"
+})`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -921,12 +931,18 @@ const CardContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modul
     width: 100%;
     gap: 24px;
 `;
-const Title = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].h3`
+const Title = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].h3.withConfig({
+    displayName: "PostCard.styles__Title",
+    componentId: "sc-7405774b-1"
+})`
     color: black;
     font-weight: bold;
     font-size: 24px;
 `;
-const ImageContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const ImageContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__ImageContainer",
+    componentId: "sc-7405774b-2"
+})`
     position: relative;
     height: 180px;
     width:100%;
@@ -936,7 +952,10 @@ const ImageContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modu
         height: 400px;
     }
 `;
-const TimeArea = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const TimeArea = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__TimeArea",
+    componentId: "sc-7405774b-3"
+})`
     width:100%;
     display: flex;
     flex-direction: row;
@@ -944,14 +963,20 @@ const TimeArea = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f
     justify-content: center;
     gap: 6px;
 `;
-const LineContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const LineContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__LineContainer",
+    componentId: "sc-7405774b-4"
+})`
     flex:1;
     display: flex;
     align-items: center;
     flex-direction: row;
     position: relative;
 `;
-const Container = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const Container = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__Container",
+    componentId: "sc-7405774b-5"
+})`
     flex: ${(props)=>props.$flex};
     display: flex;
     flex-direction: row;
@@ -959,24 +984,36 @@ const Container = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2
     justify-content: center;
     gap: 12px;
 `;
-const VectorContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const VectorContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__VectorContainer",
+    componentId: "sc-7405774b-6"
+})`
     position:absolute;
     ${({ $left })=>$left ? "left: -5px" : "right: -5px"};
     ${({ $left })=>$left ? "" : "transform: rotate(180deg)"}
 `;
-const Line = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const Line = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__Line",
+    componentId: "sc-7405774b-7"
+})`
   background: #000;
   height: 2px;
 
   ${({ $width })=>$width ? `width: ${$width}px;` : `flex: 1;`}
 `;
-const Dot = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const Dot = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__Dot",
+    componentId: "sc-7405774b-8"
+})`
     width: 6px;
     height: 6px;
     border-radius:100%;
     background: #000;
 `;
-const SmallPostContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const SmallPostContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PostCard.styles__SmallPostContainer",
+    componentId: "sc-7405774b-9"
+})`
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -1196,12 +1233,18 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-components/dist/styled-components.esm.js [app-ssr] (ecmascript)");
 ;
-const PaginationContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div`
+const PaginationContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "PaginationBar.styles__PaginationContainer",
+    componentId: "sc-d999f75d-0"
+})`
   display: flex;
   align-items: center;
   gap: 8px;
 `;
-const PageNumber = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].button`
+const PageNumber = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].button.withConfig({
+    displayName: "PaginationBar.styles__PageNumber",
+    componentId: "sc-d999f75d-1"
+})`
   border: none;
   background: ${({ $active })=>$active ? "#F1DBC4" : "transparent"};
   color: ${({ $active })=>$active ? "black" : "white"};
@@ -1220,6 +1263,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Pagination$2f$PaginationBar$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Pagination/PaginationBar.styles.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$svg$2f$arrowdown$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/assets/svg/arrowdown.jsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Typography$2f$Body$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Typography/Body.styles.ts [app-ssr] (ecmascript)");
+"use client";
 ;
 ;
 ;
@@ -1245,12 +1289,12 @@ const PaginationBar = ({ currentPage, totalPages, onPageChange })=>{
                     fill: "#000"
                 }, void 0, false, {
                     fileName: "[project]/src/components/Pagination/PaginationBar.tsx",
-                    lineNumber: 29,
+                    lineNumber: 30,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/Pagination/PaginationBar.tsx",
-                lineNumber: 24,
+                lineNumber: 25,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             pages.map((page)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Pagination$2f$PaginationBar$2e$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PageNumber"], {
@@ -1261,12 +1305,12 @@ const PaginationBar = ({ currentPage, totalPages, onPageChange })=>{
                         children: page
                     }, void 0, false, {
                         fileName: "[project]/src/components/Pagination/PaginationBar.tsx",
-                        lineNumber: 38,
+                        lineNumber: 39,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, page, false, {
                     fileName: "[project]/src/components/Pagination/PaginationBar.tsx",
-                    lineNumber: 33,
+                    lineNumber: 34,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1277,18 +1321,18 @@ const PaginationBar = ({ currentPage, totalPages, onPageChange })=>{
                     fill: "#000"
                 }, void 0, false, {
                     fileName: "[project]/src/components/Pagination/PaginationBar.tsx",
-                    lineNumber: 47,
+                    lineNumber: 48,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/Pagination/PaginationBar.tsx",
-                lineNumber: 42,
+                lineNumber: 43,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/Pagination/PaginationBar.tsx",
-        lineNumber: 23,
+        lineNumber: 24,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

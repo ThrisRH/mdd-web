@@ -1577,21 +1577,30 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 function PaginationWrapper(param) {
-    let { totalPages, page } = param;
+    let { totalPages, page, slug } = param;
     _s();
     const [currentPage, setCurrentPage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(page);
     const [posts, setPosts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "PaginationWrapper.useEffect": ()=>{
             async function fetchPage() {
-                const res = await fetch("".concat(("TURBOPACK compile-time value", "http://localhost:1337"), "/api/blogs?pagination[page]=").concat(currentPage, "&pagination[pageSize]=3&populate=*&sort=createdAt:desc"));
+                let url = "";
+                if (slug) {
+                    // search mode
+                    url = "".concat(("TURBOPACK compile-time value", "http://localhost:1337"), "/api/blogs/by-title/").concat(slug, "?page=").concat(currentPage, "&pageSize=3&populate=*");
+                } else {
+                    // home mode
+                    url = "".concat(("TURBOPACK compile-time value", "http://localhost:1337"), "/api/blogs?pagination[page]=").concat(currentPage, "&pagination[pageSize]=3&populate=*&sort=createdAt:desc");
+                }
+                const res = await fetch(url);
                 const data = await res.json();
                 setPosts(data.data);
             }
             fetchPage();
         }
     }["PaginationWrapper.useEffect"], [
-        currentPage
+        currentPage,
+        slug
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
@@ -1602,12 +1611,12 @@ function PaginationWrapper(param) {
                         post: post
                     }, post.documentId, false, {
                         fileName: "[project]/src/components/Pagination/PaginationWrapper.tsx",
-                        lineNumber: 32,
+                        lineNumber: 41,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/components/Pagination/PaginationWrapper.tsx",
-                lineNumber: 30,
+                lineNumber: 39,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Pagination$2f$PaginationBar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1616,7 +1625,7 @@ function PaginationWrapper(param) {
                 onPageChange: (p)=>setCurrentPage(p)
             }, void 0, false, {
                 fileName: "[project]/src/components/Pagination/PaginationWrapper.tsx",
-                lineNumber: 37,
+                lineNumber: 46,
                 columnNumber: 7
             }, this)
         ]

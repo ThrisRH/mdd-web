@@ -19,6 +19,7 @@ interface Props {
   cate: CateProps[];
   open: boolean;
   setOpen: (v: boolean) => void;
+  onNavPhoneClose?: () => void;
   handleSearchByCate: (id: string) => void;
   isRelative?: boolean;
   onSearch?: () => void;
@@ -29,6 +30,7 @@ const NavItems = ({
   cate,
   open,
   setOpen,
+  onNavPhoneClose,
   handleSearchByCate,
   isRelative = false,
   onSearch,
@@ -37,7 +39,11 @@ const NavItems = ({
     <>
       <NavItem>
         <Link href="/">
-          <H5 $size={18} $color={pathname === "/" ? "#EA8E31" : "#fff"}>
+          <H5
+            $size={18}
+            onClick={onNavPhoneClose ?? onNavPhoneClose}
+            $color={pathname === "/" ? "#EA8E31" : "#fff"}
+          >
             TRANG CHỦ
           </H5>
         </Link>
@@ -45,7 +51,11 @@ const NavItems = ({
 
       <NavItem>
         <Link href="/about">
-          <H5 $size={18} $color={pathname === "/about" ? "#EA8E31" : "#fff"}>
+          <H5
+            $size={18}
+            onClick={onNavPhoneClose ?? onNavPhoneClose}
+            $color={pathname === "/about" ? "#EA8E31" : "#fff"}
+          >
             GIỚI THIỆU
           </H5>
         </Link>
@@ -80,7 +90,11 @@ const NavItems = ({
                 key={i}
                 onClick={() => handleSearchByCate(item.documentId)}
               >
-                <Body2 $color="#fff" $hoverColor="#EA8E31">
+                <Body2
+                  $color="#fff"
+                  onClick={onNavPhoneClose ?? onNavPhoneClose}
+                  $hoverColor="#EA8E31"
+                >
                   {item.tile}
                 </Body2>
               </DropdownItem>
@@ -91,7 +105,11 @@ const NavItems = ({
 
       <NavItem>
         <Link href="/FAQ">
-          <H5 $size={18} $color={pathname === "/FAQ" ? "#EA8E31" : "#fff"}>
+          <H5
+            $size={18}
+            onClick={onNavPhoneClose ?? onNavPhoneClose}
+            $color={pathname === "/FAQ" ? "#EA8E31" : "#fff"}
+          >
             HỎI ĐÁP
           </H5>
         </Link>

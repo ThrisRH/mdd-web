@@ -47,20 +47,35 @@ async function getRelatedBlogs(categoryId: string): Promise<BlogDetails[]> {
 
 // Metadata server-side (SEO)
 export async function generateMetadata({ params }: PageProps) {
-  const blog = await getBlog(params["blog-slug"]);
-  if (!blog) return {};
+  try {
+    const blog = await getBlog(params["blog-slug"]);
+    if (!blog)
+      return {
+        title: "my MDD diary | Not Found",
+        description: "Blog not found",
+        image: "",
+      };
 
-  return {
-    title: blog.title,
-    description: blog.subContent ?? "",
-    openGraph: {
-      title: blog.title,
-      description: Array.isArray(blog.subContent)
-        ? blog.subContent.map((item) => item.content).join(" ")
-        : blog.subContent ?? "",
-      images: blog.cover?.url ? [{ url: blog.cover.url }] : [],
-    },
-  };
+    const description = Array.isArray(blog.subContent)
+      ? blog.subContent.map((item) => item.content).join(" ")
+      : blog.subContent ?? "";
+
+    return {
+      title: `my MDD diary | ${blog.title}`,
+      description: description,
+      openGraph: {
+        title: blog.title,
+        description: description,
+        images: blog.cover?.url ? [{ url: blog.cover.url }] : [],
+      },
+    };
+  } catch (error) {
+    return {
+      title: "my MDD diary | Not Found",
+      description: "Blog not found",
+      image: "",
+    };
+  }
 }
 
 export default async function Page({ params }: PageProps) {

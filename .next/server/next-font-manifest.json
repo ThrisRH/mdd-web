@@ -1,6 +1,10 @@
 {
   "app": {
-    "[project]/src/app/_not-found/page": [
+    "[project]/src/app/[slug]/page": [
+      "static/media/06ba6ef833b337bc-s.p.0faac26c.woff2",
+      "static/media/83a6a1cee264e48e-s.p.694fb9ca.woff2"
+    ],
+    "[project]/src/app/about/page": [
       "static/media/06ba6ef833b337bc-s.p.0faac26c.woff2",
       "static/media/83a6a1cee264e48e-s.p.694fb9ca.woff2"
     ],
@@ -9,6 +13,10 @@
       "static/media/83a6a1cee264e48e-s.p.694fb9ca.woff2"
     ],
     "[project]/src/app/page": [
+      "static/media/06ba6ef833b337bc-s.p.0faac26c.woff2",
+      "static/media/83a6a1cee264e48e-s.p.694fb9ca.woff2"
+    ],
+    "[project]/src/app/search/[slug]/page": [
       "static/media/06ba6ef833b337bc-s.p.0faac26c.woff2",
       "static/media/83a6a1cee264e48e-s.p.694fb9ca.woff2"
     ]

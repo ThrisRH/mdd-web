@@ -4,6 +4,7 @@ import PostCard from "@/components/PostCard/PostCard";
 import PaginationBar from "@/components/Pagination/PaginationBar";
 import { BlogDetails } from "@/types/blog";
 import PaginationWrapper from "@/components/Pagination/PaginationWrapper";
+import NotFound from "@/components/Main/NotFound";
 
 interface PageProps {
   searchParams?: { page?: string };
@@ -23,37 +24,30 @@ export async function generateMetadata() {
     const data = await getBlogs(1);
     const blogs: BlogDetails[] = data.data;
 
-    const description =
-      blogs
-        .map((p) =>
-          Array.isArray(p.subContent)
-            ? p.subContent.map((c) => c.content).join(" ")
-            : p.subContent ?? ""
-        )
-        .join(" | ")
-        .slice(0, 160) || "";
+    const description = blogs
+      .map((p) =>
+        Array.isArray(p.mainContent)
+          ? p.mainContent.map((c) => c.content).join(" ")
+          : p.mainContent ?? ""
+      )
+      .join(" | ")
+      .slice(0, 160);
 
-    const title =
-      blogs
-        .map((p) =>
-          Array.isArray(p.title)
-            ? p.title.map((c) => c.content).join(" ")
-            : p.title ?? ""
-        )
-        .join(" | ")
-        .slice(0, 160) || "";
+    const title = blogs[0].title;
+
+    const image = blogs.map((item) => item.cover.url || "");
 
     return {
-      title: "my MMD diary",
-      description,
+      title: "my MDD diary",
+      description: description,
       openGraph: {
         title: title,
-        description,
-        images: blogs[0]?.cover?.url ? [{ url: blogs[0].cover.url }] : [],
+        description: description,
+        images: image,
       },
     };
   } catch {
-    return { title: "my MMD diary" };
+    return { title: "my MDD diary", description: "Blog not found", image: "" };
   }
 }
 
@@ -64,7 +58,11 @@ export default async function Home({ searchParams }: PageProps) {
   try {
     data = await getBlogs(pageNumber);
   } catch {
-    return <div>Error loading posts</div>;
+    return (
+      <PageContainer>
+        <NotFound />
+      </PageContainer>
+    );
   }
 
   const pageCount = data.meta.pagination.pageCount;

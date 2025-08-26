@@ -1353,18 +1353,27 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostCar
 ;
 ;
 ;
-function PaginationWrapper({ totalPages, page }) {
+function PaginationWrapper({ totalPages, page, slug }) {
     const [currentPage, setCurrentPage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(page);
     const [posts, setPosts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         async function fetchPage() {
-            const res = await fetch(`${("TURBOPACK compile-time value", "http://localhost:1337")}/api/blogs?pagination[page]=${currentPage}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`);
+            let url = "";
+            if (slug) {
+                // search mode
+                url = `${"TURBOPACK compile-time value", "http://localhost:1337"}/api/blogs/by-title/${slug}?page=${currentPage}&pageSize=3&populate=*`;
+            } else {
+                // home mode
+                url = `${"TURBOPACK compile-time value", "http://localhost:1337"}/api/blogs?pagination[page]=${currentPage}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`;
+            }
+            const res = await fetch(url);
             const data = await res.json();
             setPosts(data.data);
         }
         fetchPage();
     }, [
-        currentPage
+        currentPage,
+        slug
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
@@ -1375,12 +1384,12 @@ function PaginationWrapper({ totalPages, page }) {
                         post: post
                     }, post.documentId, false, {
                         fileName: "[project]/src/components/Pagination/PaginationWrapper.tsx",
-                        lineNumber: 32,
+                        lineNumber: 41,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/components/Pagination/PaginationWrapper.tsx",
-                lineNumber: 30,
+                lineNumber: 39,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Pagination$2f$PaginationBar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1389,7 +1398,7 @@ function PaginationWrapper({ totalPages, page }) {
                 onPageChange: (p)=>setCurrentPage(p)
             }, void 0, false, {
                 fileName: "[project]/src/components/Pagination/PaginationWrapper.tsx",
-                lineNumber: 37,
+                lineNumber: 46,
                 columnNumber: 7
             }, this)
         ]
