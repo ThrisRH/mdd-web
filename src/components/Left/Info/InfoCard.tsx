@@ -9,7 +9,6 @@ import FacebookIC from "@/assets/svg/fb";
 import TwitterIC from "@/assets/svg/x";
 import IGIC from "@/assets/svg/ig";
 import LinkedinIC from "@/assets/svg/linkedin";
-import TextDecor from "@/assets/svg/textArea";
 import Link from "next/link";
 import { useInfo } from "@/context/InfoContext";
 
