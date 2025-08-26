@@ -13,7 +13,7 @@ export const Body2 = styled.p<{$color?: string, $hoverColor?: string, $size?: nu
     color: ${props => props.$color ? props.$color   : "#000"};
 
     &:hover {
-        color: ${(props) => (props.$hoverColor ? props.$hoverColor : "#555")};
+        color: ${(props) => (props.$hoverColor ? props.$hoverColor : "#000")};
     }
 `
 

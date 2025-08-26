@@ -83,3 +83,9 @@ export const SmallPostContainer = styled.div`
     width:100%;
     cursor: pointer;
 `
+
+export const SmallPostBody = styled.div`
+    height: 200px;
+    width: 100%;
+    position: relative;
+`

@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import IgImage from "@/assets/image/ig_pic.png";
 import FavoriteField from "@/components/Left/FavoriteField/FavoriteField";
 import { Blog } from "@/components/Main/PageContainer";
+import UserDetails from "@/components/Main/UserDetails";
 
 const page = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -29,13 +30,13 @@ const page = () => {
     fetchBlogs();
   }, []);
   return (
-    <div className="flex-1 flex flex-col gap-10 items-center my-10 px-6">
+    <UserDetails>
       <InfoCard textColor="#000" isNavbar={false} isDetails={true} />
       <Topic />
       <SendContent />
       <FavoriteField blogs={blogs} />
       <Image src={IgImage} alt="Ig Image" width={322} height={322} />
-    </div>
+    </UserDetails>
   );
 };
 

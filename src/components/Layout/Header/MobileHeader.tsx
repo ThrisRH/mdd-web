@@ -2,6 +2,7 @@
 import React from "react";
 import MoreIC from "@/assets/svg/more";
 import SearchIC from "@/assets/svg/search";
+import { HeaderMobileWrapper } from "./Header.styles";
 
 interface Props {
   onOpenNav: () => void;
@@ -10,14 +11,14 @@ interface Props {
 
 const MobileMenu: React.FC<Props> = ({ onOpenNav, onSearch }) => {
   return (
-    <div className="md:hidden flex w-full justify-between px-4">
+    <HeaderMobileWrapper>
       <button onClick={onOpenNav}>
         <MoreIC />
       </button>
       <button onClick={onSearch}>
         <SearchIC />
       </button>
-    </div>
+    </HeaderMobileWrapper>
   );
 };
 

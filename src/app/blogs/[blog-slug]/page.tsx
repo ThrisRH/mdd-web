@@ -10,6 +10,8 @@ import SectionWrapper from "@/components/Section/SectionWrapper";
 import SmallPostCard from "@/components/PostCard/SmallPostCard";
 import { H4 } from "@/components/Typography/Heading.styles";
 import CommentContainer from "@/components/Comment/CommentContainer";
+import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
+import { BlogGrid } from "@/components/Section/SectionWrapper.styles";
 
 interface PageProps {
   params: { "blog-slug": string };
@@ -96,7 +98,7 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <PageContainer>
-      <div className="flex-2 flex flex-col items-center gap-[50px]">
+      <BlogContainer>
         {/* Chi tiết bài viết */}
         <PostDetail
           slug={blogDetail.slug}
@@ -109,35 +111,28 @@ export default async function Page({ params }: PageProps) {
           cover={blogDetail.cover}
         />
         {/* Chia sẻ mạng xã hội */}
-        <SectionWrapper>
-          <div className="flex flex-row gap-4">
-            <H4 className="uppercase">Chia sẻ bài viết qua</H4>
-            <FacebookIC />
-            <TwitterIC />
-            <LinkedinIC />
-          </div>
+        <SectionWrapper flexDirection="row">
+          <H4 className="uppercase">Chia sẻ bài viết qua</H4>
+          <FacebookIC />
+          <TwitterIC />
+          <LinkedinIC />
         </SectionWrapper>
 
         {/* Các bài viết liên quan */}
-        <SectionWrapper>
-          <div className="flex flex-col gap-4 w-full">
-            <H4 className="uppercase">Các bài viết liên quan</H4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-1">
-              {blogs.map((item, index) => (
-                <SmallPostCard key={index} {...item} />
-              ))}
-            </div>
-          </div>
+        <SectionWrapper flexDirection="column">
+          <H4 className="uppercase">Các bài viết liên quan</H4>
+          <BlogGrid>
+            {blogs.map((item, index) => (
+              <SmallPostCard key={index} {...item} />
+            ))}
+          </BlogGrid>
         </SectionWrapper>
 
-        {/* Comment Section (client-side) */}
-        <SectionWrapper>
-          <div className="flex flex-col gap-[50px] w-full">
-            <H4 className="uppercase">Leave a comment</H4>
-            <CommentContainer documentId={blogDetail.documentId} />
-          </div>
+        <SectionWrapper gap={50}>
+          <H4 className="uppercase">Leave a comment</H4>
+          <CommentContainer documentId={blogDetail.documentId} />
         </SectionWrapper>
-      </div>
+      </BlogContainer>
     </PageContainer>
   );
 }

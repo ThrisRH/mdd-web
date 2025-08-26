@@ -9,9 +9,16 @@ import {
   TimeArea,
   VectorContainer,
 } from "@/components/PostCard/PostCard.styles";
-import { Body2, Body3 } from "@/components/Typography/Body.styles";
+import { Body2 } from "@/components/Typography/Body.styles";
 import { H0, H3 } from "@/components/Typography/Heading.styles";
 import React, { useEffect, useState } from "react";
+import {
+  Divider,
+  FaqCard,
+  FAQWrapper,
+  QuestionBlock,
+  QuestionRow,
+} from "@/components/Main/Styled/FAQContent.styles";
 
 interface FQAProps {
   questionAnswer: QuestAnswer[];
@@ -44,7 +51,7 @@ const page = () => {
 
   if (!faq) return null;
   return (
-    <div className="p-4 md:p-48 flex flex-col items-center justify-center gap-10 md:gap-20 mt-10 md:mt-0">
+    <FAQWrapper>
       <H0>Câu hỏi thường gặp</H0>
       <TimeArea>
         <Container $flex={3}>
@@ -75,13 +82,10 @@ const page = () => {
           </LineContainer>
         </Container>
       </TimeArea>
-      <div
-        className="relative flex flex-col w-full h-fit rounded-[40px] py-10 px-10 items-center gap-6"
-        style={{ backgroundColor: "rgba(241, 219, 196, 0.3)" }}
-      >
+      <FaqCard>
         {faq.questionAnswer.map((item, index) => (
-          <div className="w-full flex flex-col gap-4" key={index}>
-            <div className="flex flex-row justify-between">
+          <QuestionBlock key={index}>
+            <QuestionRow>
               <H3 $color={selected === index ? "#EA8E31" : "#000"}>
                 {item.question}
               </H3>
@@ -91,15 +95,15 @@ const page = () => {
               >
                 <H3>{selected === index ? "-" : "+"}</H3>
               </button>
-            </div>
+            </QuestionRow>
             <Body2 className={`${selected === index ? "flex" : "hidden"}`}>
               {item.answer}
             </Body2>
-            <div className="w-full h-[1px] bg-black"></div>
-          </div>
+            <Divider />
+          </QuestionBlock>
         ))}
-      </div>
-    </div>
+      </FaqCard>
+    </FAQWrapper>
   );
 };
 

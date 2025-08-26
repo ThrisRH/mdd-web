@@ -10,7 +10,17 @@ export const SearchBarContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 12px
+    gap: 12px;
+`
+
+export const SearchIConWrapper = styled.div`
+    display: flex;
+    flex: 0;
+    align-items: center;
+`
+
+export const CancelButton = styled.button`
+    cursor: pointer;
 `
 
 export const SearchMainField = styled.div<{$isFocus: boolean}>` 

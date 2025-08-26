@@ -6,6 +6,7 @@ import Topic from "@/components/Left/Topic/Topic";
 import Image from "next/image";
 import IgImage from "@/assets/image/ig_pic.png";
 import FavoriteField from "../Left/FavoriteField/FavoriteField";
+import { MainContainer, SideBar } from "./Styled/PageContainer.styles";
 
 interface PostProps {
   children: ReactNode;
@@ -38,16 +39,16 @@ const PageContainer = ({ children }: PostProps) => {
   }, []);
 
   return (
-    <div className="font-sans flex flex-row items-start justify-items-start min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <MainContainer>
       {children}
-      <div className="flex-1 hidden md:flex flex-col gap-10 items-center mt-[110px]">
+      <SideBar>
         <InfoCard isDetails={false} isNavbar={false} />
         <Topic />
         <FavoriteField blogs={blogs} />
         <SendContent />
         <Image src={IgImage} alt="Ig Image" width={322} height={322} />
-      </div>
-    </div>
+      </SideBar>
+    </MainContainer>
   );
 };
 

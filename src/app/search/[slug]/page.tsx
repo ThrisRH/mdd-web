@@ -1,13 +1,10 @@
 // app/search/[slug]/page.tsx
 import PageContainer from "@/components/Main/PageContainer";
 import { H0 } from "@/components/Typography/Heading.styles";
-import PostCard from "@/components/PostCard/PostCard";
 import { BlogDetails } from "@/types/blog";
 import NotFound from "@/components/Main/NotFound";
-import PaginationBar from "@/components/Pagination/PaginationBar"; // nếu PaginationBar cần state thì để nó thành client component
-import Loading from "@/components/Main/Loading";
 import PaginationWrapper from "@/components/Pagination/PaginationWrapper";
-import { title } from "process";
+import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 
 interface SearchPageProps {
   params: { slug: string };
@@ -86,11 +83,11 @@ export default async function SearchPage({
 
   return (
     <PageContainer>
-      <div className="flex-2 flex flex-col items-center gap-[50px]">
+      <BlogContainer>
         <H0>Kết quả tìm kiếm cho: {title}</H0>
 
         <PaginationWrapper page={page} totalPages={pageCount} slug={title} />
-      </div>
+      </BlogContainer>
     </PageContainer>
   );
 }

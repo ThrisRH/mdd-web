@@ -1,17 +1,22 @@
 "use client";
 import React, { ReactNode } from "react";
 import { Line } from "../PostCard/PostCard.styles";
+import { Container, SectionBody } from "./SectionWrapper.styles";
 
 interface Props {
   children: ReactNode;
+  flexDirection?: string;
+  gap?: number;
 }
 
-const SectionWrapper = ({ children }: Props) => {
+const SectionWrapper = ({ children, flexDirection, gap }: Props) => {
   return (
-    <div className="flex w-full items-start flex-col gap-[50px]">
+    <Container>
       <Line $width={90}></Line>
-      {children}
-    </div>
+      <SectionBody $gap={gap} $flexDirection={flexDirection}>
+        {children}
+      </SectionBody>
+    </Container>
   );
 };
 

@@ -1,10 +1,9 @@
 import { H0 } from "@/components/Typography/Heading.styles";
 import PageContainer from "@/components/Main/PageContainer";
-import PostCard from "@/components/PostCard/PostCard";
-import PaginationBar from "@/components/Pagination/PaginationBar";
 import { BlogDetails } from "@/types/blog";
 import PaginationWrapper from "@/components/Pagination/PaginationWrapper";
 import NotFound from "@/components/Main/NotFound";
+import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 
 interface PageProps {
   searchParams?: { page?: string };
@@ -19,6 +18,7 @@ async function getBlogs(pageNumber: number) {
   return res.json();
 }
 
+// Tạo metadata
 export async function generateMetadata() {
   try {
     const data = await getBlogs(1);
@@ -69,11 +69,11 @@ export default async function Home({ searchParams }: PageProps) {
 
   return (
     <PageContainer>
-      <div className="flex-2 flex flex-col items-center gap-10 md:gap-[50px]">
+      <BlogContainer>
         <H0>Blog</H0>
 
         <PaginationWrapper page={pageNumber} totalPages={pageCount} />
-      </div>
+      </BlogContainer>
     </PageContainer>
   );
 }

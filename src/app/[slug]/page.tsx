@@ -6,6 +6,10 @@ import { H0 } from "@/components/Typography/Heading.styles";
 import PostCard from "@/components/PostCard/PostCard";
 import { BlogDetails } from "@/types/blog";
 import PaginationBar from "@/components/Pagination/PaginationBar";
+import {
+  BlogCardFrame,
+  BlogContainer,
+} from "@/components/Main/Styled/PageContainer.styles";
 
 interface Cate {
   id: number;
@@ -63,21 +67,21 @@ const CatePage = () => {
 
   return (
     <PageContainer>
-      <div className="flex-2 flex flex-col items-center gap-[50px]">
+      <BlogContainer>
         <H0>{cate.tile}</H0>
 
-        <div className="flex w-full flex-col gap-[50px]">
+        <BlogCardFrame>
           {blogs.map((post, index) => (
             <PostCard index={index} post={post} key={post.documentId} />
           ))}
-        </div>
+        </BlogCardFrame>
 
         <PaginationBar
           currentPage={page}
           totalPages={pageCount}
           onPageChange={(p) => setPage(p)}
         />
-      </div>
+      </BlogContainer>
     </PageContainer>
   );
 };

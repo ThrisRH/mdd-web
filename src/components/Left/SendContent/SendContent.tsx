@@ -1,11 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import SendArea from "@/assets/svg/sendContent";
-import TopicTitle from "@/assets/svg/topicSelect";
-import { SearchParamsContext } from "next/dist/shared/lib/hooks-client-context.shared-runtime";
 import { Body3 } from "@/components/Typography/Body.styles";
 import Button from "@/components/Button/button";
-import { toast } from "react-toastify";
+import { ButtonWrapper, Input, InputWrapper } from "../Sidebar.styles";
 
 interface CateProps {
   id: number;
@@ -61,20 +59,19 @@ const SendContent = () => {
         industry
       </Body3>
 
-      <div className="relative h-12 w-full px-3 bg-white rounded-lg flex flex-row items-center justify-center">
-        <input
-          className="w-full h-full outline-0"
+      <InputWrapper>
+        <Input
           placeholder="Nhập email của bạn"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-      </div>
+      </InputWrapper>
 
-      <div className="w-full h-12">
+      <ButtonWrapper>
         <Button primary={false} onClickFunc={handleSubmitContent}>
           Đăng ký
         </Button>
-      </div>
+      </ButtonWrapper>
     </SendArea>
   );
 };

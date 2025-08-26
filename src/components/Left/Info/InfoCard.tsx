@@ -1,6 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Container, Field } from "./InfoCard.styles";
+import {
+  AvatarWrapper,
+  Biography,
+  Container,
+  DetailsWrapper,
+  Field,
+  InfoWrapper,
+} from "./InfoCard.styles";
 import { H2 } from "@/components/Typography/Heading.styles";
 import { Body3 } from "@/components/Typography/Body.styles";
 import Image from "next/image";
@@ -58,7 +65,7 @@ const InfoCard = ({ isNavbar, textColor, isDetails }: InfoCardProps) => {
     <>
       {info?.map((item, index) => (
         <Container $isNavbar={isNavbar} key={index}>
-          <div className="relative sm:w-[220px] w-[80px] sm:h-[220px] h-[80px]">
+          <AvatarWrapper>
             <Image
               className=" rounded-full"
               src={`http://localhost:1337${item.avatar.url}`}
@@ -66,8 +73,9 @@ const InfoCard = ({ isNavbar, textColor, isDetails }: InfoCardProps) => {
               objectFit="cover"
               fill
             />
-          </div>
-          <div className="flex flex-col">
+          </AvatarWrapper>
+
+          <InfoWrapper>
             <H2 $color={textColor}>my {item.fullname} diary</H2>
             <Field $isNavbar={isNavbar}>
               {item.interest.map((item, index) => (
@@ -76,18 +84,13 @@ const InfoCard = ({ isNavbar, textColor, isDetails }: InfoCardProps) => {
                 </Body3>
               ))}
             </Field>
-          </div>
-          <div
-            className={`${
-              isDetails ? "flex" : "hidden"
-            } sm:flex flex-col gap-[16px] items-center`}
-          >
-            {/* <div className="h-1.5"></div> */}
-            <div className="max-w-[322px]">
+          </InfoWrapper>
+          <DetailsWrapper $isDetails={isDetails}>
+            <Biography>
               <Body3 $color="#000" $align="center">
                 {item.biography}
               </Body3>
-            </div>
+            </Biography>
             <Field $gap={16}>
               {item.contact.map((item, index) => (
                 <Link href={item.url} key={index}>
@@ -103,7 +106,7 @@ const InfoCard = ({ isNavbar, textColor, isDetails }: InfoCardProps) => {
                 </Link>
               ))}
             </Field>
-          </div>
+          </DetailsWrapper>
         </Container>
       ))}
     </>

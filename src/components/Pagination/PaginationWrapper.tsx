@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import PaginationBar from "./PaginationBar";
 import PostCard from "@/components/PostCard/PostCard";
 import { BlogDetails } from "@/types/blog";
+import { BlogCardFrame } from "../Main/Styled/PageContainer.styles";
 
 interface Props {
   totalPages: number;
@@ -36,11 +37,11 @@ export default function PaginationWrapper({ totalPages, page, slug }: Props) {
   return (
     <>
       {/* Danh sách bài viết */}
-      <div className="flex w-full flex-col gap-[50px]">
+      <BlogCardFrame>
         {posts.map((post, index) => (
           <PostCard index={index} post={post} key={post.documentId} />
         ))}
-      </div>
+      </BlogCardFrame>
 
       {/* Pagination */}
       <PaginationBar

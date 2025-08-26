@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import CancelIC from "@/assets/svg/cancel";
 import {
   ButtonSearch,
+  CancelButton,
   Input,
   SearchBarContainer,
+  SearchIConWrapper,
   SearchMainField,
 } from "./SearchBar.styles";
 import SearchIC from "@/assets/svg/search";
@@ -35,9 +37,9 @@ const SearchBar = ({ onCancel }: SearchBarProps) => {
   return (
     <SearchBarContainer>
       <SearchMainField $isFocus={isFocus}>
-        <div className="flex flex-0 items-center">
+        <SearchIConWrapper>
           <SearchIC fill="#EA8E31" />
-        </div>
+        </SearchIConWrapper>
         <Input
           placeholder="Tìm kiếm"
           onFocus={() => setIsFocus(true)}
@@ -52,9 +54,9 @@ const SearchBar = ({ onCancel }: SearchBarProps) => {
           <H5 $size={14}>Tìm kiếm</H5>
         </ButtonSearch>
       </SearchMainField>
-      <button onClick={onCancel} className="cursor-pointer">
+      <CancelButton onClick={onCancel}>
         <CancelIC />
-      </button>
+      </CancelButton>
     </SearchBarContainer>
   );
 };

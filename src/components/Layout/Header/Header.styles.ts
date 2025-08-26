@@ -1,14 +1,29 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.header`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  background-color: black;
-  height: 58px;
-  align-items: center;
-  justify-content: center;
+   display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: black;
+    height: 58px;
+    align-items: center;
+    justify-content: center;
 `;
+
+export const HeaderMobileWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 58px;
+  background-color: #000;
+
+  @media (min-width: 48rem) {
+    display: none;
+  }
+`;
+
 
 export const MobileMenu = styled.div`
   display: flex;

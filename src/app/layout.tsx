@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Banner from "@/components/banner";
+import Banner from "@/components/Main/banner";
 import { Lora, Inter } from "next/font/google";
 import Header from "@/components/Layout/Header/Header";
 import { InfoProvider } from "@/context/InfoContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "@/components/Layout/Footer/Footer";
+import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,17 +34,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${lora.variable} ${inter.variable}`}>
       <body className={`antialiased`}>
-        <ToastContainer position="top-right" autoClose={3000} />
-        <InfoProvider>
-          <Header />
-          <Banner />
-          {children}
-          <footer className="flex items-center justify-center h-[46px] bg-[#f4f4f4]">
-            <p className="text-[15px] font-normal">
-              Copyright © 2024 My MDD Diary
-            </p>
-          </footer>
-        </InfoProvider>
+        <StyledComponentsRegistry>
+          <InfoProvider>
+            <Header />
+            <Banner />
+            {children}
+            <Footer />
+          </InfoProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

@@ -1,6 +1,10 @@
 "use client";
 import React from "react";
-import { PageNumber, PaginationContainer } from "./PaginationBar.styles";
+import {
+  ArrowButton,
+  PageNumber,
+  PaginationContainer,
+} from "./PaginationBar.styles";
 import Arrow from "@/assets/svg/arrowdown";
 import { Body2 } from "../Typography/Body.styles";
 
@@ -22,13 +26,13 @@ const PaginationBar = ({ currentPage, totalPages, onPageChange }: Props) => {
   const pages = Array.from({ length: end - start + 1 }, (_, i) => start + i);
   return (
     <PaginationContainer>
-      <button
-        className="rotate-90"
+      <ArrowButton
+        $rotate={90}
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
       >
         <Arrow fill="#000" />
-      </button>
+      </ArrowButton>
 
       {pages.map((page) => (
         <PageNumber
@@ -40,13 +44,13 @@ const PaginationBar = ({ currentPage, totalPages, onPageChange }: Props) => {
         </PageNumber>
       ))}
 
-      <button
-        className="-rotate-90"
+      <ArrowButton
+        $rotate={-90}
         disabled={currentPage === totalPages}
         onClick={() => onPageChange(currentPage + 1)}
       >
         <Arrow fill="#000" />
-      </button>
+      </ArrowButton>
     </PaginationContainer>
   );
 };

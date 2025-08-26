@@ -2,7 +2,16 @@
 import React, { useEffect, useState } from "react";
 import AboutText from "@/assets/svg/textArea";
 import Image from "next/image";
-import { Body1 } from "@/components/Typography/Body.styles";
+import { Body1, Body2, Body3 } from "@/components/Typography/Body.styles";
+import {
+  AboutWrapper,
+  AvatarWrapper,
+  Card,
+  ContactSection,
+  Content,
+  FooterSection,
+} from "@/components/Main/Styled/AboutContent.styles";
+import { H5 } from "@/components/Typography/Heading.styles";
 
 interface AboutContent {
   type: string;
@@ -49,43 +58,45 @@ const Page = () => {
 
   if (!about) return null;
   return (
-    <div className="px-4 py-22 lg:p-48 md:p-28 flex items-center justify-center lg:mt-0 mt-10">
-      <div
-        className="relative flex flex-col w-[1058px] h-fit pt-40 rounded-[40px] pb-10 px-10 items-center gap-6"
-        style={{ backgroundColor: "rgba(241, 219, 196, 0.3)" }}
-      >
-        <div className="w-[172px] lg:w-[280px] h-[172px] lg:h-[280px] absolute lg:top-[-150px] top-[-100px]">
+    <AboutWrapper>
+      <Card>
+        <AvatarWrapper>
           <Image
             className="rounded-full"
             src={`http://localhost:1337${about.authorAvt.url}`}
             alt="avt "
             fill
           />
-        </div>
+        </AvatarWrapper>
         <AboutText width={"100%"} />
-        <div>
+        <Content>
           {about.aboutContent?.map((block, i) => (
-            <p key={i} className="mb-4 text-start">
+            <Body2 key={i}>
               {block.children.map((child, j) => child.text).join("")}
-            </p>
+            </Body2>
           ))}
-        </div>
+        </Content>
 
-        <div className="w-full flex flex-col gap-1">
+        <ContactSection>
           <Body1>Liên hệ qua:</Body1>
 
-          {about.contact?.map((block, i) => (
-            <p key={i} className="text-start">
-              {block.content}
-            </p>
-          ))}
-        </div>
+          <Content $gap={1}>
+            {about.contact?.map((block, i) => (
+              <Body2 $color="#000" key={i}>
+                {block.content}
+              </Body2>
+            ))}
+          </Content>
+        </ContactSection>
 
-        <div className="w-full">
-          <Body1>Have a nice day!</Body1>
-        </div>
-      </div>
-    </div>
+        <FooterSection>
+          <H5 $color="$000" $size={15}>
+            Have a nice day!
+          </H5>
+          <Body3 $color="#000">my MDD diary</Body3>
+        </FooterSection>
+      </Card>
+    </AboutWrapper>
   );
 };
 

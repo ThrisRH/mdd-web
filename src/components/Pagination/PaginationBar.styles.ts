@@ -14,3 +14,7 @@ export const PageNumber = styled.button<{ $active?: boolean }>`
   border-radius: 6px;
   cursor: pointer;
 `;
+
+export const ArrowButton = styled.button<{$rotate: number}>`
+  transform: rotate(${props => props.$rotate}deg)
+`
