@@ -1,14 +1,15 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
 import SectionWrapper from "../Section/SectionWrapper";
-import { H4 } from "../Typography/Heading.styles";
-import CommentCard, { CommentProps } from "./CommentCard";
-import CommentInput from "./CommentInput";
+import { CommentCardWrapper, CommentContent, CommentImageWrapper, TextArea, CommentContainer, SubmitField, SubmitButton, CommentBody } from "./Comment.styles";
+import Image from "next/image";
+import { Body1, Body2, Body3 } from "../Typography/Body.styles";
+import { CommentInputProps, CommentProps } from "@/types/comment";
 
 interface Props {
   documentId: string;
 }
-const CommentContainer = ({ documentId }: Props) => {
+const CommentWrapper = ({ documentId }: Props) => {
   const [comments, setComments] = useState<CommentProps[]>([]);
   const [comment, setComment] = useState("");
 
@@ -64,7 +65,7 @@ const CommentContainer = ({ documentId }: Props) => {
   }, [documentId]);
   return (
     <SectionWrapper>
-      <div className="flex flex-col gap-4 w-full">
+      <CommentBody>
         {comments.map((item) => (
           <CommentCard
             key={item.documentId}
@@ -78,9 +79,53 @@ const CommentContainer = ({ documentId }: Props) => {
           setComment={setComment}
           handleSubmit={() => handleSubmitComment()}
         />
-      </div>
+      </CommentBody>
     </SectionWrapper>
   );
 };
 
-export default CommentContainer;
+// CommentCard
+const CommentCard = ({ reader, content }: CommentProps) => {
+  return (
+    <CommentCardWrapper>
+      <CommentImageWrapper>
+        <Image
+          src={`${process.env.NEXT_PUBLIC_SERVER_HOST}${reader.avatar.url}`}
+          alt="reader image"
+          fill
+          className="object-cover rounded-full"
+        />
+      </CommentImageWrapper>
+      <CommentContent>
+        <Body1 $color="#000" $weight={700}>
+          {reader.Fullname}
+        </Body1>
+        <Body3 $color="#000">{content}</Body3>
+      </CommentContent>
+    </CommentCardWrapper>
+  );
+};
+
+// Comment Input
+const CommentInput = ({ comment, setComment, handleSubmit }: CommentInputProps) => {
+  return (
+    <CommentContainer>
+      <TextArea
+        id="comment"
+        name="comment"
+        value={comment}
+        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+          setComment(e.target.value)
+        }
+        placeholder="Write a comment"
+      />
+      <SubmitField>
+        <SubmitButton onClick={handleSubmit}>
+          <Body2 $size={20}>Post Comment</Body2>
+        </SubmitButton>
+      </SubmitField>
+    </CommentContainer>
+  );
+};
+
+export default CommentWrapper;

@@ -33,7 +33,7 @@ const Topic = () => {
   return (
     <TopicTitle className="w-full max-w-[320px] h-fit">
       <InputWrapper>
-        <Select className="flex-1 outline-0">
+        <Select>
           {cate.map((item) => (
             <option key={item.id}>{item.tile}</option>
           ))}

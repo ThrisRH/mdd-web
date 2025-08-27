@@ -25,10 +25,10 @@ const SmallPostCard = ({ title, publishedAt, cover, slug }: BlogDetails) => {
     <SmallPostContainer role="button" onClick={() => handleToBlog(slug)}>
       <SmallPostBody>
         <Image
+          style={{ objectFit: 'cover' }}
           src={`${process.env.NEXT_PUBLIC_SERVER_HOST}${cover.url}`}
           alt={"blogImage"}
           fill
-          objectFit="cover"
         />
       </SmallPostBody>
       <H4 $color="#000">{title}</H4>

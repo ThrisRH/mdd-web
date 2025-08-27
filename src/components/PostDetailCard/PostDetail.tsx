@@ -15,6 +15,7 @@ import {
 import { BlogDetails } from "@/types/blog";
 import { H1, H2, H3, H4 } from "../Typography/Heading.styles";
 import Image from "next/image";
+import { BlogContentContainer, BlogDetailWrapper } from "./PostDetail.style";
 
 const PostDetail = memo(
   ({
@@ -32,10 +33,9 @@ const PostDetail = memo(
       const formatted = date.toLocaleDateString("de-DE");
       return formatted;
     };
-    console.log("re-render");
 
     return (
-      <div className="flex flex-col flex-1 gap-8 items-center">
+      <BlogDetailWrapper>
         <TimeArea>
           <Container $flex={3}>
             <LineContainer>
@@ -58,13 +58,13 @@ const PostDetail = memo(
           </Container>
         </TimeArea>
         <H1>{title}</H1>
-        <div className="flex flex-col w-full gap-6">
+        <BlogContentContainer>
           <ImageContainer>
             <Image
               className="w-full h-[400px] rounded-xl"
               src={`http://localhost:1337${cover.url}`}
               alt="image"
-              objectFit="cover"
+              style={{ objectFit: 'cover' }}
               fill
             />
           </ImageContainer>
@@ -77,7 +77,7 @@ const PostDetail = memo(
                     className="w-full h-[400px] rounded-xl"
                     src={`http://localhost:1337${item.url}`}
                     alt="image"
-                    objectFit="cover"
+                    style={{ objectFit: 'cover' }}
                     fill
                   />
                 </ImageContainer>
@@ -103,8 +103,8 @@ const PostDetail = memo(
               {item.content}
             </ReactMarkDown>
           ))}
-        </div>
-      </div>
+        </BlogContentContainer>
+      </BlogDetailWrapper>
     );
   }
 );

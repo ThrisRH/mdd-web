@@ -1,89 +1,84 @@
-"use client";
-import PageContainer from "@/components/Main/PageContainer";
-import { useParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import { H0 } from "@/components/Typography/Heading.styles";
-import PostCard from "@/components/PostCard/PostCard";
-import { BlogDetails } from "@/types/blog";
-import PaginationBar from "@/components/Pagination/PaginationBar";
-import {
-  BlogCardFrame,
-  BlogContainer,
-} from "@/components/Main/Styled/PageContainer.styles";
 
-interface Cate {
-  id: number;
-  documentId: string;
-  tile: string;
+import NotFound from "@/components/Main/NotFound";
+import PageContainer from "@/components/Main/PageContainer";
+import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
+import PaginationWrapper from "@/components/Pagination/PaginationWrapper";
+import { H0 } from "@/components/Typography/Heading.styles";
+import { BlogDetails } from "@/types/blog";
+import React from "react";
+
+const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
+
+// Lấy thông tin cate
+async function getCateInfo(cateId: string) {
+  try {
+    const res = await fetch(`${API_URL}/api/cates/${cateId}`)
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    throw new Error("Failed to fetch posts");
+  }
 }
 
-const CatePage = () => {
-  const params = useParams<{ slug: string }>();
+// Lấy các bài blogs trong cate
+async function getBlogsByCate(cateId: string, pageNumber: number) {
+  try {
+    const res = await fetch(`${API_URL}/api/blogs?filters[cate][documentId][$eq]=${cateId}&populate=cover&pagination[page]=${pageNumber}&pagination[pageSize]=3&sort=createdAt:desc`)
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    throw new Error("Failed to fetch posts");
+  }
+}
 
-  const [cate, setCate] = useState<Cate>();
-  const [blogs, setBlogs] = useState<BlogDetails[]>([]);
-  const [loading, setLoading] = useState(false);
+// MetaData
+export async function generateMetadata({ params }: { params: { slug: string, cateId: string } }) {
+  try {
+    const slug = params.slug
+    const cate = await getCateInfo(slug);
 
-  const [page, setPage] = useState(1);
-  const [pageCount, setPageCount] = useState(1);
+    // Lấy blogs
+    const data = await getBlogsByCate(slug, 1);
+    const blogs: BlogDetails[] = data.data;
 
-  // lấy thông tin cate
-  const handleGetCate = async () => {
-    try {
-      const res = await fetch(`http://localhost:1337/api/cates/${params.slug}`);
-      const data = await res.json();
-      setCate(data.data);
-    } catch (error) {
-      console.error(error);
+    console.log(blogs)
+    const title = cate.data.tile;
+    const description = blogs[0].mainContent.slice(0, 160) || "";
+    const image = `${API_URL}${blogs[0].cover.url}` || ""
+
+    return {
+      title: `my MDD diary | ${title}`,
+      description: description,
+      openGraph: {
+        title: title,
+        description: description,
+        images: [{ url: image, width: 1200, height: 600, alt: "cover" }]
+      }
     }
-  };
+  } catch (error) {
+    return {
+      title: "my MDD diary | Category",
+      description: "Blog not found",
+    };
+  }
+}
 
-  // lấy blogs theo cate + phân trang
-  const handleGetBlogs = async () => {
-    setLoading(true);
-    try {
-      const res = await fetch(
-        `http://localhost:1337/api/blogs?filters[cate][documentId][$eq]=${params.slug}&populate=cover&pagination[page]=${page}&pagination[pageSize]=3&sort=createdAt:desc`
-      );
-      const data = await res.json();
-      setBlogs(data.data);
-      setPageCount(data.meta.pagination.pageCount);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
-  useEffect(() => {
-    handleGetCate();
-  }, []);
 
-  useEffect(() => {
-    handleGetBlogs();
-  }, [page]);
+export default async function CatePage({ params }: { params: { slug: string } }) {
+  const slug = params.slug
+  const cate = await getCateInfo(slug);
+  const blogData = await getBlogsByCate(slug, 1);
+  console.log('Cate', cate)
 
-  if (!cate) return null;
-
+  if (!cate || cate.data === null) return <PageContainer><NotFound /></PageContainer>
   return (
     <PageContainer>
       <BlogContainer>
-        <H0>{cate.tile}</H0>
+        <H0>{cate.data.tile}</H0>
 
-        <BlogCardFrame>
-          {blogs.map((post, index) => (
-            <PostCard index={index} post={post} key={post.documentId} />
-          ))}
-        </BlogCardFrame>
-
-        <PaginationBar
-          currentPage={page}
-          totalPages={pageCount}
-          onPageChange={(p) => setPage(p)}
-        />
+        <PaginationWrapper totalPages={blogData.meta.pagination.pageCount} page={1} slug={slug} type="category" />
       </BlogContainer>
     </PageContainer>
   );
 };
-
-export default CatePage;

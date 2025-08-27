@@ -1,11 +1,18 @@
 import styled from "styled-components";
 
+export const CommentBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+`
+
 export const CommentContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
     border: 1px #D5CBCB solid;
-    height: fit-content
+    height: fit-content;
 `;
 
 export const TextArea = styled.textarea`
@@ -37,5 +44,23 @@ export const SubmitButton = styled.button`
 
   @media (min-width: 40rem) {
     width:208px
-  }
+  };
+`
+
+export const CommentCardWrapper = styled.div` 
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+`
+
+export const CommentImageWrapper = styled.div`
+  min-width: 60px;
+  height: 60px;
+  position: relative;
+`
+
+export const CommentContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 `

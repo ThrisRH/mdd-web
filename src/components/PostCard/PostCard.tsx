@@ -135,7 +135,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
             className="w-full h-full rounded-xl"
             src={`http://localhost:1337${blogAvatar.cover.url}`}
             alt="image"
-            objectFit="cover"
+            style={{ objectFit: 'cover' }}
             fill
           />
         )}

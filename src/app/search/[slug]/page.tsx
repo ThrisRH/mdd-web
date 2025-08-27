@@ -8,8 +8,11 @@ import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 
 interface SearchPageProps {
   params: { slug: string };
-  searchParams: { page?: string }; // lấy query ?page=1 từ URL
+  searchParams: { page?: string };
 }
+
+const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
+
 
 async function getBlogsByName(title: string, pageNumber: number) {
   try {
@@ -31,32 +34,23 @@ export async function generateMetadata({ params }: SearchPageProps) {
     const data = await getBlogsByName(params.slug, 1);
     const blogs: BlogDetails[] = data.data;
 
-    const title = blogs.map((item) => item.title || "");
-    const description =
-      blogs
-        .map((item) =>
-          Array.isArray(item.subContent)
-            ? item.subContent.map((subItem) => subItem.content).join(" ")
-            : item.subContent ?? ""
-        )
-        .join(" | ")
-        .slice(0, 160) || "";
+    const title = blogs[0].title
+    const description = blogs[0].mainContent.slice(0, 160) || "";
 
-    const image = blogs.map((item) => item.cover.url || "");
+    const image = `${API_URL}${blogs[0].cover.url}`;
     return {
       title: "my MDD diary | Search",
       description,
       openGraph: {
         title: title,
         description: description,
-        image: image,
+        images: [{ url: image, width: 1200, height: 600, alt: "cover" }]
       },
     };
   } catch (error) {
     return {
       title: "my MDD diary | Search",
       description: "Blog not found",
-      image: "",
     };
   }
 }
@@ -86,7 +80,7 @@ export default async function SearchPage({
       <BlogContainer>
         <H0>Kết quả tìm kiếm cho: {title}</H0>
 
-        <PaginationWrapper page={page} totalPages={pageCount} slug={title} />
+        <PaginationWrapper page={page} totalPages={pageCount} slug={title} type="search" />
       </BlogContainer>
     </PageContainer>
   );

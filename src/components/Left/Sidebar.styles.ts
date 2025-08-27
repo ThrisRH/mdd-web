@@ -6,7 +6,7 @@ export const BlogList = styled.ol`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* tương đương gap-6 */
+  gap: 1.5rem; 
 `;
 
 export const BlogItem = styled.li`

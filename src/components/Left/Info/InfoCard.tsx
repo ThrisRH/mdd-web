@@ -70,7 +70,7 @@ const InfoCard = ({ isNavbar, textColor, isDetails }: InfoCardProps) => {
               className=" rounded-full"
               src={`http://localhost:1337${item.avatar.url}`}
               alt="image"
-              objectFit="cover"
+              style={{ objectFit: 'cover' }}
               fill
             />
           </AvatarWrapper>

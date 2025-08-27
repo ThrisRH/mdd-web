@@ -43,7 +43,7 @@ export const LineContainer = styled.div`
     flex-direction: row;
     position: relative;
 `
-export const Container = styled.div<{$flex: number}>`
+export const Container = styled.div<{ $flex: number }>`
     flex: ${props => props.$flex};
     display: flex;
     flex-direction: row;
@@ -52,10 +52,10 @@ export const Container = styled.div<{$flex: number}>`
     gap: 12px;
 `
 
-export const VectorContainer = styled.div<{$left: boolean}>`
+export const VectorContainer = styled.div<{ $left: boolean }>`
     position:absolute;
-    ${({$left} ) => ($left ? "left: -5px" : "right: -5px")};
-    ${({$left} ) => ($left ? "": "transform: rotate(180deg)")}
+    ${({ $left }) => ($left ? "left: -5px" : "right: -5px")};
+    ${({ $left }) => ($left ? "" : "transform: rotate(180deg)")}
 `
 
 export const Line = styled.div<{ $width?: number }>`
@@ -63,9 +63,9 @@ export const Line = styled.div<{ $width?: number }>`
   height: 2px;
 
   ${({ $width }) =>
-    $width
-      ? `width: ${$width}px;`
-      : `flex: 1;`}
+        $width
+            ? `width: ${$width}px;`
+            : `flex: 1;`}
 `;
 export const Dot = styled.div`
     width: 6px;
@@ -88,4 +88,5 @@ export const SmallPostBody = styled.div`
     height: 200px;
     width: 100%;
     position: relative;
+    overflow: hidden
 `

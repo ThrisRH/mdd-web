@@ -9,6 +9,8 @@ interface PageProps {
   searchParams?: { page?: string };
 }
 
+const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
+
 async function getBlogs(pageNumber: number) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`,
@@ -24,18 +26,11 @@ export async function generateMetadata() {
     const data = await getBlogs(1);
     const blogs: BlogDetails[] = data.data;
 
-    const description = blogs
-      .map((p) =>
-        Array.isArray(p.mainContent)
-          ? p.mainContent.map((c) => c.content).join(" ")
-          : p.mainContent ?? ""
-      )
-      .join(" | ")
-      .slice(0, 160);
-
     const title = blogs[0].title;
+    const description = blogs[0].mainContent.slice(0, 160) || "";
 
-    const image = blogs.map((item) => item.cover.url || "");
+
+    const image = `${API_URL}${blogs[0].cover.url}` || "";
 
     return {
       title: "my MDD diary",
@@ -43,7 +38,7 @@ export async function generateMetadata() {
       openGraph: {
         title: title,
         description: description,
-        images: image,
+        images: [{ url: image, width: 1200, height: 600, alt: "cover" }]
       },
     };
   } catch {

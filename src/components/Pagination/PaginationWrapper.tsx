@@ -5,13 +5,24 @@ import PostCard from "@/components/PostCard/PostCard";
 import { BlogDetails } from "@/types/blog";
 import { BlogCardFrame } from "../Main/Styled/PageContainer.styles";
 
-interface Props {
+interface BaseProps {
   totalPages: number;
   page: number;
-  slug?: string; // nếu có slug thì fetch search, không thì fetch home
 }
 
-export default function PaginationWrapper({ totalPages, page, slug }: Props) {
+interface WithSlug extends BaseProps {
+  slug: string;
+  type: 'search' | 'category'
+}
+
+interface WithoutSlug extends BaseProps {
+  slug: undefined;
+  type: undefined;
+}
+
+type Props = WithSlug | WithoutSlug
+
+export default function PaginationWrapper({ totalPages, page, slug, type }: Props) {
   const [currentPage, setCurrentPage] = useState(page);
   const [posts, setPosts] = useState<BlogDetails[]>([]);
 
@@ -19,7 +30,11 @@ export default function PaginationWrapper({ totalPages, page, slug }: Props) {
     async function fetchPage() {
       let url = "";
 
-      if (slug) {
+      if (slug && type === "category") {
+        // search mode
+        url = `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs?filters[cate][documentId][$eq]=${slug}&populate=cover&pagination[page]=${currentPage}&pagination[pageSize]=3&sort=createdAt:desc`;
+      }
+      else if (slug && type === "search") {
         // search mode
         url = `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs/by-title/${slug}?page=${currentPage}&pageSize=3&populate=*`;
       } else {
