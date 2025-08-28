@@ -11,13 +11,12 @@ interface SearchPageProps {
   searchParams: { page?: string };
 }
 
-const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
-
+const API_URL = process.env.SERVER_HOST;
 
 async function getBlogsByName(title: string, pageNumber: number) {
   try {
     const res = await fetch(
-      `http://localhost:1337/api/blogs/by-title/${title}?page=${pageNumber}&pageSize=3&populate=*`,
+      `${API_URL}/api/blogs/by-title/${title}?page=${pageNumber}&pageSize=3&populate=*`,
       { cache: "no-store" }
     );
 
@@ -34,7 +33,7 @@ export async function generateMetadata({ params }: SearchPageProps) {
     const data = await getBlogsByName(params.slug, 1);
     const blogs: BlogDetails[] = data.data;
 
-    const title = blogs[0].title
+    const title = blogs[0].title;
     const description = blogs[0].mainContent.slice(0, 160) || "";
 
     const image = `${API_URL}${blogs[0].cover.url}`;
@@ -44,7 +43,7 @@ export async function generateMetadata({ params }: SearchPageProps) {
       openGraph: {
         title: title,
         description: description,
-        images: [{ url: image, width: 1200, height: 600, alt: "cover" }]
+        images: [{ url: image, width: 1200, height: 600, alt: "cover" }],
       },
     };
   } catch (error) {
@@ -80,7 +79,12 @@ export default async function SearchPage({
       <BlogContainer>
         <H0>Kết quả tìm kiếm cho: {title}</H0>
 
-        <PaginationWrapper page={page} totalPages={pageCount} slug={title} type="search" />
+        <PaginationWrapper
+          page={page}
+          totalPages={pageCount}
+          slug={title}
+          type="search"
+        />
       </BlogContainer>
     </PageContainer>
   );

@@ -15,6 +15,7 @@ interface PostProps {
 export interface Blog {
   id: string;
   title: string;
+  slug: string;
 }
 
 const PageContainer = ({ children }: PostProps) => {
@@ -23,7 +24,7 @@ const PageContainer = ({ children }: PostProps) => {
   const fetchBlogs = async () => {
     try {
       const res = await fetch(
-        "/webapi/blogs?pagination[page]=1&pagination[pageSize]=6&populate=*"
+        "/mmdblogsapi/blogs?pagination[page]=1&pagination[pageSize]=6&populate=*"
       );
       const data = await res.json();
       if (!res.ok) return;

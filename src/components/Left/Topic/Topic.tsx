@@ -12,7 +12,7 @@ const Topic = () => {
 
   const handleGetCate = async () => {
     try {
-      const response = await fetch("/webapi/cates?populate=*", {
+      const response = await fetch("/mmdblogsapi/cates?populate=*", {
         method: "GET",
       });
       const data = await response.json();
@@ -31,6 +31,7 @@ const Topic = () => {
     <TopicTitle className="w-full max-w-[320px] h-fit">
       <InputWrapper>
         <Select>
+          <option value="">-- Tất cả --</option>
           {cate.map((item) => (
             <option key={item.id}>{item.tile}</option>
           ))}

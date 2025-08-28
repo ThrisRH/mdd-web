@@ -26,7 +26,7 @@ export const InfoProvider = ({ children }: { children: React.ReactNode }) => {
   const fetchInfo = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/webapi/authors?populate=*");
+      const res = await fetch("/mmdblogsapi/authors?populate=*");
       const data = await res.json();
       setInfo(data.data);
     } catch (err) {

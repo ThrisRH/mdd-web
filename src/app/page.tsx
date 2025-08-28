@@ -9,11 +9,11 @@ interface PageProps {
   searchParams?: { page?: string };
 }
 
-const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
+const API_URL = process.env.SERVER_HOST;
 
 async function getBlogs(pageNumber: number) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`,
+    `${process.env.SERVER_HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`,
     { cache: "no-store" }
   );
   if (!res.ok) throw new Error("Failed to fetch posts");

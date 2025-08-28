@@ -62,9 +62,9 @@ const PostDetail = memo(
           <ImageContainer>
             <Image
               className="w-full h-[400px] rounded-xl"
-              src={`http://localhost:1337${cover.url}`}
+              src={`/baseurl${cover.url}`}
               alt="image"
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
               fill
             />
           </ImageContainer>
@@ -75,9 +75,9 @@ const PostDetail = memo(
                 <ImageContainer key={index}>
                   <Image
                     className="w-full h-[400px] rounded-xl"
-                    src={`http://localhost:1337${item.url}`}
+                    src={`/baseurl${item.url}`}
                     alt="image"
-                    style={{ objectFit: 'cover' }}
+                    style={{ objectFit: "cover" }}
                     fill
                   />
                 </ImageContainer>

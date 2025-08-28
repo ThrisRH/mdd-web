@@ -13,8 +13,7 @@ import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 import { BlogGrid } from "@/components/Section/SectionWrapper.styles";
 import CommentWrapper from "@/components/Comment/CommentContainer";
 
-
-const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
+const API_URL = process.env.SERVER_HOST;
 
 async function getBlog(slug: string): Promise<BlogDetails | null> {
   try {
@@ -45,9 +44,13 @@ async function getRelatedBlogs(categoryId: string): Promise<BlogDetails[]> {
 }
 
 // Metadata server-side (SEO)
-export async function generateMetadata({ params }: { params: Promise<{ "blog-slug": string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ "blog-slug": string }>;
+}) {
   const { "blog-slug": slug } = await params;
-  const blog = await getBlog(slug)
+  const blog = await getBlog(slug);
   try {
     if (!blog)
       return {
@@ -58,7 +61,10 @@ export async function generateMetadata({ params }: { params: Promise<{ "blog-slu
 
     const title = blog.title;
     const description = Array.isArray(blog.subContent)
-      ? blog.subContent.map((item) => item.content).join(" ").slice(0, 160)
+      ? blog.subContent
+          .map((item) => item.content)
+          .join(" ")
+          .slice(0, 160)
       : blog.subContent ?? "";
     const image = `${API_URL}${blog.cover.url}` || "";
     return {
@@ -67,7 +73,7 @@ export async function generateMetadata({ params }: { params: Promise<{ "blog-slu
       openGraph: {
         title: title,
         description: description,
-        images: [{ url: image, width: 1200, height: 600, alt: "blog image" }]
+        images: [{ url: image, width: 1200, height: 600, alt: "blog image" }],
       },
     };
   } catch (error) {
@@ -78,10 +84,13 @@ export async function generateMetadata({ params }: { params: Promise<{ "blog-slu
   }
 }
 
-export default async function Page({ params }: { params: Promise<{ "blog-slug": string }> }) {
-  const { "blog-slug": slug } = await params
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ "blog-slug": string }>;
+}) {
+  const { "blog-slug": slug } = await params;
   const blogDetail = await getBlog(slug);
-
 
   if (!blogDetail) {
     return (

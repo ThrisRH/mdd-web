@@ -37,13 +37,13 @@ export default function PaginationWrapper({
 
       if (slug && type === "category") {
         // cate mode
-        url = `/webapi/blogs?filters[cate][documentId][$eq]=${slug}&populate=cover&pagination[page]=${currentPage}&pagination[pageSize]=3&sort=createdAt:desc`;
+        url = `/mmdblogsapi/blogs?filters[cate][documentId][$eq]=${slug}&populate=cover&pagination[page]=${currentPage}&pagination[pageSize]=3&sort=createdAt:desc`;
       } else if (slug && type === "search") {
         // search mode
-        url = `/webapi/search/blogs/by-title/${slug}?page=${currentPage}&pageSize=3&populate=*`;
+        url = `/mmdblogsapi/blogs/by-title/${slug}?page=${currentPage}&pageSize=3&populate=*`;
       } else {
         // home mode
-        url = `/webapi/blogs?pagination[page]=${currentPage}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`;
+        url = `/mmdblogsapi/blogs?pagination[page]=${currentPage}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`;
       }
 
       const res = await fetch(url);

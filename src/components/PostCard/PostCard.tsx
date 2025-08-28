@@ -72,7 +72,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:1337/api/blogs/${post.documentId}?populate=*`,
+        `/mmdblogsapi/blogs/${post.documentId}?populate=*`,
         { method: "GET" }
       );
 
@@ -92,7 +92,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
   };
 
   const handleToDetail = (postSlug: string) => {
-    router.push(`/webapi/blogs/${postSlug}`);
+    router.push(`/blogs/${postSlug}`);
   };
 
   useEffect(() => {
@@ -133,7 +133,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
         {blogAvatar?.cover && (
           <Image
             className="w-full h-full rounded-xl"
-            src={`http://localhost:1337${blogAvatar.cover.url}`}
+            src={`/baseurl${blogAvatar.cover.url}`}
             alt="image"
             style={{ objectFit: "cover" }}
             fill

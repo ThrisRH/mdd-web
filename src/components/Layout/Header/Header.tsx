@@ -24,7 +24,7 @@ const Header = () => {
 
   const handleGetCate = async () => {
     try {
-      const response = await fetch("/webapi/cates?populate=*");
+      const response = await fetch("/mmdblogsapi/cates?populate=*");
       const data = await response.json();
       setCate(data.data);
     } catch (error) {

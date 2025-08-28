@@ -12,6 +12,8 @@ import React from "react";
 import { FAQWrapper } from "@/components/Main/Styled/FAQContent.styles";
 import FAQBody from "./FAQBody";
 
+const API_URL = process.env.SERVER_HOST;
+
 export interface FAQProps {
   questionAnswer: QuestAnswer[];
 }
@@ -23,7 +25,7 @@ interface QuestAnswer {
 
 async function getFAQData() {
   try {
-    const res = await fetch("http://localhost:1337/api/faq?populate=*", {
+    const res = await fetch(`${API_URL}/api/faq?populate=*`, {
       method: "GET",
     });
     const data = await res.json();

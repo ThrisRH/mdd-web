@@ -25,7 +25,7 @@ const CommentWrapper = ({ documentId }: Props) => {
   const handleGetBlogWithComments = async () => {
     try {
       const commentRes = await fetch(
-        `/webapi/comments?filters[blog][documentId][$eq]=${documentId}&populate[reader][populate]=avatar`
+        `/mmdblogsapi/comments?filters[blog][documentId][$eq]=${documentId}&populate[reader][populate]=avatar`
       );
       const commentData = await commentRes.json();
 
@@ -40,22 +40,19 @@ const CommentWrapper = ({ documentId }: Props) => {
     if (!comment.trim()) return;
 
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/comments`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+      const response = await fetch(`/mmdblogsapi/comments`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: {
+            content: comment,
+            reader: "rlz4v0au4gae47o4uocybx0s",
+            blog: documentId,
           },
-          body: JSON.stringify({
-            data: {
-              content: comment,
-              reader: "rlz4v0au4gae47o4uocybx0s",
-              blog: documentId,
-            },
-          }),
-        }
-      );
+        }),
+      });
 
       setComment("");
       const data = await response.json();
@@ -99,7 +96,7 @@ const CommentCard = ({ reader, content }: CommentProps) => {
     <CommentCardWrapper>
       <CommentImageWrapper>
         <Image
-          src={`${process.env.NEXT_PUBLIC_SERVER_HOST}${reader.avatar.url}`}
+          src={`/baseurl${reader.avatar.url}`}
           alt="reader image"
           fill
           className="object-cover rounded-full"

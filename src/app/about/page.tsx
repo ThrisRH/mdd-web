@@ -34,7 +34,7 @@ interface ContactProps {
   content: string;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
+const API_URL = process.env.SERVER_HOST;
 
 async function getAboutData() {
   try {
@@ -65,7 +65,7 @@ export default async function AboutPage() {
         <AvatarWrapper>
           <Image
             className="rounded-full"
-            src={`http://localhost:1337${about.authorAvt.url}`}
+            src={`/baseurl${about.authorAvt.url}`}
             alt="avt "
             fill
           />

@@ -6,7 +6,7 @@ import { H0 } from "@/components/Typography/Heading.styles";
 import { BlogDetails } from "@/types/blog";
 import React from "react";
 
-const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
+const API_URL = process.env.SERVER_HOST;
 
 // Lấy thông tin cate
 async function getCateInfo(cateId: string) {

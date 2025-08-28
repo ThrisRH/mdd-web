@@ -15,7 +15,7 @@ const SendContent = () => {
 
   const handleGetCate = async () => {
     try {
-      const response = await fetch("/webapi/cates?populate=*", {
+      const response = await fetch("/mmdblogsapi/cates?populate=*", {
         method: "GET",
       });
       const data = await response.json();
@@ -28,19 +28,19 @@ const SendContent = () => {
   const handleSubmitContent = async () => {
     if (email === null || email === "") return;
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/contacts`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ data: { contactEmail: email } }),
-        }
-      );
+      const response = await fetch(`/mmdblogsapi/contacts`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ data: { contactEmail: email } }),
+      });
+      if (!response.ok) {
+        return;
+      }
       setEmail("");
     } catch (error) {
-      console.log(error);
+      throw new Error("Failed to send content;");
     }
   };
 

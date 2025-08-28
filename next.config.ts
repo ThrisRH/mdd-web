@@ -4,15 +4,16 @@ const nextConfig: NextConfig = {
   /* config options here */
   async rewrites() {
     return [
-      // API chung
+      // Base API url
       {
-        source: "/webapi/:slug",
-        destination: "http://localhost:1337/api/:slug",
+        source: "/baseurl/:path*",
+        destination: `${process.env.SERVER_HOST}/:path*`,
       },
-      // API blog search
+
+      // API url
       {
-        source: "/webapi/search/:path*",
-        destination: "http://localhost:1337/api/:path*",
+        source: "/mmdblogsapi/:path*",
+        destination: `${process.env.SERVER_HOST}/api/:path*`,
       },
     ];
   },
