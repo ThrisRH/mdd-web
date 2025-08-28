@@ -23,7 +23,7 @@ const PageContainer = ({ children }: PostProps) => {
   const fetchBlogs = async () => {
     try {
       const res = await fetch(
-        "http://localhost:1337/api/blogs?pagination[page]=1&pagination[pageSize]=6&populate=*"
+        "/webapi/blogs?pagination[page]=1&pagination[pageSize]=6&populate=*"
       );
       const data = await res.json();
       if (!res.ok) return;

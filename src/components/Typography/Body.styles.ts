@@ -1,3 +1,4 @@
+"use client"
 import styled from "styled-components"
 
 export const Body1 = styled.span<{$weight?: number,$color?: string}>`

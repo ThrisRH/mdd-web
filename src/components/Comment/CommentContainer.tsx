@@ -1,7 +1,16 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
 import SectionWrapper from "../Section/SectionWrapper";
-import { CommentCardWrapper, CommentContent, CommentImageWrapper, TextArea, CommentContainer, SubmitField, SubmitButton, CommentBody } from "./Comment.styles";
+import {
+  CommentCardWrapper,
+  CommentContent,
+  CommentImageWrapper,
+  TextArea,
+  CommentContainer,
+  SubmitField,
+  SubmitButton,
+  CommentBody,
+} from "./Comment.styles";
 import Image from "next/image";
 import { Body1, Body2, Body3 } from "../Typography/Body.styles";
 import { CommentInputProps, CommentProps } from "@/types/comment";
@@ -16,7 +25,7 @@ const CommentWrapper = ({ documentId }: Props) => {
   const handleGetBlogWithComments = async () => {
     try {
       const commentRes = await fetch(
-        `http://localhost:1337/api/comments?filters[blog][documentId][$eq]=${documentId}&populate[reader][populate]=avatar`
+        `/webapi/comments?filters[blog][documentId][$eq]=${documentId}&populate[reader][populate]=avatar`
       );
       const commentData = await commentRes.json();
 
@@ -107,7 +116,11 @@ const CommentCard = ({ reader, content }: CommentProps) => {
 };
 
 // Comment Input
-const CommentInput = ({ comment, setComment, handleSubmit }: CommentInputProps) => {
+const CommentInput = ({
+  comment,
+  setComment,
+  handleSubmit,
+}: CommentInputProps) => {
   return (
     <CommentContainer>
       <TextArea

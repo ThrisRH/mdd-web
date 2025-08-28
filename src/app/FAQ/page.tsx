@@ -1,4 +1,3 @@
-"use client";
 import Vector from "@/assets/svg/vector";
 import {
   Container,
@@ -8,18 +7,12 @@ import {
   TimeArea,
   VectorContainer,
 } from "@/components/PostCard/PostCard.styles";
-import { Body2 } from "@/components/Typography/Body.styles";
-import { H0, H3 } from "@/components/Typography/Heading.styles";
-import React, { useEffect, useState } from "react";
-import {
-  Divider,
-  FaqCard,
-  FAQWrapper,
-  QuestionBlock,
-  QuestionRow,
-} from "@/components/Main/Styled/FAQContent.styles";
+import { H0 } from "@/components/Typography/Heading.styles";
+import React from "react";
+import { FAQWrapper } from "@/components/Main/Styled/FAQContent.styles";
+import FAQBody from "./FAQBody";
 
-interface FQAProps {
+export interface FAQProps {
   questionAnswer: QuestAnswer[];
 }
 
@@ -28,25 +21,21 @@ interface QuestAnswer {
   answer: string;
 }
 
-const page = () => {
-  const [faq, setFAQ] = useState<FQAProps | null>(null);
-  const [selected, setSelected] = useState<number>(0);
+async function getFAQData() {
+  try {
+    const res = await fetch("http://localhost:1337/api/faq?populate=*", {
+      method: "GET",
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    throw new Error("Failed to fetch FAQ data");
+  }
+}
 
-  const handleGetFAQ = async () => {
-    try {
-      const response = await fetch("http://localhost:1337/api/faq?populate=*", {
-        method: "GET",
-      });
-      const data = await response.json();
-      setFAQ(data.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    handleGetFAQ();
-  }, []);
+export default async function FAQ() {
+  const data = await getFAQData();
+  const faq: FAQProps = data.data;
 
   if (!faq) return null;
   return (
@@ -62,15 +51,10 @@ const page = () => {
           </LineContainer>
           <Dot></Dot>
         </Container>
-        <Dot></Dot>
-        <Dot></Dot>
-        <Dot></Dot>
-        <Dot></Dot>
-        <Dot></Dot>
-        <Dot></Dot>
-        <Dot></Dot>
-        <Dot></Dot>
-        <Dot></Dot>
+        {/* Dot */}
+        {Array.from({ length: 9 }).map((_, index) => (
+          <Dot key={index} />
+        ))}
         <Container $flex={3}>
           <Dot></Dot>
           <LineContainer>
@@ -81,29 +65,7 @@ const page = () => {
           </LineContainer>
         </Container>
       </TimeArea>
-      <FaqCard>
-        {faq.questionAnswer.map((item, index) => (
-          <QuestionBlock key={index}>
-            <QuestionRow>
-              <H3 $color={selected === index ? "#EA8E31" : "#000"}>
-                {item.question}
-              </H3>
-              <button
-                className="cursor-pointer"
-                onClick={() => setSelected(index)}
-              >
-                <H3>{selected === index ? "-" : "+"}</H3>
-              </button>
-            </QuestionRow>
-            <Body2 className={`${selected === index ? "flex" : "hidden"}`}>
-              {item.answer}
-            </Body2>
-            <Divider />
-          </QuestionBlock>
-        ))}
-      </FaqCard>
+      <FAQBody questionAnswer={faq.questionAnswer} />
     </FAQWrapper>
   );
-};
-
-export default page;
+}

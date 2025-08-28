@@ -92,7 +92,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
   };
 
   const handleToDetail = (postSlug: string) => {
-    router.push(`http://localhost:3000/blogs/${postSlug}`);
+    router.push(`/webapi/blogs/${postSlug}`);
   };
 
   useEffect(() => {
@@ -135,7 +135,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
             className="w-full h-full rounded-xl"
             src={`http://localhost:1337${blogAvatar.cover.url}`}
             alt="image"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
             fill
           />
         )}

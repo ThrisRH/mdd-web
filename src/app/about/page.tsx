@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import AboutText from "@/assets/svg/textArea";
 import Image from "next/image";
 import { Body1, Body2, Body3 } from "@/components/Typography/Body.styles";
@@ -12,6 +11,8 @@ import {
   FooterSection,
 } from "@/components/Main/Styled/AboutContent.styles";
 import { H5 } from "@/components/Typography/Heading.styles";
+import PageContainer from "@/components/Main/PageContainer";
+import NotFound from "@/components/Main/NotFound";
 
 interface AboutContent {
   type: string;
@@ -33,30 +34,31 @@ interface ContactProps {
   content: string;
 }
 
-const Page = () => {
-  const [about, setAbout] = useState<AboutResponse | null>(null);
+const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
-  const handleGetAbout = async () => {
-    try {
-      const response = await fetch(
-        "http://localhost:1337/api/about?populate=*",
-        {
-          method: "GET",
-        }
-      );
-      const data = await response.json();
+async function getAboutData() {
+  try {
+    const res = await fetch(`${API_URL}/api/about?populate=*`, {
+      method: "GET",
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    throw new Error("Failed to fecth about data");
+  }
+}
 
-      setAbout(data.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+export default async function AboutPage() {
+  const data = await getAboutData();
+  const about: AboutResponse = data.data;
+  console.log(about);
 
-  useEffect(() => {
-    handleGetAbout();
-  }, []);
-
-  if (!about) return null;
+  if (!about)
+    return (
+      <PageContainer>
+        <NotFound />
+      </PageContainer>
+    );
   return (
     <AboutWrapper>
       <Card>
@@ -98,6 +100,4 @@ const Page = () => {
       </Card>
     </AboutWrapper>
   );
-};
-
-export default Page;
+}

@@ -29,7 +29,6 @@ export async function generateMetadata() {
     const title = blogs[0].title;
     const description = blogs[0].mainContent.slice(0, 160) || "";
 
-
     const image = `${API_URL}${blogs[0].cover.url}` || "";
 
     return {
@@ -38,7 +37,7 @@ export async function generateMetadata() {
       openGraph: {
         title: title,
         description: description,
-        images: [{ url: image, width: 1200, height: 600, alt: "cover" }]
+        images: [{ url: image, width: 1200, height: 600, alt: "cover" }],
       },
     };
   } catch {
@@ -67,7 +66,7 @@ export default async function Home({ searchParams }: PageProps) {
       <BlogContainer>
         <H0>Blog</H0>
 
-        <PaginationWrapper page={pageNumber} totalPages={pageCount} />
+        <PaginationWrapper totalPages={pageCount} page={1} />
       </BlogContainer>
     </PageContainer>
   );

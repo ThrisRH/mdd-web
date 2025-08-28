@@ -15,12 +15,9 @@ const SendContent = () => {
 
   const handleGetCate = async () => {
     try {
-      const response = await fetch(
-        "http://localhost:1337/api/cates?populate=*",
-        {
-          method: "GET",
-        }
-      );
+      const response = await fetch("/webapi/cates?populate=*", {
+        method: "GET",
+      });
       const data = await response.json();
       setCate(data.data);
     } catch (error) {

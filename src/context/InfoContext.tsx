@@ -26,7 +26,7 @@ export const InfoProvider = ({ children }: { children: React.ReactNode }) => {
   const fetchInfo = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:1337/api/authors?populate=*");
+      const res = await fetch("/webapi/authors?populate=*");
       const data = await res.json();
       setInfo(data.data);
     } catch (err) {

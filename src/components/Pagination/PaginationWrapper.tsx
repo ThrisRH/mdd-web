@@ -12,17 +12,22 @@ interface BaseProps {
 
 interface WithSlug extends BaseProps {
   slug: string;
-  type: 'search' | 'category'
+  type: "search" | "category";
 }
 
 interface WithoutSlug extends BaseProps {
-  slug: undefined;
-  type: undefined;
+  slug?: undefined;
+  type?: undefined;
 }
 
-type Props = WithSlug | WithoutSlug
+type Props = WithSlug | WithoutSlug;
 
-export default function PaginationWrapper({ totalPages, page, slug, type }: Props) {
+export default function PaginationWrapper({
+  totalPages,
+  page,
+  slug,
+  type,
+}: Props) {
   const [currentPage, setCurrentPage] = useState(page);
   const [posts, setPosts] = useState<BlogDetails[]>([]);
 
@@ -31,15 +36,14 @@ export default function PaginationWrapper({ totalPages, page, slug, type }: Prop
       let url = "";
 
       if (slug && type === "category") {
+        // cate mode
+        url = `/webapi/blogs?filters[cate][documentId][$eq]=${slug}&populate=cover&pagination[page]=${currentPage}&pagination[pageSize]=3&sort=createdAt:desc`;
+      } else if (slug && type === "search") {
         // search mode
-        url = `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs?filters[cate][documentId][$eq]=${slug}&populate=cover&pagination[page]=${currentPage}&pagination[pageSize]=3&sort=createdAt:desc`;
-      }
-      else if (slug && type === "search") {
-        // search mode
-        url = `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs/by-title/${slug}?page=${currentPage}&pageSize=3&populate=*`;
+        url = `/webapi/search/blogs/by-title/${slug}?page=${currentPage}&pageSize=3&populate=*`;
       } else {
         // home mode
-        url = `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs?pagination[page]=${currentPage}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`;
+        url = `/webapi/blogs?pagination[page]=${currentPage}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`;
       }
 
       const res = await fetch(url);
