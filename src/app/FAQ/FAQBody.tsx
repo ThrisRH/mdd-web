@@ -10,6 +10,8 @@ import { FAQProps } from "./page";
 import { H3 } from "@/components/Typography/Heading.styles";
 import { Body2 } from "@/components/Typography/Body.styles";
 
+// Component
+
 const FAQBody = ({ ...faq }: FAQProps) => {
   const [selected, setSelected] = useState(0);
   if (!faq) return null;

@@ -23,6 +23,8 @@ interface QuestAnswer {
   answer: string;
 }
 
+// Lấy dữ liệu từ Serverside
+
 async function getFAQData() {
   try {
     const res = await fetch(`${API_URL}/api/faq?populate=*`, {

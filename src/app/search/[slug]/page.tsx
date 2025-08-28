@@ -12,6 +12,7 @@ interface SearchPageProps {
 }
 
 const API_URL = process.env.SERVER_HOST;
+// Lấy dữ liệu từ Serverside
 
 async function getBlogsByName(title: string, pageNumber: number) {
   try {

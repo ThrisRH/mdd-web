@@ -46,7 +46,6 @@ export async function generateMetadata({
     const data = await getBlogsByCate(slug, 1);
     const blogs: BlogDetails[] = data.data;
 
-    console.log(blogs);
     const title = cate.data.tile;
     const description = blogs[0].mainContent.slice(0, 160) || "";
     const image = `${API_URL}${blogs[0].cover.url}` || "";

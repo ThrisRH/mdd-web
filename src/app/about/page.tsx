@@ -34,6 +34,7 @@ interface ContactProps {
   content: string;
 }
 
+// Lấy dữ liệu từ Serverside
 const API_URL = process.env.SERVER_HOST;
 
 async function getAboutData() {

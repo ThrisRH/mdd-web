@@ -2,12 +2,11 @@
 import { Dropdown, DropdownItem, NavItem } from "./Header.styles";
 import SearchIC from "@/assets/svg/search";
 import ArrowIC from "@/assets/svg/arrowdown";
-import CancelIC from "@/assets/svg/cancel";
-import MoreIC from "@/assets/svg/more";
 import { Body2 } from "../../Typography/Body.styles";
-import { usePathname, useRouter } from "next/navigation";
 import { H5 } from "../../Typography/Heading.styles";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
 interface CateProps {
   id: number;
   tile: string;
@@ -35,6 +34,53 @@ const NavItems = ({
   isRelative = false,
   onSearch,
 }: Props) => {
+  const [token, setToken] = useState<string | null>(null);
+
+  // Kiểm tra token khi component mount
+  useEffect(() => {
+    const t = document.cookie
+      .split("; ")
+      .find((c) => c.startsWith("authToken="))
+      ?.split("=")[1];
+    setToken(t ?? null);
+  }, []);
+
+  // Hàm đăng nhập
+  const handleLogin = async () => {
+    const identifier = prompt("Nhập username:");
+    const password = prompt("Nhập password:");
+    if (!identifier || !password) return;
+
+    try {
+      const res = await fetch("/mmdblogsapi/auth/local", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ identifier, password }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.jwt) {
+        document.cookie = `authToken=${data.jwt}; path=/`;
+        setToken(data.jwt);
+        alert("Đăng nhập thành công!");
+      } else {
+        alert(
+          "Đăng nhập thất bại: " + (data.message || "Sai tài khoản/mật khẩu")
+        );
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Có lỗi xảy ra!");
+    }
+  };
+
+  // Hàm đăng xuất
+  const handleLogout = () => {
+    document.cookie =
+      "authToken=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    setToken(null);
+    alert("Đăng xuất thành công!");
+  };
   return (
     <>
       <NavItem>
@@ -120,6 +166,13 @@ const NavItems = ({
           <SearchIC />
         </NavItem>
       )}
+
+      {/* Nút đăng nhập / đăng xuất */}
+      <NavItem onClick={token ? handleLogout : handleLogin}>
+        <H5 $size={18} $color="#fff">
+          {token ? "Đăng xuất" : "Đăng nhập"}
+        </H5>
+      </NavItem>
     </>
   );
 };

@@ -69,6 +69,7 @@ const CommentWrapper = ({ documentId }: Props) => {
   useEffect(() => {
     handleGetBlogWithComments();
   }, [documentId]);
+
   return (
     <SectionWrapper>
       <CommentBody>
