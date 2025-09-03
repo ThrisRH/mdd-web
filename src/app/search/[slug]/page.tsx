@@ -31,7 +31,8 @@ async function getBlogsByName(title: string, pageNumber: number) {
 
 export async function generateMetadata({ params }: SearchPageProps) {
   try {
-    const data = await getBlogsByName(params.slug, 1);
+    const { slug } = await params;
+    const data = await getBlogsByName(slug, 1);
     const blogs: BlogDetails[] = data.data;
 
     const title = blogs[0].title;
@@ -59,8 +60,11 @@ export default async function SearchPage({
   params,
   searchParams,
 }: SearchPageProps) {
-  const title = decodeURIComponent(params.slug);
-  const page = Number(searchParams.page) || 1;
+  const { slug } = await params;
+  const query = await searchParams;
+
+  const title = decodeURIComponent(slug);
+  const page = Number(query.page) || 1;
 
   let res;
   try {

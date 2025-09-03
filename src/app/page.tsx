@@ -46,7 +46,8 @@ export async function generateMetadata() {
 }
 
 export default async function Home({ searchParams }: PageProps) {
-  const pageNumber = parseInt(searchParams?.page ?? "1");
+  const params = await searchParams;
+  const pageNumber = parseInt(params?.page ?? "1");
 
   let data;
   try {

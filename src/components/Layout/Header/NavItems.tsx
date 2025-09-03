@@ -6,6 +6,7 @@ import { Body2 } from "../../Typography/Body.styles";
 import { H5 } from "../../Typography/Heading.styles";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface CateProps {
   id: number;
@@ -35,7 +36,7 @@ const NavItems = ({
   onSearch,
 }: Props) => {
   const [token, setToken] = useState<string | null>(null);
-
+  const router = useRouter();
   // Kiểm tra token khi component mount
   useEffect(() => {
     const t = document.cookie
@@ -47,31 +48,7 @@ const NavItems = ({
 
   // Hàm đăng nhập
   const handleLogin = async () => {
-    const identifier = prompt("Nhập username:");
-    const password = prompt("Nhập password:");
-    if (!identifier || !password) return;
-
-    try {
-      const res = await fetch("/mmdblogsapi/auth/local", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ identifier, password }),
-      });
-
-      const data = await res.json();
-      if (res.ok && data.jwt) {
-        document.cookie = `authToken=${data.jwt}; path=/`;
-        setToken(data.jwt);
-        alert("Đăng nhập thành công!");
-      } else {
-        alert(
-          "Đăng nhập thất bại: " + (data.message || "Sai tài khoản/mật khẩu")
-        );
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Có lỗi xảy ra!");
-    }
+    router.push("/login");
   };
 
   // Hàm đăng xuất
