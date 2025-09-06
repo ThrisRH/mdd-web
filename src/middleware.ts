@@ -1,27 +1,33 @@
+import { auth } from "@/auth";
 import { NextResponse } from "next/server";
-import { NextRequest } from "next/server";
 
-const protectedPaths = ["/blogs"];
-const authPaths = ["/login", "/register"];
+const protectedPages = ["/blogs"];
 
-export async function middleware(req: NextRequest) {
-  const token = req.cookies.get("authToken")?.value;
+export default auth((req) => {
+  const isLoggedIn = !!req.auth;
+  console.log("Route: ", req.nextUrl.pathname);
+  console.log("Is logged in: ", isLoggedIn);
+  const { pathname } = req.nextUrl;
 
-  // Không cho xem detail blogs khi chưa đăng nhập
-  if (protectedPaths.some((path) => req.nextUrl.pathname.startsWith(path))) {
-    if (!token) {
-      return NextResponse.redirect(new URL("/unauthenticated", req.url));
-    }
+  if (
+    isLoggedIn &&
+    (pathname === "/auth/login" ||
+      pathname === "/auth/register" ||
+      pathname === "/unauthenticated")
+  ) {
+    return NextResponse.redirect(new URL("/", req.url));
   }
 
-  // Không cho truy cập /login và /register khi đã đăng nhập
-  if (authPaths.some((path) => req.nextUrl.pathname.startsWith(path))) {
-    if (token) {
-      return NextResponse.redirect(new URL("/", req.url));
-    }
+  const isProtected = protectedPages.some((path) => pathname.startsWith(path));
+
+  if (!isLoggedIn && isProtected) {
+    return NextResponse.redirect(new URL("/unauthenticated", req.url));
   }
 
-  return NextResponse.next();
-}
+  NextResponse.next();
+});
 
-// Test account: username: thrisx04@gmail.com | password: truy0310
+// Optionally, don't invoke Middleware on some paths
+export const config = {
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+};

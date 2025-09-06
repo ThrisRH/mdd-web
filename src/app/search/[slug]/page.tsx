@@ -60,15 +60,14 @@ export default async function SearchPage({
   params,
   searchParams,
 }: SearchPageProps) {
-  const { slug } = await params;
-  const query = await searchParams;
+  const { slug } = params;
+  const pageNumber = parseInt(searchParams?.page ?? "1");
 
   const title = decodeURIComponent(slug);
-  const page = Number(query.page) || 1;
 
   let res;
   try {
-    res = await getBlogsByName(title, page);
+    res = await getBlogsByName(title, pageNumber);
   } catch (error) {
     return (
       <PageContainer>
@@ -85,7 +84,7 @@ export default async function SearchPage({
         <H0>Kết quả tìm kiếm cho: {title}</H0>
 
         <PaginationWrapper
-          page={page}
+          page={pageNumber}
           totalPages={pageCount}
           slug={title}
           type="search"

@@ -1,11 +1,11 @@
 "use client";
 import React, { ReactNode, useEffect, useState } from "react";
-import InfoCard from "@/components/Left/Info/InfoCard";
-import SendContent from "@/components/Left/SendContent/SendContent";
-import Topic from "@/components/Left/Topic/Topic";
+import InfoCard from "@/app/Left/Info/InfoCard";
+import SendContent from "@/app/Left/SendContent/SendContent";
+import Topic from "@/app/Left/Topic/Topic";
 import Image from "next/image";
 import IgImage from "@/assets/image/ig_pic.png";
-import FavoriteField from "../Left/FavoriteField/FavoriteField";
+import FavoriteField from "../../app/Left/FavoriteField/FavoriteField";
 import { MainContainer, SideBar } from "./Styled/PageContainer.styles";
 
 interface PostProps {

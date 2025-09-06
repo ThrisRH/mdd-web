@@ -7,6 +7,7 @@ import { InfoProvider } from "@/context/InfoContext";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "@/components/Layout/Footer/Footer";
 import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,7 +22,7 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL("http://localhost:3000"),
   title: "MDD Blog",
   description: "Trang blog của MDD",
 };
@@ -35,12 +36,14 @@ export default function RootLayout({
     <html lang="en" className={`${lora.variable} ${inter.variable}`}>
       <body className={`antialiased`}>
         <StyledComponentsRegistry>
-          <InfoProvider>
-            <Header />
-            <Banner />
-            {children}
-            <Footer />
-          </InfoProvider>
+          <SessionProvider>
+            <InfoProvider>
+              <Header />
+              <Banner />
+              {children}
+              <Footer />
+            </InfoProvider>
+          </SessionProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

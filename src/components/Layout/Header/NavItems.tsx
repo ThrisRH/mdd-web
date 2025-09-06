@@ -7,6 +7,7 @@ import { H5 } from "../../Typography/Heading.styles";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
 
 interface CateProps {
   id: number;
@@ -35,27 +36,19 @@ const NavItems = ({
   isRelative = false,
   onSearch,
 }: Props) => {
-  const [token, setToken] = useState<string | null>(null);
   const router = useRouter();
-  // Kiểm tra token khi component mount
-  useEffect(() => {
-    const t = document.cookie
-      .split("; ")
-      .find((c) => c.startsWith("authToken="))
-      ?.split("=")[1];
-    setToken(t ?? null);
-  }, []);
+  const { data: session } = useSession();
+  const tokenExists = !!session;
+  console.log(tokenExists);
 
   // Hàm đăng nhập
   const handleLogin = async () => {
-    router.push("/login");
+    router.push("/auth/login");
   };
 
   // Hàm đăng xuất
   const handleLogout = () => {
-    document.cookie =
-      "authToken=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    setToken(null);
+    signOut({ callbackUrl: "/" });
     alert("Đăng xuất thành công!");
   };
   return (
@@ -145,9 +138,9 @@ const NavItems = ({
       )}
 
       {/* Nút đăng nhập / đăng xuất */}
-      <NavItem onClick={token ? handleLogout : handleLogin}>
+      <NavItem onClick={tokenExists ? handleLogout : handleLogin}>
         <H5 $size={18} $color="#fff">
-          {token ? "Đăng xuất" : "Đăng nhập"}
+          {tokenExists ? "Đăng xuất" : "Đăng nhập"}
         </H5>
       </NavItem>
     </>

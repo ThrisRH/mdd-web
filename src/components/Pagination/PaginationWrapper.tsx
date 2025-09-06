@@ -4,6 +4,9 @@ import PaginationBar from "./PaginationBar";
 import PostCard from "@/components/PostCard/PostCard";
 import { BlogDetails } from "@/types/blog";
 import { BlogCardFrame } from "../Main/Styled/PageContainer.styles";
+import { useRouter, useSearchParams } from "next/navigation";
+import PageContainer from "../Main/PageContainer";
+import NotFound from "../Main/NotFound";
 
 interface BaseProps {
   totalPages: number;
@@ -30,6 +33,8 @@ export default function PaginationWrapper({
 }: Props) {
   const [currentPage, setCurrentPage] = useState(page);
   const [posts, setPosts] = useState<BlogDetails[]>([]);
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     async function fetchPage() {
@@ -53,6 +58,11 @@ export default function PaginationWrapper({
     fetchPage();
   }, [currentPage, slug]);
 
+  const handlePageChange = (p: number) => {
+    setCurrentPage(p);
+    router.push(`?page=${p}`);
+  };
+
   return (
     <>
       {/* Danh sách bài viết */}
@@ -66,7 +76,7 @@ export default function PaginationWrapper({
       <PaginationBar
         currentPage={currentPage}
         totalPages={totalPages}
-        onPageChange={(p) => setCurrentPage(p)}
+        onPageChange={handlePageChange}
       />
     </>
   );

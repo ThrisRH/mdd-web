@@ -46,19 +46,11 @@ export async function generateMetadata() {
 }
 
 export default async function Home({ searchParams }: PageProps) {
-  const params = await searchParams;
+  const params = searchParams;
   const pageNumber = parseInt(params?.page ?? "1");
 
   let data;
-  try {
-    data = await getBlogs(pageNumber);
-  } catch {
-    return (
-      <PageContainer>
-        <NotFound />
-      </PageContainer>
-    );
-  }
+  data = await getBlogs(pageNumber);
 
   const pageCount = data.meta.pagination.pageCount;
 
@@ -67,7 +59,7 @@ export default async function Home({ searchParams }: PageProps) {
       <BlogContainer>
         <H0>Blog</H0>
 
-        <PaginationWrapper totalPages={pageCount} page={1} />
+        <PaginationWrapper totalPages={pageCount} page={pageNumber} />
       </BlogContainer>
     </PageContainer>
   );
