@@ -11,9 +11,16 @@ export default function SignUpStrapi() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isSending, setIsSending] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async () => {
+    setIsSending(true);
+    if (username === "" || email === "" || password === "") {
+      setError("Không được để trống thông tin đăng ký!");
+      setIsSending(false);
+      return;
+    }
     try {
       const res = await signIn("strapi-signup", {
         redirect: false, // true để NextAuth tự redirect
@@ -32,6 +39,8 @@ export default function SignUpStrapi() {
       console.log(res);
     } catch (error) {
       setError("Lỗi server");
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -60,13 +69,18 @@ export default function SignUpStrapi() {
       />
       <Body2 $color="#ff0000">{error}</Body2>
       <ButtonsArea>
-        <Button primary={false} onClickFunc={() => router.push("/auth/login")}>
+        <Button
+          variant="secondary"
+          onClickFunc={() => router.push("/auth/login")}
+          disable={isSending}
+        >
           Login
         </Button>
         <Button
           className="text-white"
-          primary={true}
+          variant="primary"
           onClickFunc={handleSubmit}
+          disable={isSending}
         >
           Register
         </Button>

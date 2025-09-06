@@ -1,31 +1,35 @@
 import React, { ReactNode } from "react";
-import { ButtonContainer, Content } from "./Button.styles";
+import { ButtonContainer } from "./Button.styles";
+import { Content } from "../Main/Styled/AboutContent.styles";
 
 type Props = {
   children: ReactNode;
-  primary: boolean;
+  variant?: "primary" | "secondary";
   onClickFunc?: () => void;
   className?: string;
   height?: string;
+  disable?: boolean;
 };
 
 const Button = ({
   className,
   children,
-  primary,
+  variant = "secondary",
   onClickFunc,
   height,
+  disable,
 }: Props) => {
   return (
     <ButtonContainer
       $height={height || "44px"}
       className={className}
-      $primary={primary}
+      $variant={variant}
       onClick={onClickFunc}
+      disabled={disable || false}
+      $isDisable={disable}
     >
       <Content>{children}</Content>
     </ButtonContainer>
   );
 };
-
 export default Button;

@@ -10,10 +10,17 @@ import Button from "../Button/button";
 export default function SignInStrapi() {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
+  const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
 
   const handleSubmit = async () => {
+    setIsSending(true);
+    if (identifier === "" || password === "") {
+      setError("Không được để trống thông tin đăng ký!");
+      setIsSending(false);
+      return;
+    }
     try {
       const res = await signIn("strapi-signin", {
         redirect: false,
@@ -31,6 +38,8 @@ export default function SignInStrapi() {
       console.log(res);
     } catch (error) {
       setError("Lỗi server");
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -53,15 +62,17 @@ export default function SignInStrapi() {
       <Body2 $color="#ff0000">{error}</Body2>
       <ButtonsArea>
         <Button
-          primary={false}
+          variant="secondary"
           onClickFunc={() => router.push("/auth/register")}
+          disable={isSending}
         >
           Register
         </Button>
         <Button
           className="text-white"
-          primary={true}
+          variant="primary"
           onClickFunc={handleSubmit}
+          disable={isSending}
         >
           Login
         </Button>
