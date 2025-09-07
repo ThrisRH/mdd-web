@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import CancelIC from "@/assets/svg/cancel";
-import InfoCard from "../../../app/Left/Info/InfoCard";
+import InfoCard from "../../LeftSideBar/Info/InfoCard";
 import { ActionArea, NavList, NavOverlay } from "./Header.styles";
 import NavItems from "./NavItems";
 

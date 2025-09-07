@@ -120,11 +120,11 @@ const NavItems = ({
       </NavItem>
 
       <NavItem>
-        <Link href="/FAQ">
+        <Link href="/faq">
           <H5
             $size={18}
             onClick={onNavPhoneClose ?? onNavPhoneClose}
-            $color={pathname === "/FAQ" ? "#EA8E31" : "#fff"}
+            $color={pathname === "/faq" ? "#EA8E31" : "#fff"}
           >
             HỎI ĐÁP
           </H5>
