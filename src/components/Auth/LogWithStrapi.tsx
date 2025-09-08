@@ -15,7 +15,7 @@ export default function SignInStrapi() {
   const router = useRouter();
 
   // Email format
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const handleSubmit = async () => {
     setIsSending(true);
@@ -71,14 +71,20 @@ export default function SignInStrapi() {
     <>
       <Input
         value={identifier}
-        onchange={(e) => setIdentifier(e.target.value)}
+        onchange={(e) => {
+          setIdentifier(e.target.value);
+          setError("");
+        }}
         type="text"
         label="Email"
         placeholder="Your email"
       />
       <Input
         value={password}
-        onchange={(e) => setPassword(e.target.value)}
+        onchange={(e) => {
+          setPassword(e.target.value);
+          setError("");
+        }}
         type="password"
         label="Password"
         placeholder="Your password"

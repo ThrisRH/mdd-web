@@ -15,9 +15,9 @@ export default function SignUpStrapi() {
   const [isSending, setIsSending] = useState(false);
   const router = useRouter();
 
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordRegex =
-    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$/;
 
   const handleSubmit = async () => {
     setIsSending(true);
@@ -82,28 +82,40 @@ export default function SignUpStrapi() {
     <>
       <Input
         value={username}
-        onchange={(e) => setUsername(e.target.value)}
+        onchange={(e) => {
+          setUsername(e.target.value);
+          setError("");
+        }}
         type="text"
         label="Username"
         placeholder="Your username"
       />
       <Input
         value={email}
-        onchange={(e) => setEmail(e.target.value)}
+        onchange={(e) => {
+          setEmail(e.target.value);
+          setError("");
+        }}
         type="text"
         label="Email"
         placeholder="Your email"
       />
       <Input
         value={password}
-        onchange={(e) => setPassword(e.target.value)}
+        onchange={(e) => {
+          setPassword(e.target.value);
+          setError("");
+        }}
         type="password"
         label="Password"
         placeholder="Your password"
       />
       <Input
         value={confirmPassword}
-        onchange={(e) => setConfirmPassword(e.target.value)}
+        onchange={(e) => {
+          setConfirmPassword(e.target.value);
+          setError("");
+        }}
         type="password"
         label="Password"
         placeholder="Confirm password"
