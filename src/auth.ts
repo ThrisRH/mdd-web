@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { CredentialsSignin } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 
@@ -31,16 +31,18 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       async authorize(credentials) {
         if (!credentials) return null;
 
+        // gọi API Strapi
         try {
-          // Gọi API Strapi để login
           const userRes = await fetch(
             `${process.env.SERVER_HOST}/api/users?filters[email][$eq]=${credentials.identifier}`,
             { method: "GET", headers: { "Content-Type": "application/json" } }
           );
           const userData = await userRes.json();
-          if (userData === null || userData.length === 0) {
+
+          if (!userData || userData.length === 0) {
             return null;
           }
+
           const res = await fetch(`${process.env.SERVER_HOST}/api/auth/local`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -59,11 +61,11 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
               email: data.user.email,
               jwt: data.jwt,
             };
-          } else {
-            return null;
           }
-        } catch (error) {
+
           return null;
+        } catch (err) {
+          throw new CredentialsSignin("Login failed");
         }
       },
     }),

@@ -17,24 +17,21 @@ export default function SignInStrapi() {
   const handleSubmit = async () => {
     setIsSending(true);
     if (identifier === "" || password === "") {
-      setError("Email and Password is required!");
+      setError("Email and Password are required!");
       setIsSending(false);
       return;
     }
     try {
       const res = await signIn("strapi-signin", {
         redirect: false,
-        identifier: identifier,
+        identifier,
         password,
       });
 
       console.log(res);
+
       if (res?.error) {
-        if (res.error === "CredentialsSignin") {
-          setError("Email or Password is incorrect");
-        } else {
-          setError("Configure error");
-        }
+        setError("Email or Password is incorrect!");
       } else {
         router.push("/");
       }
