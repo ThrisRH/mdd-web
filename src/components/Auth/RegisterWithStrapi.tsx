@@ -46,7 +46,7 @@ export default function SignUpStrapi() {
     }
 
     // Password & confirm password check
-    if (!(password === confirmPassword)) {
+    if (password !== confirmPassword) {
       setError("Passwords do not match.");
       setIsSending(false);
       return;
