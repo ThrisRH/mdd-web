@@ -33,6 +33,14 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 
         try {
           // Gọi API Strapi để login
+          const userRes = await fetch(
+            `${process.env.SERVER_HOST}/api/users?filters[email][$eq]=${credentials.identifier}`,
+            { method: "GET", headers: { "Content-Type": "application/json" } }
+          );
+          const userData = await userRes.json();
+          if (userData === null || userData.length === 0) {
+            return null;
+          }
           const res = await fetch(`${process.env.SERVER_HOST}/api/auth/local`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -52,64 +60,9 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
               jwt: data.jwt,
             };
           } else {
-            throw new Error(data?.error?.message || "Login failed");
+            return null;
           }
         } catch (error) {
-          console.error("Strapi auth error:", error);
-          return null;
-        }
-      },
-    }),
-
-    // Register
-    Credentials({
-      id: "strapi-signup",
-      name: "Strapi SignUp",
-      credentials: {
-        username: {
-          label: "Username",
-          type: "text",
-          placeholder: "Abc@123",
-        },
-        email: {
-          label: "Email",
-          type: "text",
-          placeholder: "email@example.com",
-        },
-        password: { label: "Password", type: "password" },
-      },
-      async authorize(credentials) {
-        if (!credentials) return null;
-
-        try {
-          // Gọi API Strapi để login
-          const res = await fetch(
-            `${process.env.SERVER_HOST}/api/auth/local/register`,
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                username: credentials.username,
-                email: credentials.email,
-                password: credentials.password,
-              }),
-            }
-          );
-
-          const data = await res.json();
-
-          if (res.ok && data.jwt) {
-            return {
-              id: data.user.id,
-              name: data.user.username,
-              email: data.user.email,
-              jwt: data.jwt,
-            };
-          } else {
-            throw new Error(data?.error?.message || "Register failed");
-          }
-        } catch (error) {
-          console.error("Strapi auth error:", error);
           return null;
         }
       },
@@ -117,10 +70,6 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   ],
   callbacks: {
     async signIn({ account, profile, user }) {
-      console.log("Google account:", account);
-      console.log("Profile:", profile);
-      console.log("User:", user);
-
       return true;
     },
 
@@ -132,7 +81,10 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     async session({ session, token }) {
       // Thêm Strapi token vào session client
       (session as any).strapiToken = token.strapiToken;
+
       return session;
     },
   },
+
+  session: { strategy: "jwt" },
 });

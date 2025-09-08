@@ -1,10 +1,10 @@
-import { signIn } from "next-auth/react";
 import { ButtonsArea } from "./Auth.styles";
 import { Body2 } from "../Typography/Body.styles";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Input from "../Input/Input";
 import Button from "../Button/button";
+import { capitalizeFirstLetter } from "@/lib/Uppercase";
 
 export default function SignUpStrapi() {
   const [username, setUsername] = useState("");
@@ -16,28 +16,34 @@ export default function SignUpStrapi() {
 
   const handleSubmit = async () => {
     setIsSending(true);
-    if (username === "" || email === "" || password === "") {
-      setError("Không được để trống thông tin đăng ký!");
+    setError("");
+
+    if (!username || !email || !password) {
+      setError("Username, Email and Password is required!");
       setIsSending(false);
       return;
     }
+
     try {
-      const res = await signIn("strapi-signup", {
-        redirect: false, // true để NextAuth tự redirect
-        username: username,
-        email: email,
-        password,
-        callbackUrl: "/", // redirect sau khi login
+      const res = await fetch(`/mmdblogsapi/auth/local/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password }),
       });
 
-      if (res.error) {
-        setError("Tài khoản đã tồn tại");
+      const data = await res.json();
+
+      if (res.ok && data.jwt) {
+        router.push("/auth/login");
         return;
       }
 
-      router.push("/");
-      console.log(res);
-    } catch (error) {
+      // 🔹 Hiển thị lỗi Strapi, viết hoa chữ cái đầu
+      setError(
+        capitalizeFirstLetter(data?.error?.message || "Đăng ký thất bại")
+      );
+    } catch {
+      // 🔹 Không log lỗi network ra console
       setError("Lỗi server");
     } finally {
       setIsSending(false);

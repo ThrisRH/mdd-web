@@ -17,7 +17,7 @@ export default function SignInStrapi() {
   const handleSubmit = async () => {
     setIsSending(true);
     if (identifier === "" || password === "") {
-      setError("Không được để trống thông tin đăng ký!");
+      setError("Email and Password is required!");
       setIsSending(false);
       return;
     }
@@ -26,16 +26,18 @@ export default function SignInStrapi() {
         redirect: false,
         identifier: identifier,
         password,
-        callbackUrl: "/",
       });
 
-      if (res.error) {
-        setError("Email hoặc mật khẩu không đúng");
-        return;
-      }
-
-      router.push("/");
       console.log(res);
+      if (res?.error) {
+        if (res.error === "CredentialsSignin") {
+          setError("Email or Password is incorrect");
+        } else {
+          setError("Configure error");
+        }
+      } else {
+        router.push("/");
+      }
     } catch (error) {
       setError("Lỗi server");
     } finally {

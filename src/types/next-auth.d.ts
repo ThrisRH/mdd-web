@@ -7,6 +7,7 @@ declare module "next-auth" {
       username?: string;
       email?: string;
       jwt?: string;
+      errorMessage?: string;
     };
   }
 
@@ -15,6 +16,7 @@ declare module "next-auth" {
     username?: string;
     email?: string;
     jwt?: string;
+    errorMessage?: string;
   }
 }
 

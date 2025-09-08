@@ -49,7 +49,6 @@ const NavItems = ({
   // Hàm đăng xuất
   const handleLogout = () => {
     signOut({ callbackUrl: "/" });
-    alert("Đăng xuất thành công!");
   };
   return (
     <>
