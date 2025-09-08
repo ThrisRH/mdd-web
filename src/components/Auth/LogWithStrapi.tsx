@@ -14,6 +14,9 @@ export default function SignInStrapi() {
   const [error, setError] = useState("");
   const router = useRouter();
 
+  // Email format
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
   const handleSubmit = async () => {
     setIsSending(true);
     if (identifier === "" || password === "") {
@@ -21,6 +24,28 @@ export default function SignInStrapi() {
       setIsSending(false);
       return;
     }
+
+    // Email format
+    if (!emailRegex.test(identifier)) {
+      setError("Wrong email format!");
+      setIsSending(false);
+      return;
+    }
+
+    const userRes = await fetch(
+      `/mmdblogsapi/users?filters[email][$eq]=${identifier}`,
+      { method: "GET", headers: { "Content-Type": "application/json" } }
+    );
+    const userData = await userRes.json();
+
+    // Check tài khoản tồn tại
+    if (!userData || userData.length === 0) {
+      setError("User not found!");
+      setIsSending(false);
+      return;
+    }
+
+    // Login
     try {
       const res = await signIn("strapi-signin", {
         redirect: false,
