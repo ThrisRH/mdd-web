@@ -24,7 +24,7 @@ export default auth((req) => {
     return NextResponse.redirect(new URL("/unauthenticated", req.url));
   }
 
-  NextResponse.next();
+  return NextResponse.next();
 });
 
 // Optionally, don't invoke Middleware on some paths

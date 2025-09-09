@@ -58,7 +58,7 @@ export default function SignInStrapi() {
       if (res?.error) {
         setError("Email or Password is incorrect!");
       } else {
-        router.push("/");
+        router.replace("/");
       }
     } catch (error) {
       setError("Lỗi server");
