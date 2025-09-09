@@ -45,13 +45,15 @@ async function getAboutData() {
     const data = await res.json();
     return data;
   } catch (error) {
-    throw new Error("Failed to fecth about data");
+    return {
+      NotFound: true,
+    };
   }
 }
 
 export default async function AboutPage() {
   const data = await getAboutData();
-  const about: AboutResponse = data.data;
+  const about: AboutResponse | null = data.data || null;
   console.log(about);
 
   if (!about)

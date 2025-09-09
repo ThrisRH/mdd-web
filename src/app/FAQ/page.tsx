@@ -33,13 +33,15 @@ async function getFAQData() {
     const data = await res.json();
     return data;
   } catch (error) {
-    throw new Error("Failed to fetch FAQ data");
+    return {
+      NotFound: true,
+    };
   }
 }
 
 export default async function FAQ() {
   const data = await getFAQData();
-  const faq: FAQProps = data.data;
+  const faq: FAQProps | null = data.data || null;
 
   if (!faq) return null;
   return (
