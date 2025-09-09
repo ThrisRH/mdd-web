@@ -34,7 +34,7 @@ const Header = () => {
 
   const handleSearchByCate = (id: string) => {
     setIsNavOpen(false);
-    router.push(`/${id}`);
+    router.push(`/category/${id}`);
   };
 
   const handleOnToDetail = () => {
@@ -45,8 +45,6 @@ const Header = () => {
   useEffect(() => {
     handleGetCate();
   }, []);
-
-  if (cate.length === 0) return null;
 
   return (
     <HeaderWrapper>

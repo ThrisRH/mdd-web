@@ -13,6 +13,7 @@ import {
 import { H5 } from "@/components/Typography/Heading.styles";
 import PageContainer from "@/components/Main/PageContainer";
 import NotFound from "@/components/Main/NotFound";
+import { notFound } from "next/navigation";
 
 interface AboutContent {
   type: string;
@@ -56,12 +57,7 @@ export default async function AboutPage() {
   const about: AboutResponse | null = data.data || null;
   console.log(about);
 
-  if (!about)
-    return (
-      <PageContainer>
-        <NotFound />
-      </PageContainer>
-    );
+  if (!about) notFound();
   return (
     <AboutWrapper>
       <Card>

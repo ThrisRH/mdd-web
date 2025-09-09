@@ -81,7 +81,7 @@ const NavItems = ({
           <H5
             $size={18}
             $color={
-              pathname.startsWith("/topic") || pathname.startsWith("/blogs")
+              pathname.startsWith("/category") || pathname.startsWith("/blogs")
                 ? "#EA8E31"
                 : "#fff"
             }
@@ -91,7 +91,7 @@ const NavItems = ({
           <ArrowIC
             className={`${open ? "rotate-180" : ""}`}
             fill={
-              pathname.startsWith("/topic") || pathname.startsWith("/blogs")
+              pathname.startsWith("/category") || pathname.startsWith("/blogs")
                 ? "#EA8E31"
                 : "#fff"
             }
@@ -119,11 +119,11 @@ const NavItems = ({
       </NavItem>
 
       <NavItem>
-        <Link href="/faq">
+        <Link href="/FAQ">
           <H5
             $size={18}
             onClick={onNavPhoneClose ?? onNavPhoneClose}
-            $color={pathname === "/faq" ? "#EA8E31" : "#fff"}
+            $color={pathname === "/FAQ" ? "#EA8E31" : "#fff"}
           >
             HỎI ĐÁP
           </H5>

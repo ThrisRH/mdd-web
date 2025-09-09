@@ -11,6 +11,7 @@ import { H0 } from "@/components/Typography/Heading.styles";
 import React from "react";
 import { FAQWrapper } from "@/components/Main/Styled/FAQContent.styles";
 import FAQBody from "./FAQBody";
+import { notFound } from "next/navigation";
 
 const API_URL = process.env.SERVER_HOST;
 
@@ -30,20 +31,21 @@ async function getFAQData() {
     const res = await fetch(`${API_URL}/api/faq?populate=*`, {
       method: "GET",
     });
+
+    if (!res.ok) return null;
     const data = await res.json();
     return data;
   } catch (error) {
-    return {
-      NotFound: true,
-    };
+    return null;
   }
 }
 
 export default async function FAQ() {
   const data = await getFAQData();
-  const faq: FAQProps | null = data.data || null;
+  const faq: FAQProps | null = data?.data || null;
 
-  if (!faq) return null;
+  if (!faq) notFound();
+
   return (
     <FAQWrapper>
       <H0>Câu hỏi thường gặp</H0>

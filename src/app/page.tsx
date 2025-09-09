@@ -3,6 +3,7 @@ import PageContainer from "@/components/Main/PageContainer";
 import { BlogDetails } from "@/types/blog";
 import PaginationWrapper from "@/components/Pagination/PaginationWrapper";
 import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
+import { notFound } from "next/navigation";
 
 const API_URL = process.env.SERVER_HOST;
 
@@ -10,12 +11,18 @@ const API_URL = process.env.SERVER_HOST;
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 async function getBlogs(pageNumber: number) {
-  const res = await fetch(
-    `${process.env.SERVER_HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`,
-    { cache: "no-store" }
-  );
-  if (!res.ok) throw new Error("Failed to fetch posts");
-  return res.json();
+  try {
+    const res = await fetch(
+      `${process.env.SERVER_HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`,
+      { cache: "no-store" }
+    );
+    if (!res.ok) {
+      return null;
+    }
+    return await res.json();
+  } catch (error) {
+    return null;
+  }
 }
 
 // Tạo metadata
@@ -52,6 +59,10 @@ export default async function Home(props: { searchParams: SearchParams }) {
 
   let data;
   data = await getBlogs(pageNumber);
+
+  if (!data) {
+    notFound();
+  }
 
   const pageCount = data.meta.pagination.pageCount;
 
