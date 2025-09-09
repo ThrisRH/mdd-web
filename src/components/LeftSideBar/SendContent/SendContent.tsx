@@ -65,7 +65,7 @@ const SendContent = () => {
       </InputWrapper>
 
       <ButtonWrapper>
-        <Button primary={false} onClickFunc={handleSubmitContent}>
+        <Button variant="secondary" onClickFunc={handleSubmitContent}>
           Đăng ký
         </Button>
       </ButtonWrapper>

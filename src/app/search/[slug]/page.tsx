@@ -6,10 +6,9 @@ import NotFound from "@/components/Main/NotFound";
 import PaginationWrapper from "@/components/Pagination/PaginationWrapper";
 import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 
-interface SearchPageProps {
-  params: { slug: string };
-  searchParams: { page?: string };
-}
+// props
+type Params = Promise<{ slug: string }>;
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 const API_URL = process.env.SERVER_HOST;
 // Lấy dữ liệu từ Serverside
@@ -29,9 +28,10 @@ async function getBlogsByName(title: string, pageNumber: number) {
   }
 }
 
-export async function generateMetadata({ params }: SearchPageProps) {
+export async function generateMetadata(props: { params: Params }) {
   try {
-    const { slug } = await params;
+    const params = await props.params;
+    const slug = params.slug;
     const data = await getBlogsByName(slug, 1);
     const blogs: BlogDetails[] = data.data;
 
@@ -56,12 +56,17 @@ export async function generateMetadata({ params }: SearchPageProps) {
   }
 }
 
-export default async function SearchPage({
-  params,
-  searchParams,
-}: SearchPageProps) {
-  const { slug } = params;
-  const pageNumber = parseInt(searchParams?.page ?? "1");
+export default async function SearchPage(props: {
+  params: Params;
+  searchParams: SearchParams;
+}) {
+  const params = await props.params;
+  const searchParams = await props.searchParams;
+  const slug = params.slug;
+  const query = searchParams.query;
+  const pageRaw = query || "1";
+  const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
+  const pageNumber = parseInt(pageStr);
 
   const title = decodeURIComponent(slug);
 

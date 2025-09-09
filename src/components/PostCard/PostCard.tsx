@@ -141,7 +141,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
         )}
       </ImageContainer>
       <Body2>{post.mainContent}</Body2>
-      <Button primary={false} onClickFunc={() => handleToDetail(post.slug)}>
+      <Button variant="secondary" onClickFunc={() => handleToDetail(post.slug)}>
         Xem thêm
       </Button>
     </CardContainer>

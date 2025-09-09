@@ -2,14 +2,12 @@ import { H0 } from "@/components/Typography/Heading.styles";
 import PageContainer from "@/components/Main/PageContainer";
 import { BlogDetails } from "@/types/blog";
 import PaginationWrapper from "@/components/Pagination/PaginationWrapper";
-import NotFound from "@/components/Main/NotFound";
 import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 
-interface PageProps {
-  searchParams?: { page?: string };
-}
-
 const API_URL = process.env.SERVER_HOST;
+
+// props
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 async function getBlogs(pageNumber: number) {
   const res = await fetch(
@@ -45,9 +43,12 @@ export async function generateMetadata() {
   }
 }
 
-export default async function Home({ searchParams }: PageProps) {
-  const params = searchParams;
-  const pageNumber = parseInt(params?.page ?? "1");
+export default async function Home(props: { searchParams: SearchParams }) {
+  const searchParams = await props.searchParams;
+  const query = searchParams.query;
+  const pageRaw = query || "1";
+  const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
+  const pageNumber = parseInt(pageStr);
 
   let data;
   data = await getBlogs(pageNumber);

@@ -8,10 +8,8 @@ import { BlogDetails } from "@/types/blog";
 const API_URL = process.env.SERVER_HOST;
 
 // Props
-interface CatePageProps {
-  params: { slug: string };
-  searchParams: { page?: string };
-}
+type Params = Promise<{ slug: string }>;
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 // Function
 async function getCateInfo(cateId: string) {
@@ -38,16 +36,17 @@ async function getBlogsByCate(cateId: string, pageNumber: number) {
 }
 
 // Metadata
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
+export async function generateMetadata(props: {
+  params: Params;
+  searchParams: SearchParams;
 }) {
+  const params = await props.params;
+  const slug = params.slug;
+
   try {
-    const slug = params.slug;
     const cate = await getCateInfo(slug);
 
-    if (!cate || !cate.data)
+    if (!cate?.data)
       return {
         title: "my MDD diary | Category",
         description: "Blog not found",
@@ -56,12 +55,11 @@ export async function generateMetadata({
     const data = await getBlogsByCate(slug, 1);
     const blogs: BlogDetails[] = data.data;
 
-    if (!blogs?.length) {
+    if (!blogs?.length)
       return {
         title: `my MDD diary | ${cate.data.tile}`,
         description: "No blogs found",
       };
-    }
 
     const description = blogs[0].mainContent.slice(0, 160) || "";
     const image = `${API_URL}${blogs[0].cover.url}` || "";
@@ -81,19 +79,23 @@ export async function generateMetadata({
 }
 
 // Page
-export default async function CatePage({
-  params,
-  searchParams,
-}: CatePageProps) {
-  const { slug } = params;
-  const pageNumber = parseInt(searchParams?.page ?? "1");
+export default async function CatePage(props: {
+  params: Params;
+  searchParams: SearchParams;
+}) {
+  const params = await props.params;
+  const searchParams = await props.searchParams;
+  const slug = params.slug;
+  const query = searchParams.query;
+  const pageRaw = query ?? "1";
+  const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
+  const pageNumber = parseInt(pageStr);
 
   const cate = await getCateInfo(slug);
-  console.log("Cate: ", cate);
-  if (cate.data === null || cate === "") {
+  if (!cate?.data) {
     return (
       <PageContainer>
-        <NotFound />;
+        <NotFound />
       </PageContainer>
     );
   }
