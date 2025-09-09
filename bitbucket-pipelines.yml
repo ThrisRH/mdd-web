@@ -1,0 +1,36 @@
+image: node:18
+
+pipelines:
+  default:
+    - step:
+        name: "Install & Build"
+        caches:
+          - node
+        script:
+          - yarn install --frozen-lockfile
+          - yarn build
+    - step:
+        name: "Run Tests"
+        script:
+          - yarn test
+
+  branches:
+    master:
+      - step:
+          name: "Deploy to Staging"
+          deployment: staging
+          script:
+            - mkdir -p ~/.ssh
+            - echo "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+            - scp -r . user@your-server:/var/www/your-app
+            - ssh user@your-server "cd /var/www/your-app && yarn install --production && pm2 restart app"
+
+      - step:
+          name: "Deploy to Production"
+          deployment: production
+          trigger: manual
+          script:
+            - mkdir -p ~/.ssh
+            - echo "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+            - scp -r . user@your-server:/var/www/your-app
+            - ssh user@your-server "cd /var/www/your-app && yarn install --production && pm2 restart app"
