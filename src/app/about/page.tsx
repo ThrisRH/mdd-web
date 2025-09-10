@@ -11,8 +11,6 @@ import {
   FooterSection,
 } from "@/components/Main/Styled/AboutContent.styles";
 import { H5 } from "@/components/Typography/Heading.styles";
-import PageContainer from "@/components/Main/PageContainer";
-import NotFound from "@/components/Main/NotFound";
 import { notFound } from "next/navigation";
 
 interface AboutContent {

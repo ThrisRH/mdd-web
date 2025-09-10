@@ -11,9 +11,18 @@ pipelines:
           - yarn install
           - yarn test
     - step:
-        name: Build app
+        name: Building Next.js app
         caches:
           - node
         script:
           - echo "Building App"
           - yarn build
+
+  branches:
+    develop:
+      - step:
+          name: "Deploy to Staging"
+          deployment: staging
+          script:
+            - mkdir -p ~/.ssh
+            - echo "$KNOWN_HOSTS"

@@ -57,8 +57,7 @@ export default async function Home(props: { searchParams: SearchParams }) {
   const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
   const pageNumber = parseInt(pageStr);
 
-  let data;
-  data = await getBlogs(pageNumber);
+  const data = await getBlogs(pageNumber);
 
   if (!data) {
     notFound();
