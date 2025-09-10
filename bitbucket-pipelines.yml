@@ -21,15 +21,22 @@ pipelines:
   branches:
     develop:
       - step:
-          name: "Test & Build"
+          name: "Install & Test"
+          caches:
+          - node
+          script:
+            - echo "Running Install, Test"
+            - yarn install
+            - yarn test
+          
+      - step:
+          name: "Build"
           caches:
           - node
           script:
             - echo "Running Install, Test & Build"
-            - yarn install
-            - yarn test
             - yarn build
-          
+
       - step:
           name: "Deploy to Staging"
           deployment: staging
