@@ -1,45 +1,33 @@
 image: node:20
 
 pipelines:
-  default:
-    - step:
-        name: Test
-        caches:
-          - node
-        script:
-          - echo "Running CI on develop"
-          - yarn install
-          - yarn test
-    - step:
-        name: Building Next.js app
-        caches:
-          - node
-        script:
-          - echo "Building App"
-          - yarn build
-
   branches:
     develop:
       - step:
-          name: "Install & Test"
+          name: Install & Test
           caches:
-          - node
+            - node
           script:
-            - echo "Running Install, Test"
             - yarn install
             - yarn test
-          
       - step:
-          name: "Build"
+          name: Build
           caches:
-          - node
+            - node
           script:
-            - echo "Running Install, Test & Build"
             - yarn build
 
+    master:
       - step:
-          name: "Deploy to Staging"
-          deployment: staging
+          name: Install & Test
+          caches:
+            - node
           script:
-            - mkdir -p ~/.ssh
-            - echo "$KNOWN_HOSTS"
+            - yarn install
+            - yarn test
+      - step:
+          name: Build
+          caches:
+            - node
+          script:
+            - yarn build
