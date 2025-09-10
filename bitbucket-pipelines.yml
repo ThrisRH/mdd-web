@@ -4,12 +4,16 @@ pipelines:
   default:
     - step:
         name: Test
+        caches:
+          - node
         script:
           - echo "Running CI on develop"
           - yarn install
           - yarn test
     - step:
         name: Build app
+        caches:
+          - node
         script:
           - echo "Building App"
           - yarn build
