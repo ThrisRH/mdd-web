@@ -12,6 +12,7 @@ pipelines:
             - yarn test
       - step:
           name: Build
+          deployment: staging
           caches:
             - node
           script:
@@ -27,6 +28,7 @@ pipelines:
             - yarn test
       - step:
           name: Build
+          deployment: production
           caches:
             - node
           script:
