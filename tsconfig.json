@@ -13,7 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-     "types": ["next-auth"],
+     "types": ["next-auth", "jest", "node",  "@testing-library/jest-dom"],
     "baseUrl": ".",
     "plugins": [
       {
@@ -24,6 +24,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/assets/svg/arrowdown.jsx", "src/assets/svg/google.jsx", "src/auth.config.js", "src/app/api/auth/[...nextauth]/route.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/assets/svg/arrowdown.jsx", "src/assets/svg/google.jsx", "src/auth.config.js", "src/app/api/auth/[...nextauth]/route.js", "jest.setup.js"],
   "exclude": ["node_modules"]
 }

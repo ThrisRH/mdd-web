@@ -5,8 +5,6 @@ import PostCard from "@/components/PostCard/PostCard";
 import { BlogDetails } from "@/types/blog";
 import { BlogCardFrame } from "../Main/Styled/PageContainer.styles";
 import { useRouter, useSearchParams } from "next/navigation";
-import PageContainer from "../Main/PageContainer";
-import NotFound from "../Main/NotFound";
 
 interface BaseProps {
   totalPages: number;
