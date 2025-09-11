@@ -23,7 +23,7 @@ const SearchBar = ({ onCancel }: SearchBarProps) => {
 
   const router = useRouter();
 
-  const onKeyDown = (e: any) => {
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleSearch(searchValue);
     }

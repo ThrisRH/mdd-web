@@ -9,7 +9,7 @@ import FavoriteField from "@/components/LeftSideBar/FavoriteField/FavoriteField"
 import { Blog } from "@/components/Main/PageContainer";
 import UserDetails from "@/components/Main/UserDetails";
 
-const page = () => {
+const Page = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
 
   const fetchBlogs = async () => {
@@ -40,4 +40,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

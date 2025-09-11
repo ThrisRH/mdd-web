@@ -15,8 +15,8 @@ const NotFound = ({ title }: NotFoundProps) => {
       <H1>{title ? title : "No results found"}</H1>
       <Body2 className="text-center">
         Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley{" "}
+        industry. Lorem Ipsum has been the industry`&apos;s standard dummy text
+        ever since the 1500s, when an unknown printer took a galley{" "}
       </Body2>
     </div>
   );

@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { Session } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 
@@ -176,7 +176,8 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 
     async session({ session, token }) {
       // Thêm Strapi token vào session client
-      (session as any).strapiToken = token.strapiToken;
+      (session as Session & { strapiToken?: string }).strapiToken =
+        token.strapiToken as string;
 
       return session;
     },

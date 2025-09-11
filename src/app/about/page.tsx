@@ -53,7 +53,6 @@ async function getAboutData() {
 export default async function AboutPage() {
   const data = await getAboutData();
   const about: AboutResponse | null = data.data || null;
-  console.log(about);
 
   if (!about) notFound();
   return (
@@ -63,7 +62,7 @@ export default async function AboutPage() {
           <Image
             className="rounded-full"
             src={`/baseurl${about.authorAvt.url}`}
-            alt="avt "
+            alt="avt"
             fill
           />
         </AvatarWrapper>
