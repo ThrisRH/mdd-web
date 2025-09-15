@@ -61,7 +61,11 @@ export default async function AboutPage() {
         <AvatarWrapper>
           <Image
             className="rounded-full"
-            src={`${about.authorAvt.url}`}
+            src={`${
+              about.authorAvt.url.startsWith("https")
+                ? about.authorAvt.url
+                : `/baseurl${about.authorAvt.url}`
+            }`}
             alt="avt"
             fill
           />

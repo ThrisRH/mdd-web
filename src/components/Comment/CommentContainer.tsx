@@ -97,7 +97,11 @@ const CommentCard = ({ reader, content }: CommentProps) => {
     <CommentCardWrapper>
       <CommentImageWrapper>
         <Image
-          src={`${reader.avatar.url}`}
+          src={`${
+            reader.avatar.url.startsWith("https")
+              ? reader.avatar.url
+              : `/baseurl${reader.avatar.url}`
+          }`}
           alt="reader image"
           fill
           className="object-cover rounded-full"

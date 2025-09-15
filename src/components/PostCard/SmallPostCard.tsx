@@ -26,7 +26,9 @@ const SmallPostCard = ({ title, publishedAt, cover, slug }: BlogDetails) => {
       <SmallPostBody>
         <Image
           style={{ objectFit: "cover" }}
-          src={`${cover.url}`}
+          src={`${
+            cover.url.startsWith("https") ? cover.url : `/baseurl${cover.url}`
+          }`}
           alt={"blogImage"}
           fill
         />
