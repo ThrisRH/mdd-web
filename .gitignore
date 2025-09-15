@@ -10,6 +10,9 @@ dist/
 # Next.js build output
 .next
 
+# Environment variables
+.env
+
 # Compiled Java class files
 *.class
 
