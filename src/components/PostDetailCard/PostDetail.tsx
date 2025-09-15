@@ -59,7 +59,7 @@ function PostDetailComponent({
         <ImageContainer>
           <Image
             className="w-full h-[400px] rounded-xl"
-            src={`/baseurl${cover.url}`}
+            src={`${cover.url}`}
             alt="image"
             style={{ objectFit: "cover" }}
             fill
@@ -72,7 +72,7 @@ function PostDetailComponent({
               <ImageContainer key={index}>
                 <Image
                   className="w-full h-[400px] rounded-xl"
-                  src={`/baseurl${item.url}`}
+                  src={`${item.url}`}
                   alt="image"
                   style={{ objectFit: "cover" }}
                   fill

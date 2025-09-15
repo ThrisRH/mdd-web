@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
         destination: `${process.env.SERVER_HOST}/:path*`,
       },
 
+      // Base API media
+      {
+        source: "/baseurl/uploads/:path*",
+        destination: `${process.env.SERVER_MEDIA_HOST}/:path*`,
+      },
+
       // API url
       {
         source: "/mmdblogsapi/:path*",
@@ -18,6 +24,12 @@ const nextConfig: NextConfig = {
   },
   images: {
     domains: ["localhost"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lovely-candy-ca0ee5cc4b.media.strapiapp.com",
+      },
+    ],
   },
   compiler: {
     styledComponents: true,

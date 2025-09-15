@@ -133,7 +133,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
         {blogAvatar?.cover && (
           <Image
             className="w-full h-full rounded-xl"
-            src={`/baseurl${blogAvatar.cover.url}`}
+            src={`${blogAvatar.cover.url}`}
             alt="image"
             style={{ objectFit: "cover" }}
             fill
