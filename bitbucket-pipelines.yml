@@ -16,6 +16,7 @@ pipelines:
           caches:
             - node
           script:
+            - echo "SERVER_HOST=$SERVER_HOST"
             - yarn build
 
     master:
