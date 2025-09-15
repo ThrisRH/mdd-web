@@ -17,7 +17,6 @@ pipelines:
           deployment: staging
           caches:
             - node
-            - yarn
           script:
             - echo "SERVER_HOST=$SERVER_HOST"
             - yarn build
@@ -35,7 +34,6 @@ pipelines:
           deployment: production
           caches:
             - node
-            - yarn
           script:
             - echo "SERVER_HOST=$SERVER_HOST"
             - yarn build
