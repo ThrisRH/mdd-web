@@ -7,14 +7,18 @@ pipelines:
           name: Install & Test
           caches:
             - node
+            - yarn
           script:
-            - yarn install
-            - yarn test
+            - node -v
+            - yarn -v
+            - yarn install --frozen-lockfile
+            - CI=true yarn test
       - step:
-          name: Build
+          name: Build (staging)
           deployment: staging
           caches:
             - node
+            - yarn
           script:
             - echo "SERVER_HOST=$SERVER_HOST"
             - yarn build
@@ -24,13 +28,16 @@ pipelines:
           name: Install & Test
           caches:
             - node
+            - yarn
           script:
-            - yarn install
-            - yarn test
+            - yarn install --frozen-lockfile
+            - CI=true yarn test
       - step:
-          name: Build
+          name: Build (production)
           deployment: production
           caches:
             - node
+            - yarn
           script:
+            - echo "SERVER_HOST=$SERVER_HOST"
             - yarn build
