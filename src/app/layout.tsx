@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Footer from "@/components/Layout/Footer/Footer";
 import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
 import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,16 +28,17 @@ export const metadata: Metadata = {
   description: "Trang blog của MDD",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
   return (
     <html lang="en" className={`${lora.variable} ${inter.variable}`}>
       <body className={`antialiased`}>
         <StyledComponentsRegistry>
-          <SessionProvider>
+          <SessionProvider session={session}>
             <InfoProvider>
               <Header />
               <Banner />
