@@ -186,8 +186,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     },
 
     async redirect({ url, baseUrl }) {
-      if (url.startsWith("myapp://")) return url;
-      return baseUrl;
+      return `myapp://auth/callback?token=${encodeURIComponent(url)}`;
     },
   },
 
