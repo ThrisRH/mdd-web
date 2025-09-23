@@ -13,7 +13,7 @@ type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 async function getBlogs(pageNumber: number) {
   try {
     const res = await fetch(
-      `${process.env.SERVER_HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`,
+      `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`,
       { cache: "no-store" }
     );
     if (!res.ok) {

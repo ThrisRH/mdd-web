@@ -5,7 +5,7 @@ import PaginationWrapper from "@/components/Pagination/PaginationWrapper";
 import { H0 } from "@/components/Typography/Heading.styles";
 import { BlogDetails } from "@/types/blog";
 
-const API_URL = process.env.SERVER_HOST;
+const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
 // Props
 type Params = Promise<{ slug: string }>;

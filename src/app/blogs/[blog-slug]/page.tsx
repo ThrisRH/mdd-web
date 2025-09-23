@@ -13,7 +13,7 @@ import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 import { BlogGrid } from "@/components/Section/SectionWrapper.styles";
 import CommentWrapper from "@/components/Comment/CommentContainer";
 
-const API_URL = process.env.SERVER_HOST;
+const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
 async function getBlog(slug: string): Promise<BlogDetails | null> {
   try {

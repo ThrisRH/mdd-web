@@ -13,7 +13,7 @@ import { FAQWrapper } from "@/components/Main/Styled/FAQContent.styles";
 import FAQBody from "./FAQBody";
 import { notFound } from "next/navigation";
 
-const API_URL = process.env.SERVER_HOST;
+const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
 export interface FAQProps {
   questionAnswer: QuestAnswer[];
