@@ -1,6 +1,5 @@
-"use client"
+"use client";
 import styled from "styled-components";
-
 
 export const FAQWrapper = styled.div`
   display: flex;
@@ -25,7 +24,7 @@ export const FaqCard = styled.div`
   width: 100%;
   height: fit-content;
   border-radius: 40px;
-  padding: 2.5rem 2.5rem;
+  padding: 2.5rem;
   align-items: center;
   gap: 1.5rem;
   background-color: rgba(241, 219, 196, 0.3);
@@ -44,7 +43,6 @@ export const QuestionRow = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-
 
 export const Divider = styled.div`
   width: 100%;

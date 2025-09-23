@@ -181,6 +181,11 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 
       return session;
     },
+
+    async redirect({ url, baseUrl }) {
+      if (url.startsWith("myapp://")) return url;
+      return baseUrl;
+    },
   },
 
   session: { strategy: "jwt" },
