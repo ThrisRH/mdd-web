@@ -7,7 +7,6 @@ import { InfoProvider } from "@/context/InfoContext";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "@/components/Layout/Footer/Footer";
 import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
-import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import SessionWrapper from "@/components/Main/SessionWrapper";
 
