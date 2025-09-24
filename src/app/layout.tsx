@@ -9,6 +9,7 @@ import Footer from "@/components/Layout/Footer/Footer";
 import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
+import SessionWrapper from "@/components/Main/SessionWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,14 +39,14 @@ export default async function RootLayout({
     <html lang="en" className={`${lora.variable} ${inter.variable}`}>
       <body className={`antialiased`}>
         <StyledComponentsRegistry>
-          <SessionProvider session={session}>
+          <SessionWrapper session={session}>
             <InfoProvider>
               <Header />
               <Banner />
               {children}
               <Footer />
             </InfoProvider>
-          </SessionProvider>
+          </SessionWrapper>
         </StyledComponentsRegistry>
       </body>
     </html>
