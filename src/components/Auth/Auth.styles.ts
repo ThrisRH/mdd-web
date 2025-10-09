@@ -6,6 +6,7 @@ export const EmptyWrapper = styled.div`
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 404px);
+  padding: 40px 10px;
 `;
 
 export const FormContainer = styled.div`

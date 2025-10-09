@@ -8,6 +8,8 @@ export const PaginationContainer = styled.div`
 
 export const PageNumber = styled.button<{ $active?: boolean }>`
   border: none;
+  width: 32px;
+  height: 32px;
   background: ${({ $active }) => ($active ? "#F1DBC4" : "transparent")};
   color: ${({ $active }) => ($active ? "black" : "white")};
   padding: 4px 8px;
@@ -15,6 +17,6 @@ export const PageNumber = styled.button<{ $active?: boolean }>`
   cursor: pointer;
 `;
 
-export const ArrowButton = styled.button<{$rotate: number}>`
-  transform: rotate(${props => props.$rotate}deg)
-`
+export const ArrowButton = styled.button<{ $rotate: number }>`
+  transform: rotate(${(props) => props.$rotate}deg);
+`;

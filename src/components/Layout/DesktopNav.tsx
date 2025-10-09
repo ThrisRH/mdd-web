@@ -1,12 +1,16 @@
 "use client";
 import React from "react";
-import { NavList } from "./Header/Header.styles";
-import NavItems from "./Header/NavItems";
+import { NavList } from "./UserLayout/Header/Header.styles";
+import NavItems from "./UserLayout/Header/NavItems";
+import { BlogDetails } from "@/types/blog";
 
-interface CateProps {
+export interface CateProps {
   id: number;
   tile: string;
   documentId: string;
+  slug: string;
+  blogs: BlogDetails[];
+  publishedAt: string;
 }
 
 interface Props {

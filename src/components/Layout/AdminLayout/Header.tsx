@@ -1,0 +1,39 @@
+import MoreIC from "@/assets/svg/more";
+import BellIC from "@/assets/svg/noticebell";
+import WriteNewIC from "@/assets/svg/writingblog";
+import RobotIC from "@/assets/svg/airobot"; // Chat with AI function
+import LogoImg from "@/assets/image/logo.png";
+
+import React from "react";
+import {
+  ActionArea,
+  CreateBlogButton,
+  HeaderWrapper,
+  LogoArea,
+} from "./Layout.styles";
+import { H5 } from "@/components/Typography/Heading.styles";
+import Image from "next/image";
+import { Body3 } from "@/components/Typography/Body.styles";
+
+const Header = () => {
+  return (
+    <HeaderWrapper>
+      <LogoArea>
+        <MoreIC color={"#1C1C1C"} />{" "}
+        <Image src={LogoImg} width={28} height={28} alt="MddLogo" />
+        <H5 $size={20}>MDD Blogs</H5>
+      </LogoArea>
+
+      <ActionArea>
+        <RobotIC />
+        <BellIC />
+        <CreateBlogButton>
+          <WriteNewIC />
+          <Body3 $fontWeight="600">Tạo</Body3>
+        </CreateBlogButton>
+      </ActionArea>
+    </HeaderWrapper>
+  );
+};
+
+export default Header;

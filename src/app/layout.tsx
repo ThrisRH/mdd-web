@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Banner from "@/components/Main/banner";
 import { Lora, Inter } from "next/font/google";
-import Header from "@/components/Layout/Header/Header";
 import { InfoProvider } from "@/context/InfoContext";
 import "react-toastify/dist/ReactToastify.css";
-import Footer from "@/components/Layout/Footer/Footer";
 import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
 import { auth } from "@/auth";
 import SessionWrapper from "@/components/Main/SessionWrapper";
@@ -39,12 +36,7 @@ export default async function RootLayout({
       <body className={`antialiased`}>
         <StyledComponentsRegistry>
           <SessionWrapper session={session}>
-            <InfoProvider>
-              <Header />
-              <Banner />
-              {children}
-              <Footer />
-            </InfoProvider>
+            <InfoProvider>{children}</InfoProvider>
           </SessionWrapper>
         </StyledComponentsRegistry>
       </body>

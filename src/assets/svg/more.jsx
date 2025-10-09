@@ -14,7 +14,7 @@ const SVGComponent = (props) => (
     <path
       fill="none"
       id="XMLID_837_"
-      stroke="#fff"
+      stroke={props.color || "#fff"}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeMiterlimit={10}
@@ -28,7 +28,7 @@ const SVGComponent = (props) => (
     <path
       fill="none"
       id="XMLID_836_"
-      stroke="#fff"
+      stroke={props.color || "#fff"}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeMiterlimit={10}
@@ -42,7 +42,7 @@ const SVGComponent = (props) => (
     <path
       fill="none"
       id="XMLID_835_"
-      stroke="#fff"
+      stroke={props.color || "#fff"}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeMiterlimit={10}

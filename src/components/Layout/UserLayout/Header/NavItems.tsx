@@ -2,8 +2,8 @@
 import { Dropdown, DropdownItem, NavItem } from "./Header.styles";
 import SearchIC from "@/assets/svg/search";
 import ArrowIC from "@/assets/svg/arrowdown";
-import { Body2 } from "../../Typography/Body.styles";
-import { H5 } from "../../Typography/Heading.styles";
+import { Body2 } from "../../../Typography/Body.styles";
+import { H5 } from "../../../Typography/Heading.styles";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";

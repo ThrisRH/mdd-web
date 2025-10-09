@@ -1,4 +1,4 @@
-import Home from "@/app/page";
+import Home from "@/app/(user)/page";
 import { act, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 

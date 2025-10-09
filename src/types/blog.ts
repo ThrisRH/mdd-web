@@ -1,29 +1,32 @@
+import { CommentProps } from "./comment";
+
 export interface BlogDetails {
-  documentId: string,
-  slug: string,
-  title: string,
-  publishedAt: string,
-  mainContent: string,
+  documentId: string;
+  slug: string;
+  title: string;
+  publishedAt: string;
+  mainContent: string;
   cover: Cover;
   subContent: SubContent[];
   optionImage: OptionImage[];
-  cate?: Cate
+  cate?: Cate;
+  comments?: CommentProps[];
 }
 
-interface Cover{
-  documentId: string,
-  url:string
+interface Cover {
+  documentId: string;
+  url: string;
 }
 
 interface SubContent {
   id: number;
-  content: string,
-  image: Image[]
+  content: string;
+  image: Image[];
 }
 
 interface Image {
-    documentId: string,
-    url: string,
+  documentId: string;
+  url: string;
 }
 
 interface OptionImage {
@@ -31,6 +34,6 @@ interface OptionImage {
 }
 
 interface Cate {
-  documentId: string,
-  tile: string,
+  documentId: string;
+  tile: string;
 }

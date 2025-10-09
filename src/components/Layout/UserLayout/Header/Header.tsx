@@ -5,7 +5,7 @@ import { HeaderWrapper } from "./Header.styles";
 import SearchBar from "../Search/SearchBar";
 import MobileMenu from "./MobileHeader";
 import NavOverlay from "./NavOverlay";
-import DesktopNav from "../DesktopNav";
+import DesktopNav from "../../DesktopNav";
 
 interface CateProps {
   id: number;

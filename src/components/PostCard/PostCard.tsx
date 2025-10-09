@@ -31,7 +31,7 @@ interface Cover {
   url: string;
 }
 
-interface PostCardProps {
+export interface PostCardProps {
   index?: number;
   post: Post;
 }
