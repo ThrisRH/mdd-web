@@ -112,3 +112,26 @@ export const DropdownInputContainer = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.6);
   }
 `;
+
+// Selection box input
+export const SelectionBoxContainer = styled.div`
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+`;
+
+export const SelectionContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: space-between;
+  flex-direction: column;
+  box-sizing: border-box;
+  gap: 12px;
+`;

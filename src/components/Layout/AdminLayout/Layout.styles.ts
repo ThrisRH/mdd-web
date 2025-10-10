@@ -37,6 +37,15 @@ export const CreateBlogButton = styled.button`
   border-radius: 24px;
   padding: 2px 16px;
   height: auto;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(35, 50, 56, 0.1);
+  }
+
+  &:active {
+    background-color: rgba(35, 50, 56, 0.3);
+  }
 `;
 
 // Main layout

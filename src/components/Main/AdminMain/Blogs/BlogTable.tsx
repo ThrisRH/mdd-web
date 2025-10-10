@@ -1,5 +1,6 @@
 "use client";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation"; // ✅ dùng Next hooks
 import {
   TableWrapper,
   ContentField,
@@ -7,12 +8,16 @@ import {
   ImageContainer,
   MainContent,
   RowContainer,
-  SelectIconContainer,
   TableBodyCell,
   TableFlexWrapper,
   TableHeaderCell,
 } from "../styles/Page.styles";
-import { Body5, Body3, Body4 } from "@/components/Typography/Body.styles";
+import {
+  Body5,
+  Body3,
+  Body4,
+  Body2,
+} from "@/components/Typography/Body.styles";
 import { BlogDetails } from "@/types/blog";
 import NoneSelectionIC from "@/assets/svg/Interact/NoneSelectionSquare";
 import SelectedIC from "@/assets/svg/Interact/SelectedSquare";
@@ -30,6 +35,12 @@ type TableItem = {
   icon?: ReactNode;
   selectedIcon?: ReactNode;
 };
+
+interface BlogTableProps {
+  posts: BlogDetails[];
+  currentPage: number;
+  setPageNumber: (page: number) => void;
+}
 
 const TableList: TableItem[] = [
   { icon: <NoneSelectionIC />, selectedIcon: <SelectedIC /> },
@@ -50,7 +61,24 @@ const formatDate = (postDate: string) => {
   return formatted;
 };
 
-const BlogTable = ({ posts }: { posts: BlogDetails[] }) => {
+const BlogTable = ({ posts, currentPage, setPageNumber }: BlogTableProps) => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  useEffect(() => {
+    const pageParam = searchParams.get("page");
+    const pageNum = pageParam ? parseInt(pageParam, 10) : 1;
+
+    if (!isNaN(pageNum) && pageNum !== currentPage) {
+      setPageNumber(pageNum);
+    }
+  }, [searchParams, currentPage, setPageNumber]);
+
+  const handleChangePage = (page: number) => {
+    router.push(`?page=${page}`);
+    setPageNumber(page);
+  };
+
   return (
     <TableWrapper>
       <thead>
@@ -126,17 +154,27 @@ const BlogTable = ({ posts }: { posts: BlogDetails[] }) => {
           <TableBodyCell colSpan={6}>
             <PaginationWrapper>
               <PaginationControls>
-                <PaginationButton disabled={true} onClick={() => {}}>
+                <PaginationButton
+                  disabled={currentPage === 1}
+                  onClick={() => handleChangePage(currentPage - 1)}
+                >
                   Trước
                 </PaginationButton>
 
                 {Array.from({ length: 2 }, (_, i) => (
-                  <PageNumber key={i} $active={true} onClick={() => {}}>
-                    {i + 1}
+                  <PageNumber
+                    key={i}
+                    $active={currentPage === i + 1}
+                    onClick={() => handleChangePage(i + 1)}
+                  >
+                    <Body2 $color="#000">{i + 1}</Body2>
                   </PageNumber>
                 ))}
 
-                <PaginationButton disabled={false} onClick={() => {}}>
+                <PaginationButton
+                  disabled={currentPage === 2}
+                  onClick={() => handleChangePage(currentPage + 1)}
+                >
                   Sau
                 </PaginationButton>
               </PaginationControls>

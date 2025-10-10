@@ -26,13 +26,20 @@ import {
   ImagePreview,
   LabelContainer,
   LabelImageContainer,
+  SelectionContainer,
 } from "../styles/Input.styles";
 import Button from "@/components/Button/button";
 import { toast } from "react-toastify";
+import CategorySelectionBox from "../Components/CategorySelectionBox";
 
-const CreateBlog = () => {
+const CreateBlog = ({
+  setIsCreatePopUpOpen,
+}: {
+  setIsCreatePopUpOpen: (status: boolean) => void;
+}) => {
   const [titleLetter, setTitleLetter] = useState("");
   const [mainContentLetter, setMainContentLetter] = useState("");
+  const [isCateSelectionOpen, setIsCateSelectionOpen] = useState(false);
 
   // Slug
   const [slug, setSlug] = useState("");
@@ -82,7 +89,7 @@ const CreateBlog = () => {
 
       let imageId: number | null = null;
 
-      // --- Step 1: Upload ảnh nếu có ---
+      // upload picture
       if (file) {
         const formData = new FormData();
         formData.append("files", file);
@@ -106,36 +113,34 @@ const CreateBlog = () => {
         }
       }
 
-      // --- Step 2: Gửi request tạo bài viết ---
-      const blogBody = {
-        data: {
-          title: titleLetter,
-          mainContent: mainContentLetter,
-          slug: slug,
-          cover: imageId, // field media của bạn trong Strapi (ví dụ "cover")
-        },
-      };
+      if (imageId) {
+        const blogBody = {
+          data: {
+            title: titleLetter,
+            mainContent: mainContentLetter,
+            slug: slug,
+            cover: imageId,
+          },
+        };
 
-      const postRes = await fetch("http://localhost:1337/api/blogs", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Nếu cần token (private API) thì thêm dòng này:
-          // Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`,
-        },
-        body: JSON.stringify(blogBody),
-      });
+        const postRes = await fetch("http://localhost:1337/api/blogs", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            // Nếu cần token (private API) thì thêm dòng này:
+            // Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`,
+          },
+          body: JSON.stringify(blogBody),
+        });
 
-      const postJson = await postRes.json();
+        const postJson = await postRes.json();
 
-      if (!postRes.ok) {
-        console.error("Post failed:", postJson);
-        toast.error("Đăng bài thất bại: " + postJson.error?.message);
-        return;
+        if (!postRes.ok) {
+          console.error("Post failed:", postJson);
+          toast.error("Đăng bài thất bại: " + postJson.error?.message);
+          return;
+        }
       }
-
-      toast.success("🎉 Bài viết đã được xuất bản!");
-      console.log("Created blog:", postJson);
     } catch (err: any) {
       toast.error("Có lỗi xảy ra khi đăng bài: " + err.message);
       console.error(err);
@@ -150,7 +155,7 @@ const CreateBlog = () => {
       <CreateFormContainer>
         <HeaderFormContainer>
           <H5 $size={24}>Tạo bài viết mới</H5>
-          <CloseIconContainer>
+          <CloseIconContainer onClick={() => setIsCreatePopUpOpen(false)}>
             <CloseIC fill={"#000"} />
           </CloseIconContainer>
         </HeaderFormContainer>
@@ -286,19 +291,28 @@ const CreateBlog = () => {
           </ImageInputContainer>
 
           {/* Input category */}
-          <LabelContainer>
-            <Body1 $fontSize="18px" $weight={600}>
-              Chọn danh mục cho bài viết
-            </Body1>
-            <Body3 $color="#979797" $size={14}>
-              Thêm video của bạn vào danh sách phát để sắp xếp nội dung cho
-              người xem.
-            </Body3>
-          </LabelContainer>
-          <DropdownInputContainer>
-            <Body3 $color="#979797">Chọn danh mục</Body3>
-            <DropdownIC fill={"#000"} />
-          </DropdownInputContainer>
+          <SelectionContainer>
+            <LabelContainer>
+              <Body1 $fontSize="18px" $weight={600}>
+                Chọn danh mục cho bài viết
+              </Body1>
+              <Body3 $color="#979797" $size={14}>
+                Thêm video của bạn vào danh sách phát để sắp xếp nội dung cho
+                người xem.
+              </Body3>
+            </LabelContainer>
+            <DropdownInputContainer
+              onClick={() => setIsCateSelectionOpen(true)}
+            >
+              <Body3 $color="#979797">Chọn danh mục</Body3>
+              <DropdownIC fill={"#000"} />
+            </DropdownInputContainer>
+            {isCateSelectionOpen && (
+              <CategorySelectionBox
+                setIsCateSelectionOpen={setIsCateSelectionOpen}
+              />
+            )}
+          </SelectionContainer>
         </DetailContainer>
         <FormFooter>
           <ButtonContainer>
