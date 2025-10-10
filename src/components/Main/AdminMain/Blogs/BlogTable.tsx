@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import {
   TableWrapper,
   ContentField,
-  IconContaner,
+  IconContainer,
   ImageContainer,
   MainContent,
   RowContainer,
@@ -62,7 +62,7 @@ const BlogTable = ({ posts }: { posts: BlogDetails[] }) => {
                   {item.title}
                 </Body3>
               ) : (
-                <IconContaner>{item.icon}</IconContaner>
+                <IconContainer>{item.icon}</IconContainer>
               )}
             </TableHeaderCell>
           ))}
@@ -73,9 +73,9 @@ const BlogTable = ({ posts }: { posts: BlogDetails[] }) => {
         {posts.map((item) => (
           <RowContainer key={item.documentId}>
             <TableBodyCell>
-              <IconContaner>
+              <IconContainer>
                 <NoneSelectionIC />
-              </IconContaner>
+              </IconContainer>
             </TableBodyCell>
 
             <TableBodyCell>

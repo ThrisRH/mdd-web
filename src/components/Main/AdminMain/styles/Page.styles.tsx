@@ -22,7 +22,7 @@ export const TableHeaderCell = styled.th`
   }
 `;
 
-export const IconContaner = styled.div`
+export const IconContainer = styled.div`
   cursor: pointer;
 `;
 
@@ -86,4 +86,61 @@ export const MainContent = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
+`;
+
+//  Create blogs
+export const CreateBlogWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 64px 24px;
+`;
+
+export const CreateFormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  background-color: white;
+  width: 900px;
+  height: 100%;
+`;
+
+export const HeaderFormContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+`;
+
+export const CloseIconContainer = styled.div`
+  cursor: pointer;
+`;
+
+export const DetailContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #c5c5c5 #f1f1f1;
+`;
+
+export const FormFooter = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  padding: 12px 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+`;
+export const ButtonContainer = styled.div`
+  width: 120px;
 `;

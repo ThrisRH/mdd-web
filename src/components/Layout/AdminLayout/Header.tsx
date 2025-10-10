@@ -14,25 +14,29 @@ import {
 import { H5 } from "@/components/Typography/Heading.styles";
 import Image from "next/image";
 import { Body3 } from "@/components/Typography/Body.styles";
+import CreateBlog from "@/components/Main/AdminMain/Blogs/CreateBlog";
 
 const Header = () => {
   return (
-    <HeaderWrapper>
-      <LogoArea>
-        <MoreIC color={"#1C1C1C"} />{" "}
-        <Image src={LogoImg} width={28} height={28} alt="MddLogo" />
-        <H5 $size={20}>MDD Blogs</H5>
-      </LogoArea>
+    <>
+      <CreateBlog />
+      <HeaderWrapper>
+        <LogoArea>
+          <MoreIC color={"#1C1C1C"} />{" "}
+          <Image src={LogoImg} width={28} height={28} alt="MddLogo" />
+          <H5 $size={20}>MDD Blogs</H5>
+        </LogoArea>
 
-      <ActionArea>
-        <RobotIC />
-        <BellIC />
-        <CreateBlogButton>
-          <WriteNewIC />
-          <Body3 $fontWeight="600">Tạo</Body3>
-        </CreateBlogButton>
-      </ActionArea>
-    </HeaderWrapper>
+        <ActionArea>
+          <RobotIC />
+          <BellIC />
+          <CreateBlogButton>
+            <WriteNewIC />
+            <Body3 $fontWeight="600">Tạo</Body3>
+          </CreateBlogButton>
+        </ActionArea>
+      </HeaderWrapper>
+    </>
   );
 };
 

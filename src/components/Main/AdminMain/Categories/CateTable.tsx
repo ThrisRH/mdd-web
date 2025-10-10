@@ -2,21 +2,14 @@
 import React, { ReactNode } from "react";
 import {
   TableWrapper,
-  ContentField,
-  IconContaner,
-  ImageContainer,
-  MainContent,
-  RowContainer,
-  SelectIconContainer,
   TableBodyCell,
-  TableFlexWrapper,
   TableHeaderCell,
+  RowContainer,
+  IconContainer,
 } from "../styles/Page.styles";
-import { Body5, Body3, Body4 } from "@/components/Typography/Body.styles";
-import { BlogDetails } from "@/types/blog";
+import { Body5, Body3 } from "@/components/Typography/Body.styles";
 import NoneSelectionIC from "@/assets/svg/Interact/NoneSelectionSquare";
 import SelectedIC from "@/assets/svg/Interact/SelectedSquare";
-import Image from "next/image";
 
 import {
   PaginationButton,
@@ -62,7 +55,7 @@ const CateTable = ({ categories }: { categories: CateProps[] }) => {
                   {item.title}
                 </Body3>
               ) : (
-                <IconContaner>{item.icon}</IconContaner>
+                <IconContainer>{item.icon}</IconContainer>
               )}
             </TableHeaderCell>
           ))}
@@ -73,9 +66,9 @@ const CateTable = ({ categories }: { categories: CateProps[] }) => {
         {categories.map((item) => (
           <RowContainer key={item.documentId}>
             <TableBodyCell>
-              <IconContaner>
+              <IconContainer>
                 <NoneSelectionIC />
-              </IconContaner>
+              </IconContainer>
             </TableBodyCell>
 
             <TableBodyCell>

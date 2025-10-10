@@ -5,13 +5,7 @@ import { HeaderWrapper } from "./Header.styles";
 import SearchBar from "../Search/SearchBar";
 import MobileMenu from "./MobileHeader";
 import NavOverlay from "./NavOverlay";
-import DesktopNav from "../../DesktopNav";
-
-interface CateProps {
-  id: number;
-  tile: string;
-  documentId: string;
-}
+import DesktopNav, { CateProps } from "../../DesktopNav";
 
 const Header = () => {
   const [open, setOpen] = useState(false);

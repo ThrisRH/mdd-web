@@ -4,13 +4,13 @@ const SVGComponent = (props) => (
     width="16px"
     height="16px"
     viewBox="0 0 0.3 0.3"
-    fill="#fff"
+    fill={props.fill || "#fff"}
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <path
       d="m0.03 0.03 0.24 0.24m-0.24 0 0.24 -0.24"
-      stroke="#fff"
+      stroke={props.fill || "#fff"}
       strokeWidth={0.05}
     />
   </svg>

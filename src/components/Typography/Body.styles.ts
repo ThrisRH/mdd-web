@@ -1,8 +1,12 @@
 "use client";
 import styled from "styled-components";
 
-export const Body1 = styled.span<{ $weight?: number; $color?: string }>`
-  font-size: 16px;
+export const Body1 = styled.span<{
+  $fontSize?: string;
+  $weight?: number;
+  $color?: string;
+}>`
+  font-size: ${(props) => (props.$fontSize ? props.$fontSize : "16px")};
   line-height: auto;
   font-weight: ${(props) => props.$weight || 500};
   color: ${(props) => (props.$color ? props.$color : "#000")};

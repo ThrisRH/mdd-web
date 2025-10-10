@@ -44,7 +44,7 @@ export const BodyWrapper = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
-  min-height: calc(100vh - 48px);
+  min-height: calc(100vh - 64px);
 `;
 
 // Side bar
@@ -52,7 +52,7 @@ export const SidebarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 300px;
-  height: calc(100vh - 48px);
+  height: calc(100vh - 64px);
   padding: 24px 16px;
   background-color: #fff;
   gap: 24px;

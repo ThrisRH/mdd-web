@@ -4,12 +4,7 @@ import CancelIC from "@/assets/svg/cancel";
 import InfoCard from "../../../LeftSideBar/Info/InfoCard";
 import { ActionArea, NavList, NavOverlay } from "./Header.styles";
 import NavItems from "./NavItems";
-
-interface CateProps {
-  id: number;
-  tile: string;
-  documentId: string;
-}
+import { CateProps } from "../../DesktopNav";
 
 interface Props {
   cate: CateProps[];

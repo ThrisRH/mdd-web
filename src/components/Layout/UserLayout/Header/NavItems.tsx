@@ -8,12 +8,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
-
-interface CateProps {
-  id: number;
-  tile: string;
-  documentId: string;
-}
+import { CateProps } from "../../DesktopNav";
 
 interface Props {
   pathname: string;
