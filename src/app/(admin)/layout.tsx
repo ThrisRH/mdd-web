@@ -1,6 +1,9 @@
 "use client";
 import Header from "@/components/Layout/AdminLayout/Header";
-import { BodyWrapper } from "@/components/Layout/AdminLayout/Layout.styles";
+import {
+  AdminLayoutWrapper,
+  BodyWrapper,
+} from "@/components/Layout/AdminLayout/Layout.styles";
 import Sidebar from "@/components/Layout/AdminLayout/Sidebar";
 import React from "react";
 
@@ -10,12 +13,12 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <>
+    <AdminLayoutWrapper>
       <Header />
       <BodyWrapper>
         <Sidebar />
         {children}
       </BodyWrapper>
-    </>
+    </AdminLayoutWrapper>
   );
 }

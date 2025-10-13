@@ -2,11 +2,11 @@ import * as React from "react";
 const SVGComponent = (props) => (
   <svg
     viewBox="0 0 16 16"
-    fill="#233238"
+    fill="#34495274"
     xmlns="http://www.w3.org/2000/svg"
     id="Stop-Large-Line--Streamline-Remix"
-    height={16}
-    width={16}
+    height={24}
+    width={24}
   >
     <desc>
       {"\n    Stop Large Line Streamline Icon: https://streamlinehq.com\n  "}

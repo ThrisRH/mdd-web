@@ -84,3 +84,38 @@ export const Body5 = styled.p<{
     color: ${(props) => (props.$color ? props.$color : "#000")};
   }
 `;
+
+export const CustomBody = styled.p<{
+  $fontSize?: string | number;
+  $weight?: number | string;
+  $color?: string;
+  $hoverColor?: string;
+  $align?: string;
+  $size?: number;
+  $whiteSpace?: "normal" | "nowrap";
+}>`
+  font-size: ${(props) =>
+    props.$fontSize
+      ? typeof props.$fontSize === "number"
+        ? `${props.$fontSize}px`
+        : props.$fontSize
+      : props.$size
+      ? `${props.$size}px`
+      : "16px"};
+  line-height: 24px;
+  font-weight: ${(props) => props.$weight || 400};
+  color: ${(props) => props.$color || "#000"};
+  text-align: ${(props) => props.$align || "start"};
+  text-overflow: ellipsis;
+  white-space: ${(props) => (props.$whiteSpace ? props.$whiteSpace : "nowrap")};
+  overflow: hidden;
+  min-width: 0;
+
+  &:hover {
+    color: ${(props) => props.$hoverColor || props.$color || "#000"};
+  }
+
+  @media (min-width: 40rem) {
+    color: ${(props) => (props.$color ? props.$color : "#000")};
+  }
+`;

@@ -1,13 +1,13 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Loading from "@/app/(user)/loading";
 import {
   MainContentContainer,
   TitleContainer,
 } from "@/components/Layout/AdminLayout/Layout.styles";
 import BlogTable from "@/components/Main/AdminMain/Blogs/BlogTable";
 import { H1 } from "@/components/Typography/Heading.styles";
+import Loading from "@/app/(user)/loading";
 
 export default function MyBlogsPage() {
   const [data, setData] = useState<any>();
@@ -22,7 +22,7 @@ export default function MyBlogsPage() {
       setLoading(true);
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=5&populate=*&sort=createdAt:desc`,
+          `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=10&populate=*&sort=createdAt:desc`,
           { cache: "no-store" }
         );
         const result = await res.json();
@@ -44,15 +44,10 @@ export default function MyBlogsPage() {
       </TitleContainer>
 
       {loading ? (
-        <div style={{ opacity: 0.6 }}>
-          <BlogTable
-            posts={data?.data || []}
-            currentPage={pageNumber}
-            setPageNumber={(page) => router.push(`?page=${page}`)}
-          />
-        </div>
+        <Loading />
       ) : (
         <BlogTable
+          totalPages={data.meta.pagination.pageCount}
           posts={data?.data || []}
           currentPage={pageNumber}
           setPageNumber={(page) => router.push(`?page=${page}`)}

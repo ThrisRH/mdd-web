@@ -5,8 +5,8 @@ const SVGComponent = (props) => (
     fill="#233238"
     xmlns="http://www.w3.org/2000/svg"
     id="Checkbox-Fill--Streamline-Remix-Fill"
-    height={16}
-    width={16}
+    height={24}
+    width={24}
   >
     <desc>
       {"\n    Checkbox Fill Streamline Icon: https://streamlinehq.com\n  "}

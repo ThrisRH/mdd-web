@@ -1,6 +1,6 @@
 "use client";
 import React, { memo } from "react";
-import { Body3 } from "../Typography/Body.styles";
+import { Body3, CustomBody } from "../Typography/Body.styles";
 import Vector from "@/assets/svg/vector";
 import ReactMarkDown from "react-markdown";
 import {
@@ -67,7 +67,9 @@ function PostDetailComponent({
             fill
           />
         </ImageContainer>
-        <Body3 $color="#000">{mainContent}</Body3>
+        <CustomBody $whiteSpace="normal" $color="#000" $fontSize={14}>
+          {mainContent}
+        </CustomBody>
         {optionImage.length !== 0 &&
           optionImage.map((item, index) =>
             item.image.map((item, index) => (
@@ -93,12 +95,20 @@ function PostDetailComponent({
               h2: ({ node, ...props }) => <H2 $color="#000" {...props} />,
               h3: ({ node, ...props }) => <H3 {...props} />,
               h4: ({ node, ...props }) => <H4 {...props} />,
-              p: ({ node, ...props }) => <Body3 $color="#000" {...props} />,
+              p: ({ node, ...props }) => (
+                <CustomBody $whiteSpace="normal" $color="#000" {...props} />
+              ),
               ol: ({ node, ...props }) => (
                 <ol className="list-decimal pl-6" {...props} />
               ),
               li: ({ node, ...props }) => (
-                <Body3 $color="#000" className="" as={"li"} {...props} />
+                <CustomBody
+                  $whiteSpace="normal"
+                  $color="#000"
+                  className=""
+                  as={"li"}
+                  {...props}
+                />
               ),
             }}
             key={index}

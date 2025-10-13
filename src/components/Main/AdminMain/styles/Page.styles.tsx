@@ -5,11 +5,17 @@ export const TableWrapper = styled.table`
   table-layout: auto;
 `;
 
-export const TableHeaderCell = styled.th`
+export const TableHeaderCell = styled.th<{ $topPosition?: string }>`
+  position: sticky;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-right: 24px;
   padding: 12px 12px 12px;
+  top: ${(props) => (props.$topPosition ? props.$topPosition : "90px")};
+  z-index: 9;
+  background-color: #ffffff;
+
+  transition: top 0.3s ease;
 
   &:first-child {
     width: 24px;
@@ -27,12 +33,14 @@ export const IconContainer = styled.div`
 `;
 
 export const TableBodyCell = styled.td`
+  position: relative;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
   vertical-align: top;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-right: 24px;
+  z-index: 1;
   padding: 12px 12px 12px;
   cursor: pointer;
   &:first-child {
@@ -41,6 +49,28 @@ export const TableBodyCell = styled.td`
     vertical-align: middle;
     cursor: default;
   }
+`;
+
+export const ActionContainer = styled.div<{
+  $visible: boolean;
+}>`
+  position: sticky;
+  z-index: 9;
+  top: 93px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: ${(props) => (props.$visible ? "32px" : "0px 24px")};
+  background-color: rgb(52, 73, 82);
+
+  opacity: ${(props) => (props.$visible ? 1 : 0)};
+  transform: ${(props) =>
+    props.$visible ? "translateY(0)" : "translateY(-20px)"};
+  pointer-events: ${(props) => (props.$visible ? "auto" : "none")};
+  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease,
+    padding 0.3s ease;
 `;
 
 export const SelectIconContainer = styled.div`
@@ -89,14 +119,14 @@ export const MainContent = styled.div`
 `;
 
 //  Create blogs
-export const CreateBlogWrapper = styled.div`
-  width: 100%;
-  height: 100%;
+export const FormWrapper = styled.div<{ $width?: string; $height?: string }>`
+  width: ${(props) => (props.$width ? props.$width : "100%")};
+  height: ${(props) => (props.$height ? props.$height : "100%")};
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  z-index: 10;
+  position: fixed;
+  z-index: 101;
   background-color: rgba(0, 0, 0, 0.2);
   padding: 64px 24px;
 `;
@@ -137,7 +167,8 @@ export const DetailContainer = styled.div`
 export const FormFooter = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  align-items: center;
+  justify-content: space-between;
   padding: 12px 24px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 `;

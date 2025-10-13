@@ -13,8 +13,6 @@ const Sidebar = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  if (!info) return <p>Loading...</p>;
-
   return (
     <SidebarWrapper>
       {info?.map((item, index) => (

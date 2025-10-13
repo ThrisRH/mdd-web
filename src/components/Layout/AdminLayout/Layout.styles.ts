@@ -11,6 +11,7 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   padding: 0px 24px;
   justify-content: space-between;
+  z-index: 100;
 `;
 
 export const LogoArea = styled.div`
@@ -49,11 +50,19 @@ export const CreateBlogButton = styled.button`
 `;
 
 // Main layout
+export const AdminLayoutWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+`;
+
 export const BodyWrapper = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
   min-height: calc(100vh - 64px);
+  overflow: hidden;
 `;
 
 // Side bar
@@ -93,15 +102,23 @@ export const InfoContainer = styled.div`
 
 //  Body layout
 export const MainContentContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   height: auto;
-  gap: 24px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #c5c5c5 #f1f1f1;
 `;
 
 export const TitleContainer = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: white;
   padding: 32px;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
 `;
 
 // Pagination

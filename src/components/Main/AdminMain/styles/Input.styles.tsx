@@ -98,19 +98,41 @@ export const ImagePreview = styled.img`
 `;
 
 // Dropdown input
-export const DropdownInputContainer = styled.div`
+export const FlexInputContainer = styled.div<{
+  $flexDirection?: "row" | "column";
+  $align?: string;
+  $justify?: string;
+  $width?: string;
+  $border?: string;
+  $borderRadius?: number;
+  $gap?: number;
+  $padding?: string;
+  $haveHover: boolean;
+}>`
+  width: ${(props) => (props.$width ? props.$width : "200px")};
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 16px;
-  width: 200px;
+  flex-direction: ${(props) =>
+    props.$flexDirection ? props.$flexDirection : "row"};
+  justify-content: ${(props) =>
+    props.$justify ? props.$justify : "space-between"};
+  align-items: ${(props) => (props.$align ? props.$align : "center")};
+  padding: ${(props) => (props.$padding ? `${props.$padding}px` : "24px")};
+  border: ${(props) =>
+    props.$border ? props.$border : "1px solid rgba(0, 0, 0, 0.2)"};
+  border-radius: ${(props) =>
+    props.$borderRadius ? props.$borderRadius : "16px"};
+
+  gap: ${(props) => (props.$gap ? `${props.$gap}px` : "0px")};
+
   cursor: pointer;
-  &:hover {
-    border: 1px solid rgba(0, 0, 0, 0.6);
-  }
+
+  ${(props) =>
+    props.$haveHover &&
+    `
+    &:hover {
+      border: 1px solid rgba(0, 0, 0, 0.6);
+    }
+  `}
 `;
 
 // Selection box input

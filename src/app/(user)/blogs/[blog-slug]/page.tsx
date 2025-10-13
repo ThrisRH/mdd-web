@@ -21,6 +21,7 @@ async function getBlog(slug: string): Promise<BlogDetails | null> {
       cache: "no-store",
     });
     const data = await res.json();
+    console.log("Blogs list: ", data);
     return data.data || null;
   } catch (error) {
     console.error(error);

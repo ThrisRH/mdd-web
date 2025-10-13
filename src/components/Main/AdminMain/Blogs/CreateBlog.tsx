@@ -1,86 +1,64 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import {
   ButtonContainer,
   CloseIconContainer,
-  CreateBlogWrapper,
   CreateFormContainer,
   DetailContainer,
   FormFooter,
+  FormWrapper,
   HeaderFormContainer,
-  IconContainer,
 } from "../styles/Page.styles";
 import { H5 } from "@/components/Typography/Heading.styles";
 
 import CloseIC from "@/assets/svg/cancel";
-import AddImageIC from "@/assets/svg/addimage";
-import DropdownIC from "@/assets/svg/arrowdown";
-import ReloadIC from "@/assets/svg/Interact/Reload";
-import { Body1, Body3 } from "@/components/Typography/Body.styles";
-import {
-  DropdownInputContainer,
-  FormInput,
-  FormInputContainer,
-  FormNormalInput,
-  ImageInput,
-  ImageInputContainer,
-  ImagePreview,
-  LabelContainer,
-  LabelImageContainer,
-  SelectionContainer,
-} from "../styles/Input.styles";
-import Button from "@/components/Button/button";
+import { Body1, Body3, CustomBody } from "@/components/Typography/Body.styles";
 import { toast } from "react-toastify";
-import CategorySelectionBox from "../Components/CategorySelectionBox";
+import CategorySelectionBox from "./CreateInputs/CategorySelectionBox";
+import BlogSlugInput from "./CreateInputs/BlogSlugInput";
+import BlogTitleInput from "./CreateInputs/BlogTitleInput";
+import BlogContentInput from "./CreateInputs/BlogContentInput";
+import BlogImageInput from "./CreateInputs/BlogImageInput";
+import { CustomButton } from "@/components/Button/Button.styles";
+import CustomEditor from "./CreateInputs/Editor/CustomEditor";
+import TurndownService from "turndown";
 
 const CreateBlog = ({
   setIsCreatePopUpOpen,
 }: {
   setIsCreatePopUpOpen: (status: boolean) => void;
 }) => {
-  const [titleLetter, setTitleLetter] = useState("");
-  const [mainContentLetter, setMainContentLetter] = useState("");
-  const [isCateSelectionOpen, setIsCateSelectionOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const [title, setTitle] = useState("");
+  const [mainContent, setMainContent] = useState("");
+  const [subContent, setSubContent] = useState("");
+  const [cateSelected, setCateSelected] = useState("");
+  const [cateSelectedName, setCateSelectedName] = useState("");
 
   // Slug
   const [slug, setSlug] = useState("");
-  const [slugLetterCounter, setSlugLetterCounter] = useState(0);
-
-  // Slug function
-  const handleSlugBlur = () => {
-    let formatted = slug
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
-    setSlug(formatted);
-    setSlugLetterCounter(formatted.length);
-  };
-
-  const handleAutoCreateSlug = (title: string) => {
-    let formatted = title
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
-    setSlug(formatted);
-    setSlugLetterCounter(formatted.length);
-  };
 
   //   Image
   const [preview, setPreview] = useState<string | null>(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setPreview(imageUrl);
-    }
-  };
-
   const handlePublish = async () => {
+    setIsLoading(true);
+    if (
+      title === "" ||
+      cateSelected === "" ||
+      mainContent === "" ||
+      subContent === ""
+    ) {
+      setErrorMessage("Vui lòng điền đầy đủ thông tin!");
+      setIsLoading(false);
+      return;
+    }
+
+    const turndownService = new TurndownService();
+    var subContentMarkDown = turndownService.turndown(subContent);
+
+    console.log(subContentMarkDown);
     try {
       const fileInput = document.getElementById(
         "file-upload"
@@ -116,10 +94,12 @@ const CreateBlog = ({
       if (imageId) {
         const blogBody = {
           data: {
-            title: titleLetter,
-            mainContent: mainContentLetter,
+            title: title,
+            mainContent: mainContent,
             slug: slug,
             cover: imageId,
+            cate: cateSelected,
+            subContent: subContentMarkDown,
           },
         };
 
@@ -127,8 +107,6 @@ const CreateBlog = ({
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            // Nếu cần token (private API) thì thêm dòng này:
-            // Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`,
           },
           body: JSON.stringify(blogBody),
         });
@@ -141,17 +119,18 @@ const CreateBlog = ({
           return;
         }
       }
+      window.location.href = "/myblogs";
     } catch (err: any) {
       toast.error("Có lỗi xảy ra khi đăng bài: " + err.message);
       console.error(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const maxTitleLength = 100;
   const maxMainContentLength = 1000;
-  const maxSlugLength = 50;
   return (
-    <CreateBlogWrapper>
+    <FormWrapper>
       <CreateFormContainer>
         <HeaderFormContainer>
           <H5 $size={24}>Tạo bài viết mới</H5>
@@ -165,162 +144,74 @@ const CreateBlog = ({
           </Body1>
 
           {/* Input title */}
-          <FormInputContainer
-            $borderColor={
-              titleLetter.length > maxTitleLength
-                ? "#ad3945"
-                : "rgba(0, 0, 0, 0.2)"
-            }
-          >
-            <Body3 $size={12} $color="#979797" $fontWeight="500">
-              Tiêu đề (bắt buộc)
-            </Body3>
-            <FormInput
-              onChange={(e) => setTitleLetter(e.target.value)}
-              placeholder="Thêm tiêu đề mô tả bài viết của bạn"
-              rows={2}
-            />
-            <Body1 $color="#979797" $fontSize="12px">
-              {titleLetter.length} / {maxTitleLength}
-            </Body1>
-          </FormInputContainer>
+          <BlogTitleInput
+            isEmpty={errorMessage !== ""}
+            value={title}
+            onChange={setTitle}
+            setIsEmpty={setErrorMessage}
+            maxLength={100}
+          />
 
           {/* Input main content */}
-          <FormInputContainer
-            $borderColor={
-              mainContentLetter.length > maxMainContentLength
-                ? "#ad3945"
-                : "rgba(0, 0, 0, 0.2)"
-            }
-          >
-            <Body3 $size={12} $color="#979797" $fontWeight="500">
-              Nội dung chính (bắt buộc)
-            </Body3>
-            <FormInput
-              onChange={(e) => setMainContentLetter(e.target.value)}
-              placeholder="Thêm tiêu đề mô tả bài viết của bạn"
-              $minHeight="100px"
-            />
-            <Body1 $color="#979797" $fontSize="12px">
-              {mainContentLetter.length} / {maxMainContentLength}
-            </Body1>
-          </FormInputContainer>
+          <BlogContentInput
+            value={mainContent}
+            onChange={setMainContent}
+            maxLength={1000}
+          />
 
           {/* Input sub content */}
-          <FormInputContainer
-            $borderColor={
-              mainContentLetter.length > maxMainContentLength
-                ? "#ad3945"
-                : "rgba(0, 0, 0, 0.2)"
-            }
-          >
-            <Body3 $size={12} $color="#979797" $fontWeight="500">
-              Nội dung bài viết
-            </Body3>
-            <FormInput
-              onChange={(e) => setMainContentLetter(e.target.value)}
-              placeholder="Thêm tiêu đề mô tả bài viết của bạn"
-              $minHeight="100px"
-            />
-            <Body1 $color="#979797" $fontSize="12px">
-              {mainContentLetter.length} / {maxMainContentLength}
-            </Body1>
-          </FormInputContainer>
+          <CustomEditor
+            value={subContent}
+            onChange={setSubContent}
+            maxLength={10000}
+          />
 
           {/* Input slug of blog */}
-          <FormInputContainer
-            $borderColor={
-              slugLetterCounter > maxSlugLength
-                ? "#ad3945"
-                : "rgba(0, 0, 0, 0.2)"
-            }
-          >
-            <LabelContainer
-              $flexDirection="row"
-              $justifyContent="space-between"
-            >
-              <Body3 $size={12} $color="#979797" $fontWeight="500">
-                Tên viết tắt của bài viết (bắt buộc)
-              </Body3>
-              <IconContainer
-                onClick={() => {
-                  handleAutoCreateSlug(titleLetter);
-                }}
-              >
-                <ReloadIC />
-              </IconContainer>
-            </LabelContainer>
-            <FormNormalInput
-              value={slug}
-              onChange={(e) => setSlug(e.target.value)}
-              onBlur={handleSlugBlur}
-              placeholder="Tên viết tắt của bài viết của bạn"
-            />
-            <Body1 $color="#979797" $fontSize="12px">
-              {slugLetterCounter} / {maxSlugLength}
-            </Body1>
-          </FormInputContainer>
+          <BlogSlugInput
+            slug={slug}
+            setSlug={setSlug}
+            title={title}
+            maxLength={50}
+          />
 
           {/* Input image */}
-          <LabelContainer>
-            <Body1 $fontSize="18px" $weight={600}>
-              Ảnh bìa của bài viết
-            </Body1>
-            <Body3 $color="#979797" $size={14}>
-              Chọn ảnh bìa nổi bật để thu hút sự chú ý của người xem.
-            </Body3>
-          </LabelContainer>
-          <ImageInputContainer>
-            <LabelImageContainer htmlFor="file-upload">
-              {preview ? (
-                <ImagePreview src={preview} alt="upload-image" />
-              ) : (
-                <>
-                  <AddImageIC />
-                  <Body3>Tải tệp lên</Body3>
-                </>
-              )}
-            </LabelImageContainer>
-
-            <ImageInput
-              type="file"
-              name="files"
-              id="file-upload"
-              onChange={handleFileChange}
-            />
-          </ImageInputContainer>
+          <BlogImageInput previewImage={preview} setPreviewImage={setPreview} />
 
           {/* Input category */}
-          <SelectionContainer>
-            <LabelContainer>
-              <Body1 $fontSize="18px" $weight={600}>
-                Chọn danh mục cho bài viết
-              </Body1>
-              <Body3 $color="#979797" $size={14}>
-                Thêm video của bạn vào danh sách phát để sắp xếp nội dung cho
-                người xem.
-              </Body3>
-            </LabelContainer>
-            <DropdownInputContainer
-              onClick={() => setIsCateSelectionOpen(true)}
-            >
-              <Body3 $color="#979797">Chọn danh mục</Body3>
-              <DropdownIC fill={"#000"} />
-            </DropdownInputContainer>
-            {isCateSelectionOpen && (
-              <CategorySelectionBox
-                setIsCateSelectionOpen={setIsCateSelectionOpen}
-              />
-            )}
-          </SelectionContainer>
+          <CategorySelectionBox
+            cateSelectedId={cateSelected}
+            cateSelectedName={cateSelectedName}
+            setSelectedId={setCateSelected}
+            setSelectedName={setCateSelectedName}
+          />
         </DetailContainer>
+
+        {/* Form footer */}
         <FormFooter>
+          {errorMessage !== "" ? (
+            <CustomBody $color="#8f4242">{errorMessage}</CustomBody>
+          ) : (
+            <CustomBody />
+          )}
           <ButtonContainer>
-            <Button onClickFunc={() => handlePublish()}>Xuất bản</Button>
+            {isLoading ? (
+              <CustomButton
+                onClick={() => handlePublish()}
+                $bgColor="#CDCDCD"
+                $isDisable={true}
+                disabled={true}
+              >
+                <CustomBody>Xuất bản</CustomBody>
+              </CustomButton>
+            ) : (
+              <CustomButton onClick={() => handlePublish()} $bgColor="#F1DBC4">
+                <CustomBody>Xuất bản</CustomBody>
+              </CustomButton>
+            )}
           </ButtonContainer>
         </FormFooter>
       </CreateFormContainer>
-    </CreateBlogWrapper>
+    </FormWrapper>
   );
 };
 

@@ -1,6 +1,7 @@
 "use client";
-import React, { ReactNode, useEffect } from "react";
-import { useSearchParams, useRouter } from "next/navigation"; // ✅ dùng Next hooks
+import React, { ReactNode, useEffect, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+
 import {
   TableWrapper,
   ContentField,
@@ -29,6 +30,7 @@ import {
   PaginationWrapper,
 } from "@/components/Layout/AdminLayout/Layout.styles";
 import { PageNumber } from "@/components/Pagination/PaginationBar.styles";
+import ActionSection from "../Components/ActionSection";
 
 type TableItem = {
   title?: string;
@@ -39,6 +41,7 @@ type TableItem = {
 interface BlogTableProps {
   posts: BlogDetails[];
   currentPage: number;
+  totalPages: number;
   setPageNumber: (page: number) => void;
 }
 
@@ -61,9 +64,38 @@ const formatDate = (postDate: string) => {
   return formatted;
 };
 
-const BlogTable = ({ posts, currentPage, setPageNumber }: BlogTableProps) => {
+const BlogTable = ({
+  posts,
+  currentPage,
+  setPageNumber,
+  totalPages,
+}: BlogTableProps) => {
   const searchParams = useSearchParams();
   const router = useRouter();
+
+  const [selectedBlogs, setSelectedBlogs] = useState<Set<string>>(new Set());
+
+  const selectBlog = (id: string) => {
+    setSelectedBlogs((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
+  };
+
+  const selectAll = () => {
+    setSelectedBlogs((prev) => {
+      if (prev.size === posts.length) {
+        return new Set();
+      } else {
+        return new Set(posts.map((post) => post.documentId));
+      }
+    });
+  };
 
   useEffect(() => {
     const pageParam = searchParams.get("page");
@@ -80,109 +112,128 @@ const BlogTable = ({ posts, currentPage, setPageNumber }: BlogTableProps) => {
   };
 
   return (
-    <TableWrapper>
-      <thead>
-        <tr>
-          {TableList.map((item, index) => (
-            <TableHeaderCell key={index}>
-              {item.title ? (
-                <Body3 $fontWeight="500" $size={16}>
-                  {item.title}
-                </Body3>
-              ) : (
-                <IconContainer>{item.icon}</IconContainer>
-              )}
-            </TableHeaderCell>
+    <>
+      {/* Thanh hành động đối với bài blogs đã chọn */}
+      <ActionSection selectedBlogs={selectedBlogs} />
+
+      {/* Bảng các bài blogs */}
+      <TableWrapper>
+        <thead>
+          <tr>
+            {TableList.map((item, index) => (
+              <TableHeaderCell
+                key={index}
+                $topPosition={selectedBlogs.size !== 0 ? "156px" : "90px"}
+              >
+                {item.title ? (
+                  <Body3 $fontWeight="500" $size={16}>
+                    {item.title}
+                  </Body3>
+                ) : (
+                  <IconContainer onClick={selectAll}>
+                    {selectedBlogs.size !== 0 ? (
+                      <SelectedIC />
+                    ) : (
+                      <NoneSelectionIC />
+                    )}
+                  </IconContainer>
+                )}
+              </TableHeaderCell>
+            ))}
+          </tr>
+        </thead>
+
+        <tbody>
+          {posts.map((item) => (
+            <RowContainer key={item.documentId}>
+              <TableBodyCell>
+                <IconContainer onClick={() => selectBlog(item.documentId)}>
+                  {selectedBlogs.has(item.documentId) ? (
+                    <SelectedIC />
+                  ) : (
+                    <NoneSelectionIC />
+                  )}
+                </IconContainer>
+              </TableBodyCell>
+
+              <TableBodyCell>
+                <TableFlexWrapper>
+                  <ImageContainer $height="72px">
+                    <Image
+                      src={
+                        item.cover.url.startsWith("https")
+                          ? item.cover.url
+                          : `/baseurl${item.cover.url}`
+                      }
+                      alt="image"
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
+                  </ImageContainer>
+
+                  <ContentField>
+                    <Body4>{item.title}</Body4>
+                    <MainContent>
+                      <Body5 $size={14} $color="#7a7a7a">
+                        {item.mainContent}
+                      </Body5>
+                    </MainContent>
+                  </ContentField>
+                </TableFlexWrapper>
+              </TableBodyCell>
+
+              <TableBodyCell>
+                <Body5 $size={14}>{formatDate(item.publishedAt)}</Body5>
+              </TableBodyCell>
+
+              <TableBodyCell>
+                <Body5 $size={14}>{item.cate?.tile}</Body5>
+              </TableBodyCell>
+              <TableBodyCell>
+                <Body5 $size={14}>{item.comments?.length}</Body5>
+              </TableBodyCell>
+              <TableBodyCell>
+                <Body5 $size={14}>{item.slug}</Body5>
+              </TableBodyCell>
+            </RowContainer>
           ))}
-        </tr>
-      </thead>
+        </tbody>
 
-      <tbody>
-        {posts.map((item) => (
-          <RowContainer key={item.documentId}>
-            <TableBodyCell>
-              <IconContainer>
-                <NoneSelectionIC />
-              </IconContainer>
-            </TableBodyCell>
+        <tfoot>
+          <RowContainer>
+            <TableBodyCell colSpan={6}>
+              <PaginationWrapper>
+                <PaginationControls>
+                  <PaginationButton
+                    disabled={currentPage === 1}
+                    onClick={() => handleChangePage(currentPage - 1)}
+                  >
+                    Trước
+                  </PaginationButton>
 
-            <TableBodyCell>
-              <TableFlexWrapper>
-                <ImageContainer $height="72px">
-                  <Image
-                    src={
-                      item.cover.url.startsWith("https")
-                        ? item.cover.url
-                        : `/baseurl${item.cover.url}`
-                    }
-                    alt="image"
-                    fill
-                    style={{ objectFit: "cover" }}
-                  />
-                </ImageContainer>
+                  {Array.from({ length: totalPages }, (_, i) => (
+                    <PageNumber
+                      key={i}
+                      $active={currentPage === i + 1}
+                      onClick={() => handleChangePage(i + 1)}
+                    >
+                      <Body2 $color="#000">{i + 1}</Body2>
+                    </PageNumber>
+                  ))}
 
-                <ContentField>
-                  <Body4>{item.title}</Body4>
-                  <MainContent>
-                    <Body5 $size={14} $color="#7a7a7a">
-                      {item.mainContent}
-                    </Body5>
-                  </MainContent>
-                </ContentField>
-              </TableFlexWrapper>
-            </TableBodyCell>
-
-            <TableBodyCell>
-              <Body5 $size={14}>{formatDate(item.publishedAt)}</Body5>
-            </TableBodyCell>
-
-            <TableBodyCell>
-              <Body5 $size={14}>{item.cate?.tile}</Body5>
-            </TableBodyCell>
-            <TableBodyCell>
-              <Body5 $size={14}>{item.comments?.length}</Body5>
-            </TableBodyCell>
-            <TableBodyCell>
-              <Body5 $size={14}>{item.slug}</Body5>
+                  <PaginationButton
+                    disabled={currentPage === totalPages}
+                    onClick={() => handleChangePage(currentPage + 1)}
+                  >
+                    Sau
+                  </PaginationButton>
+                </PaginationControls>
+              </PaginationWrapper>
             </TableBodyCell>
           </RowContainer>
-        ))}
-      </tbody>
-
-      <tfoot>
-        <RowContainer>
-          <TableBodyCell colSpan={6}>
-            <PaginationWrapper>
-              <PaginationControls>
-                <PaginationButton
-                  disabled={currentPage === 1}
-                  onClick={() => handleChangePage(currentPage - 1)}
-                >
-                  Trước
-                </PaginationButton>
-
-                {Array.from({ length: 2 }, (_, i) => (
-                  <PageNumber
-                    key={i}
-                    $active={currentPage === i + 1}
-                    onClick={() => handleChangePage(i + 1)}
-                  >
-                    <Body2 $color="#000">{i + 1}</Body2>
-                  </PageNumber>
-                ))}
-
-                <PaginationButton
-                  disabled={currentPage === 2}
-                  onClick={() => handleChangePage(currentPage + 1)}
-                >
-                  Sau
-                </PaginationButton>
-              </PaginationControls>
-            </PaginationWrapper>
-          </TableBodyCell>
-        </RowContainer>
-      </tfoot>
-    </TableWrapper>
+        </tfoot>
+      </TableWrapper>
+    </>
   );
 };
 

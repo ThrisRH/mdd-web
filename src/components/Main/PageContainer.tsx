@@ -28,7 +28,6 @@ const PageContainer = ({ children }: PostProps) => {
       );
       const data = await res.json();
       if (!res.ok) return;
-
       setBlogs(data.data);
     } catch (err) {
       console.log(err);
