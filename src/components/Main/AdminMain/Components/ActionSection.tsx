@@ -4,7 +4,7 @@ import { ActionContainer } from "../styles/Page.styles";
 import { CustomBody } from "@/components/Typography/Body.styles";
 import { CustomButton } from "@/components/Button/Button.styles";
 import BinIC from "@/assets/svg/Interact/RecycleBin";
-import { FlexContainer } from "@/components/Layout/Common/Container.styles";
+import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
 import { Loader } from "../../Loading.styles";
 
 interface Props {

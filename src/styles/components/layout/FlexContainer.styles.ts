@@ -11,6 +11,8 @@ export const FlexContainer = styled.div<{
   $padding?: string;
   $bgColor?: string;
   $radius?: number;
+  $height?: string;
+  $border?: string;
 }>`
   display: flex;
   flex-direction: ${(props) => props.$flexDirection || "column"};
@@ -19,9 +21,11 @@ export const FlexContainer = styled.div<{
   gap: ${(props) => (props.$gap ? `${props.$gap}px` : "0px")};
   flex: ${(props) => props.$flex || "unset"};
   width: ${(props) => props.$width || "auto"};
+  height: ${(props) => props.$height || "auto"};
   margin: ${(props) => props.$margin || "0"};
   padding: ${(props) => props.$padding || "0"};
   background-color: ${(props) =>
     props.$bgColor ? props.$bgColor : "transparent"};
   border-radius: ${(props) => (props.$radius ? `${props.$radius}px` : "0px")};
+  border: ${(props) => (props.$border ? props.$border : "none")};
 `;

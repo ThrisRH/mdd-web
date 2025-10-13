@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   ButtonContainer,
   CloseIconContainer,
-  CreateFormContainer,
   DetailContainer,
   FormFooter,
   FormWrapper,
@@ -21,6 +20,7 @@ import BlogImageInput from "./CreateInputs/BlogImageInput";
 import { CustomButton } from "@/components/Button/Button.styles";
 import CustomEditor from "./CreateInputs/Editor/CustomEditor";
 import TurndownService from "turndown";
+import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
 
 const CreateBlog = ({
   setIsCreatePopUpOpen,
@@ -131,7 +131,13 @@ const CreateBlog = ({
   const maxMainContentLength = 1000;
   return (
     <FormWrapper>
-      <CreateFormContainer>
+      <FlexContainer
+        $flexDirection="column"
+        $width="900px"
+        $height="100%"
+        $bgColor="#fff"
+        $radius={24}
+      >
         <HeaderFormContainer>
           <H5 $size={24}>Tạo bài viết mới</H5>
           <CloseIconContainer onClick={() => setIsCreatePopUpOpen(false)}>
@@ -210,7 +216,7 @@ const CreateBlog = ({
             )}
           </ButtonContainer>
         </FormFooter>
-      </CreateFormContainer>
+      </FlexContainer>
     </FormWrapper>
   );
 };

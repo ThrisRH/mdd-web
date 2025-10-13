@@ -5,7 +5,6 @@ import Button from "../Button/button";
 import Vector from "@/assets/svg/vector";
 
 import {
-  CardContainer,
   ImageContainer,
   TimeArea,
   Line,
@@ -17,6 +16,7 @@ import {
 import { Body2, Body3 } from "../Typography/Body.styles";
 import { H1 } from "../Typography/Heading.styles";
 import { useRouter } from "next/navigation";
+import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
 
 interface Post {
   documentId: string;
@@ -106,7 +106,13 @@ const PostCard = ({ index, post }: PostCardProps) => {
     return formatted;
   };
   return (
-    <CardContainer>
+    <FlexContainer
+      $flexDirection="column"
+      $gap={24}
+      $width="100%"
+      $align="center"
+      $justify="center"
+    >
       <TimeArea>
         <Container $flex={3}>
           <LineContainer>
@@ -148,7 +154,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
       <Button variant="secondary" onClickFunc={() => handleToDetail(post.slug)}>
         Xem thêm
       </Button>
-    </CardContainer>
+    </FlexContainer>
   );
 };
 

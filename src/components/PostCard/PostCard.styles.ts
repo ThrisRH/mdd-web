@@ -1,15 +1,6 @@
 "use client"
 import styled from "styled-components";
 
-export const CardContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 24px;
-`
-
 export const Title = styled.h3`
     color: black;
     font-weight: bold;

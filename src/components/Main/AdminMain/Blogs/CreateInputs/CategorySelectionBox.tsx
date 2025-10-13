@@ -9,8 +9,9 @@ import { ButtonContainer, FormFooter } from "../../styles/Page.styles";
 import Button from "@/components/Button/button";
 import { CateProps } from "@/components/Layout/DesktopNav";
 import { Body1, Body3, CustomBody } from "@/components/Typography/Body.styles";
-import { FlexContainer } from "@/components/Layout/Common/Container.styles";
+
 import DropdownIC from "@/assets/svg/arrowdown";
+import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
 
 interface CateSelectionProps {
   cateSelectedId: string;

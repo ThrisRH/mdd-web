@@ -131,15 +131,6 @@ export const FormWrapper = styled.div<{ $width?: string; $height?: string }>`
   padding: 64px 24px;
 `;
 
-export const CreateFormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  border-radius: 24px;
-  background-color: white;
-  width: 900px;
-  height: 100%;
-`;
-
 export const HeaderFormContainer = styled.div`
   display: flex;
   flex-direction: row;
