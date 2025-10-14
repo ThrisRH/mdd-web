@@ -4,7 +4,7 @@ import {
   LabelContainer,
   SelectionBoxContainer,
   SelectionContainer,
-} from "../../styles/Input.styles";
+} from "../../../../../styles/components/inputs/Input.styles";
 import { ButtonContainer, FormFooter } from "../../styles/Page.styles";
 import Button from "@/components/Button/button";
 import { CateProps } from "@/components/Layout/DesktopNav";

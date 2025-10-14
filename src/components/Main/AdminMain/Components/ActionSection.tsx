@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import { ActionContainer } from "../styles/Page.styles";
 import { CustomBody } from "@/components/Typography/Body.styles";
-import { CustomButton } from "@/components/Button/Button.styles";
 import BinIC from "@/assets/svg/Interact/RecycleBin";
 import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
 import { Loader } from "../../Loading.styles";
+import { CustomButton } from "@/styles/components/buttons/Button.styles";
 
 interface Props {
   selectedBlogs: Set<string>;

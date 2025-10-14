@@ -4,7 +4,6 @@ import {
   Dot,
   Line,
   LineContainer,
-  TimeArea,
   VectorContainer,
 } from "@/components/PostCard/PostCard.styles";
 import { H0 } from "@/components/Typography/Heading.styles";
@@ -12,6 +11,7 @@ import React from "react";
 import { FAQWrapper } from "@/components/Main/Styled/FAQContent.styles";
 import FAQBody from "./FAQBody";
 import { notFound } from "next/navigation";
+import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
 
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
@@ -49,7 +49,13 @@ export default async function FAQ() {
   return (
     <FAQWrapper>
       <H0>Câu hỏi thường gặp</H0>
-      <TimeArea>
+      <FlexContainer
+        $width="100%"
+        $flexDirection="row"
+        $align="center"
+        $justify="center"
+        $gap={6}
+      >
         <Container $flex={3}>
           <LineContainer>
             <Line></Line>
@@ -72,7 +78,7 @@ export default async function FAQ() {
             <Line></Line>
           </LineContainer>
         </Container>
-      </TimeArea>
+      </FlexContainer>
       <FAQBody questionAnswer={faq.questionAnswer} />
     </FAQWrapper>
   );

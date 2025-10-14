@@ -15,9 +15,11 @@ export default function RegisterPage() {
         $padding="36px 0px"
       >
         <SignUpStrapi />
-        <OAuthArea>
+
+        {/* Vùng login với oAuth */}
+        <FlexContainer $width="100%">
           <SignInGoogle />
-        </OAuthArea>
+        </FlexContainer>
       </FlexContainer>
     </EmptyWrapper>
   );

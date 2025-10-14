@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 // Header bar
 export const HeaderWrapper = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 64px;
+  height: 240px;
   background-color: #fff;
   box-shadow: 0px 0px 5px 0.2px rgba(0, 0, 0, 0.5);
   align-items: center;
@@ -49,6 +49,17 @@ export const CreateBlogButton = styled.button`
   }
 `;
 
+export const DropdownCreateContainer = styled.div`
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  min-width: 100px;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+`;
+
 // Main layout
 export const AdminLayoutWrapper = styled.div`
   display: flex;
@@ -66,6 +77,17 @@ export const BodyWrapper = styled.div`
 `;
 
 // Side bar
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px)
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 export const SidebarWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -73,24 +95,41 @@ export const SidebarWrapper = styled.div`
   height: calc(100vh - 64px);
   padding: 24px 16px;
   background-color: #fff;
-  gap: 24px;
   border-right: 1.5px solid rgba(0, 0, 0, 0.2);
   align-items: center;
   background-color: transparent;
+  gap: 24px;
 `;
 
-export const TabContainer = styled.div<{ $isSelected: boolean }>`
+export const SidebarItemsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  gap: 24px;
+  animation: ${fadeIn} 1s ease forwards;
+`;
+
+export const TabContainer = styled.div<{
+  $isSelected: boolean;
+  $padding?: string;
+  $gap?: number;
+}>`
   display: flex;
   flex-direction: row;
   background-color: ${(props) =>
-    props.$isSelected ? "rgba(0,0,0,0.05)" : "none"};
-  gap: 24px;
+    props.$isSelected ? "rgba(0,0,0,0.03)" : "none"};
+  gap: ${(props) => (props.$gap ? `${props.$gap}px` : "32px")};
   width: 100%;
   height: 48px;
-  padding: 4px 24px;
+  padding: ${(props) => (props.$padding ? props.$padding : " 4px 24px")};
   align-items: center;
   border-radius: 12px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #0000000d;
+  }
 `;
 
 export const InfoContainer = styled.div`

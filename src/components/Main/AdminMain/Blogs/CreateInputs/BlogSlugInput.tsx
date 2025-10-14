@@ -1,21 +1,23 @@
 import { Body1, Body3 } from "@/components/Typography/Body.styles";
 import {
+  FormInput,
   FormInputContainer,
   FormNormalInput,
   LabelContainer,
-} from "../../styles/Input.styles";
+} from "../../../../../styles/components/inputs/Input.styles";
 import ReloadIC from "@/assets/svg/Interact/Reload";
 import { formatSlug } from "../utils/HandleSlug";
 import { IconContainer } from "../../styles/Page.styles";
 
 interface Props {
+  label: string;
   slug: string;
   setSlug: (v: string) => void;
   title: string;
   maxLength: number;
 }
 
-const BlogSlugInput = ({ slug, setSlug, title, maxLength }: Props) => {
+const BlogSlugInput = ({ label, slug, setSlug, title, maxLength }: Props) => {
   const handleAuto = () => setSlug(formatSlug(title));
   const handleBlur = () => setSlug(formatSlug(slug));
 
@@ -25,13 +27,13 @@ const BlogSlugInput = ({ slug, setSlug, title, maxLength }: Props) => {
     >
       <LabelContainer $flexDirection="row" $justifyContent="space-between">
         <Body3 $size={12} $color="#979797" $fontWeight="500">
-          Tên viết tắt của bài viết (bắt buộc)
+          {label}
         </Body3>
         <IconContainer onClick={handleAuto}>
           <ReloadIC />
         </IconContainer>
       </LabelContainer>
-      <FormNormalInput
+      <FormInput
         value={slug}
         onChange={(e) => setSlug(e.target.value)}
         onBlur={handleBlur}

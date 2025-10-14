@@ -56,6 +56,7 @@ export const ActionContainer = styled.div<{
 }>`
   position: sticky;
   z-index: 9;
+  height: 64px;
   top: 93px;
   overflow: hidden;
   display: flex;

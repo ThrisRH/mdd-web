@@ -8,6 +8,7 @@ import {
 import BlogTable from "@/components/Main/AdminMain/Blogs/BlogTable";
 import { H1 } from "@/components/Typography/Heading.styles";
 import Loading from "@/app/(user)/loading";
+import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
 
 export default function MyBlogsPage() {
   const [data, setData] = useState<any>();
@@ -44,7 +45,14 @@ export default function MyBlogsPage() {
       </TitleContainer>
 
       {loading ? (
-        <Loading />
+        <FlexContainer
+          $width="100%"
+          $height="100%"
+          $justify="center"
+          $align="center"
+        >
+          <Loading />
+        </FlexContainer>
       ) : (
         <BlogTable
           totalPages={data.meta.pagination.pageCount}

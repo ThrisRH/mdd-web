@@ -17,10 +17,10 @@ import BlogSlugInput from "./CreateInputs/BlogSlugInput";
 import BlogTitleInput from "./CreateInputs/BlogTitleInput";
 import BlogContentInput from "./CreateInputs/BlogContentInput";
 import BlogImageInput from "./CreateInputs/BlogImageInput";
-import { CustomButton } from "@/components/Button/Button.styles";
 import CustomEditor from "./CreateInputs/Editor/CustomEditor";
 import TurndownService from "turndown";
 import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { CustomButton } from "@/styles/components/buttons/Button.styles";
 
 const CreateBlog = ({
   setIsCreatePopUpOpen,
@@ -119,7 +119,7 @@ const CreateBlog = ({
           return;
         }
       }
-      window.location.href = "/myblogs";
+      window.location.href = "/adminpanel/myblogs";
     } catch (err: any) {
       toast.error("Có lỗi xảy ra khi đăng bài: " + err.message);
       console.error(err);
@@ -128,7 +128,6 @@ const CreateBlog = ({
     }
   };
 
-  const maxMainContentLength = 1000;
   return (
     <FormWrapper>
       <FlexContainer
@@ -151,6 +150,7 @@ const CreateBlog = ({
 
           {/* Input title */}
           <BlogTitleInput
+            label="Tiêu đề (bắt buộc)"
             isEmpty={errorMessage !== ""}
             value={title}
             onChange={setTitle}
@@ -160,6 +160,7 @@ const CreateBlog = ({
 
           {/* Input main content */}
           <BlogContentInput
+            label="Nội dung chính (bắt buộc)"
             value={mainContent}
             onChange={setMainContent}
             maxLength={1000}
@@ -174,6 +175,7 @@ const CreateBlog = ({
 
           {/* Input slug of blog */}
           <BlogSlugInput
+            label="Tên viết tắt của bài viết (bắt buộc)"
             slug={slug}
             setSlug={setSlug}
             title={title}

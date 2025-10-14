@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import { ButtonContainer } from "./Button.styles";
 import { Content } from "../Main/Styled/AboutContent.styles";
+import { MainButtonContainer } from "@/styles/components/buttons/Button.styles";
 
 type Props = {
   children: ReactNode;
@@ -20,16 +20,16 @@ const Button = ({
   disable,
 }: Props) => {
   return (
-    <ButtonContainer
+    <MainButtonContainer
       $height={height || "44px"}
       className={className}
       $variant={variant}
+      $isDisable={disable}
       onClick={onClickFunc}
       disabled={disable || false}
-      $isDisable={disable}
     >
       <Content>{children}</Content>
-    </ButtonContainer>
+    </MainButtonContainer>
   );
 };
 export default Button;

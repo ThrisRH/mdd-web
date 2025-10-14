@@ -6,7 +6,6 @@ import Vector from "@/assets/svg/vector";
 
 import {
   ImageContainer,
-  TimeArea,
   Line,
   LineContainer,
   VectorContainer,
@@ -113,7 +112,13 @@ const PostCard = ({ index, post }: PostCardProps) => {
       $align="center"
       $justify="center"
     >
-      <TimeArea>
+      <FlexContainer
+        $width="100%"
+        $flexDirection="row"
+        $align="center"
+        $justify="center"
+        $gap={6}
+      >
         <Container $flex={3}>
           <LineContainer>
             <Line></Line>
@@ -133,7 +138,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
             <Line></Line>
           </LineContainer>
         </Container>
-      </TimeArea>
+      </FlexContainer>
       <H1>{post.title}</H1>
       <ImageContainer>
         {blogAvatar?.cover && (

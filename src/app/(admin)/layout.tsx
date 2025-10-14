@@ -4,7 +4,7 @@ import {
   AdminLayoutWrapper,
   BodyWrapper,
 } from "@/components/Layout/AdminLayout/Layout.styles";
-import Sidebar from "@/components/Layout/AdminLayout/Sidebar";
+import Sidebar from "@/components/Layout/Sidebars/AdminPanelSidebar";
 import React from "react";
 
 interface LayoutProps {
@@ -15,10 +15,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <AdminLayoutWrapper>
       <Header />
-      <BodyWrapper>
-        <Sidebar />
-        {children}
-      </BodyWrapper>
+      {children}
     </AdminLayoutWrapper>
   );
 }

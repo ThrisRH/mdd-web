@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Input from "../Input/Input";
 import Button from "../Button/button";
 import { capitalizeFirstLetter } from "@/lib/Uppercase";
+import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
 
 export default function SignUpStrapi() {
   const [username, setUsername] = useState("");
@@ -121,7 +122,7 @@ export default function SignUpStrapi() {
         placeholder="Confirm password"
       />
       <Body2 $color="#ff0000">{error}</Body2>
-      <ButtonsArea>
+      <FlexContainer $flexDirection="row" $gap={12} $width="100%">
         <Button
           variant="secondary"
           onClickFunc={() => router.push("/auth/login")}
@@ -137,7 +138,7 @@ export default function SignUpStrapi() {
         >
           Register
         </Button>
-      </ButtonsArea>
+      </FlexContainer>
     </>
   );
 }

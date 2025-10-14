@@ -6,16 +6,22 @@ import {
 } from "@/components/Layout/AdminLayout/Layout.styles";
 import CateTable from "@/components/Main/AdminMain/Categories/CateTable";
 import { H1 } from "@/components/Typography/Heading.styles";
+import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function MyCatesPage() {
   const [data, setData] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
-  const getBlogs = async (pageNumber: number) => {
+  const pageNumber = Number(searchParams.get("page")) || 1;
+
+  const getCates = async (pageNumber: number) => {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/cates?pagination[page]=${pageNumber}&pagination[pageSize]=5&populate=*&sort=createdAt:desc`,
+        `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/cates?pagination[page]=${pageNumber}&pagination[pageSize]=2&populate=*&sort=createdAt:desc`,
         { cache: "no-store" }
       );
       if (!res.ok) {
@@ -32,17 +38,32 @@ export default function MyCatesPage() {
   };
 
   useEffect(() => {
-    getBlogs(1);
-  }, []);
+    getCates(pageNumber);
+  }, [pageNumber]);
 
-  if (loading) return <Loading />;
+  if (loading)
+    return (
+      <FlexContainer
+        $width="100%"
+        $height="100%"
+        $justify="center"
+        $align="center"
+      >
+        <Loading />
+      </FlexContainer>
+    );
 
   return (
     <MainContentContainer>
       <TitleContainer>
         <H1>DANH SÁCH THƯ MỤC CỦA KÊNH BLOG</H1>
       </TitleContainer>
-      <CateTable categories={data.data} />
+      <CateTable
+        totalPages={data.meta.pagination.pageCount}
+        currentPage={pageNumber}
+        setPageNumber={(page) => router.push(`?page=${page}`)}
+        categories={data.data}
+      />
     </MainContentContainer>
   );
 }

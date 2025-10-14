@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export const ButtonContainer = styled.button<{
+// Button chính 2 màu primary và secondary
+export const MainButtonContainer = styled.button<{
   $variant: "primary" | "secondary";
   $height?: string;
   $isDisable?: boolean;
@@ -18,6 +19,7 @@ export const ButtonContainer = styled.button<{
   cursor: ${(props) => (props.$isDisable ? "not-allowed" : "pointer")};
 `;
 
+// Button tùy chỉnh
 export const CustomButton = styled.button<{
   $width?: string;
   $bgColor?: string;

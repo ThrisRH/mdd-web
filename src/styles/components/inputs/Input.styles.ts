@@ -6,6 +6,7 @@ export const FormInputContainer = styled.div<{
   $borderColor?: string;
 }>`
   display: flex;
+  width: 100%;
   flex-direction: column;
   padding: 12px;
   border: 1px solid

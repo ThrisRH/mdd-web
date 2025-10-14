@@ -5,23 +5,23 @@ const SVGComponent = (props) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
-      viewBox="0 0 16 16"
+      viewBox="-0.5 -0.5 24 24"
       strokeLinecap="round"
       strokeLinejoin="round"
       stroke="#233238"
       id="User--Streamline-Mynaui"
-      height={24}
-      width={24}
-      {...props}
+      height="24"
+      width="24"
     >
+      <desc>User Streamline Icon: https://streamlinehq.com</desc>
       <path
-        d="M5.625 4.6875a1.875 1.875 0 1 0 3.75 0 1.875 1.875 0 1 0 -3.75 0"
-        strokeWidth={1.2}
-      />
+        d="M8.625 7.1875a2.875 2.875 0 1 0 5.75 0 2.875 2.875 0 1 0 -5.75 0"
+        strokeWidth="1"
+      ></path>
       <path
-        d="M12.1875 12.8125c-0.296875 -5.833125 -9.078125 -5.833125 -9.375 0"
-        strokeWidth={1.2}
-      />
+        d="M18.6875 19.645833333333336c-0.4552083333333333 -8.944125 -13.919791666666667 -8.944125 -14.375 0"
+        strokeWidth="1"
+      ></path>
     </svg>
   );
 };

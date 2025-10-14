@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Input from "../Input/Input";
 import Button from "../Button/button";
+import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
 
 export default function SignInStrapi() {
   const [identifier, setIdentifier] = useState("");
@@ -90,7 +91,7 @@ export default function SignInStrapi() {
         placeholder="Your password"
       />
       <Body2 $color="#ff0000">{error}</Body2>
-      <ButtonsArea>
+      <FlexContainer $flexDirection="row" $gap={12} $width="100%">
         <Button
           variant="secondary"
           onClickFunc={() => router.push("/auth/register")}
@@ -106,7 +107,7 @@ export default function SignInStrapi() {
         >
           Login
         </Button>
-      </ButtonsArea>
+      </FlexContainer>
     </>
   );
 }

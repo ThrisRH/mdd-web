@@ -1,7 +1,11 @@
 import { Body1, Body3 } from "@/components/Typography/Body.styles";
-import { FormInput, FormInputContainer } from "../../styles/Input.styles";
+import {
+  FormInput,
+  FormInputContainer,
+} from "../../../../../styles/components/inputs/Input.styles";
 
 interface Props {
+  label: string;
   value: string;
   onChange: (v: string) => void;
   maxLength: number;
@@ -10,6 +14,7 @@ interface Props {
 }
 
 const BlogTitleInput = ({
+  label,
   value,
   onChange,
   maxLength,
@@ -26,7 +31,7 @@ const BlogTitleInput = ({
       $color={isEmpty ? "#ad3945" : "#979797"}
       $fontWeight="500"
     >
-      Tiêu đề (bắt buộc)
+      {label}
     </Body3>
     <FormInput
       value={value}

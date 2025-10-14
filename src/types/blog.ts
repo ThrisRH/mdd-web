@@ -5,9 +5,10 @@ export interface BlogDetails {
   slug: string;
   title: string;
   publishedAt: string;
+  updatedAt: string;
   mainContent: string;
   cover: Cover;
-  subContent: SubContent[];
+  subContent: string;
   optionImage: OptionImage[];
   cate?: Cate;
   comments?: CommentProps[];
@@ -16,12 +17,6 @@ export interface BlogDetails {
 interface Cover {
   documentId: string;
   url: string;
-}
-
-interface SubContent {
-  id: number;
-  content: string;
-  image: Image[];
 }
 
 interface Image {

@@ -54,7 +54,7 @@ const TableList: TableItem[] = [
   { title: "Tên rút gọn" },
 ];
 
-const formatDate = (postDate: string) => {
+export const formatDate = (postDate: string) => {
   const date = new Date(postDate);
   const formatted = date.toLocaleDateString("vi-VN", {
     day: "numeric",
@@ -111,6 +111,11 @@ const BlogTable = ({
     setPageNumber(page);
   };
 
+  // Đến trang chi tiết
+  const handleToBlogDetail = (slug: string) => {
+    router.push(`/blogdetails/${slug}`);
+  };
+
   return (
     <>
       {/* Thanh hành động đối với bài blogs đã chọn */}
@@ -156,7 +161,7 @@ const BlogTable = ({
                 </IconContainer>
               </TableBodyCell>
 
-              <TableBodyCell>
+              <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
                 <TableFlexWrapper>
                   <ImageContainer $height="72px">
                     <Image
@@ -182,17 +187,17 @@ const BlogTable = ({
                 </TableFlexWrapper>
               </TableBodyCell>
 
-              <TableBodyCell>
+              <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
                 <Body5 $size={14}>{formatDate(item.publishedAt)}</Body5>
               </TableBodyCell>
 
-              <TableBodyCell>
+              <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
                 <Body5 $size={14}>{item.cate?.tile}</Body5>
               </TableBodyCell>
-              <TableBodyCell>
+              <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
                 <Body5 $size={14}>{item.comments?.length}</Body5>
               </TableBodyCell>
-              <TableBodyCell>
+              <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
                 <Body5 $size={14}>{item.slug}</Body5>
               </TableBodyCell>
             </RowContainer>

@@ -5,7 +5,7 @@ import {
   ImagePreview,
   LabelContainer,
   LabelImageContainer,
-} from "../../styles/Input.styles";
+} from "../../../../../styles/components/inputs/Input.styles";
 import { Body1, Body3 } from "@/components/Typography/Body.styles";
 import AddImageIC from "@/assets/svg/addimage";
 

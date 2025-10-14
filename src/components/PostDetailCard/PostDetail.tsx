@@ -9,22 +9,19 @@ import {
   ImageContainer,
   Line,
   LineContainer,
-  TimeArea,
   VectorContainer,
 } from "../PostCard/PostCard.styles";
 import { BlogDetails } from "@/types/blog";
 import { H1, H2, H3, H4 } from "../Typography/Heading.styles";
 import Image from "next/image";
-import { BlogContentContainer, BlogDetailWrapper } from "./PostDetail.style";
+import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
 
 function PostDetailComponent({
-  documentId,
   title,
   publishedAt,
   mainContent,
   cover,
   subContent,
-  optionImage,
 }: BlogDetails) {
   const formatDate = (postDate: string) => {
     const date = new Date(postDate);
@@ -32,8 +29,15 @@ function PostDetailComponent({
   };
 
   return (
-    <BlogDetailWrapper>
-      <TimeArea>
+    <FlexContainer $flex={1} $gap={32} $align="center">
+      {/* Vùng hiện ngày đăng */}
+      <FlexContainer
+        $width="100%"
+        $flexDirection="row"
+        $align="center"
+        $justify="center"
+        $gap={6}
+      >
         <Container $flex={3}>
           <LineContainer>
             <Line></Line>
@@ -53,9 +57,11 @@ function PostDetailComponent({
             <Line></Line>
           </LineContainer>
         </Container>
-      </TimeArea>
+      </FlexContainer>
+
+      {/* Vùng nội dung */}
       <H1>{title}</H1>
-      <BlogContentContainer>
+      <FlexContainer $width="100%" $gap={24}>
         <ImageContainer>
           <Image
             className="w-full h-[400px] rounded-xl"
@@ -70,54 +76,34 @@ function PostDetailComponent({
         <CustomBody $whiteSpace="normal" $color="#000" $fontSize={14}>
           {mainContent}
         </CustomBody>
-        {optionImage.length !== 0 &&
-          optionImage.map((item, index) =>
-            item.image.map((item, index) => (
-              <ImageContainer key={index}>
-                <Image
-                  className="w-full h-[400px] rounded-xl"
-                  src={`${
-                    item.url.startsWith("https")
-                      ? item.url
-                      : `/baseurl${item.url}`
-                  }`}
-                  alt="image"
-                  style={{ objectFit: "cover" }}
-                  fill
-                />
-              </ImageContainer>
-            ))
-          )}
-        {subContent.map((item, index) => (
-          <ReactMarkDown
-            components={{
-              h1: ({ node, ...props }) => <H1 $color="#000" {...props} />,
-              h2: ({ node, ...props }) => <H2 $color="#000" {...props} />,
-              h3: ({ node, ...props }) => <H3 {...props} />,
-              h4: ({ node, ...props }) => <H4 {...props} />,
-              p: ({ node, ...props }) => (
-                <CustomBody $whiteSpace="normal" $color="#000" {...props} />
-              ),
-              ol: ({ node, ...props }) => (
-                <ol className="list-decimal pl-6" {...props} />
-              ),
-              li: ({ node, ...props }) => (
-                <CustomBody
-                  $whiteSpace="normal"
-                  $color="#000"
-                  className=""
-                  as={"li"}
-                  {...props}
-                />
-              ),
-            }}
-            key={index}
-          >
-            {item.content}
-          </ReactMarkDown>
-        ))}
-      </BlogContentContainer>
-    </BlogDetailWrapper>
+
+        <ReactMarkDown
+          components={{
+            h1: ({ node, ...props }) => <H1 $color="#000" {...props} />,
+            h2: ({ node, ...props }) => <H2 $color="#000" {...props} />,
+            h3: ({ node, ...props }) => <H3 {...props} />,
+            h4: ({ node, ...props }) => <H4 {...props} />,
+            p: ({ node, ...props }) => (
+              <CustomBody $whiteSpace="normal" $color="#000" {...props} />
+            ),
+            ol: ({ node, ...props }) => (
+              <ol className="list-decimal pl-6" {...props} />
+            ),
+            li: ({ node, ...props }) => (
+              <CustomBody
+                $whiteSpace="normal"
+                $color="#000"
+                className=""
+                as={"li"}
+                {...props}
+              />
+            ),
+          }}
+        >
+          {subContent}
+        </ReactMarkDown>
+      </FlexContainer>
+    </FlexContainer>
   );
 }
 const PostDetail = memo(PostDetailComponent);
