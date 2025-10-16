@@ -1,12 +1,13 @@
 "use client";
 import React, { ReactNode, useEffect, useState } from "react";
-import InfoCard from "@/components/LeftSideBar/Info/InfoCard";
-import SendContent from "@/components/LeftSideBar/SendContent/SendContent";
-import Topic from "@/components/LeftSideBar/Topic/Topic";
+import InfoCard from "@/components/Layout/UserLayout/LeftSideBar/Info/InfoCard";
+import SendContent from "@/components/Layout/UserLayout/LeftSideBar/SendContent/SendContent";
+import Topic from "@/components/Layout/UserLayout/LeftSideBar/Topic/Topic";
 import Image from "next/image";
 import IgImage from "@/assets/image/ig_pic.png";
-import FavoriteField from "../LeftSideBar/FavoriteField/FavoriteField";
-import { MainContainer, SideBar } from "./Styled/PageContainer.styles";
+import FavoriteField from "../Layout/UserLayout/LeftSideBar/FavoriteField/FavoriteField";
+import { SideBar } from "./Styled/PageContainer.styles";
+import { MainContainer } from "@/styles/components/layout/Layout.styles";
 
 interface PostProps {
   children: ReactNode;

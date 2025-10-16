@@ -10,7 +10,12 @@ import {
 import { H5 } from "@/components/Typography/Heading.styles";
 
 import CloseIC from "@/assets/svg/cancel";
-import { Body1, Body3, CustomBody } from "@/components/Typography/Body.styles";
+import {
+  Body,
+  Body1,
+  Body3,
+  CustomBody,
+} from "@/components/Typography/Body.styles";
 import { toast } from "react-toastify";
 import CategorySelectionBox from "./CreateInputs/CategorySelectionBox";
 import BlogSlugInput from "./CreateInputs/BlogSlugInput";
@@ -19,8 +24,9 @@ import BlogContentInput from "./CreateInputs/BlogContentInput";
 import BlogImageInput from "./CreateInputs/BlogImageInput";
 import CustomEditor from "./CreateInputs/Editor/CustomEditor";
 import TurndownService from "turndown";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { CustomButton } from "@/styles/components/buttons/Button.styles";
+import { FormContainer } from "@/styles/components/layout/Common.styles";
 
 const CreateBlog = ({
   setIsCreatePopUpOpen,
@@ -130,13 +136,7 @@ const CreateBlog = ({
 
   return (
     <FormWrapper>
-      <FlexContainer
-        $flexDirection="column"
-        $width="900px"
-        $height="100%"
-        $bgColor="#fff"
-        $radius={24}
-      >
+      <FormContainer>
         <HeaderFormContainer>
           <H5 $size={24}>Tạo bài viết mới</H5>
           <CloseIconContainer onClick={() => setIsCreatePopUpOpen(false)}>
@@ -144,9 +144,7 @@ const CreateBlog = ({
           </CloseIconContainer>
         </HeaderFormContainer>
         <DetailContainer>
-          <Body1 $fontSize="18px" $weight={600}>
-            Chi tiết
-          </Body1>
+          <Body $variant="body0">Chi tiết</Body>
 
           {/* Input title */}
           <BlogTitleInput
@@ -218,7 +216,7 @@ const CreateBlog = ({
             )}
           </ButtonContainer>
         </FormFooter>
-      </FlexContainer>
+      </FormContainer>
     </FormWrapper>
   );
 };

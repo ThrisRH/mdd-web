@@ -28,7 +28,13 @@ export const TableHeaderCell = styled.th<{ $topPosition?: string }>`
   }
 `;
 
-export const IconContainer = styled.div`
+export const IconContainer = styled.div<{ $haveBg?: boolean }>`
+  padding: 8px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 100%;
+  background-color: ${(props) =>
+    props.$haveBg ? "rgba(0,0,0,0.2)" : "transparent"};
   cursor: pointer;
 `;
 
@@ -43,6 +49,7 @@ export const TableBodyCell = styled.td`
   z-index: 1;
   padding: 12px 12px 12px;
   cursor: pointer;
+
   &:first-child {
     padding-left: 32px;
     height: 100%;
@@ -54,7 +61,7 @@ export const TableBodyCell = styled.td`
 export const ActionContainer = styled.div<{
   $visible: boolean;
 }>`
-  position: sticky;
+  position: ${(props) => (props.$visible ? "sticky" : "absolute")};
   z-index: 9;
   height: 64px;
   top: 93px;
@@ -166,4 +173,23 @@ export const FormFooter = styled.div`
 `;
 export const ButtonContainer = styled.div`
   width: 120px;
+`;
+
+// Faq & about
+export const BodyContainer = styled.div<{ $isPadding?: boolean }>`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 24px;
+  padding: ${(props) => (props.$isPadding ? "24px" : 0)};
+`;
+
+export const ContentsGroup = styled.div<{
+  $variant: "information" | "action";
+}>`
+  width: ${(props) => (props.$variant === "information" ? "60%" : "300px")};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 `;

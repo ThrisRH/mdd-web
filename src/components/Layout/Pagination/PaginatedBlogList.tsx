@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import PaginationBar from "./PaginationBar";
 import PostCard from "@/components/PostCard/PostCard";
 import { BlogDetails } from "@/types/blog";
-import { BlogCardFrame } from "../Main/Styled/PageContainer.styles";
 import { useRouter, useSearchParams } from "next/navigation";
+import { BlogCardFrame } from "@/components/Main/Styled/PageContainer.styles";
 
 interface BaseProps {
   totalPages: number;
@@ -23,7 +23,7 @@ interface WithoutSlug extends BaseProps {
 
 type Props = WithSlug | WithoutSlug;
 
-export default function PaginationWrapper({
+export default function PaginatedBlogList({
   totalPages,
   page,
   slug,

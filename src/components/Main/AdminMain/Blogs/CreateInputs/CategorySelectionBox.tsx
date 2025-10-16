@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from "react";
 import {
+  CateListContainer,
   FlexInputContainer,
   LabelContainer,
   SelectionBoxContainer,
   SelectionContainer,
+  SelectionTitleWrapper,
 } from "../../../../../styles/components/inputs/Input.styles";
 import { ButtonContainer, FormFooter } from "../../styles/Page.styles";
-import Button from "@/components/Button/button";
-import { CateProps } from "@/components/Layout/DesktopNav";
-import { Body1, Body3, CustomBody } from "@/components/Typography/Body.styles";
+import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";
+import {
+  Body,
+  Body1,
+  Body3,
+  CustomBody,
+} from "@/components/Typography/Body.styles";
 
 import DropdownIC from "@/assets/svg/arrowdown";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { MainButtonContainer } from "@/styles/components/buttons/Button.styles";
 
 interface CateSelectionProps {
   cateSelectedId: string;
@@ -78,7 +85,12 @@ const CategorySelectionBox = ({
       </FlexInputContainer>
       {isCateSelectionOpen && (
         <SelectionBoxContainer>
-          <FlexContainer $padding="24px" $gap={12}>
+          <SelectionTitleWrapper>
+            <Body $color="#4f4f4f" $variant="body0">
+              Danh sách danh mục của bạn
+            </Body>
+          </SelectionTitleWrapper>
+          <CateListContainer>
             {data === null ? (
               <p>Bạn chưa có danh mục nào</p>
             ) : (
@@ -107,12 +119,15 @@ const CategorySelectionBox = ({
                 </FlexInputContainer>
               ))
             )}
-          </FlexContainer>
+          </CateListContainer>
           <FormFooter>
             <ButtonContainer>
-              <Button onClickFunc={() => setIsCateSelectionOpen(false)}>
+              <MainButtonContainer
+                $variant="secondary"
+                onClick={() => setIsCateSelectionOpen(false)}
+              >
                 Xong
-              </Button>
+              </MainButtonContainer>
             </ButtonContainer>
           </FormFooter>
         </SelectionBoxContainer>

@@ -1,24 +1,16 @@
 "use client";
-import { EmptyWrapper, OAuthArea } from "@/components/Auth/Auth.styles";
+import { AuthBodyContainer } from "@/components/Auth/Auth.styles";
 import SignInGoogle from "@/components/Auth/LogWithGoogle";
 import SignInStrapi from "@/components/Auth/LogWithStrapi";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FormContainer } from "@/styles/components/layout/Common.styles";
 
 export default function LoginPage() {
   return (
-    <EmptyWrapper>
-      <FlexContainer
-        $flexDirection="column"
-        $gap={12}
-        $width="50%"
-        $height="auto"
-        $padding="36px 0px"
-      >
+    <AuthBodyContainer>
+      <FormContainer $gap={12}>
         <SignInStrapi />
-        <OAuthArea>
-          <SignInGoogle />
-        </OAuthArea>
-      </FlexContainer>
-    </EmptyWrapper>
+        <SignInGoogle />
+      </FormContainer>
+    </AuthBodyContainer>
   );
 }

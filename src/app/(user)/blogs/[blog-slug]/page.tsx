@@ -117,6 +117,8 @@ export default async function Page({
           subContent={blogDetail.subContent}
           optionImage={blogDetail.optionImage}
           cover={blogDetail.cover}
+          createdAt={""}
+          updatedAt={""}
         />
         {/* Chia sẻ mạng xã hội */}
         <SectionWrapper flexDirection="row">

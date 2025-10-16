@@ -12,12 +12,14 @@ import {
   TableBodyCell,
   TableFlexWrapper,
   TableHeaderCell,
+  BodyContainer,
 } from "../styles/Page.styles";
 import {
   Body5,
   Body3,
   Body4,
   Body2,
+  Body,
 } from "@/components/Typography/Body.styles";
 import { BlogDetails } from "@/types/blog";
 import NoneSelectionIC from "@/assets/svg/Interact/NoneSelectionSquare";
@@ -26,11 +28,12 @@ import Image from "next/image";
 
 import {
   PaginationButton,
+  PaginationContainer,
   PaginationControls,
-  PaginationWrapper,
 } from "@/components/Layout/AdminLayout/Layout.styles";
-import { PageNumber } from "@/components/Pagination/PaginationBar.styles";
 import ActionSection from "../Components/ActionSection";
+import { PageNumber } from "@/components/Layout/Pagination/PaginationBar.styles";
+import TablePaginationBar from "@/components/Layout/Pagination/ForTable/TablePaginationBar";
 
 type TableItem = {
   title?: string;
@@ -117,9 +120,9 @@ const BlogTable = ({
   };
 
   return (
-    <>
+    <BodyContainer>
       {/* Thanh hành động đối với bài blogs đã chọn */}
-      <ActionSection selectedBlogs={selectedBlogs} />
+      <ActionSection forFeature="blogs" selectedItems={selectedBlogs} />
 
       {/* Bảng các bài blogs */}
       <TableWrapper>
@@ -205,40 +208,14 @@ const BlogTable = ({
         </tbody>
 
         <tfoot>
-          <RowContainer>
-            <TableBodyCell colSpan={6}>
-              <PaginationWrapper>
-                <PaginationControls>
-                  <PaginationButton
-                    disabled={currentPage === 1}
-                    onClick={() => handleChangePage(currentPage - 1)}
-                  >
-                    Trước
-                  </PaginationButton>
-
-                  {Array.from({ length: totalPages }, (_, i) => (
-                    <PageNumber
-                      key={i}
-                      $active={currentPage === i + 1}
-                      onClick={() => handleChangePage(i + 1)}
-                    >
-                      <Body2 $color="#000">{i + 1}</Body2>
-                    </PageNumber>
-                  ))}
-
-                  <PaginationButton
-                    disabled={currentPage === totalPages}
-                    onClick={() => handleChangePage(currentPage + 1)}
-                  >
-                    Sau
-                  </PaginationButton>
-                </PaginationControls>
-              </PaginationWrapper>
-            </TableBodyCell>
-          </RowContainer>
+          <TablePaginationBar
+            currentPage={currentPage}
+            totalPages={totalPages}
+            handleChangePage={handleChangePage}
+          />
         </tfoot>
       </TableWrapper>
-    </>
+    </BodyContainer>
   );
 };
 

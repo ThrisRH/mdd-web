@@ -2,6 +2,7 @@
 import React, { memo } from "react";
 import { Body3, CustomBody } from "../Typography/Body.styles";
 import Vector from "@/assets/svg/vector";
+import rehypeRaw from "rehype-raw";
 import ReactMarkDown from "react-markdown";
 import {
   Container,
@@ -14,7 +15,7 @@ import {
 import { BlogDetails } from "@/types/blog";
 import { H1, H2, H3, H4 } from "../Typography/Heading.styles";
 import Image from "next/image";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 
 function PostDetailComponent({
   title,
@@ -29,15 +30,9 @@ function PostDetailComponent({
   };
 
   return (
-    <FlexContainer $flex={1} $gap={32} $align="center">
+    <FlexContainer $gap={32}>
       {/* Vùng hiện ngày đăng */}
-      <FlexContainer
-        $width="100%"
-        $flexDirection="row"
-        $align="center"
-        $justify="center"
-        $gap={6}
-      >
+      <FlexContainer $flexDirection="row" $justify="center" $gap={6}>
         <Container $flex={3}>
           <LineContainer>
             <Line></Line>
@@ -60,8 +55,10 @@ function PostDetailComponent({
       </FlexContainer>
 
       {/* Vùng nội dung */}
-      <H1>{title}</H1>
-      <FlexContainer $width="100%" $gap={24}>
+      <Container $flex={1}>
+        <H1>{title}</H1>
+      </Container>
+      <FlexContainer $gap={24}>
         <ImageContainer>
           <Image
             className="w-full h-[400px] rounded-xl"
@@ -73,11 +70,17 @@ function PostDetailComponent({
             fill
           />
         </ImageContainer>
-        <CustomBody $whiteSpace="normal" $color="#000" $fontSize={14}>
+        <CustomBody
+          $align="justify"
+          $whiteSpace="normal"
+          $color="#000"
+          $fontSize={20}
+        >
           {mainContent}
         </CustomBody>
 
         <ReactMarkDown
+          rehypePlugins={[rehypeRaw]}
           components={{
             h1: ({ node, ...props }) => <H1 $color="#000" {...props} />,
             h2: ({ node, ...props }) => <H2 $color="#000" {...props} />,
@@ -97,6 +100,12 @@ function PostDetailComponent({
                 as={"li"}
                 {...props}
               />
+            ),
+            strong: ({ node }) => (
+              <CustomBody $whiteSpace="normal" $color="#000" $weight={600} />
+            ),
+            em: ({ node }) => (
+              <CustomBody $whiteSpace="normal" $color="#000" $weight={400} />
             ),
           }}
         >

@@ -1,11 +1,10 @@
-import { ButtonsArea } from "./Auth.styles";
 import { Body2 } from "../Typography/Body.styles";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Input from "../Input/Input";
-import Button from "../Button/button";
 import { capitalizeFirstLetter } from "@/lib/Uppercase";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { MainButtonContainer } from "@/styles/components/buttons/Button.styles";
 
 export default function SignUpStrapi() {
   const [username, setUsername] = useState("");
@@ -122,22 +121,21 @@ export default function SignUpStrapi() {
         placeholder="Confirm password"
       />
       <Body2 $color="#ff0000">{error}</Body2>
-      <FlexContainer $flexDirection="row" $gap={12} $width="100%">
-        <Button
-          variant="secondary"
-          onClickFunc={() => router.push("/auth/login")}
-          disable={isSending}
+      <FlexContainer $flexDirection="row" $gap={12}>
+        <MainButtonContainer
+          $variant="secondary"
+          onClick={() => router.push("/auth/login")}
+          disabled={isSending}
         >
           Login
-        </Button>
-        <Button
-          className="text-white"
-          variant="primary"
-          onClickFunc={handleSubmit}
-          disable={isSending}
+        </MainButtonContainer>
+        <MainButtonContainer
+          $variant="primary"
+          onClick={handleSubmit}
+          disabled={isSending}
         >
           Register
-        </Button>
+        </MainButtonContainer>
       </FlexContainer>
     </>
   );

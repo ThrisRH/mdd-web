@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { HeaderWrapper } from "./Header.styles";
+import { HeaderContainer } from "./Header.styles";
 import SearchBar from "../Search/SearchBar";
 import MobileMenu from "./MobileHeader";
 import NavOverlay from "./NavOverlay";
-import DesktopNav, { CateProps } from "../../DesktopNav";
+import DesktopNav, { CateProps } from "./DesktopNav";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -41,7 +41,7 @@ const Header = () => {
   }, []);
 
   return (
-    <HeaderWrapper>
+    <HeaderContainer>
       {!isSearch ? (
         <>
           <MobileMenu
@@ -72,7 +72,7 @@ const Header = () => {
       ) : (
         <SearchBar onCancel={() => setIsSearch(false)} />
       )}
-    </HeaderWrapper>
+    </HeaderContainer>
   );
 };
 

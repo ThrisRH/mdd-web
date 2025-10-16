@@ -10,10 +10,10 @@ import {
 import { H5 } from "@/components/Typography/Heading.styles";
 
 import CloseIC from "@/assets/svg/cancel";
-import { Body1, Body3, CustomBody } from "@/components/Typography/Body.styles";
+import { Body1, CustomBody } from "@/components/Typography/Body.styles";
 import { toast } from "react-toastify";
 
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { CustomButton } from "@/styles/components/buttons/Button.styles";
 import BlogTitleInput from "../Blogs/CreateInputs/BlogTitleInput";
 import BlogSlugInput from "../Blogs/CreateInputs/BlogSlugInput";
@@ -70,12 +70,7 @@ const CreateCategory = ({
 
   return (
     <FormWrapper>
-      <FlexContainer
-        $flexDirection="column"
-        $width="900px"
-        $bgColor="#fff"
-        $radius={24}
-      >
+      <FlexContainer $flexDirection="column">
         <HeaderFormContainer>
           <H5 $size={24}>Tạo danh mục mới</H5>
           <CloseIconContainer onClick={() => setIsCreateCatePopupOpen(false)}>
@@ -87,7 +82,7 @@ const CreateCategory = ({
             Chi tiết
           </Body1>
 
-          <FlexContainer $flexDirection="row" $gap={12} $width="100%">
+          <FlexContainer $flexDirection="row">
             {/* Input title */}
             <BlogTitleInput
               label="Tiêu đề (bắt buộc)"

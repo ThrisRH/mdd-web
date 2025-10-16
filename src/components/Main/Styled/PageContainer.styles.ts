@@ -1,19 +1,6 @@
 "use client";
 import styled from "styled-components";
 
-export const MainContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-items: start;
-  min-height: 100vh;
-  padding: 32px 32px 80px 32px;
-  gap: 64px;
-
-  @media (min-width: 40rem) {
-    padding: 80px;
-  }
-`;
-
 export const SideBar = styled.div`
   display: none;
 

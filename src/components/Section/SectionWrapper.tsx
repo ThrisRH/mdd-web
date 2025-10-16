@@ -2,7 +2,7 @@
 import React, { ReactNode } from "react";
 import { Line } from "../PostCard/PostCard.styles";
 import { Container, SectionBody } from "./SectionWrapper.styles";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 
 interface Props {
   children: ReactNode;
@@ -12,12 +12,7 @@ interface Props {
 
 const SectionWrapper = ({ children, flexDirection, gap }: Props) => {
   return (
-    <FlexContainer
-      $flexDirection="column"
-      $align="start"
-      $gap={50}
-      $width="100%"
-    >
+    <FlexContainer $flexDirection="column" $gap={50}>
       <Line $width={90}></Line>
       <SectionBody $gap={gap} $flexDirection={flexDirection}>
         {children}

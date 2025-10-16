@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import Button from "../Button/button";
 import Vector from "@/assets/svg/vector";
 
 import {
@@ -12,10 +11,11 @@ import {
   Container,
   Dot,
 } from "./PostCard.styles";
-import { Body2, Body3 } from "../Typography/Body.styles";
+import { Body, Body2, Body3 } from "../Typography/Body.styles";
 import { H1 } from "../Typography/Heading.styles";
 import { useRouter } from "next/navigation";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { MainButtonContainer } from "@/styles/components/buttons/Button.styles";
 
 interface Post {
   documentId: string;
@@ -105,20 +105,8 @@ const PostCard = ({ index, post }: PostCardProps) => {
     return formatted;
   };
   return (
-    <FlexContainer
-      $flexDirection="column"
-      $gap={24}
-      $width="100%"
-      $align="center"
-      $justify="center"
-    >
-      <FlexContainer
-        $width="100%"
-        $flexDirection="row"
-        $align="center"
-        $justify="center"
-        $gap={6}
-      >
+    <FlexContainer $flexDirection="column" $gap={24} $justify="center">
+      <FlexContainer $flexDirection="row" $justify="center" $gap={6}>
         <Container $flex={3}>
           <LineContainer>
             <Line></Line>
@@ -139,7 +127,9 @@ const PostCard = ({ index, post }: PostCardProps) => {
           </LineContainer>
         </Container>
       </FlexContainer>
-      <H1>{post.title}</H1>
+      <Container $flex={1}>
+        <H1>{post.title}</H1>
+      </Container>
       <ImageContainer>
         {blogAvatar?.cover && (
           <Image
@@ -156,9 +146,12 @@ const PostCard = ({ index, post }: PostCardProps) => {
         )}
       </ImageContainer>
       <Body2>{post.mainContent}</Body2>
-      <Button variant="secondary" onClickFunc={() => handleToDetail(post.slug)}>
-        Xem thêm
-      </Button>
+      <MainButtonContainer
+        $variant="secondary"
+        onClick={() => handleToDetail(post.slug)}
+      >
+        <Body $variant="body2">Xem thêm</Body>
+      </MainButtonContainer>
     </FlexContainer>
   );
 };

@@ -1,11 +1,11 @@
 "use client";
-import SendContent from "@/components/LeftSideBar/SendContent/SendContent";
-import InfoCard from "@/components/LeftSideBar/Info/InfoCard";
-import Topic from "@/components/LeftSideBar/Topic/Topic";
+import SendContent from "@/components/Layout/UserLayout/LeftSideBar/SendContent/SendContent";
+import InfoCard from "@/components/Layout/UserLayout/LeftSideBar/Info/InfoCard";
+import Topic from "@/components/Layout/UserLayout/LeftSideBar/Topic/Topic";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import IgImage from "@/assets/image/ig_pic.png";
-import FavoriteField from "@/components/LeftSideBar/FavoriteField/FavoriteField";
+import FavoriteField from "@/components/Layout/UserLayout/LeftSideBar/FavoriteField/FavoriteField";
 import { Blog } from "@/components/Main/PageContainer";
 import UserDetails from "@/components/Main/UserDetails";
 

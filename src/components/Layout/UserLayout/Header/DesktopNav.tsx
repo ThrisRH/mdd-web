@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { NavList } from "./UserLayout/Header/Header.styles";
-import NavItems from "./UserLayout/Header/NavItems";
+import { NavList } from "./Header.styles";
+import NavItems from "./NavItems";
 import { BlogDetails } from "@/types/blog";
 
 export interface CateProps {
@@ -10,6 +10,7 @@ export interface CateProps {
   documentId: string;
   slug: string;
   blogs: BlogDetails[];
+  createdAt: string;
   publishedAt: string;
 }
 

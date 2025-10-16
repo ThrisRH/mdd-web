@@ -18,10 +18,10 @@ interface AboutContent {
   children: { type: string; text: string }[];
 }
 
-interface AboutResponse {
+export interface AboutResponse {
   id: number;
+  aboutContent: string;
   authorAvt: AuthorAvt;
-  aboutContent: AboutContent[];
   contact: ContactProps[];
 }
 
@@ -71,13 +71,13 @@ export default async function AboutPage() {
           />
         </AvatarWrapper>
         <AboutText width={"100%"} />
-        <Content>
+        {/* <Content>
           {about.aboutContent?.map((block, i) => (
             <Body2 key={i}>
               {block.children.map((child, j) => child.text).join("")}
             </Body2>
           ))}
-        </Content>
+        </Content> */}
 
         <ContactSection>
           <Body1>Liên hệ qua:</Body1>

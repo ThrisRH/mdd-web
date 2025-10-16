@@ -3,15 +3,16 @@ import React, { useState } from "react";
 import { ActionContainer } from "../styles/Page.styles";
 import { CustomBody } from "@/components/Typography/Body.styles";
 import BinIC from "@/assets/svg/Interact/RecycleBin";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { Loader } from "../../Loading.styles";
 import { CustomButton } from "@/styles/components/buttons/Button.styles";
 
 interface Props {
-  selectedBlogs: Set<string>;
+  selectedItems: Set<string>;
+  forFeature: "blogs" | "cates";
 }
 
-const ActionSection = ({ selectedBlogs }: Props) => {
+const ActionSection = ({ selectedItems, forFeature }: Props) => {
   const [hover, setHover] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isDeleteMode, setIsDeleteMode] = useState(false);
@@ -19,8 +20,8 @@ const ActionSection = ({ selectedBlogs }: Props) => {
   const handleDeleteBlog = async () => {
     setIsDeleting(true);
     try {
-      for (const id of selectedBlogs) {
-        const response = await fetch(`/mmdblogsapi/blogs/${id}`, {
+      for (const id of selectedItems) {
+        const response = await fetch(`/mmdblogsapi/${forFeature}/${id}`, {
           method: "DELETE",
         });
 
@@ -29,7 +30,14 @@ const ActionSection = ({ selectedBlogs }: Props) => {
           throw new Error(errorData.message || "Failed to delete document.");
         }
       }
-      setTimeout(() => (window.location.href = "/myblogs"), 1000);
+      setTimeout(
+        () =>
+          (window.location.href =
+            forFeature === "blogs"
+              ? "/adminpanel/myblogs"
+              : "/adminpanel/mycates"),
+        1000
+      );
     } catch (error) {
       console.log(error);
     } finally {
@@ -38,9 +46,9 @@ const ActionSection = ({ selectedBlogs }: Props) => {
   };
 
   return (
-    <ActionContainer $visible={selectedBlogs.size !== 0}>
-      <CustomBody $color="#fff">Đã chọn: {selectedBlogs.size}</CustomBody>
-      <FlexContainer $flexDirection="row" $gap={12}>
+    <ActionContainer $visible={selectedItems.size !== 0}>
+      <CustomBody $color="#fff">Đã chọn: {selectedItems.size}</CustomBody>
+      <FlexContainer $width="fit" $flexDirection="row" $gap={12}>
         {/* Nút xóa hoặc hủy thao tác */}
         {!isDeleteMode ? (
           <CustomButton

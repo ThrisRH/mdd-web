@@ -5,6 +5,7 @@ export interface BlogDetails {
   slug: string;
   title: string;
   publishedAt: string;
+  createdAt: string;
   updatedAt: string;
   mainContent: string;
   cover: Cover;

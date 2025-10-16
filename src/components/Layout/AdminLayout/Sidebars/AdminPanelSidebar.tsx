@@ -1,18 +1,18 @@
-import { Body2, CustomBody } from "@/components/Typography/Body.styles";
+import { Body, Body2, CustomBody } from "@/components/Typography/Body.styles";
 import React from "react";
 import {
   InfoContainer,
   SidebarItemsContainer,
-  SidebarWrapper,
-  TabContainer,
-} from "../AdminLayout/Layout.styles";
+  SidebarContainer,
+} from "../Layout.styles";
 
 import { useInfo } from "@/context/InfoContext";
 import Image from "next/image";
 import { H3 } from "@/components/Typography/Heading.styles";
 import { usePathname, useRouter } from "next/navigation";
 import { Tabs } from "@/app/(admin)/config/tabsConfig";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { TabsGroup } from "./Sidebar.styles";
+import { TabContainer } from "@/styles/components/layout/Layout.styles";
 
 const AdminPanelSidebar = () => {
   const { info } = useInfo();
@@ -20,8 +20,8 @@ const AdminPanelSidebar = () => {
   const router = useRouter();
 
   return (
-    <SidebarWrapper>
-      <SidebarItemsContainer>
+    <SidebarContainer>
+      <SidebarItemsContainer $gap={32}>
         {info?.map((item, index) => (
           <InfoContainer key={index}>
             <Image
@@ -40,7 +40,7 @@ const AdminPanelSidebar = () => {
           </InfoContainer>
         ))}
 
-        <FlexContainer $width="100%" $gap={4}>
+        <TabsGroup>
           {Tabs.map(({ path, icon: Icon, label }) => {
             const isSelected = pathname === path;
             return (
@@ -52,18 +52,19 @@ const AdminPanelSidebar = () => {
                 }}
               >
                 <Icon />
-                <CustomBody
+                <Body
+                  $variant="custom"
                   $color={isSelected ? "#1c1c1c" : "#4f4f4f"}
                   $weight={isSelected ? "500" : "400"}
                 >
                   {label}
-                </CustomBody>
+                </Body>
               </TabContainer>
             );
           })}
-        </FlexContainer>
+        </TabsGroup>
       </SidebarItemsContainer>
-    </SidebarWrapper>
+    </SidebarContainer>
   );
 };
 

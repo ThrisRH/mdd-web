@@ -1,12 +1,11 @@
 import { signIn } from "next-auth/react";
 import GoogleIC from "@/assets/svg/google";
-import { ButtonsArea, GoogleLoginButton } from "./Auth.styles";
-import { Body1, Body2 } from "../Typography/Body.styles";
+import { Body, Body1, Body2 } from "../Typography/Body.styles";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Input from "../Input/Input";
-import Button from "../Button/button";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { MainButtonContainer } from "@/styles/components/buttons/Button.styles";
 
 export default function SignInStrapi() {
   const [identifier, setIdentifier] = useState("");
@@ -91,22 +90,21 @@ export default function SignInStrapi() {
         placeholder="Your password"
       />
       <Body2 $color="#ff0000">{error}</Body2>
-      <FlexContainer $flexDirection="row" $gap={12} $width="100%">
-        <Button
-          variant="secondary"
-          onClickFunc={() => router.push("/auth/register")}
-          disable={isSending}
+      <FlexContainer $flexDirection="row" $gap={12}>
+        <MainButtonContainer
+          $variant="secondary"
+          onClick={() => router.push("/auth/register")}
+          disabled={isSending}
         >
-          Register
-        </Button>
-        <Button
-          className="text-white"
-          variant="primary"
-          onClickFunc={handleSubmit}
-          disable={isSending}
+          <Body $variant="body2">Register</Body>
+        </MainButtonContainer>
+        <MainButtonContainer
+          $variant="primary"
+          onClick={handleSubmit}
+          disabled={isSending}
         >
-          Login
-        </Button>
+          <Body $variant="body2">Login</Body>
+        </MainButtonContainer>
       </FlexContainer>
     </>
   );

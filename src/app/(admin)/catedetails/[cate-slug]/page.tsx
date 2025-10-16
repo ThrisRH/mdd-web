@@ -5,21 +5,21 @@ import {
   BodyWrapper,
   SidebarContainer,
 } from "@/components/Layout/AdminLayout/Layout.styles";
-import BlogDetailSidebar from "@/components/Layout/AdminLayout/Sidebars/BlogDetailSidebar";
-import UpdateBlog from "@/components/Main/AdminMain/Blogs/UpdateBlog";
+import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";
+import CateDetailSidebar from "@/components/Layout/AdminLayout/Sidebars/CateDetailSidebar";
+import UpdateCate from "@/components/Main/AdminMain/Categories/UpdateCate";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { BlogDetails } from "@/types/blog";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const page = () => {
-  const [data, setData] = useState<BlogDetails | null>(null);
-  const params = useParams<{ "blog-slug": string }>();
-  const slug = params["blog-slug"];
+  const [data, setData] = useState<CateProps | null>(null);
+  const params = useParams<{ "cate-slug": string }>();
+  const slug = params["cate-slug"];
 
-  const getBlog = async () => {
+  const getCate = async () => {
     try {
-      const res = await fetch(`/mmdblogsapi/blogs/by-slug/${slug}`, {
+      const res = await fetch(`/mmdblogsapi/cates/${slug}?populate=*`, {
         cache: "no-store",
       });
       const data = await res.json();
@@ -30,15 +30,15 @@ const page = () => {
     }
   };
   useEffect(() => {
-    getBlog();
+    getCate();
   }, [slug]);
   return (
     <BodyWrapper>
       <SidebarContainer>
-        {data && <BlogDetailSidebar blog={data} />}
+        {data && <CateDetailSidebar cate={data} />}
       </SidebarContainer>
       {data ? (
-        <UpdateBlog blog={data} />
+        <UpdateCate cate={data} />
       ) : (
         <FlexContainer $justify="center">
           <Loading />

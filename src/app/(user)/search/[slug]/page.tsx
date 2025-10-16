@@ -3,8 +3,8 @@ import PageContainer from "@/components/Main/PageContainer";
 import { H0 } from "@/components/Typography/Heading.styles";
 import { BlogDetails } from "@/types/blog";
 import NotFound from "@/components/Main/NotFound";
-import PaginationWrapper from "@/components/Pagination/PaginationWrapper";
 import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
+import PaginatedBlogList from "@/components/Layout/Pagination/PaginatedBlogList";
 
 // props
 type Params = Promise<{ slug: string }>;
@@ -88,7 +88,7 @@ export default async function SearchPage(props: {
       <BlogContainer>
         <H0>Kết quả tìm kiếm cho: {title}</H0>
 
-        <PaginationWrapper
+        <PaginatedBlogList
           page={pageNumber}
           totalPages={pageCount}
           slug={title}

@@ -10,22 +10,22 @@ import UploadIC from "@/assets/svg/Interact/Upload";
 
 import React, { useState } from "react";
 import {
-  ActionArea,
+  HeaderItemsGroup,
   CreateBlogButton,
   DropdownCreateContainer,
-  HeaderWrapper,
-  LogoArea,
-  TabContainer,
+  HeaderContainer,
+  ActionWrapper,
 } from "./Layout.styles";
 import { H5 } from "@/components/Typography/Heading.styles";
 import Image from "next/image";
-import { Body3, CustomBody } from "@/components/Typography/Body.styles";
+import { Body, Body3, CustomBody } from "@/components/Typography/Body.styles";
 import CreateBlog from "@/components/Main/AdminMain/Blogs/CreateBlog";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
 import CreateCategory from "@/components/Main/AdminMain/Categories/CreateCate";
+import Link from "next/link";
+import { TabContainer } from "@/styles/components/layout/Layout.styles";
 
 const Header = () => {
-  const [isSelectionCreateOpen, setIsSelectionOpen] = useState(false);
+  const [isSelectionCreateOpen, setIsSelectionCreateOpen] = useState(false);
   const [isCreatePopupOpen, setIsCreatePopupOpen] = useState(false);
   const [isCreateCatePopupOpen, setIsCreateCatePopupOpen] = useState(false);
   return (
@@ -37,57 +37,62 @@ const Header = () => {
       {isCreateCatePopupOpen && (
         <CreateCategory setIsCreateCatePopupOpen={setIsCreateCatePopupOpen} />
       )}
-      <HeaderWrapper>
-        <LogoArea>
+      <HeaderContainer>
+        <HeaderItemsGroup>
           <MoreIC color={"#1C1C1C"} />{" "}
           <Image src={LogoImg} width={28} height={28} alt="MddLogo" />
           <H5 $size={20}>MDD Blogs</H5>
-        </LogoArea>
+        </HeaderItemsGroup>
 
-        <ActionArea>
+        <HeaderItemsGroup>
           <RobotIC />
           <BellIC />
-          <FlexContainer className="relative">
+          <Link href={"/"}>
+            <Body $variant="body5" $color="#4f6ffa">
+              Về trang người dùng
+            </Body>
+          </Link>
+          <ActionWrapper className="relative">
             <CreateBlogButton
               onClick={() => {
-                setIsSelectionOpen(true);
+                setIsSelectionCreateOpen(!isSelectionCreateOpen);
               }}
             >
               <WriteNewIC />
-              <Body3 $fontWeight="600">Tạo</Body3>
+              <Body $variant="body3">Tạo</Body>
             </CreateBlogButton>
             {isSelectionCreateOpen && (
               <DropdownCreateContainer>
                 <TabContainer
                   onClick={() => {
                     setIsCreatePopupOpen(true);
-                    setIsSelectionOpen(false);
+                    setIsSelectionCreateOpen(false);
                   }}
-                  $gap={16}
-                  $padding="0px 12px"
                   $isSelected={false}
                 >
                   <UploadIC />
-                  <CustomBody $size={14}>Tạo bài viết mới</CustomBody>
+                  <Body $variant="body4" $size={14}>
+                    Tạo bài viết mới
+                  </Body>
                 </TabContainer>
 
                 <TabContainer
-                  $gap={16}
-                  $padding="0px 12px"
                   $isSelected={false}
                   onClick={() => {
                     setIsCreateCatePopupOpen(true);
-                    setIsSelectionOpen(false);
+                    setIsSelectionCreateOpen(false);
                   }}
                 >
                   <AddBlogIC />
-                  <CustomBody $size={14}>Tạo danh mục mới</CustomBody>
+                  <Body $variant="body4" $size={14}>
+                    Tạo danh mục mới
+                  </Body>
                 </TabContainer>
               </DropdownCreateContainer>
             )}
-          </FlexContainer>
-        </ActionArea>
-      </HeaderWrapper>
+          </ActionWrapper>
+        </HeaderItemsGroup>
+      </HeaderContainer>
     </>
   );
 };

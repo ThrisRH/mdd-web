@@ -14,7 +14,7 @@ import {
 import Image from "next/image";
 import { Body1, Body2, Body3 } from "../Typography/Body.styles";
 import { CommentInputProps, CommentProps } from "@/types/comment";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { BorderContainer } from "@/styles/components/layout/Common.styles";
 
 interface Props {
   documentId: string;
@@ -125,12 +125,7 @@ const CommentInput = ({
   handleSubmit,
 }: CommentInputProps) => {
   return (
-    <FlexContainer
-      $border="1px #D5CBCB solid"
-      $height="fit-content"
-      $width="100%"
-      $flexDirection="column"
-    >
+    <BorderContainer $flexDirection="column">
       <TextArea
         id="comment"
         name="comment"
@@ -145,7 +140,7 @@ const CommentInput = ({
           <Body2 $size={20}>Post Comment</Body2>
         </SubmitButton>
       </SubmitField>
-    </FlexContainer>
+    </BorderContainer>
   );
 };
 

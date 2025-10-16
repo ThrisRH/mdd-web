@@ -1,26 +1,20 @@
 "use client";
-import { EmptyWrapper, OAuthArea } from "@/components/Auth/Auth.styles";
+import { AuthBodyContainer } from "@/components/Auth/Auth.styles";
 import SignInGoogle from "@/components/Auth/LogWithGoogle";
 import SignUpStrapi from "@/components/Auth/RegisterWithStrapi";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 
 export default function RegisterPage() {
   return (
-    <EmptyWrapper>
-      <FlexContainer
-        $flexDirection="column"
-        $gap={12}
-        $width="50%"
-        $height="auto"
-        $padding="36px 0px"
-      >
+    <AuthBodyContainer>
+      <FlexContainer $flexDirection="column" $gap={12}>
         <SignUpStrapi />
 
         {/* Vùng login với oAuth */}
-        <FlexContainer $width="100%">
+        <FlexContainer>
           <SignInGoogle />
         </FlexContainer>
       </FlexContainer>
-    </EmptyWrapper>
+    </AuthBodyContainer>
   );
 }

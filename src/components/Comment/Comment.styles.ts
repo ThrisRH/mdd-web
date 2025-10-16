@@ -5,32 +5,32 @@ export const CommentBody = styled.div`
   flex-direction: column;
   gap: 16px;
   width: 100%;
-`
+`;
 
 export const CommentContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border: 1px #D5CBCB solid;
-    height: fit-content;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px #d5cbcb solid;
+  height: fit-content;
 `;
 
 export const TextArea = styled.textarea`
-    width: 100%;
-    height: 250px;
-    padding: 12px;
-    outline: none;
-    
+  width: 100%;
+  height: 250px;
+  padding: 12px;
+  outline: none;
 
-    &::placeholder {
-    color: gray;       
+  &::placeholder {
+    color: gray;
   }
 `;
 
 export const SubmitField = styled.div`
+  width: 100%;
   display: flex;
   padding: 30px;
-  border-top: 1px #D5CBCB solid;
+  border-top: 1px #d5cbcb solid;
   justify-content: flex-end;
   align-items: center;
 `;
@@ -43,24 +43,24 @@ export const SubmitButton = styled.button`
   color: #000;
 
   @media (min-width: 40rem) {
-    width:208px
-  };
-`
+    width: 208px;
+  }
+`;
 
-export const CommentCardWrapper = styled.div` 
+export const CommentCardWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 16px;
-`
+`;
 
 export const CommentImageWrapper = styled.div`
   min-width: 60px;
   height: 60px;
   position: relative;
-`
+`;
 
 export const CommentContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
-`
+`;

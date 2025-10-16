@@ -1,14 +1,12 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import {
-  MainContentContainer,
-  TitleContainer,
-} from "@/components/Layout/AdminLayout/Layout.styles";
+import { TitleContainer } from "@/components/Layout/AdminLayout/Layout.styles";
 import BlogTable from "@/components/Main/AdminMain/Blogs/BlogTable";
 import { H1 } from "@/components/Typography/Heading.styles";
 import Loading from "@/app/(user)/loading";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
 
 export default function MyBlogsPage() {
   const [data, setData] = useState<any>();
@@ -45,12 +43,7 @@ export default function MyBlogsPage() {
       </TitleContainer>
 
       {loading ? (
-        <FlexContainer
-          $width="100%"
-          $height="100%"
-          $justify="center"
-          $align="center"
-        >
+        <FlexContainer $justify="center">
           <Loading />
         </FlexContainer>
       ) : (

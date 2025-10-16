@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 // Header bar
-export const HeaderWrapper = styled.div`
+export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -14,18 +14,15 @@ export const HeaderWrapper = styled.div`
   z-index: 100;
 `;
 
-export const LogoArea = styled.div`
+export const HeaderItemsGroup = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 24px;
 `;
 
-export const ActionArea = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 16px;
+export const ActionWrapper = styled.div`
+  position: relative;
 `;
 
 export const CreateBlogButton = styled.button`
@@ -61,7 +58,7 @@ export const DropdownCreateContainer = styled.div`
 `;
 
 // Main layout
-export const AdminLayoutWrapper = styled.div`
+export const AdminLayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -88,10 +85,10 @@ const fadeIn = keyframes`
   }
 `;
 
-export const SidebarWrapper = styled.div`
+export const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 300px;
+  min-width: 250px;
   height: calc(100vh - 64px);
   padding: 24px 16px;
   background-color: #fff;
@@ -101,35 +98,16 @@ export const SidebarWrapper = styled.div`
   gap: 24px;
 `;
 
-export const SidebarItemsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-  gap: 24px;
-  animation: ${fadeIn} 1s ease forwards;
-`;
-
-export const TabContainer = styled.div<{
-  $isSelected: boolean;
-  $padding?: string;
+export const SidebarItemsContainer = styled.div<{
   $gap?: number;
 }>`
   display: flex;
-  flex-direction: row;
-  background-color: ${(props) =>
-    props.$isSelected ? "rgba(0,0,0,0.03)" : "none"};
-  gap: ${(props) => (props.$gap ? `${props.$gap}px` : "32px")};
-  width: 100%;
-  height: 48px;
-  padding: ${(props) => (props.$padding ? props.$padding : " 4px 24px")};
+  flex-direction: column;
   align-items: center;
-  border-radius: 12px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0000000d;
-  }
+  width: 100%;
+  height: auto;
+  gap: ${(props) => (props.$gap ? `${props.$gap}px` : "24px")};
+  animation: ${fadeIn} 1s ease forwards;
 `;
 
 export const InfoContainer = styled.div`
@@ -137,18 +115,6 @@ export const InfoContainer = styled.div`
   flex-direction: column;
   gap: 16px;
   align-items: center;
-`;
-
-//  Body layout
-export const MainContentContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #c5c5c5 #f1f1f1;
 `;
 
 export const TitleContainer = styled.div`
@@ -161,7 +127,7 @@ export const TitleContainer = styled.div`
 `;
 
 // Pagination
-export const PaginationWrapper = styled.div`
+export const PaginationContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 12px 16px;

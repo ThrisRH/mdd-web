@@ -1,4 +1,3 @@
-import DashboardIC from "@/assets/svg/sidebarAdmin/dashboard";
 import BlogsIC from "@/assets/svg/sidebarAdmin/blog";
 import CateIC from "@/assets/svg/sidebarAdmin/cate";
 import AboutIC from "@/assets/svg/sidebarAdmin/about";

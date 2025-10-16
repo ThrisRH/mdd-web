@@ -11,7 +11,7 @@ import React from "react";
 import { FAQWrapper } from "@/components/Main/Styled/FAQContent.styles";
 import FAQBody from "./FAQBody";
 import { notFound } from "next/navigation";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
@@ -20,6 +20,7 @@ export interface FAQProps {
 }
 
 interface QuestAnswer {
+  id: number;
   question: string;
   answer: string;
 }
@@ -46,40 +47,5 @@ export default async function FAQ() {
 
   if (!faq) notFound();
 
-  return (
-    <FAQWrapper>
-      <H0>Câu hỏi thường gặp</H0>
-      <FlexContainer
-        $width="100%"
-        $flexDirection="row"
-        $align="center"
-        $justify="center"
-        $gap={6}
-      >
-        <Container $flex={3}>
-          <LineContainer>
-            <Line></Line>
-            <VectorContainer $left={false}>
-              <Vector />
-            </VectorContainer>
-          </LineContainer>
-          <Dot></Dot>
-        </Container>
-        {/* Dot */}
-        {Array.from({ length: 9 }).map((_, index) => (
-          <Dot key={index} />
-        ))}
-        <Container $flex={3}>
-          <Dot></Dot>
-          <LineContainer>
-            <VectorContainer $left={true}>
-              <Vector />
-            </VectorContainer>
-            <Line></Line>
-          </LineContainer>
-        </Container>
-      </FlexContainer>
-      <FAQBody questionAnswer={faq.questionAnswer} />
-    </FAQWrapper>
-  );
+  return <FAQBody questionAnswer={faq.questionAnswer} />;
 }

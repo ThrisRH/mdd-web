@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import SendArea from "@/assets/svg/sendContent";
-import { Body3 } from "@/components/Typography/Body.styles";
-import Button from "@/components/Button/button";
+import { Body, Body3 } from "@/components/Typography/Body.styles";
 import { ButtonWrapper, Input, InputWrapper } from "../Sidebar.styles";
+import { MainButtonContainer } from "@/styles/components/buttons/Button.styles";
 
 interface CateProps {
   id: number;
@@ -65,9 +65,9 @@ const SendContent = () => {
       </InputWrapper>
 
       <ButtonWrapper>
-        <Button variant="secondary" onClickFunc={handleSubmitContent}>
-          Đăng ký
-        </Button>
+        <MainButtonContainer $variant="secondary" onClick={handleSubmitContent}>
+          <Body $variant="body2">Đăng ký</Body>
+        </MainButtonContainer>
       </ButtonWrapper>
     </SendArea>
   );

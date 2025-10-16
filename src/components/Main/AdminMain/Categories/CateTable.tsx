@@ -1,24 +1,21 @@
 "use client";
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import {
   TableWrapper,
   TableBodyCell,
   TableHeaderCell,
   RowContainer,
   IconContainer,
+  BodyContainer,
 } from "../styles/Page.styles";
 import { Body5, Body3, Body2 } from "@/components/Typography/Body.styles";
 import NoneSelectionIC from "@/assets/svg/Interact/NoneSelectionSquare";
 import SelectedIC from "@/assets/svg/Interact/SelectedSquare";
 
-import {
-  PaginationButton,
-  PaginationControls,
-  PaginationWrapper,
-} from "@/components/Layout/AdminLayout/Layout.styles";
-import { PageNumber } from "@/components/Pagination/PaginationBar.styles";
-import { CateProps } from "@/components/Layout/DesktopNav";
+import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";
 import { useRouter, useSearchParams } from "next/navigation";
+import ActionSection from "../Components/ActionSection";
+import TablePaginationBar from "@/components/Layout/Pagination/ForTable/TablePaginationBar";
 
 type TableItem = {
   title?: string;
@@ -60,6 +57,30 @@ const CateTable = ({
   const searchParams = useSearchParams();
   const router = useRouter();
 
+  const [selectedBlogs, setSelectedCates] = useState<Set<string>>(new Set());
+
+  const selectCate = (id: string) => {
+    setSelectedCates((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
+  };
+
+  const selectAll = () => {
+    setSelectedCates((prev) => {
+      if (prev.size === categories.length) {
+        return new Set();
+      } else {
+        return new Set(categories.map((categories) => categories.documentId));
+      }
+    });
+  };
+
   useEffect(() => {
     const pageParam = searchParams.get("page");
     const pageNum = pageParam ? parseInt(pageParam, 10) : 1;
@@ -73,83 +94,93 @@ const CateTable = ({
     router.push(`?page=${page}`);
     setPageNumber(page);
   };
+
+  const handleToDetail = (documentId: string) => {
+    router.push(`/catedetails/${documentId}`);
+  };
   return (
-    <TableWrapper>
-      <thead>
-        <tr>
-          {TableList.map((item, index) => (
-            <TableHeaderCell key={index}>
-              {item.title ? (
-                <Body3 $fontWeight="500" $size={16}>
-                  {item.title}
-                </Body3>
-              ) : (
-                <IconContainer>{item.icon}</IconContainer>
-              )}
-            </TableHeaderCell>
+    <BodyContainer>
+      <ActionSection forFeature="cates" selectedItems={selectedBlogs} />
+      <TableWrapper>
+        <thead>
+          <tr>
+            {TableList.map((item, index) => (
+              <TableHeaderCell
+                key={index}
+                $topPosition={selectedBlogs.size !== 0 ? "156px" : "90px"}
+              >
+                {item.title ? (
+                  <Body3 $fontWeight="500" $size={16}>
+                    {item.title}
+                  </Body3>
+                ) : (
+                  <IconContainer onClick={selectAll}>
+                    {selectedBlogs.size !== 0 ? (
+                      <SelectedIC />
+                    ) : (
+                      <NoneSelectionIC />
+                    )}
+                  </IconContainer>
+                )}
+              </TableHeaderCell>
+            ))}
+          </tr>
+        </thead>
+
+        <tbody>
+          {categories.map((item) => (
+            <RowContainer key={item.documentId}>
+              <TableBodyCell>
+                <IconContainer onClick={() => selectCate(item.documentId)}>
+                  {selectedBlogs.has(item.documentId) ? (
+                    <SelectedIC />
+                  ) : (
+                    <NoneSelectionIC />
+                  )}
+                </IconContainer>
+              </TableBodyCell>
+
+              <TableBodyCell
+                onClick={() => {
+                  handleToDetail(item.documentId);
+                }}
+              >
+                <Body5 $size={14}>{item.tile}</Body5>
+              </TableBodyCell>
+              <TableBodyCell
+                onClick={() => {
+                  handleToDetail(item.documentId);
+                }}
+              >
+                <Body5 $size={14}>{formatDate(item.publishedAt)}</Body5>
+              </TableBodyCell>
+              <TableBodyCell
+                onClick={() => {
+                  handleToDetail(item.documentId);
+                }}
+              >
+                <Body5 $size={14}>{item.slug}</Body5>
+              </TableBodyCell>
+              <TableBodyCell
+                onClick={() => {
+                  handleToDetail(item.documentId);
+                }}
+              >
+                <Body5 $size={14}>{item.blogs.length}</Body5>
+              </TableBodyCell>
+            </RowContainer>
           ))}
-        </tr>
-      </thead>
+        </tbody>
 
-      <tbody>
-        {categories.map((item) => (
-          <RowContainer key={item.documentId}>
-            <TableBodyCell>
-              <IconContainer>
-                <NoneSelectionIC />
-              </IconContainer>
-            </TableBodyCell>
-
-            <TableBodyCell>
-              <Body5 $size={14}>{item.tile}</Body5>
-            </TableBodyCell>
-            <TableBodyCell>
-              <Body5 $size={14}>{formatDate(item.publishedAt)}</Body5>
-            </TableBodyCell>
-            <TableBodyCell>
-              <Body5 $size={14}>{item.slug}</Body5>
-            </TableBodyCell>
-            <TableBodyCell>
-              <Body5 $size={14}>{item.blogs.length}</Body5>
-            </TableBodyCell>
-          </RowContainer>
-        ))}
-      </tbody>
-
-      <tfoot>
-        <RowContainer>
-          <TableBodyCell colSpan={6}>
-            <PaginationWrapper>
-              <PaginationControls>
-                <PaginationButton
-                  disabled={currentPage === 1}
-                  onClick={() => handleChangePage(currentPage - 1)}
-                >
-                  Trước
-                </PaginationButton>
-
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <PageNumber
-                    key={i}
-                    $active={currentPage === i + 1}
-                    onClick={() => handleChangePage(i + 1)}
-                  >
-                    <Body2 $color="#000">{i + 1}</Body2>
-                  </PageNumber>
-                ))}
-
-                <PaginationButton
-                  disabled={currentPage === totalPages}
-                  onClick={() => handleChangePage(currentPage + 1)}
-                >
-                  Sau
-                </PaginationButton>
-              </PaginationControls>
-            </PaginationWrapper>
-          </TableBodyCell>
-        </RowContainer>
-      </tfoot>
-    </TableWrapper>
+        <tfoot>
+          <TablePaginationBar
+            currentPage={currentPage}
+            totalPages={totalPages}
+            handleChangePage={handleChangePage}
+          />
+        </tfoot>
+      </TableWrapper>
+    </BodyContainer>
   );
 };
 

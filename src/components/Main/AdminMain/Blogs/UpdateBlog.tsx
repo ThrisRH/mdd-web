@@ -1,27 +1,20 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import {
-  DetailContainer,
-  FormFooter,
-  HeaderFormContainer,
-} from "../styles/Page.styles";
+import { DetailContainer, HeaderFormContainer } from "../styles/Page.styles";
 import { H5 } from "@/components/Typography/Heading.styles";
 
-import { Body1, Body3, CustomBody } from "@/components/Typography/Body.styles";
-import { toast } from "react-toastify";
+import { Body1, CustomBody } from "@/components/Typography/Body.styles";
 import CategorySelectionBox from "./CreateInputs/CategorySelectionBox";
 import BlogSlugInput from "./CreateInputs/BlogSlugInput";
 import BlogTitleInput from "./CreateInputs/BlogTitleInput";
 import BlogContentInput from "./CreateInputs/BlogContentInput";
-import BlogImageInput from "./CreateInputs/BlogImageInput";
 import CustomEditor from "./CreateInputs/Editor/CustomEditor";
-import TurndownService from "turndown";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { BlogDetails } from "@/types/blog";
 import { CustomButton } from "@/styles/components/buttons/Button.styles";
 import { marked } from "marked";
 import { Loader } from "../../Loading.styles";
-import { CateProps } from "@/components/Layout/DesktopNav";
+import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";
 import { useRouter } from "next/navigation";
 
 interface Props {
@@ -99,14 +92,8 @@ const UpdateBlog = ({ blog }: Props) => {
   }, [blog]);
 
   return (
-    <FlexContainer
-      $flexDirection="row"
-      $width="100%"
-      $height="100%"
-      $bgColor="#fff"
-      $radius={24}
-    >
-      <FlexContainer $width="100%" $height="100%" $bgColor="#fff" $radius={24}>
+    <FlexContainer $flexDirection="row">
+      <FlexContainer>
         <HeaderFormContainer>
           <H5 $size={24}>Chỉnh sửa bài viết</H5>
           {isLoading ? (

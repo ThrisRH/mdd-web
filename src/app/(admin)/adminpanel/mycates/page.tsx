@@ -1,12 +1,10 @@
 "use client";
 import Loading from "@/app/(user)/loading";
-import {
-  MainContentContainer,
-  TitleContainer,
-} from "@/components/Layout/AdminLayout/Layout.styles";
+import { TitleContainer } from "@/components/Layout/AdminLayout/Layout.styles";
 import CateTable from "@/components/Main/AdminMain/Categories/CateTable";
 import { H1 } from "@/components/Typography/Heading.styles";
-import { FlexContainer } from "@/styles/components/layout/FlexContainer.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -21,7 +19,7 @@ export default function MyCatesPage() {
   const getCates = async (pageNumber: number) => {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/cates?pagination[page]=${pageNumber}&pagination[pageSize]=2&populate=*&sort=createdAt:desc`,
+        `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/cates?pagination[page]=${pageNumber}&pagination[pageSize]=10&populate=*&sort=createdAt:desc`,
         { cache: "no-store" }
       );
       if (!res.ok) {
@@ -43,12 +41,7 @@ export default function MyCatesPage() {
 
   if (loading)
     return (
-      <FlexContainer
-        $width="100%"
-        $height="100%"
-        $justify="center"
-        $align="center"
-      >
+      <FlexContainer $justify="center">
         <Loading />
       </FlexContainer>
     );

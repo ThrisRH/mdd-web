@@ -1,11 +1,11 @@
 "use client";
-import { EmptyWrapper } from "@/components/Auth/Auth.styles";
+import { AuthBodyContainer } from "@/components/Auth/Auth.styles";
 import NotFound from "@/components/Main/NotFound";
 
 export default function NotFoundPage() {
   return (
-    <EmptyWrapper>
+    <AuthBodyContainer>
       <NotFound title="Lỗi hệ thống" />;
-    </EmptyWrapper>
+    </AuthBodyContainer>
   );
 }

@@ -4,9 +4,11 @@ import TextareaAutosize from "react-textarea-autosize";
 //  Text input
 export const FormInputContainer = styled.div<{
   $borderColor?: string;
+  $maxHeight?: number;
 }>`
   display: flex;
   width: 100%;
+  max-height: ${(props) => `${props.$maxHeight}px` || "auto"};
   flex-direction: column;
   padding: 12px;
   border: 1px solid
@@ -20,13 +22,17 @@ export const FormInputContainer = styled.div<{
   }
 `;
 
-export const FormInput = styled(TextareaAutosize)<{ $minHeight?: string }>`
+export const FormInput = styled(TextareaAutosize)<{
+  $minHeight?: string;
+  $canOverflow?: boolean;
+}>`
   outline: none;
   min-height: ${(props) => (props.$minHeight ? props.$minHeight : "64px")};
   width: 100%;
   font-size: 18px;
   resize: none;
-  overflow: hidden;
+  overflow: ${(props) => (props.$canOverflow ? "auto" : "hidden")};
+  scrollbar-width: thin;
 `;
 
 export const FormNormalInput = styled.input<{
@@ -157,4 +163,17 @@ export const SelectionContainer = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   gap: 12px;
+`;
+
+export const CateListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px;
+  height: 100%;
+`;
+
+export const SelectionTitleWrapper = styled.div`
+  padding: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 `;
