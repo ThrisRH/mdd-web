@@ -28,7 +28,7 @@ const FAQBody = ({ ...faq }: FAQProps) => {
   return (
     <FAQWrapper>
       <H0>Câu hỏi thường gặp</H0>
-      <FlexContainer $flexDirection="row" $justify="center" $gap={6}>
+      <FlexContainer $flexDirection="row" $justify="center" $gap="xs">
         <Container $flex={3}>
           <LineContainer>
             <Line></Line>

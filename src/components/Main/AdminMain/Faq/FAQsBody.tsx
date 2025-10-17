@@ -9,19 +9,18 @@ import React, { useState } from "react";
 
 import DeleteIC from "@/assets/svg/Interact/RecycleBin";
 import DropdownIC from "@/assets/svg/arrowdown";
-import BlogTitleInput from "../Blogs/CreateInputs/BlogTitleInput";
 import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
 import {
   CustomButton,
   MainButtonContainer,
 } from "@/styles/components/buttons/Button.styles";
 import { Loader } from "../../Loading.styles";
-import { useRouter } from "next/navigation";
 import {
   BodyContainer,
   ContentsGroup,
   IconContainer,
 } from "../styles/Page.styles";
+import { useToggleSelect } from "@/hooks/useToggleSelect";
 
 interface Props {
   Faqs: FAQProps;
@@ -30,9 +29,8 @@ interface Props {
 const FAQsBody = ({ Faqs }: Props) => {
   const [data, setData] = useState(Faqs);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedDeleteItems, setSelectedDeleteItems] = useState<number[]>([]);
+  const { selectedDeleteItems, toggleSelect } = useToggleSelect();
   const [selected, setSelected] = useState<number | null>(null);
-  const router = useRouter();
 
   const addFAQ = () => {
     setData((prev) => ({
@@ -49,11 +47,6 @@ const FAQsBody = ({ Faqs }: Props) => {
   };
 
   // Chọn những field cần xóa
-  const toggleSelect = (id: number) => {
-    setSelectedDeleteItems((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
-  };
 
   const handleUpdateFAQ = async () => {
     try {
@@ -95,7 +88,7 @@ const FAQsBody = ({ Faqs }: Props) => {
     }
   };
   return (
-    <BodyContainer $isPadding={true}>
+    <BodyContainer $flexDirection="row" $isPadding={true}>
       {/* Danh sách các FAQs */}
       <ContentsGroup $variant="information">
         {data.questionAnswer.map((item, index) => (
@@ -109,7 +102,7 @@ const FAQsBody = ({ Faqs }: Props) => {
             }
           >
             <FlexContainer $flexDirection="row" style={{ cursor: "pointer" }}>
-              <FlexContainer $flexDirection="row" $gap={12}>
+              <FlexContainer $flexDirection="row">
                 <IconContainer $haveBg={true}>
                   <FlexContainer
                     onClick={() => {
@@ -138,7 +131,7 @@ const FAQsBody = ({ Faqs }: Props) => {
               </IconContainer>
             </FlexContainer>
             {selected === index && (
-              <FlexContainer $flexDirection="row" $gap={12}>
+              <FlexContainer $flexDirection="row">
                 <BlogContentInput
                   label="Câu hỏi"
                   value={item.question}
@@ -175,8 +168,8 @@ const FAQsBody = ({ Faqs }: Props) => {
 
       {/* Vùng chứa bảng action */}
       <ContentsGroup $variant="action">
-        <BorderContainer $gap={24}>
-          <FlexContainer $gap={4}>
+        <BorderContainer $gap="md">
+          <FlexContainer $gap="xs">
             <CustomBody $weight={600} $size={16}>
               Xác nhận chỉnh sửa
             </CustomBody>
@@ -207,8 +200,8 @@ const FAQsBody = ({ Faqs }: Props) => {
         </BorderContainer>
 
         {/* Bảng action */}
-        <BorderContainer $gap={24}>
-          <FlexContainer $gap={4}>
+        <BorderContainer $gap="md">
+          <FlexContainer $gap="xs">
             <CustomBody $weight={600} $size={16}>
               Thêm FAQ mới
             </CustomBody>

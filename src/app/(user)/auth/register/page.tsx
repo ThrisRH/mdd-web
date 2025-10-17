@@ -7,7 +7,7 @@ import { FlexContainer } from "@/styles/components/layout/Common.styles";
 export default function RegisterPage() {
   return (
     <AuthBodyContainer>
-      <FlexContainer $flexDirection="column" $gap={12}>
+      <FlexContainer $flexDirection="column">
         <SignUpStrapi />
 
         {/* Vùng login với oAuth */}

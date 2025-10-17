@@ -48,7 +48,7 @@ const ActionSection = ({ selectedItems, forFeature }: Props) => {
   return (
     <ActionContainer $visible={selectedItems.size !== 0}>
       <CustomBody $color="#fff">Đã chọn: {selectedItems.size}</CustomBody>
-      <FlexContainer $width="fit" $flexDirection="row" $gap={12}>
+      <FlexContainer $width="fit" $flexDirection="row">
         {/* Nút xóa hoặc hủy thao tác */}
         {!isDeleteMode ? (
           <CustomButton

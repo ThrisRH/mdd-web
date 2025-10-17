@@ -23,6 +23,7 @@ const page = () => {
         cache: "no-store",
       });
       const data = await res.json();
+      console.log("data: ", data);
       setData(data.data);
     } catch (error) {
       console.error(error);

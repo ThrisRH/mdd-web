@@ -95,7 +95,7 @@ const UpdateCate = ({ cate }: Props) => {
             Chi tiết
           </Body1>
 
-          <FlexContainer $flexDirection="row" $gap={32}>
+          <FlexContainer $flexDirection="row" $gap="md">
             {/* Input title */}
             <BlogTitleInput
               label={"Tiều đề danh mục"}

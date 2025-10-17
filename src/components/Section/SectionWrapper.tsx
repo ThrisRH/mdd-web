@@ -12,9 +12,9 @@ interface Props {
 
 const SectionWrapper = ({ children, flexDirection, gap }: Props) => {
   return (
-    <FlexContainer $flexDirection="column" $gap={50}>
+    <FlexContainer $flexDirection="column" $gap="md">
       <Line $width={90}></Line>
-      <SectionBody $gap={gap} $flexDirection={flexDirection}>
+      <SectionBody $gap={24} $flexDirection={flexDirection}>
         {children}
       </SectionBody>
     </FlexContainer>

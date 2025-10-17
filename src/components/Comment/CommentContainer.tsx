@@ -72,23 +72,21 @@ const CommentWrapper = ({ documentId }: Props) => {
   }, [documentId]);
 
   return (
-    <SectionWrapper>
-      <CommentBody>
-        {comments.map((item) => (
-          <CommentCard
-            key={item.documentId}
-            documentId={item.documentId}
-            reader={item.reader}
-            content={item.content}
-          />
-        ))}
-        <CommentInput
-          comment={comment}
-          setComment={setComment}
-          handleSubmit={() => handleSubmitComment()}
+    <CommentBody>
+      {comments.map((item) => (
+        <CommentCard
+          key={item.documentId}
+          documentId={item.documentId}
+          reader={item.reader}
+          content={item.content}
         />
-      </CommentBody>
-    </SectionWrapper>
+      ))}
+      <CommentInput
+        comment={comment}
+        setComment={setComment}
+        handleSubmit={() => handleSubmitComment()}
+      />
+    </CommentBody>
   );
 };
 

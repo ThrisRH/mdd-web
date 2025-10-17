@@ -30,6 +30,7 @@ interface AuthorAvt {
 }
 
 interface ContactProps {
+  id: number;
   content: string;
 }
 

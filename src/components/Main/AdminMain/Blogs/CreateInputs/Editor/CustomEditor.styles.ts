@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const EditorWrapper = styled.div`
+  width: 100%;
   .ck.ck-toolbar {
     border-radius: 16px 16px 0 0 !important;
     border: 1px solid #ccc !important;

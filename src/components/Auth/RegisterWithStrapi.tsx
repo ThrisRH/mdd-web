@@ -121,7 +121,7 @@ export default function SignUpStrapi() {
         placeholder="Confirm password"
       />
       <Body2 $color="#ff0000">{error}</Body2>
-      <FlexContainer $flexDirection="row" $gap={12}>
+      <FlexContainer $flexDirection="row">
         <MainButtonContainer
           $variant="secondary"
           onClick={() => router.push("/auth/login")}

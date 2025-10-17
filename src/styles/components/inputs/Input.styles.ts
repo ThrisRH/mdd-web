@@ -85,6 +85,7 @@ export const LabelContainer = styled.div<{
   $flexDirection?: string;
   $justifyContent?: string;
   $alignItems?: string;
+  $padding?: "vertical" | "horizontal";
 }>`
   width: 100%;
   display: flex;
@@ -95,6 +96,16 @@ export const LabelContainer = styled.div<{
   justify-content: ${(props) =>
     props.$justifyContent ? props.$justifyContent : "flex-start"};
   gap: 2px;
+  padding: ${(props) => {
+    switch (props.$padding) {
+      case "vertical":
+        return "32px 0px";
+      case "vertical":
+        return "0px 32px";
+      default:
+        return "32px";
+    }
+  }};
 `;
 
 export const ImagePreview = styled.img`

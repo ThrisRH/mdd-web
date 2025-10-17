@@ -105,8 +105,8 @@ const PostCard = ({ index, post }: PostCardProps) => {
     return formatted;
   };
   return (
-    <FlexContainer $flexDirection="column" $gap={24} $justify="center">
-      <FlexContainer $flexDirection="row" $justify="center" $gap={6}>
+    <FlexContainer $flexDirection="column" $gap="md" $justify="center">
+      <FlexContainer $flexDirection="row" $justify="center" $gap="sm">
         <Container $flex={3}>
           <LineContainer>
             <Line></Line>

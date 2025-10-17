@@ -30,9 +30,9 @@ function PostDetailComponent({
   };
 
   return (
-    <FlexContainer $gap={32}>
+    <FlexContainer $gap="md">
       {/* Vùng hiện ngày đăng */}
-      <FlexContainer $flexDirection="row" $justify="center" $gap={6}>
+      <FlexContainer $flexDirection="row" $justify="center" $gap="xs">
         <Container $flex={3}>
           <LineContainer>
             <Line></Line>
@@ -58,7 +58,7 @@ function PostDetailComponent({
       <Container $flex={1}>
         <H1>{title}</H1>
       </Container>
-      <FlexContainer $gap={24}>
+      <FlexContainer $gap="md">
         <ImageContainer>
           <Image
             className="w-full h-[400px] rounded-xl"

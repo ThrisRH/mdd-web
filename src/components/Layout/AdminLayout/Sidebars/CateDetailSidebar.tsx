@@ -35,7 +35,7 @@ const CateDetailSidebar = ({ cate }: Props) => {
         </Body>
       </TabContainer>
       {/* Vùng hiển thị 1 số thông tin của bài viết */}
-      <FlexContainer $gap={12}>
+      <FlexContainer>
         <FlexContainer>
           <Body $variant="body1">Thông tin danh mục</Body>
           <Body $variant="body4" $color="#4f4f4f">
@@ -43,7 +43,7 @@ const CateDetailSidebar = ({ cate }: Props) => {
           </Body>
         </FlexContainer>
         <hr style={{ border: "none", borderTop: "1px dashed #000" }} />
-        <FlexContainer $gap={6}>
+        <FlexContainer $gap="xs">
           {/* Ngày tạo bài */}
           <DateDetailContainer>
             <Body $variant="body1">Ngày tạo</Body>

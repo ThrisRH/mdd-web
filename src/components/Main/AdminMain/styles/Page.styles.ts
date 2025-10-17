@@ -1,3 +1,4 @@
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import styled from "styled-components";
 
 export const TableWrapper = styled.table`
@@ -29,9 +30,9 @@ export const TableHeaderCell = styled.th<{ $topPosition?: string }>`
 `;
 
 export const IconContainer = styled.div<{ $haveBg?: boolean }>`
-  padding: 8px;
   width: fit-content;
   height: fit-content;
+  padding: 4px;
   border-radius: 100%;
   background-color: ${(props) =>
     props.$haveBg ? "rgba(0,0,0,0.2)" : "transparent"};
@@ -53,7 +54,7 @@ export const TableBodyCell = styled.td`
   &:first-child {
     padding-left: 32px;
     height: 100%;
-    vertical-align: middle;
+    vertical-align: top;
     cursor: default;
   }
 `;
@@ -176,9 +177,8 @@ export const ButtonContainer = styled.div`
 `;
 
 // Faq & about
-export const BodyContainer = styled.div<{ $isPadding?: boolean }>`
+export const BodyContainer = styled(FlexContainer)<{ $isPadding?: boolean }>`
   display: flex;
-  flex-direction: row;
   width: 100%;
   gap: 24px;
   padding: ${(props) => (props.$isPadding ? "24px" : 0)};
@@ -186,10 +186,11 @@ export const BodyContainer = styled.div<{ $isPadding?: boolean }>`
 
 export const ContentsGroup = styled.div<{
   $variant: "information" | "action";
+  $align?: "flex-start" | "center" | "flex-end";
 }>`
   width: ${(props) => (props.$variant === "information" ? "60%" : "300px")};
+  gap: ${(props) => (props.$variant === "information" ? "2px" : "16px")};
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  align-items: ${(props) => props.$align || "center"};
 `;
