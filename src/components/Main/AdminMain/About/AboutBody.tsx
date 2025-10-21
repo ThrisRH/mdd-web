@@ -1,14 +1,20 @@
 "use client";
 import { Body, CustomBody } from "@/components/Typography/Body.styles";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { AboutResponse } from "@/app/(user)/about/page";
-import { ActionContainer, BodyContainer } from "../styles/Page.styles";
+import {
+  ActionContainer,
+  BodyContainer,
+  ContentSideContainer,
+  ProfileSideContainer,
+} from "../styles/Page.styles";
 import { useToggleSelect } from "@/hooks/useToggleSelect";
 import ContactSection from "./ContactSection";
 import CustomEditor from "../Blogs/CreateInputs/Editor/CustomEditor";
 import { CustomButton } from "@/styles/components/buttons/Button.styles";
+import ProfileSection from "./ProfileSection";
 
 interface Props {
   about: AboutResponse;
@@ -20,6 +26,7 @@ const AboutBody = ({ about }: Props) => {
   const [isSaving, setIsSaving] = useState(false);
   const { selectedDeleteItems, toggleSelect } = useToggleSelect();
   const [selected, setSelected] = useState<number | null>(null);
+  const [isChanged, setIsChanged] = useState(false);
 
   const handleUpdateAbout = async () => {
     try {
@@ -58,9 +65,31 @@ const AboutBody = ({ about }: Props) => {
       throw new Error(error);
     }
   };
+
+  const addAboutContact = () => {
+    setData((prev) => ({
+      ...prev,
+      contact: [
+        ...prev.contact,
+        {
+          id: Math.random(),
+          content: "Nhập liên hệ mới mới vào đây",
+        },
+      ],
+    }));
+  };
+
+  // Detect if data has changed
+  useEffect(() => {
+    const origindata = JSON.stringify(about);
+    const current = JSON.stringify(data);
+
+    setIsChanged(origindata !== current);
+  }, [data, about]);
+
   return (
     <>
-      <ActionContainer $visible={true}>
+      <ActionContainer $visible={isChanged}>
         <FlexContainer
           $justify="space-between"
           $width="normal"
@@ -82,24 +111,53 @@ const AboutBody = ({ about }: Props) => {
           </CustomButton>
         </FlexContainer>
       </ActionContainer>
-      <BodyContainer $isPadding={true}>
-        <Body $variant="body0">Thông tin liên hệ</Body>
-        <ContactSection
-          data={data}
-          index={0}
-          selected={selected}
-          setSelected={setSelected}
-          selectedDeleteItems={selectedDeleteItems}
-          toggleSelect={toggleSelect}
-          setData={setData}
-        />
+      <BodyContainer $isPadding={true} $flexDirection="row">
+        <ContentSideContainer>
+          <ProfileSection
+            data={data}
+            selected={selected}
+            setSelected={setSelected}
+            selectedDeleteItems={selectedDeleteItems}
+            toggleSelect={toggleSelect}
+            setData={setData}
+          />
+          {/* For editing contact info (social media, etc..)  */}
+          <Body $variant="body0">Thông tin liên hệ</Body>
+          <ContactSection
+            data={data}
+            selected={selected}
+            setSelected={setSelected}
+            selectedDeleteItems={selectedDeleteItems}
+            toggleSelect={toggleSelect}
+            setData={setData}
+          />
 
-        <Body $variant="body0">Mô tả về bản thân</Body>
-        <CustomEditor
-          value={data.aboutContent}
-          onChange={(e) => setData((prev) => ({ ...prev, aboutContent: e }))}
-          maxLength={10000}
-        />
+          {/* Add button */}
+          <CustomButton
+            $bgColor="transparent"
+            $border="1px solid rgba(0,0,0,0.2)"
+            onClick={() => addAboutContact()}
+          >
+            Thêm liên hệ mới
+          </CustomButton>
+
+          <Body $variant="body0">Mô tả về bản thân</Body>
+          <CustomEditor
+            value={data.aboutContent}
+            onChange={(e) => setData((prev) => ({ ...prev, aboutContent: e }))}
+            maxLength={10000}
+          />
+        </ContentSideContainer>
+        <ProfileSideContainer>
+          <ProfileSection
+            data={data}
+            selected={selected}
+            setSelected={setSelected}
+            selectedDeleteItems={selectedDeleteItems}
+            toggleSelect={toggleSelect}
+            setData={setData}
+          />
+        </ProfileSideContainer>
       </BodyContainer>
     </>
   );

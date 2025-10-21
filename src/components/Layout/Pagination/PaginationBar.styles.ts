@@ -7,6 +7,9 @@ export const PaginationContainer = styled.div`
 `;
 
 export const PageNumber = styled.button<{ $active?: boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   width: 32px;
   height: 32px;

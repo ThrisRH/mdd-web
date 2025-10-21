@@ -40,7 +40,7 @@ export const CustomButton = styled.button<{
   justify-content: center;
   border: ${(props) => (props.$border ? props.$border : "none")};
   width: ${(props) => (props.$width ? props.$width : "100%")};
-  height: 48px;
+  height: 40px;
   background-color: ${(props) => (props.$bgColor ? props.$bgColor : "#000")};
   border-radius: 8px;
   padding: 12px;
@@ -55,4 +55,22 @@ export const CustomButton = styled.button<{
       border: ${$hoverBorder || "none"}
     }
   `}
+
+  @media (min-width: 768px) {
+    height: 48px;
+  }
+
+  svg {
+    display: block;
+    @media (min-width: 425px) {
+      display: none;
+    }
+  }
+
+  p {
+    display: none;
+    @media (min-width: 425px) {
+      display: block;
+    }
+  }
 `;

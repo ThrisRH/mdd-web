@@ -9,7 +9,6 @@ export const TableWrapper = styled.table`
 export const TableHeaderCell = styled.th<{ $topPosition?: string }>`
   position: sticky;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-right: 24px;
   padding: 12px 12px 12px;
   top: ${(props) => (props.$topPosition ? props.$topPosition : "90px")};
@@ -20,12 +19,42 @@ export const TableHeaderCell = styled.th<{ $topPosition?: string }>`
 
   &:first-child {
     width: 24px;
-    padding-left: 32px;
+    padding-left: 12px;
     vertical-align: middle;
+
+    @media (min-width: 500px) {
+      padding-left: 32px;
+    }
   }
+
   &:nth-child(2) {
-    width: 600px;
+    min-width: 200px;
     max-width: 600px;
+  }
+
+  &:nth-child(3) {
+    display: none;
+
+    @media (min-width: 860px) {
+      display: table-cell;
+    }
+  }
+
+  &:nth-child(4),
+  &:nth-child(5) {
+    display: none;
+
+    @media (min-width: 680px) {
+      display: table-cell;
+    }
+  }
+
+  &:nth-child(6) {
+    display: none;
+
+    @media (min-width: 1300px) {
+      display: table-cell;
+    }
   }
 `;
 
@@ -52,10 +81,43 @@ export const TableBodyCell = styled.td`
   cursor: pointer;
 
   &:first-child {
-    padding-left: 32px;
+    padding-left: 12px;
     height: 100%;
     vertical-align: top;
     cursor: default;
+
+    @media (min-width: 500px) {
+      padding-left: 32px;
+    }
+  }
+
+  &:nth-child(2) {
+    min-width: 200px;
+    max-width: 600px;
+  }
+
+  &:nth-child(3) {
+    display: none;
+
+    @media (min-width: 860px) {
+      display: table-cell;
+    }
+  }
+  &:nth-child(4),
+  &:nth-child(5) {
+    display: none;
+
+    @media (min-width: 680px) {
+      display: table-cell;
+    }
+  }
+
+  &:nth-child(6) {
+    display: none;
+
+    @media (min-width: 1300px) {
+      display: table-cell;
+    }
   }
 `;
 
@@ -103,13 +165,20 @@ export const TableFlexWrapper = styled.div`
   gap: 16px;
 `;
 
-export const ImageContainer = styled.div<{ $height?: string }>`
+export const ImageContainer = styled.div<{
+  $height?: string;
+  $radius?: string;
+}>`
   position: relative;
   flex-shrink: 0;
-  width: 128px;
   height: ${(props) => (props.$height ? props.$height : "64px")};
-  border-radius: 8px;
+  border-radius: ${(props) => props.$radius || "8px"};
   overflow: hidden;
+  width: 72px;
+
+  @media (min-width: 500px) {
+    width: 128px;
+  }
 `;
 
 export const ContentField = styled.div`
@@ -154,11 +223,10 @@ export const CloseIconContainer = styled.div`
   cursor: pointer;
 `;
 
-export const DetailContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+export const DetailContainer = styled(FlexContainer)`
+  width: 100%;
   gap: 16px;
-  padding: 24px;
+  padding: 32px;
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: #c5c5c5 #f1f1f1;
@@ -178,18 +246,51 @@ export const ButtonContainer = styled.div`
 
 // Faq & about
 export const BodyContainer = styled(FlexContainer)<{ $isPadding?: boolean }>`
+  height: fit-content;
   display: flex;
   width: 100%;
   gap: 24px;
   padding: ${(props) => (props.$isPadding ? "24px" : 0)};
 `;
 
+export const ContentSideContainer = styled(BodyContainer)`
+  width: 100%;
+  gap: 12px;
+
+  .profile-in-content {
+    display: flex;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    width: 60%;
+  }
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+`;
+
+export const ProfileSideContainer = styled(BodyContainer)`
+  display: none;
+  gap: 12px;
+
+  @media (min-width: 1024px) {
+    width: 40%;
+  }
+
+  @media (min-width: 768px) {
+    width: 50%;
+    display: flex;
+  }
+`;
+
 export const ContentsGroup = styled.div<{
-  $variant: "information" | "action";
   $align?: "flex-start" | "center" | "flex-end";
 }>`
-  width: ${(props) => (props.$variant === "information" ? "60%" : "300px")};
-  gap: ${(props) => (props.$variant === "information" ? "2px" : "16px")};
   display: flex;
   flex-direction: column;
   align-items: ${(props) => props.$align || "center"};

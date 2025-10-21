@@ -85,7 +85,7 @@ export const LabelContainer = styled.div<{
   $flexDirection?: string;
   $justifyContent?: string;
   $alignItems?: string;
-  $padding?: "vertical" | "horizontal";
+  $padding?: "vertical" | "horizontal" | "none";
 }>`
   width: 100%;
   display: flex;
@@ -98,6 +98,8 @@ export const LabelContainer = styled.div<{
   gap: 2px;
   padding: ${(props) => {
     switch (props.$padding) {
+      case "none":
+        return "0px";
       case "vertical":
         return "32px 0px";
       case "vertical":

@@ -25,7 +25,11 @@ const BlogSlugInput = ({ label, slug, setSlug, title, maxLength }: Props) => {
     <FormInputContainer
       $borderColor={slug.length > maxLength ? "#ad3945" : "rgba(0,0,0,0.2)"}
     >
-      <LabelContainer $flexDirection="row" $justifyContent="space-between">
+      <LabelContainer
+        $padding="none"
+        $flexDirection="row"
+        $justifyContent="space-between"
+      >
         <Body3 $size={12} $color="#979797" $fontWeight="500">
           {label}
         </Body3>

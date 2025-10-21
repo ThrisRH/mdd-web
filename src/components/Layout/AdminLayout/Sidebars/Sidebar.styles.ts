@@ -5,6 +5,14 @@ export const TabsGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  p {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: flex;
+    }
+  }
 `;
 
 export const DateDetailContainer = styled.div`

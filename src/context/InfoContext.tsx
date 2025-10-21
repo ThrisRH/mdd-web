@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 
-interface InfoProps {
+export interface InfoProps {
   fullname: string;
   biography: string;
   contact: { id: number; platform: string; url: string }[];

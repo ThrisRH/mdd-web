@@ -5,7 +5,8 @@ export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 240px;
+  min-height: 64px;
+  height: 200px;
   background-color: #fff;
   box-shadow: 0px 0px 5px 0.2px rgba(0, 0, 0, 0.5);
   align-items: center;
@@ -18,7 +19,24 @@ export const HeaderItemsGroup = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
+
+  .expand-tab-bar {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: flex;
+      gap: 24px;
+    }
+  }
+
+  a {
+    display: none;
+
+    @media (min-width: 425px) {
+      display: block;
+    }
+  }
 `;
 
 export const ActionWrapper = styled.div`
@@ -33,9 +51,21 @@ export const CreateBlogButton = styled.button`
   background-color: white;
   border: solid 1px rgba(35, 50, 56, 0.2);
   border-radius: 24px;
-  padding: 2px 16px;
+  padding: 4px;
   height: auto;
   cursor: pointer;
+
+  p {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 2px 16px;
+  }
 
   &:hover {
     background-color: rgba(35, 50, 56, 0.1);
@@ -86,9 +116,10 @@ const fadeIn = keyframes`
 `;
 
 export const SidebarContainer = styled.div`
-  display: flex;
+  display: none;
   flex-direction: column;
-  min-width: 250px;
+  width: fit-content;
+  min-width: 80px;
   height: calc(100vh - 64px);
   padding: 24px 16px;
   background-color: #fff;
@@ -96,6 +127,14 @@ export const SidebarContainer = styled.div`
   align-items: center;
   background-color: transparent;
   gap: 24px;
+
+  @media (min-width: 1024px) {
+    min-width: 250px;
+  }
+
+  @media (min-width: 425px) {
+    display: flex;
+  }
 `;
 
 export const SidebarItemsContainer = styled.div<{
@@ -105,22 +144,49 @@ export const SidebarItemsContainer = styled.div<{
   flex-direction: column;
   align-items: center;
   width: 100%;
+  min-width: 48px;
   height: auto;
   gap: ${(props) => (props.$gap ? `${props.$gap}px` : "24px")};
   animation: ${fadeIn} 1s ease forwards;
+
+  .basic-info {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: flex;
+    }
+  }
+
+  div p {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: flex;
+    }
+  }
 `;
 
 export const InfoContainer = styled.div`
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 16px;
   align-items: center;
+
+  @media (min-width: 1024px) {
+    display: flex;
+  }
 `;
 
 export const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 10;
+  height: fit-content;
+  width: 100%;
   background: white;
   padding: 32px;
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);

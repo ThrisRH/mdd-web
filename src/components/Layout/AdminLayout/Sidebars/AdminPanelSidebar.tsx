@@ -52,11 +52,7 @@ const AdminPanelSidebar = () => {
                 }}
               >
                 <Icon />
-                <Body
-                  $variant="custom"
-                  $color={isSelected ? "#1c1c1c" : "#4f4f4f"}
-                  $weight={isSelected ? "500" : "400"}
-                >
+                <Body $variant="body2" $color="#4f4f4f">
                   {label}
                 </Body>
               </TabContainer>

@@ -5,18 +5,15 @@ import {
   FlexContainer,
 } from "@/styles/components/layout/Common.styles";
 import React from "react";
-import { ContentsGroup, IconContainer } from "../styles/Page.styles";
+import { BodyContainer, IconContainer } from "../styles/Page.styles";
 import { AboutResponse } from "@/app/(user)/about/page";
 
 import DeleteIC from "@/assets/svg/Interact/RecycleBin";
 import DropdownIC from "@/assets/svg/arrowdown";
 import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
-import { TitleContainer } from "@/components/Layout/AdminLayout/Layout.styles";
-import { LabelContainer } from "@/styles/components/inputs/Input.styles";
 
-interface Props {
+export interface AboutPageSectionProps {
   data: AboutResponse;
-  index: number;
   selected: number | null;
   setSelected: React.Dispatch<React.SetStateAction<number | null>>;
   selectedDeleteItems: number[];
@@ -30,11 +27,11 @@ const ContactSection = ({
   selected,
   setSelected,
   toggleSelect,
-}: Props) => {
+}: AboutPageSectionProps) => {
   return (
-    /* Danh sách các FAQs */
-    <ContentsGroup $align="flex-start" $variant="information">
-      {data.contact.map((item, index) => (
+    /* Danh sách các thông tin liên hệ */
+    <BodyContainer>
+      {data.author.contact.map((item, index) => (
         <BorderContainer
           $canSelection={true}
           key={index}
@@ -63,7 +60,7 @@ const ContactSection = ({
                 </FlexContainer>
               </IconContainer>
               <FlexContainer style={{ justifyContent: "center" }}>
-                <CustomBody>{item.content}</CustomBody>
+                <Body $variant="body2">{item.url}</Body>
               </FlexContainer>
             </FlexContainer>
 
@@ -77,7 +74,7 @@ const ContactSection = ({
           >
             <BlogContentInput
               label="Thông tin liên hệ"
-              value={item.content}
+              value={item.url}
               maxLength={1000}
               onChange={(value: string) => {
                 setData((prev) => ({
@@ -91,7 +88,7 @@ const ContactSection = ({
           </ContentEditingWrapper>
         </BorderContainer>
       ))}
-    </ContentsGroup>
+    </BodyContainer>
   );
 };
 

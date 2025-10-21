@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { DetailContainer, HeaderFormContainer } from "../styles/Page.styles";
 import { H5 } from "@/components/Typography/Heading.styles";
 
-import { Body1, CustomBody } from "@/components/Typography/Body.styles";
+import { Body, Body1, CustomBody } from "@/components/Typography/Body.styles";
 import CategorySelectionBox from "./CreateInputs/CategorySelectionBox";
 import BlogSlugInput from "./CreateInputs/BlogSlugInput";
 import BlogTitleInput from "./CreateInputs/BlogTitleInput";
@@ -16,6 +16,8 @@ import { marked } from "marked";
 import { Loader } from "../../Loading.styles";
 import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";
 import { useRouter } from "next/navigation";
+
+import SaveIC from "@/assets/svg/Interact/SaveButton";
 
 interface Props {
   blog: BlogDetails;
@@ -105,11 +107,14 @@ const UpdateBlog = ({ blog }: Props) => {
             </CustomButton>
           ) : (
             <CustomButton
-              $width="150px"
+              $width="fit-content"
               $hoverBgColor="rgba(0,0,0,0.8)"
               onClick={() => handleUpdateBlog(form.documentId)}
             >
-              <CustomBody $color="#fff">Lưu thay đổi</CustomBody>
+              <SaveIC />
+              <Body $variant="body3" $color="#fff">
+                Lưu thay đổi
+              </Body>
             </CustomButton>
           )}
         </HeaderFormContainer>

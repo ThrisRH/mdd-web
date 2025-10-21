@@ -18,7 +18,7 @@ import {
 } from "./Layout.styles";
 import { H5 } from "@/components/Typography/Heading.styles";
 import Image from "next/image";
-import { Body, Body3, CustomBody } from "@/components/Typography/Body.styles";
+import { Body } from "@/components/Typography/Body.styles";
 import CreateBlog from "@/components/Main/AdminMain/Blogs/CreateBlog";
 import CreateCategory from "@/components/Main/AdminMain/Categories/CreateCate";
 import Link from "next/link";
@@ -39,14 +39,14 @@ const Header = () => {
       )}
       <HeaderContainer>
         <HeaderItemsGroup>
-          <MoreIC color={"#1C1C1C"} />{" "}
+          <MoreIC className="expand-tab-bar" color={"#1C1C1C"} />
           <Image src={LogoImg} width={28} height={28} alt="MddLogo" />
           <H5 $size={20}>MDD Blogs</H5>
         </HeaderItemsGroup>
 
         <HeaderItemsGroup>
-          <RobotIC />
-          <BellIC />
+          <RobotIC id="ai-hint" />
+          <BellIC id="notification" />
           <Link href={"/"}>
             <Body $variant="body5" $color="#4f6ffa">
               Về trang người dùng

@@ -134,71 +134,84 @@ export const Body = styled.p<{
   $variant?: Variant;
   $color?: string;
   $hoverColor?: string;
-  $size?: number | string;
+  $size?: number;
   $weight?: number | string;
-  $align?: string;
 }>`
-  ${({ $variant = "body1", $color, $hoverColor, $size, $weight, $align }) => {
+  ${({ $variant = "body1", $color, $hoverColor, $size, $weight }) => {
     const variantStyles = {
       body0: css`
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
         line-height: 24px;
         color: ${$color || "#000"};
-      `,
-      body1: css`
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 24px;
-        color: ${$color || "#000"};
-      `,
-      body2: css`
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-        color: ${$color || "#000"};
-      `,
-      body3: css`
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 24px;
-        color: ${$color || "#000"};
-      `,
-      body4: css`
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 24px;
-        text-align: ${$align || "start"};
-        color: ${$color || "#fff"};
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
         min-width: 0;
-
-        @media (min-width: 40rem) {
-          color: ${$color || "#000"};
+        @media (min-width: 425px) {
+          font-size: 18px;
         }
       `,
-
-      body5: css`
+      body1: css`
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        color: ${$color || "#000"};
+        @media (min-width: 425px) {
+          font-size: 16px;
+        }
+      `,
+      body2: css`
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+        color: ${$color || "#000"};
+        @media (min-width: 425px) {
+          font-size: 16px;
+        }
+      `,
+      body3: css`
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 24px;
+        color: ${$color || "#000"};
+        @media (min-width: 425px) {
+          font-size: 14px;
+        }
+      `,
+      body4: css`
         font-size: 12px;
         font-weight: 400;
-        color: ${$color || "#000"};
+        line-height: 24px;
+        color: ${$color || "#fff"};
+        @media (min-width: 425px) {
+          color: ${$color || "#000"};
+          font-size: 14px;
+        }
       `,
-
+      body5: css`
+        font-size: 10px;
+        font-weight: 400;
+        color: ${$color || "#000"};
+        @media (min-width: 425px) {
+          font-size: 12px;
+        }
+      `,
       custom: css`
-        font-size: ${typeof $size === "number"
-          ? `${$size}px`
-          : $size || "16px"};
+        font-size: ${$size ? `${$size}px` : "16px"};
         font-weight: ${$weight || 400};
         line-height: 24px;
-        text-align: ${$align || "start"};
         color: ${$color || "#000"};
+
+        @media (min-width: 425px) {
+          font-size: ${$size ? `${$size + 2}px` : "18px"};
+        }
       `,
     };
 
     return css`
       ${variantStyles[$variant]};
+      text-align: start;
 
       &:hover {
         color: ${$hoverColor || $color || "#000"};

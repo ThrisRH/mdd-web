@@ -1,7 +1,6 @@
 import { signIn } from "next-auth/react";
 import GoogleIC from "@/assets/svg/google";
 import { Body1 } from "../Typography/Body.styles";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { CustomButton } from "@/styles/components/buttons/Button.styles";
 
 export default function SignInGoogle() {

@@ -15,9 +15,12 @@ export default function AboutPage() {
     const getFaq = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/mmdblogsapi/about?populate=*`, {
-          cache: "no-store",
-        });
+        const res = await fetch(
+          `/mmdblogsapi/about?populate[author][populate]=avatar&populate[author][populate]=contact`,
+          {
+            cache: "no-store",
+          }
+        );
         const result = await res.json();
         setData(result.data);
         console.log("data: ", result);

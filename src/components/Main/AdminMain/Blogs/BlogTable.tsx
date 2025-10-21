@@ -14,25 +14,12 @@ import {
   TableHeaderCell,
   BodyContainer,
 } from "../styles/Page.styles";
-import {
-  Body5,
-  Body3,
-  Body4,
-  Body2,
-  Body,
-} from "@/components/Typography/Body.styles";
+import { Body5, Body3, Body } from "@/components/Typography/Body.styles";
 import { BlogDetails } from "@/types/blog";
 import NoneSelectionIC from "@/assets/svg/Interact/NoneSelectionSquare";
 import SelectedIC from "@/assets/svg/Interact/SelectedSquare";
 import Image from "next/image";
-
-import {
-  PaginationButton,
-  PaginationContainer,
-  PaginationControls,
-} from "@/components/Layout/AdminLayout/Layout.styles";
 import ActionSection from "../Components/ActionSection";
-import { PageNumber } from "@/components/Layout/Pagination/PaginationBar.styles";
 import TablePaginationBar from "@/components/Layout/Pagination/ForTable/TablePaginationBar";
 
 type TableItem = {
@@ -134,9 +121,9 @@ const BlogTable = ({
                 $topPosition={selectedBlogs.size !== 0 ? "156px" : "90px"}
               >
                 {item.title ? (
-                  <Body3 $fontWeight="500" $size={16}>
+                  <Body $variant="body1" $color="#000" $size={16}>
                     {item.title}
-                  </Body3>
+                  </Body>
                 ) : (
                   <IconContainer onClick={selectAll}>
                     {selectedBlogs.size !== 0 ? (
@@ -180,7 +167,9 @@ const BlogTable = ({
                   </ImageContainer>
 
                   <ContentField>
-                    <Body4>{item.title}</Body4>
+                    <Body $variant="body4" $color="#000">
+                      {item.title}
+                    </Body>
                     <MainContent>
                       <Body5 $size={14} $color="#7a7a7a">
                         {item.mainContent}

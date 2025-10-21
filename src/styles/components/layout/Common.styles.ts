@@ -59,3 +59,15 @@ export const ContentEditingWrapper = styled(FlexContainer)<{
   transition: all 0s ease;
   z-index: -1;
 `;
+
+export const ImageInAdminContainer = styled.div`
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+
+  @media (min-width: 500px) {
+    width: 128px;
+    height: 128px;
+  }
+`;

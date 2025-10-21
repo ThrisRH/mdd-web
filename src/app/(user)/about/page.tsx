@@ -12,16 +12,12 @@ import {
 } from "@/components/Main/Styled/AboutContent.styles";
 import { H5 } from "@/components/Typography/Heading.styles";
 import { notFound } from "next/navigation";
-
-interface AboutContent {
-  type: string;
-  children: { type: string; text: string }[];
-}
+import { InfoProps } from "@/context/InfoContext";
 
 export interface AboutResponse {
   id: number;
   aboutContent: string;
-  authorAvt: AuthorAvt;
+  author: InfoProps;
   contact: ContactProps[];
 }
 
@@ -63,9 +59,9 @@ export default async function AboutPage() {
           <Image
             className="rounded-full"
             src={`${
-              about.authorAvt.url.startsWith("https")
-                ? about.authorAvt.url
-                : `/baseurl${about.authorAvt.url}`
+              about.author.avatar.url.startsWith("https")
+                ? about.author.avatar.url
+                : `/baseurl${about.author.avatar.url}`
             }`}
             alt="avt"
             fill

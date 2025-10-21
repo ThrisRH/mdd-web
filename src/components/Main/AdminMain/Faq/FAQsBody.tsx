@@ -7,20 +7,14 @@ import {
 } from "@/styles/components/layout/Common.styles";
 import React, { useState } from "react";
 
-import DeleteIC from "@/assets/svg/Interact/RecycleBin";
-import DropdownIC from "@/assets/svg/arrowdown";
-import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
 import {
   CustomButton,
   MainButtonContainer,
 } from "@/styles/components/buttons/Button.styles";
 import { Loader } from "../../Loading.styles";
-import {
-  BodyContainer,
-  ContentsGroup,
-  IconContainer,
-} from "../styles/Page.styles";
+import { BodyContainer, ProfileSideContainer } from "../styles/Page.styles";
 import { useToggleSelect } from "@/hooks/useToggleSelect";
+import FAQsSection from "./FAQsSection";
 
 interface Props {
   Faqs: FAQProps;
@@ -90,84 +84,18 @@ const FAQsBody = ({ Faqs }: Props) => {
   return (
     <BodyContainer $flexDirection="row" $isPadding={true}>
       {/* Danh sách các FAQs */}
-      <ContentsGroup $variant="information">
-        {data.questionAnswer.map((item, index) => (
-          <BorderContainer
-            $canSelection={true}
-            key={index}
-            $bgColor={
-              selectedDeleteItems.includes(item.id)
-                ? "#eda3a3a2"
-                : "transparent"
-            }
-          >
-            <FlexContainer $flexDirection="row" style={{ cursor: "pointer" }}>
-              <FlexContainer $flexDirection="row">
-                <IconContainer $haveBg={true}>
-                  <FlexContainer
-                    onClick={() => {
-                      if (selected === index) {
-                        setSelected(null);
-                      } else {
-                        setSelected(index);
-                      }
-                    }}
-                    style={{
-                      transform: `${
-                        selected === index ? "rotate(180deg)" : "rotate(0deg)"
-                      }`,
-                    }}
-                  >
-                    <DropdownIC fill="#233238" />
-                  </FlexContainer>
-                </IconContainer>
-                <FlexContainer style={{ justifyContent: "center" }}>
-                  <CustomBody>{item.question}</CustomBody>
-                </FlexContainer>
-              </FlexContainer>
-
-              <IconContainer onClick={() => toggleSelect(item.id)}>
-                <DeleteIC scale={20} stroke="#233238" />
-              </IconContainer>
-            </FlexContainer>
-            {selected === index && (
-              <FlexContainer $flexDirection="row">
-                <BlogContentInput
-                  label="Câu hỏi"
-                  value={item.question}
-                  maxLength={1000}
-                  onChange={(value: string) => {
-                    setData((prev) => ({
-                      ...prev,
-                      questionAnswer: prev.questionAnswer.map((q, i) =>
-                        i === index ? { ...q, question: value } : q
-                      ),
-                    }));
-                  }}
-                />
-                <BlogContentInput
-                  canOverflow={true}
-                  maxHeight={200}
-                  label="Câu trả lời"
-                  value={item.answer}
-                  maxLength={1000}
-                  onChange={(value: string) => {
-                    setData((prev) => ({
-                      ...prev,
-                      questionAnswer: prev.questionAnswer.map((q, i) =>
-                        i === index ? { ...q, answer: value } : q
-                      ),
-                    }));
-                  }}
-                />
-              </FlexContainer>
-            )}
-          </BorderContainer>
-        ))}
-      </ContentsGroup>
+      <FAQsSection
+        data={data}
+        selected={selected}
+        setSelected={setSelected}
+        selectedDeleteItems={selectedDeleteItems}
+        toggleSelect={toggleSelect}
+        setData={setData}
+        addNewFaq={addFAQ}
+      />
 
       {/* Vùng chứa bảng action */}
-      <ContentsGroup $variant="action">
+      <ProfileSideContainer>
         <BorderContainer $gap="md">
           <FlexContainer $gap="xs">
             <CustomBody $weight={600} $size={16}>
@@ -198,36 +126,7 @@ const FAQsBody = ({ Faqs }: Props) => {
             </MainButtonContainer>
           )}
         </BorderContainer>
-
-        {/* Bảng action */}
-        <BorderContainer $gap="md">
-          <FlexContainer $gap="xs">
-            <CustomBody $weight={600} $size={16}>
-              Thêm FAQ mới
-            </CustomBody>
-          </FlexContainer>
-          {isLoading ? (
-            <CustomButton
-              $isDisable={true}
-              $bgColor="#aeaeae"
-              $hoverBgColor="#f45c5c"
-            >
-              <Loader />
-              <CustomBody $color="#fff" $weight={600}>
-                Đang thay đổi
-              </CustomBody>
-            </CustomButton>
-          ) : (
-            <MainButtonContainer
-              $variant="secondary"
-              onClick={() => addFAQ()}
-              $isDisable={isLoading}
-            >
-              Thêm mới
-            </MainButtonContainer>
-          )}
-        </BorderContainer>
-      </ContentsGroup>
+      </ProfileSideContainer>
     </BodyContainer>
   );
 };

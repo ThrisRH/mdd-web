@@ -8,7 +8,7 @@ import {
   IconContainer,
   BodyContainer,
 } from "../styles/Page.styles";
-import { Body5, Body3, Body2 } from "@/components/Typography/Body.styles";
+import { Body5, Body } from "@/components/Typography/Body.styles";
 import NoneSelectionIC from "@/assets/svg/Interact/NoneSelectionSquare";
 import SelectedIC from "@/assets/svg/Interact/SelectedSquare";
 
@@ -110,9 +110,9 @@ const CateTable = ({
                 $topPosition={selectedBlogs.size !== 0 ? "156px" : "90px"}
               >
                 {item.title ? (
-                  <Body3 $fontWeight="500" $size={16}>
+                  <Body $variant="body1" $size={16}>
                     {item.title}
-                  </Body3>
+                  </Body>
                 ) : (
                   <IconContainer onClick={selectAll}>
                     {selectedBlogs.size !== 0 ? (
@@ -145,7 +145,9 @@ const CateTable = ({
                   handleToDetail(item.documentId);
                 }}
               >
-                <Body5 $size={14}>{item.tile}</Body5>
+                <Body $variant="body3" $size={14}>
+                  {item.tile}
+                </Body>
               </TableBodyCell>
               <TableBodyCell
                 onClick={() => {
