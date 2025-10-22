@@ -5,7 +5,7 @@ import {
   Line,
   LineContainer,
   VectorContainer,
-} from "@/components/PostCard/PostCard.styles";
+} from "@/components/blogs/blogcard/styled";
 import { H0 } from "@/components/Typography/Heading.styles";
 import React from "react";
 import { FAQWrapper } from "@/components/Main/Styled/FAQContent.styles";

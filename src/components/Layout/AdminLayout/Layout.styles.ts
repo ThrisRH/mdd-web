@@ -81,6 +81,7 @@ export const DropdownCreateContainer = styled.div`
   top: 40px;
   right: 0px;
   min-width: 100px;
+  width: max-content;
   padding: 12px;
   background-color: #fff;
   border-radius: 6px;

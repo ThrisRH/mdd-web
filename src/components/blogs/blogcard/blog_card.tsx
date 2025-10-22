@@ -10,12 +10,14 @@ import {
   VectorContainer,
   Container,
   Dot,
-} from "./PostCard.styles";
-import { Body, Body2, Body3 } from "../Typography/Body.styles";
-import { H1 } from "../Typography/Heading.styles";
+  BlogCardWrapper,
+} from "./styled";
+import { Body, Body2, Body3 } from "../../Typography/Body.styles";
+import { H1, H2 } from "../../Typography/Heading.styles";
 import { useRouter } from "next/navigation";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { MainButtonContainer } from "@/styles/components/buttons/Button.styles";
+import MainButton from "../../ui/button";
+import { Row } from "@/components/ui/common/styled";
 
 interface Post {
   documentId: string;
@@ -104,9 +106,10 @@ const PostCard = ({ index, post }: PostCardProps) => {
     const formatted = date.toLocaleDateString("de-DE");
     return formatted;
   };
+
   return (
-    <FlexContainer $flexDirection="column" $gap="md" $justify="center">
-      <FlexContainer $flexDirection="row" $justify="center" $gap="sm">
+    <BlogCardWrapper>
+      <Row $justify="center" $gap="sm">
         <Container $flex={3}>
           <LineContainer>
             <Line></Line>
@@ -126,7 +129,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
             <Line></Line>
           </LineContainer>
         </Container>
-      </FlexContainer>
+      </Row>
       <Container $flex={1}>
         <H1>{post.title}</H1>
       </Container>
@@ -146,13 +149,10 @@ const PostCard = ({ index, post }: PostCardProps) => {
         )}
       </ImageContainer>
       <Body2>{post.mainContent}</Body2>
-      <MainButtonContainer
-        $variant="secondary"
-        onClick={() => handleToDetail(post.slug)}
-      >
-        <Body $variant="body2">Xem thêm</Body>
-      </MainButtonContainer>
-    </FlexContainer>
+      <MainButton variant="secondary" onClick={() => handleToDetail(post.slug)}>
+        Xem thêm
+      </MainButton>
+    </BlogCardWrapper>
   );
 };
 

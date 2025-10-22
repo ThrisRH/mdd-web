@@ -17,7 +17,7 @@ import {
   Line,
   LineContainer,
   VectorContainer,
-} from "@/components/PostCard/PostCard.styles";
+} from "@/components/blogs/blogcard/styled";
 import Vector from "@/assets/svg/vector";
 
 // Component

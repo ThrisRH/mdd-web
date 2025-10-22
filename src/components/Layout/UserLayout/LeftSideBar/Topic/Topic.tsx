@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import TopicTitle from "@/assets/svg/topicSelect";
-import { InputWrapper, Select } from "../Sidebar.styles";
+import { InputWrapper, Select } from "../styled";
 import { usePathname, useRouter } from "next/navigation";
 import { Body3 } from "@/components/Typography/Body.styles";
 

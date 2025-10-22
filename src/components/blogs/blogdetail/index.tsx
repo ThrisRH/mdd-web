@@ -1,19 +1,20 @@
 "use client";
 import React, { memo } from "react";
-import { Body3, CustomBody } from "../Typography/Body.styles";
+import { Body3, CustomBody } from "../../Typography/Body.styles";
 import Vector from "@/assets/svg/vector";
 import rehypeRaw from "rehype-raw";
 import ReactMarkDown from "react-markdown";
 import {
+  BlogCardWrapper,
   Container,
   Dot,
   ImageContainer,
   Line,
   LineContainer,
   VectorContainer,
-} from "../PostCard/PostCard.styles";
+} from "../blogcard/styled";
 import { BlogDetails } from "@/types/blog";
-import { H1, H2, H3, H4 } from "../Typography/Heading.styles";
+import { H1, H2, H3, H4 } from "../../Typography/Heading.styles";
 import Image from "next/image";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 
@@ -30,7 +31,7 @@ function PostDetailComponent({
   };
 
   return (
-    <FlexContainer $gap="md">
+    <BlogCardWrapper>
       {/* Vùng hiện ngày đăng */}
       <FlexContainer $flexDirection="row" $justify="center" $gap="xs">
         <Container $flex={3}>
@@ -101,18 +102,18 @@ function PostDetailComponent({
                 {...props}
               />
             ),
-            strong: ({ node }) => (
-              <CustomBody $whiteSpace="normal" $color="#000" $weight={600} />
-            ),
-            em: ({ node }) => (
-              <CustomBody $whiteSpace="normal" $color="#000" $weight={400} />
-            ),
+            // strong: ({ node, ...props }) => (
+            //   <CustomBody $whiteSpace="normal" $color="#000" $weight={600} />
+            // ),
+            // em: ({ node, ...props }) => (
+            //   <CustomBody $whiteSpace="normal" $color="#000" $weight={400} />
+            // ),
           }}
         >
           {subContent}
         </ReactMarkDown>
       </FlexContainer>
-    </FlexContainer>
+    </BlogCardWrapper>
   );
 }
 const PostDetail = memo(PostDetailComponent);

@@ -1,27 +1,30 @@
 import React, { useState } from "react";
 import {
-  InputArea,
   InputContainer,
   InputField,
+  InputWrapper,
   ShowPasswordField,
-} from "./Input.style";
-import { H5 } from "../Typography/Heading.styles";
+} from "./styled";
+import { H5 } from "@/components/Typography/Heading.styles";
 import EyeIC from "@/assets/svg/eye.jsx";
-interface InputProps {
+import { Body } from "@/components/Typography/Body.styles";
+
+export type InputProps = {
   type: "text" | "password";
   label: string;
   placeholder: string;
   value: string;
   onchange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-const Input = ({ value, onchange, type, label, placeholder }: InputProps) => {
+};
+
+const Input = ({ label, placeholder, value, onchange, type }: InputProps) => {
   const [isPassword, setIsPassword] = useState(type === "password");
   return (
-    <InputContainer>
-      <H5 $size={20} $color="#000">
+    <InputWrapper>
+      <Body $variant="body0" $color="#000">
         {label}
-      </H5>
-      <InputArea>
+      </Body>
+      <InputContainer>
         <InputField
           placeholder={placeholder}
           value={value}
@@ -33,8 +36,8 @@ const Input = ({ value, onchange, type, label, placeholder }: InputProps) => {
             <EyeIC />
           </ShowPasswordField>
         )}
-      </InputArea>
-    </InputContainer>
+      </InputContainer>
+    </InputWrapper>
   );
 };
 

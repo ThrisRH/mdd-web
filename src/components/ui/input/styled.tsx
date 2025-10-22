@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InputContainer = styled.div`
+export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -9,7 +9,8 @@ export const InputContainer = styled.div`
   width: 100%;
   gap: 6px;
 `;
-export const InputArea = styled.div`
+
+export const InputContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 12px;

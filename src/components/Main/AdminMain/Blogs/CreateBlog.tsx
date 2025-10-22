@@ -25,7 +25,7 @@ import BlogImageInput from "./CreateInputs/BlogImageInput";
 import CustomEditor from "./CreateInputs/Editor/CustomEditor";
 import TurndownService from "turndown";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { CustomButton } from "@/styles/components/buttons/Button.styles";
+import { CustomButton } from "@/components/ui/button/styled";
 import { FormContainer } from "@/styles/components/layout/Common.styles";
 
 const CreateBlog = ({

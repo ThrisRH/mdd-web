@@ -1,5 +1,5 @@
 "use client";
-import { AuthBodyContainer } from "@/components/Auth/Auth.styles";
+import { AuthBodyContainer } from "@/components/auth/styled";
 import NotFound from "@/components/Main/NotFound";
 import React from "react";
 

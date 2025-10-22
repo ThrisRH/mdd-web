@@ -5,7 +5,7 @@ import { H5 } from "@/components/Typography/Heading.styles";
 
 import { Body1, CustomBody } from "@/components/Typography/Body.styles";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { CustomButton } from "@/styles/components/buttons/Button.styles";
+import { CustomButton } from "@/components/ui/button/styled";
 import { Loader } from "../../Loading.styles";
 import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";
 import { useRouter } from "next/navigation";

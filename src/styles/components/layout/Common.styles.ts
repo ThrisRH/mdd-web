@@ -1,22 +1,10 @@
 import styled from "styled-components";
 
-export const FormContainer = styled.div<{ $gap?: number }>`
-  display: flex;
-  flex-direction: column;
-  width: 900px;
-  height: 100%;
-  background-color: white;
-  border-radius: 24px;
-
-  gap: ${(props) => `${props.$gap}px` || "0px"};
-`;
-
 export const FlexContainer = styled.div<{
   $width?: "fit" | "normal";
   $flexDirection?: "row" | "column";
   $gap?: "none" | "xs" | "sm" | "md";
   $justify?: string;
-  $canSelection?: boolean;
 }>`
   display: flex;
   gap: ${(props) => {
@@ -38,7 +26,14 @@ export const FlexContainer = styled.div<{
   justify-content: ${(props) => props.$justify || "flex-start"};
 
   transition: all 0.2s ease-in-out;
-  user-select: ${(props) => (props.$canSelection ? "text" : "none")};
+`;
+
+export const FormContainer = styled(FlexContainer)`
+  width: 900px;
+  height: fit-content;
+  max-height: 100%;
+  background-color: white;
+  border-radius: 24px;
 `;
 
 export const BorderContainer = styled(FlexContainer)<{ $bgColor?: string }>`
@@ -47,17 +42,6 @@ export const BorderContainer = styled(FlexContainer)<{ $bgColor?: string }>`
   background-color: ${(props) => props.$bgColor || "transparent"};
   padding: 12px;
   align-items: center;
-`;
-
-export const ContentEditingWrapper = styled(FlexContainer)<{
-  $isVisible?: boolean;
-}>`
-  position: ${({ $isVisible = false }) =>
-    $isVisible ? "absolute" : "relative"};
-  opacity: ${({ $isVisible = false }) => ($isVisible ? 0 : 1)};
-  pointer-events: ${({ $isVisible = false }) => ($isVisible ? "auto" : "none")};
-  transition: all 0s ease;
-  z-index: -1;
 `;
 
 export const ImageInAdminContainer = styled.div`

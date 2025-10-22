@@ -17,8 +17,7 @@ import {
 } from "@/components/Typography/Body.styles";
 
 import DropdownIC from "@/assets/svg/arrowdown";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { MainButtonContainer } from "@/styles/components/buttons/Button.styles";
+import MainButton from "@/components/ui/button";
 
 interface CateSelectionProps {
   cateSelectedId: string;
@@ -63,7 +62,7 @@ const CategorySelectionBox = ({
 
   return (
     <SelectionContainer>
-      <LabelContainer>
+      <LabelContainer $padding="none">
         <Body1 $fontSize="18px" $weight={600}>
           Chọn danh mục cho bài viết
         </Body1>
@@ -122,12 +121,12 @@ const CategorySelectionBox = ({
           </CateListContainer>
           <FormFooter>
             <ButtonContainer>
-              <MainButtonContainer
-                $variant="secondary"
+              <MainButton
+                variant="secondary"
                 onClick={() => setIsCateSelectionOpen(false)}
               >
                 Xong
-              </MainButtonContainer>
+              </MainButton>
             </ButtonContainer>
           </FormFooter>
         </SelectionBoxContainer>

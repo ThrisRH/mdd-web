@@ -1,4 +1,5 @@
 "use client";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -7,6 +8,11 @@ export const Container = styled.div`
   width: 100%;
   align-items: start;
   gap: 50px;
+`;
+
+export const SectionWrapper = styled(FlexContainer)`
+  flex-direction: column;
+  gap: 24px;
 `;
 
 export const SectionBody = styled.div<{

@@ -13,8 +13,9 @@ import {
 import { useToggleSelect } from "@/hooks/useToggleSelect";
 import ContactSection from "./ContactSection";
 import CustomEditor from "../Blogs/CreateInputs/Editor/CustomEditor";
-import { CustomButton } from "@/styles/components/buttons/Button.styles";
+import { ButtonWrapper, CustomButton } from "@/components/ui/button/styled";
 import ProfileSection from "./ProfileSection";
+import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
 
 interface Props {
   about: AboutResponse;
@@ -22,6 +23,7 @@ interface Props {
 
 const AboutBody = ({ about }: Props) => {
   const [data, setData] = useState(about);
+  const [testData, setTestData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const { selectedDeleteItems, toggleSelect } = useToggleSelect();
@@ -31,7 +33,7 @@ const AboutBody = ({ about }: Props) => {
   const handleUpdateAbout = async () => {
     try {
       setIsSaving(true);
-      const afterUpdatedData = data.contact.filter(
+      const afterUpdatedData = data.author.contact.filter(
         (item) => !selectedDeleteItems.includes(item.id)
       );
 
@@ -43,9 +45,11 @@ const AboutBody = ({ about }: Props) => {
         body: JSON.stringify({
           data: {
             aboutContent: data.aboutContent,
-            contact: afterUpdatedData.map((item) => ({
-              content: item.content,
-            })),
+            authour: {
+              contact: afterUpdatedData.map((item) => ({
+                url: item.url,
+              })),
+            },
           },
         }),
       });
@@ -69,13 +73,17 @@ const AboutBody = ({ about }: Props) => {
   const addAboutContact = () => {
     setData((prev) => ({
       ...prev,
-      contact: [
-        ...prev.contact,
-        {
-          id: Math.random(),
-          content: "Nhập liên hệ mới mới vào đây",
-        },
-      ],
+      author: {
+        ...prev.author,
+        contact: [
+          ...(prev.author.contact || []),
+          {
+            id: Math.random(),
+            url: "Nhập nội dung mới",
+            platform: "Thêm 1 nền tảng mới",
+          },
+        ],
+      },
     }));
   };
 
@@ -99,16 +107,14 @@ const AboutBody = ({ about }: Props) => {
           <Body $variant="body3" $color="#fff">
             Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.
           </Body>
-          <CustomButton
-            $bgColor="transparent"
-            $border="2px solid rgba(22, 31, 57, 0.8)"
-            $width="fit"
-            $hoverBgColor="transparent"
-            $hoverBorder="2px solid #f1dbc4"
+
+          <ButtonWrapper
+            $maxWidth={true}
             onClick={() => handleUpdateAbout()}
+            $variant="shadow"
           >
-            <CustomBody $color="#fff">Lưu thay đổi</CustomBody>
-          </CustomButton>
+            Lưu thay đổi
+          </ButtonWrapper>
         </FlexContainer>
       </ActionContainer>
       <BodyContainer $isPadding={true} $flexDirection="row">
@@ -125,13 +131,18 @@ const AboutBody = ({ about }: Props) => {
           <Body $variant="body0">Thông tin liên hệ</Body>
           <ContactSection
             data={data}
+            setData={setData}
             selected={selected}
             setSelected={setSelected}
             selectedDeleteItems={selectedDeleteItems}
             toggleSelect={toggleSelect}
-            setData={setData}
           />
-
+          <BlogContentInput
+            label="Nền tảng"
+            value={testData}
+            maxLength={1000}
+            onChange={(value: string) => setTestData(value)}
+          />
           {/* Add button */}
           <CustomButton
             $bgColor="transparent"

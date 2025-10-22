@@ -13,8 +13,11 @@ import CloseIC from "@/assets/svg/cancel";
 import { Body1, CustomBody } from "@/components/Typography/Body.styles";
 import { toast } from "react-toastify";
 
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { CustomButton } from "@/styles/components/buttons/Button.styles";
+import {
+  FlexContainer,
+  FormContainer,
+} from "@/styles/components/layout/Common.styles";
+import { CustomButton } from "@/components/ui/button/styled";
 import BlogTitleInput from "../Blogs/CreateInputs/BlogTitleInput";
 import BlogSlugInput from "../Blogs/CreateInputs/BlogSlugInput";
 
@@ -70,7 +73,7 @@ const CreateCategory = ({
 
   return (
     <FormWrapper>
-      <FlexContainer $flexDirection="column">
+      <FormContainer>
         <HeaderFormContainer>
           <H5 $size={24}>Tạo danh mục mới</H5>
           <CloseIconContainer onClick={() => setIsCreateCatePopupOpen(false)}>
@@ -132,7 +135,7 @@ const CreateCategory = ({
             )}
           </ButtonContainer>
         </FormFooter>
-      </FlexContainer>
+      </FormContainer>
     </FormWrapper>
   );
 };

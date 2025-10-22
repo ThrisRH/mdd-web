@@ -11,7 +11,7 @@ import BlogContentInput from "./CreateInputs/BlogContentInput";
 import CustomEditor from "./CreateInputs/Editor/CustomEditor";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { BlogDetails } from "@/types/blog";
-import { CustomButton } from "@/styles/components/buttons/Button.styles";
+import { CustomButton } from "@/components/ui/button/styled";
 import { marked } from "marked";
 import { Loader } from "../../Loading.styles";
 import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";

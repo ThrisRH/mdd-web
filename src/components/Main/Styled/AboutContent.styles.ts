@@ -1,19 +1,19 @@
-"use client"
+"use client";
 import styled from "styled-components";
 
 export const AboutWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2.5rem; 
+  margin-top: 2.5rem;
   padding: 5.5rem 1rem;
 
   @media (min-width: 768px) {
     padding: 7rem;
   }
   @media (min-width: 1024px) {
-    padding: 12rem; 
-    margin-top: 0; 
+    padding: 12rem;
+    margin-top: 0;
   }
 `;
 
@@ -49,11 +49,11 @@ export const AvatarWrapper = styled.div`
   }
 `;
 
-export const Content = styled.div<{$gap?:number}>`
+export const Content = styled.div<{ $gap?: number }>`
   width: 100%;
-  display: flex; 
-  flex-direction: column;
-  gap: ${props => props.$gap || 16}px;
+  display: flex;
+  flex-direction: row;
+  gap: ${(props) => props.$gap || 16}px;
 `;
 
 export const ContactSection = styled.div`

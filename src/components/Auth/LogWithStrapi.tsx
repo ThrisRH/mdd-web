@@ -1,11 +1,12 @@
 import { signIn } from "next-auth/react";
 import GoogleIC from "@/assets/svg/google";
-import { Body, Body1, Body2 } from "../Typography/Body.styles";
+import { Body2 } from "../Typography/Body.styles";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Input from "../Input/Input";
+import Input from "../ui/input";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { MainButtonContainer } from "@/styles/components/buttons/Button.styles";
+import {} from "@/components/ui/button/styled";
+import MainButton from "../ui/button";
 
 export default function SignInStrapi() {
   const [identifier, setIdentifier] = useState("");
@@ -91,20 +92,20 @@ export default function SignInStrapi() {
       />
       <Body2 $color="#ff0000">{error}</Body2>
       <FlexContainer $flexDirection="row">
-        <MainButtonContainer
-          $variant="secondary"
+        <MainButton
+          variant="secondary"
           onClick={() => router.push("/auth/register")}
-          disabled={isSending}
+          isDisable={isSending}
         >
-          <Body $variant="body2">Register</Body>
-        </MainButtonContainer>
-        <MainButtonContainer
-          $variant="primary"
+          Register
+        </MainButton>
+        <MainButton
+          variant="primary"
           onClick={handleSubmit}
-          disabled={isSending}
+          isDisable={isSending}
         >
-          <Body $variant="body2">Login</Body>
-        </MainButtonContainer>
+          Login
+        </MainButton>
       </FlexContainer>
     </>
   );

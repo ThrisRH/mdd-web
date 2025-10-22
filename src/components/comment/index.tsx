@@ -1,16 +1,14 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
-import SectionWrapper from "../Section/SectionWrapper";
 import {
   CommentCardWrapper,
   CommentContent,
   CommentImageWrapper,
   TextArea,
-  CommentContainer,
   SubmitField,
   SubmitButton,
   CommentBody,
-} from "./Comment.styles";
+} from "./styled";
 import Image from "next/image";
 import { Body1, Body2, Body3 } from "../Typography/Body.styles";
 import { CommentInputProps, CommentProps } from "@/types/comment";

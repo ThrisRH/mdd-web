@@ -41,7 +41,7 @@ export default function FAQsPage() {
           <Loading />
         </FlexContainer>
       ) : (
-        <FAQsBody Faqs={data} />
+        <FAQsBody faqs={data} />
       )}
     </MainContentContainer>
   );

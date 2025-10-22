@@ -1,20 +1,23 @@
 "use client";
-import { AuthBodyContainer } from "@/components/Auth/Auth.styles";
-import SignInGoogle from "@/components/Auth/LogWithGoogle";
-import SignUpStrapi from "@/components/Auth/RegisterWithStrapi";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { AuthBodyContainer } from "@/components/auth/styled";
+import SignInGoogle from "@/components/auth/LogWithGoogle";
+import SignUpStrapi from "@/components/auth/RegisterWithStrapi";
+import {
+  FlexContainer,
+  FormContainer,
+} from "@/styles/components/layout/Common.styles";
 
 export default function RegisterPage() {
   return (
     <AuthBodyContainer>
-      <FlexContainer $flexDirection="column">
+      <FormContainer $gap="sm">
         <SignUpStrapi />
 
         {/* Vùng login với oAuth */}
         <FlexContainer>
           <SignInGoogle />
         </FlexContainer>
-      </FlexContainer>
+      </FormContainer>
     </AuthBodyContainer>
   );
 }

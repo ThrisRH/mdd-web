@@ -25,7 +25,7 @@ const BlogImageInput = ({ previewImage, setPreviewImage }: Props) => {
   };
   return (
     <>
-      <LabelContainer>
+      <LabelContainer $padding="none">
         <Body1 $fontSize="18px" $weight={600}>
           Ảnh bìa của bài viết
         </Body1>

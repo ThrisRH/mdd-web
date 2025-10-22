@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import SendArea from "@/assets/svg/sendContent";
 import { Body, Body3 } from "@/components/Typography/Body.styles";
-import { ButtonWrapper, Input, InputWrapper } from "../Sidebar.styles";
-import { MainButtonContainer } from "@/styles/components/buttons/Button.styles";
+import { ButtonWrapper, Input, InputWrapper } from "../styled";
+import MainButton from "@/components/ui/button";
 
 interface CateProps {
   id: number;
@@ -51,10 +51,10 @@ const SendContent = () => {
   if (cate.length == 0) return null;
   return (
     <SendArea className="w-full max-w-[320px] h-fit">
-      <Body3 $color="#000" className="w-full">
+      <Body $variant="body3" $color="#000" className="w-full">
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry
-      </Body3>
+      </Body>
 
       <InputWrapper>
         <Input
@@ -65,9 +65,9 @@ const SendContent = () => {
       </InputWrapper>
 
       <ButtonWrapper>
-        <MainButtonContainer $variant="secondary" onClick={handleSubmitContent}>
-          <Body $variant="body2">Đăng ký</Body>
-        </MainButtonContainer>
+        <MainButton variant="secondary" onClick={handleSubmitContent}>
+          Đăng ký
+        </MainButton>
       </ButtonWrapper>
     </SendArea>
   );

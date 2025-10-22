@@ -1,5 +1,12 @@
 "use client";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import styled from "styled-components";
+
+export const BlogCardWrapper = styled(FlexContainer)`
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+`;
 
 export const Title = styled.h3`
   color: black;
@@ -58,8 +65,8 @@ export const Dot = styled.div`
   background: #000;
 `;
 
-// Small Post card
-export const SmallPostContainer = styled.div`
+// Relative Blog Wrapper in blog detail
+export const RelativeBlogWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -67,7 +74,7 @@ export const SmallPostContainer = styled.div`
   cursor: pointer;
 `;
 
-export const SmallPostBody = styled.div`
+export const RelativeBlogImageContainer = styled.div`
   height: 200px;
   width: 100%;
   position: relative;

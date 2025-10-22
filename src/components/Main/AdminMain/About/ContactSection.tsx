@@ -1,7 +1,6 @@
-import { Body, CustomBody } from "@/components/Typography/Body.styles";
+import { Body } from "@/components/Typography/Body.styles";
 import {
   BorderContainer,
-  ContentEditingWrapper,
   FlexContainer,
 } from "@/styles/components/layout/Common.styles";
 import React from "react";
@@ -11,6 +10,7 @@ import { AboutResponse } from "@/app/(user)/about/page";
 import DeleteIC from "@/assets/svg/Interact/RecycleBin";
 import DropdownIC from "@/assets/svg/arrowdown";
 import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
+import { Row } from "@/components/ui/common/styled";
 
 export interface AboutPageSectionProps {
   data: AboutResponse;
@@ -33,23 +33,24 @@ const ContactSection = ({
     <BodyContainer>
       {data.author.contact.map((item, index) => (
         <BorderContainer
-          $canSelection={true}
           key={index}
           $bgColor={
             selectedDeleteItems.includes(item.id) ? "#eda3a3a2" : "transparent"
           }
         >
-          <FlexContainer $flexDirection="row" style={{ cursor: "pointer" }}>
+          <Row
+            onClick={() => {
+              if (selected === index) {
+                setSelected(null);
+              } else {
+                setSelected(index);
+              }
+            }}
+            style={{ cursor: "pointer", userSelect: "none" }}
+          >
             <FlexContainer $flexDirection="row">
               <IconContainer $haveBg={true}>
                 <FlexContainer
-                  onClick={() => {
-                    if (selected === index) {
-                      setSelected(null);
-                    } else {
-                      setSelected(index);
-                    }
-                  }}
                   style={{
                     transform: `${
                       selected === index ? "rotate(180deg)" : "rotate(0deg)"
@@ -60,33 +61,124 @@ const ContactSection = ({
                 </FlexContainer>
               </IconContainer>
               <FlexContainer style={{ justifyContent: "center" }}>
-                <Body $variant="body2">{item.url}</Body>
+                <Body $variant="body2">{item.platform}</Body>
               </FlexContainer>
             </FlexContainer>
 
             <IconContainer onClick={() => toggleSelect(item.id)}>
               <DeleteIC scale={20} stroke="#233238" />
             </IconContainer>
-          </FlexContainer>
-          <ContentEditingWrapper
-            $isVisible={selected !== index}
-            $flexDirection="row"
-          >
-            <BlogContentInput
-              label="Thông tin liên hệ"
-              value={item.url}
-              maxLength={1000}
-              onChange={(value: string) => {
-                setData((prev) => ({
-                  ...prev,
-                  contact: prev.contact.map((q, i) =>
-                    i === index ? { ...q, question: value } : q
-                  ),
-                }));
-              }}
-            />
-          </ContentEditingWrapper>
+          </Row>
+
+          {selected === index && (
+            <Row>
+              <BlogContentInput
+                label={"Nền tảng"}
+                value={item.platform}
+                onChange={(value: string) =>
+                  setData((prev) => ({
+                    ...prev,
+                    author: {
+                      ...prev.author,
+                      contact: prev.author.contact.map((q, i) =>
+                        i === index ? { ...q, platform: value } : q
+                      ),
+                    },
+                  }))
+                }
+                maxLength={100}
+              />
+              <BlogContentInput
+                label={"Đường dẫn"}
+                value={item.url}
+                onChange={(value: string) =>
+                  setData((prev) => ({
+                    ...prev,
+                    author: {
+                      ...prev.author,
+                      contact: prev.author.contact.map((q, i) =>
+                        i === index ? { ...q, url: value } : q
+                      ),
+                    },
+                  }))
+                }
+                maxLength={100}
+              />
+            </Row>
+          )}
         </BorderContainer>
+        // <BorderContainer
+        //   key={index}
+        //   $bgColor={
+        //     selectedDeleteItems.includes(item.id) ? "#eda3a3a2" : "transparent"
+        //   }
+        // >
+        //   <FlexContainer $flexDirection="row" style={{ cursor: "pointer" }}>
+        //     <FlexContainer $flexDirection="row">
+        //       <IconContainer $haveBg={true}>
+        //         <FlexContainer
+        //           onClick={() => {
+        //             if (selected === index) {
+        //               setSelected(null);
+        //             } else {
+        //               setSelected(index);
+        //             }
+        //           }}
+        //           style={{
+        //             transform: `${
+        //               selected === index ? "rotate(180deg)" : "rotate(0deg)"
+        //             }`,
+        //           }}
+        //         >
+        //           <DropdownIC fill="#233238" />
+        //         </FlexContainer>
+        //       </IconContainer>
+        //       <FlexContainer style={{ justifyContent: "center" }}>
+        //         <Body $variant="body2">{item.platform}</Body>
+        //       </FlexContainer>
+        //     </FlexContainer>
+
+        //     <IconContainer onClick={() => toggleSelect(item.id)}>
+        //       <DeleteIC scale={20} stroke="#233238" />
+        //     </IconContainer>
+        //   </FlexContainer>
+        //   {selected === index && (
+        //     <ContentEditingWrapper $flexDirection="row">
+        //       <BlogContentInput
+        //         label="Nền tảng"
+        //         value={item.platform}
+        //         maxLength={1000}
+        //         onChange={(value: string) => {
+        //           setData((prev) => ({
+        //             ...prev,
+        //             contact: prev.contact.map((q, i) =>
+        //               i === index ? { ...q, question: value } : q
+        //             ),
+        //           }));
+        //         }}
+        //       />
+
+        //       <BlogContentInput
+        //         canOverflow={true}
+        //         maxHeight={200}
+        //         label="Thông tin liên hệ"
+        //         maxLength={1000}
+        //         value={item.url}
+        //         onChange={(value: string) => {
+        //           setData((prev) => ({
+        //             ...prev,
+        //             author: {
+        //               ...prev.author,
+        //               contact: prev.author.contact.map((q, i) =>
+        //                 i === index ? { ...q, url: value } : q
+        //               ),
+        //             },
+        //           }));
+        //         }}
+        //       />
+        //     </ContentEditingWrapper>
+        //   )}
+        // </BorderContainer>
       ))}
     </BodyContainer>
   );

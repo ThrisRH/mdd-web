@@ -2,7 +2,7 @@
 import { Body1 } from "@/components/Typography/Body.styles";
 import FavoriteArea from "@/assets/svg/favoriteArea";
 import { Blog } from "@/components/Main/PageContainer";
-import { BlogItem, BlogList } from "../Sidebar.styles";
+import { BlogItem, BlogList } from "../styled";
 import { useRouter } from "next/navigation";
 
 const FavoriteField = ({ blogs }: { blogs: Blog[] }) => {

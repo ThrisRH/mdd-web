@@ -10,7 +10,7 @@ import DeleteIC from "@/assets/svg/Interact/RecycleBin";
 import DropdownIC from "@/assets/svg/arrowdown";
 import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
 import { Body } from "@/components/Typography/Body.styles";
-import { CustomButton } from "@/styles/components/buttons/Button.styles";
+import { CustomButton } from "@/components/ui/button/styled";
 
 interface Props {
   data: FAQProps;
@@ -35,7 +35,6 @@ const FAQsSection = ({
     <ContentSideContainer>
       {data.questionAnswer.map((item, index) => (
         <BorderContainer
-          $canSelection={true}
           key={index}
           $bgColor={
             selectedDeleteItems.includes(item.id) ? "#eda3a3a2" : "transparent"

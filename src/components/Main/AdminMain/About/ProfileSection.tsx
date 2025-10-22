@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Body } from "@/components/Typography/Body.styles";
-import { CustomButton } from "@/styles/components/buttons/Button.styles";
+import { CustomButton } from "@/components/ui/button/styled";
 import {
   BorderContainer,
   FlexContainer,

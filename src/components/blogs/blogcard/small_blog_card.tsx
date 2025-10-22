@@ -1,10 +1,10 @@
 "use client";
 import { BlogDetails } from "@/types/blog";
 import React from "react";
-import { SmallPostBody, SmallPostContainer } from "./PostCard.styles";
+import { RelativeBlogImageContainer, RelativeBlogWrapper } from "./styled";
 import Image from "next/image";
-import { H4 } from "../Typography/Heading.styles";
-import { Body3 } from "../Typography/Body.styles";
+import { H4 } from "../../Typography/Heading.styles";
+import { Body } from "../../Typography/Body.styles";
 import { useRouter } from "next/navigation";
 
 const SmallPostCard = ({ title, publishedAt, cover, slug }: BlogDetails) => {
@@ -22,8 +22,8 @@ const SmallPostCard = ({ title, publishedAt, cover, slug }: BlogDetails) => {
   };
 
   return (
-    <SmallPostContainer role="button" onClick={() => handleToBlog(slug)}>
-      <SmallPostBody>
+    <RelativeBlogWrapper role="button" onClick={() => handleToBlog(slug)}>
+      <RelativeBlogImageContainer>
         <Image
           style={{ objectFit: "cover" }}
           src={`${
@@ -32,10 +32,12 @@ const SmallPostCard = ({ title, publishedAt, cover, slug }: BlogDetails) => {
           alt={"blogImage"}
           fill
         />
-      </SmallPostBody>
+      </RelativeBlogImageContainer>
       <H4 $color="#000">{title}</H4>
-      <Body3 $color="#000">{formatDate(publishedAt)}</Body3>
-    </SmallPostContainer>
+      <Body $variant="body3" $color="#000">
+        {formatDate(publishedAt)}
+      </Body>
+    </RelativeBlogWrapper>
   );
 };
 

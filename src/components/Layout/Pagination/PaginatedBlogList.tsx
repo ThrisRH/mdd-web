@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import PaginationBar from "./PaginationBar";
-import PostCard from "@/components/PostCard/PostCard";
+import PostCard from "@/components/blogs/blogcard/blog_card";
 import { BlogDetails } from "@/types/blog";
 import { useRouter, useSearchParams } from "next/navigation";
 import { BlogCardFrame } from "@/components/Main/Styled/PageContainer.styles";

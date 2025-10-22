@@ -1,30 +1,33 @@
 "use client";
 import { FAQProps } from "@/app/(user)/FAQ/page";
-import { CustomBody } from "@/components/Typography/Body.styles";
+import { Body, CustomBody } from "@/components/Typography/Body.styles";
 import {
   BorderContainer,
   FlexContainer,
 } from "@/styles/components/layout/Common.styles";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import {
-  CustomButton,
-  MainButtonContainer,
-} from "@/styles/components/buttons/Button.styles";
+import { CustomButton } from "@/components/ui/button/styled";
 import { Loader } from "../../Loading.styles";
-import { BodyContainer, ProfileSideContainer } from "../styles/Page.styles";
+import {
+  ActionContainer,
+  BodyContainer,
+  ProfileSideContainer,
+} from "../styles/Page.styles";
 import { useToggleSelect } from "@/hooks/useToggleSelect";
+import MainButton from "@/components/ui/button";
 import FAQsSection from "./FAQsSection";
 
 interface Props {
-  Faqs: FAQProps;
+  faqs: FAQProps;
 }
 
-const FAQsBody = ({ Faqs }: Props) => {
-  const [data, setData] = useState(Faqs);
+const faqBody = ({ faqs }: Props) => {
+  const [data, setData] = useState(faqs);
   const [isLoading, setIsLoading] = useState(false);
   const { selectedDeleteItems, toggleSelect } = useToggleSelect();
   const [selected, setSelected] = useState<number | null>(null);
+  const [isChanged, setIsChanged] = useState(false);
 
   const addFAQ = () => {
     setData((prev) => ({
@@ -81,54 +84,51 @@ const FAQsBody = ({ Faqs }: Props) => {
       throw new Error(error);
     }
   };
-  return (
-    <BodyContainer $flexDirection="row" $isPadding={true}>
-      {/* Danh sách các FAQs */}
-      <FAQsSection
-        data={data}
-        selected={selected}
-        setSelected={setSelected}
-        selectedDeleteItems={selectedDeleteItems}
-        toggleSelect={toggleSelect}
-        setData={setData}
-        addNewFaq={addFAQ}
-      />
 
-      {/* Vùng chứa bảng action */}
-      <ProfileSideContainer>
-        <BorderContainer $gap="md">
-          <FlexContainer $gap="xs">
-            <CustomBody $weight={600} $size={16}>
-              Xác nhận chỉnh sửa
-            </CustomBody>
-            <CustomBody $size={14} $whiteSpace="normal" $color="#4F4F4F">
-              Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.
-            </CustomBody>
-          </FlexContainer>
-          {isLoading ? (
-            <CustomButton
-              $isDisable={true}
-              $bgColor="#aeaeae"
-              $hoverBgColor="#f45c5c"
-            >
-              <Loader />
-              <CustomBody $color="#fff" $weight={600}>
-                Đang thay đổi
-              </CustomBody>
-            </CustomButton>
-          ) : (
-            <MainButtonContainer
-              $variant="secondary"
-              onClick={() => handleUpdateFAQ()}
-              $isDisable={isLoading}
-            >
-              Lưu thay đổi
-            </MainButtonContainer>
-          )}
-        </BorderContainer>
-      </ProfileSideContainer>
-    </BodyContainer>
+  useEffect(() => {
+    const origindata = JSON.stringify(faqs);
+    const current = JSON.stringify(data);
+
+    setIsChanged(origindata !== current);
+  }, [data, faqs]);
+  return (
+    <>
+      <ActionContainer $visible={isChanged}>
+        <FlexContainer
+          $justify="space-between"
+          $width="normal"
+          $flexDirection="row"
+          style={{ alignItems: "center" }}
+        >
+          <Body $variant="body3" $color="#fff">
+            Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.
+          </Body>
+          <CustomButton
+            $bgColor="transparent"
+            $border="2px solid rgba(22, 31, 57, 0.8)"
+            $width="fit"
+            $hoverBgColor="transparent"
+            $hoverBorder="2px solid #f1dbc4"
+            onClick={() => handleUpdateFAQ()}
+          >
+            <CustomBody $color="#fff">Lưu thay đổi</CustomBody>
+          </CustomButton>
+        </FlexContainer>
+      </ActionContainer>
+      <BodyContainer $flexDirection="row" $isPadding={true}>
+        {/* Danh sách các faq */}
+        <FAQsSection
+          data={data}
+          setData={setData}
+          selected={selected}
+          setSelected={setSelected}
+          selectedDeleteItems={selectedDeleteItems}
+          toggleSelect={toggleSelect}
+          addNewFaq={addFAQ}
+        />
+      </BodyContainer>
+    </>
   );
 };
 
-export default FAQsBody;
+export default faqBody;

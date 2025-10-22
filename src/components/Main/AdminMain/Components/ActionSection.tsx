@@ -5,7 +5,7 @@ import { CustomBody } from "@/components/Typography/Body.styles";
 import BinIC from "@/assets/svg/Interact/RecycleBin";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { Loader } from "../../Loading.styles";
-import { CustomButton } from "@/styles/components/buttons/Button.styles";
+import { CustomButton } from "@/components/ui/button/styled";
 
 interface Props {
   selectedItems: Set<string>;

@@ -1,7 +1,9 @@
 import React from "react";
 import AboutText from "@/assets/svg/textArea";
 import Image from "next/image";
-import { Body1, Body2, Body3 } from "@/components/Typography/Body.styles";
+import { Body, Body1, Body2, Body3 } from "@/components/Typography/Body.styles";
+import rehypeRaw from "rehype-raw";
+import ReactMarkDown from "react-markdown";
 import {
   AboutWrapper,
   AvatarWrapper,
@@ -10,19 +12,21 @@ import {
   Content,
   FooterSection,
 } from "@/components/Main/Styled/AboutContent.styles";
-import { H5 } from "@/components/Typography/Heading.styles";
+import { H1, H2, H3, H4, H5 } from "@/components/Typography/Heading.styles";
 import { notFound } from "next/navigation";
 import { InfoProps } from "@/context/InfoContext";
+import Link from "next/link";
+
+import FacebookIC from "@/assets/svg/fb";
+import TwitterIC from "@/assets/svg/x";
+import IGIC from "@/assets/svg/ig";
+import LinkedinIC from "@/assets/svg/linkedin";
 
 export interface AboutResponse {
   id: number;
   aboutContent: string;
   author: InfoProps;
   contact: ContactProps[];
-}
-
-interface AuthorAvt {
-  url: string;
 }
 
 interface ContactProps {
@@ -35,9 +39,12 @@ const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
 async function getAboutData() {
   try {
-    const res = await fetch(`${API_URL}/api/about?populate=*`, {
-      method: "GET",
-    });
+    const res = await fetch(
+      `${API_URL}/api/about?populate[author][populate]=avatar&populate[author][populate]=contact`,
+      {
+        method: "GET",
+      }
+    );
     const data = await res.json();
     return data;
   } catch (error) {
@@ -68,22 +75,48 @@ export default async function AboutPage() {
           />
         </AvatarWrapper>
         <AboutText width={"100%"} />
-        {/* <Content>
-          {about.aboutContent?.map((block, i) => (
-            <Body2 key={i}>
-              {block.children.map((child, j) => child.text).join("")}
-            </Body2>
-          ))}
-        </Content> */}
+
+        <ReactMarkDown
+          rehypePlugins={[rehypeRaw]}
+          components={{
+            h1: ({ node, ...props }) => <H1 $color="#000" {...props} />,
+            h2: ({ node, ...props }) => <H2 $color="#000" {...props} />,
+            h3: ({ node, ...props }) => <H3 {...props} />,
+            h4: ({ node, ...props }) => <H4 {...props} />,
+            p: ({ node, ...props }) => <Body $color="#000" {...props} />,
+            ol: ({ node, ...props }) => (
+              <ol className="list-decimal pl-6" {...props} />
+            ),
+            li: ({ node, ...props }) => (
+              <Body $color="#000" className="" as={"li"} {...props} />
+            ),
+            // strong: ({ node, ...props }) => (
+            //   <CustomBody $whiteSpace="normal" $color="#000" $weight={600} />
+            // ),
+            // em: ({ node, ...props }) => (
+            //   <CustomBody $whiteSpace="normal" $color="#000" $weight={400} />
+            // ),
+          }}
+        >
+          {about.aboutContent}
+        </ReactMarkDown>
 
         <ContactSection>
           <Body1>Liên hệ qua:</Body1>
 
-          <Content $gap={1}>
-            {about.contact?.map((block, i) => (
-              <Body2 $color="#000" key={i}>
-                {block.content}
-              </Body2>
+          <Content $gap={12}>
+            {about.author.contact?.map((item) => (
+              <Link href={item.url} key={item.id}>
+                {item.platform === "fb" ? (
+                  <FacebookIC />
+                ) : item.platform == "ig" ? (
+                  <IGIC />
+                ) : item.platform === "x" ? (
+                  <TwitterIC />
+                ) : (
+                  <LinkedinIC />
+                )}
+              </Link>
             ))}
           </Content>
         </ContactSection>

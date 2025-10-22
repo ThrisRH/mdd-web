@@ -1,13 +1,13 @@
 "use client";
-import { AuthBodyContainer } from "@/components/Auth/Auth.styles";
-import SignInGoogle from "@/components/Auth/LogWithGoogle";
-import SignInStrapi from "@/components/Auth/LogWithStrapi";
+import { AuthBodyContainer } from "@/components/auth/styled";
+import SignInGoogle from "@/components/auth/LogWithGoogle";
+import SignInStrapi from "@/components/auth/LogWithStrapi";
 import { FormContainer } from "@/styles/components/layout/Common.styles";
 
 export default function LoginPage() {
   return (
     <AuthBodyContainer>
-      <FormContainer $gap={12}>
+      <FormContainer $gap="sm">
         <SignInStrapi />
         <SignInGoogle />
       </FormContainer>
