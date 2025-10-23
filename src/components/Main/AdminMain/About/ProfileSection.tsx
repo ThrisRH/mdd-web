@@ -4,12 +4,11 @@ import { CustomButton } from "@/components/ui/button/styled";
 import {
   BorderContainer,
   FlexContainer,
-  ImageInAdminContainer,
 } from "@/styles/components/layout/Common.styles";
 import Image from "next/image";
 import { AboutPageSectionProps } from "./ContactSection";
 import { ImageInput } from "@/styles/components/inputs/Input.styles";
-import { ImageContainer } from "../styles/Page.styles";
+import { ImageContainer } from "@/components/blogs/blogcard/styled";
 
 const AvatarEditDescription = {
   content:
@@ -25,6 +24,10 @@ const ProfileSection = ({ data, setData }: AboutPageSectionProps) => {
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setPreviewImage(imageUrl);
+      setData((prev) => ({
+        ...prev,
+        avatarFileTemp: file,
+      }));
     }
   };
 
@@ -37,8 +40,8 @@ const ProfileSection = ({ data, setData }: AboutPageSectionProps) => {
       <Body $variant="body0">Ảnh đại diện</Body>
 
       <FlexContainer $flexDirection="row" $gap="md">
-        <BorderContainer>
-          <ImageInAdminContainer>
+        <BorderContainer $justify="center">
+          <ImageContainer $variant="avatar">
             <Image
               className="rounded-full"
               alt="Avatar image"
@@ -52,7 +55,7 @@ const ProfileSection = ({ data, setData }: AboutPageSectionProps) => {
                   : `/baseurl${data.author.avatar.url}`
               }
             />
-          </ImageInAdminContainer>
+          </ImageContainer>
         </BorderContainer>
 
         <FlexContainer $justify="center">

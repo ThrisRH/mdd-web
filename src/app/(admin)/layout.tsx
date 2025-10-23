@@ -1,10 +1,7 @@
 "use client";
 import Header from "@/components/Layout/AdminLayout/Header";
-import {
-  AdminLayoutContainer,
-  BodyWrapper,
-} from "@/components/Layout/AdminLayout/Layout.styles";
-import Sidebar from "@/components/Layout/AdminLayout/Sidebars/AdminPanelSidebar";
+import { AdminLayoutContainer } from "@/components/Layout/AdminLayout/Layout.styles";
+import { InfoProvider } from "@/context/InfoContext";
 import React from "react";
 
 interface LayoutProps {
@@ -13,9 +10,11 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <AdminLayoutContainer>
-      <Header />
-      {children}
-    </AdminLayoutContainer>
+    <InfoProvider>
+      <AdminLayoutContainer>
+        <Header />
+        {children}
+      </AdminLayoutContainer>
+    </InfoProvider>
   );
 }

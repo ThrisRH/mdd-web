@@ -7,7 +7,6 @@ import {
   QuestionRow,
 } from "@/components/Main/Styled/FAQContent.styles";
 import React, { useState } from "react";
-import { FAQProps } from "./page";
 import { H0, H3 } from "@/components/Typography/Heading.styles";
 import { Body2 } from "@/components/Typography/Body.styles";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
@@ -19,10 +18,11 @@ import {
   VectorContainer,
 } from "@/components/blogs/blogcard/styled";
 import Vector from "@/assets/svg/vector";
+import { FAQ } from "@/types/faq";
 
 // Component
 
-const FAQBody = ({ ...faq }: FAQProps) => {
+const FAQBody = ({ ...faq }: FAQ) => {
   const [selected, setSelected] = useState(0);
   if (!faq) return null;
   return (

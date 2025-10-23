@@ -1,6 +1,5 @@
 import React from "react";
 import { ContentSideContainer, IconContainer } from "../styles/Page.styles";
-import { FAQProps } from "@/app/(user)/FAQ/page";
 import {
   BorderContainer,
   FlexContainer,
@@ -11,14 +10,15 @@ import DropdownIC from "@/assets/svg/arrowdown";
 import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
 import { Body } from "@/components/Typography/Body.styles";
 import { CustomButton } from "@/components/ui/button/styled";
+import { FAQ } from "@/types/faq";
 
 interface Props {
-  data: FAQProps;
+  data: FAQ;
   selected: number | null;
   setSelected: React.Dispatch<React.SetStateAction<number | null>>;
   selectedDeleteItems: number[];
   toggleSelect: (id: number) => void;
-  setData: React.Dispatch<React.SetStateAction<FAQProps>>;
+  setData: React.Dispatch<React.SetStateAction<FAQ>>;
   addNewFaq: () => void;
 }
 

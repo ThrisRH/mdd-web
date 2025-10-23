@@ -133,15 +133,14 @@ export const ActionContainer = styled.div<{
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: ${(props) => (props.$visible ? "32px" : "0px 24px")};
+  padding: 32px;
   background-color: rgb(52, 73, 82);
 
   opacity: ${(props) => (props.$visible ? 1 : 0)};
   transform: ${(props) =>
     props.$visible ? "translateY(0)" : "translateY(-20px)"};
   pointer-events: ${(props) => (props.$visible ? "auto" : "none")};
-  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease,
-    padding 0.3s ease;
+  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 `;
 
 export const SelectIconContainer = styled.div`

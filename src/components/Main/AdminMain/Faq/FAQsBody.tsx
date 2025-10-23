@@ -1,5 +1,4 @@
 "use client";
-import { FAQProps } from "@/app/(user)/FAQ/page";
 import { Body, CustomBody } from "@/components/Typography/Body.styles";
 import {
   BorderContainer,
@@ -15,11 +14,12 @@ import {
   ProfileSideContainer,
 } from "../styles/Page.styles";
 import { useToggleSelect } from "@/hooks/useToggleSelect";
-import MainButton from "@/components/ui/button";
+import MainButton from "@/components/ui/button/main_button";
 import FAQsSection from "./FAQsSection";
+import { FAQ } from "@/types/faq";
 
 interface Props {
-  faqs: FAQProps;
+  faqs: FAQ;
 }
 
 const faqBody = ({ faqs }: Props) => {
@@ -78,7 +78,7 @@ const faqBody = ({ faqs }: Props) => {
       console.log(result);
       setTimeout(() => {
         setIsLoading(false);
-        window.location.href = "/adminpanel/myfaqsetting";
+        window.location.href = "/admin-panel/myfaqsetting";
       }, 1000);
     } catch (error: any) {
       throw new Error(error);

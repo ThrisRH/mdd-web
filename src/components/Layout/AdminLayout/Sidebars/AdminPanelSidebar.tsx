@@ -13,6 +13,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Tabs } from "@/app/(admin)/config/tabsConfig";
 import { TabsGroup } from "./Sidebar.styles";
 import { TabContainer } from "@/styles/components/layout/Layout.styles";
+import { ImageContainer } from "@/components/blogs/blogcard/styled";
 
 const AdminPanelSidebar = () => {
   const { info } = useInfo();
@@ -24,18 +25,19 @@ const AdminPanelSidebar = () => {
       <SidebarItemsContainer $gap={32}>
         {info?.map((item, index) => (
           <InfoContainer key={index}>
-            <Image
-              className="rounded-full"
-              alt="Avatar image"
-              width={128}
-              height={128}
-              style={{ objectFit: "cover" }}
-              src={
-                item.avatar.url.startsWith("https")
-                  ? item.avatar.url
-                  : `/baseurl${item.avatar.url}`
-              }
-            />
+            <ImageContainer $variant="avatar">
+              <Image
+                className="rounded-full"
+                alt="Avatar image"
+                fill
+                style={{ objectFit: "cover" }}
+                src={
+                  item.avatar.url.startsWith("https")
+                    ? item.avatar.url
+                    : `/baseurl${item.avatar.url}`
+                }
+              />
+            </ImageContainer>
             <H3>my {item.fullname} diary</H3>
           </InfoContainer>
         ))}

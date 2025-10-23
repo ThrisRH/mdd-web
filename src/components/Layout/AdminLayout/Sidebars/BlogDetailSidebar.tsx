@@ -12,13 +12,15 @@ import { formatDate } from "@/components/Main/AdminMain/Blogs/BlogTable";
 import CommentIC from "@/assets/svg/sidebar/comment";
 import PencilIC from "@/assets/svg/sidebar/Pencil";
 import BackIC from "@/assets/svg/Interact/BackArrow";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { DateDetailContainer, TabsGroup } from "./Sidebar.styles";
 import { TabContainer } from "@/styles/components/layout/Layout.styles";
 import { useBlogdetailcontext } from "@/context/blogdetailcontext/index";
+import { BlogDetailTabs } from "@/app/(admin)/config/tabsConfig";
 
 const BlogDetailSidebar = () => {
   const { value } = useBlogdetailcontext();
+  const pathname = usePathname();
   const router = useRouter();
 
   if (value)
@@ -38,7 +40,7 @@ const BlogDetailSidebar = () => {
           </TabContainer>
           {/* Vùng hiển thị 1 số thông tin của bài viết */}
           <FlexContainer className="basic-info">
-            <ImageContainer $responsiveHeight="120px">
+            <ImageContainer $variant="sidebar-blog-detail">
               <Image
                 fill
                 alt="Avatar image"
@@ -73,18 +75,20 @@ const BlogDetailSidebar = () => {
           </FlexContainer>
 
           <TabsGroup>
-            <TabContainer $isSelected={true}>
-              <PencilIC />
-              <Body $variant="body2" $color="#4f4f4f">
-                Chi tiết
-              </Body>
-            </TabContainer>
-            <TabContainer $isSelected={false}>
-              <CommentIC />
-              <Body $variant="body2" $color="#4f4f4f">
-                Bình luận
-              </Body>
-            </TabContainer>
+            {BlogDetailTabs.map(({ path, icon: Icon, label }) => (
+              <TabContainer
+                key={path}
+                $isSelected={pathname.startsWith(path)}
+                onClick={() => {
+                  router.push(`${path}/${value.slug}`);
+                }}
+              >
+                <Icon />
+                <Body $variant="body2" $color="#4f4f4f">
+                  {label}
+                </Body>
+              </TabContainer>
+            ))}
           </TabsGroup>
         </SidebarItemsContainer>
       </SidebarContainer>

@@ -1,6 +1,6 @@
 import { CommentProps } from "./comment";
 
-export interface BlogDetails {
+export type BlogDetails = {
   documentId: string;
   slug: string;
   title: string;
@@ -13,23 +13,23 @@ export interface BlogDetails {
   optionImage: OptionImage[];
   cate?: Cate;
   comments?: CommentProps[];
-}
+};
 
-interface Cover {
+type Cover = {
   documentId: string;
   url: string;
-}
+};
 
-interface Image {
+type Image = {
   documentId: string;
   url: string;
-}
+};
 
-interface OptionImage {
+type OptionImage = {
   image: Image[];
-}
+};
 
-interface Cate {
+type Cate = {
   documentId: string;
   tile: string;
-}
+};

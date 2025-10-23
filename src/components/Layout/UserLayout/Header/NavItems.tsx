@@ -2,7 +2,7 @@
 import { Dropdown, DropdownItem, NavItem } from "./Header.styles";
 import SearchIC from "@/assets/svg/search";
 import ArrowIC from "@/assets/svg/arrowdown";
-import { Body2 } from "../../../Typography/Body.styles";
+import { Body, Body2 } from "../../../Typography/Body.styles";
 import { H5 } from "../../../Typography/Heading.styles";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -33,6 +33,7 @@ const NavItems = ({
 }: Props) => {
   const router = useRouter();
   const { data: session } = useSession();
+  const [role, setRole] = useState();
   const tokenExists = !!session;
   console.log(tokenExists);
 
@@ -45,6 +46,23 @@ const NavItems = ({
   const handleLogout = () => {
     signOut({ callbackUrl: "/" });
   };
+
+  const fetchUserRole = async () => {
+    const token = session?.strapiToken;
+
+    const response = await fetch("/mmdblogsapi/users/me", {
+      method: "GET",
+      headers: { Authorization: `bearer ${token}` },
+    });
+    const data = await response.json();
+    setRole(data.isAuthor);
+    console.log(data);
+    console.log(session);
+  };
+  useEffect(() => {
+    fetchUserRole();
+  }, [session]);
+
   return (
     <>
       <NavItem>
@@ -137,6 +155,14 @@ const NavItems = ({
           {tokenExists ? "Đăng xuất" : "Đăng nhập"}
         </H5>
       </NavItem>
+
+      {role && (
+        <Link href={"/admin-panel/myblogs"}>
+          <Body $variant="body2" $color="#4f6ffa">
+            Đến trang quảng lý
+          </Body>
+        </Link>
+      )}
     </>
   );
 };

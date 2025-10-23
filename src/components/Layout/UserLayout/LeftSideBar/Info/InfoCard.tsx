@@ -9,7 +9,7 @@ import {
   InfoWrapper,
 } from "./InfoCard.styles";
 import { H2 } from "@/components/Typography/Heading.styles";
-import { Body3 } from "@/components/Typography/Body.styles";
+import { Body, Body3 } from "@/components/Typography/Body.styles";
 import Image from "next/image";
 
 import FacebookIC from "@/assets/svg/fb";
@@ -91,16 +91,20 @@ const InfoCard = ({ isNavbar, textColor, isDetails }: InfoCardProps) => {
           </InfoWrapper>
           <DetailsWrapper $isDetails={isDetails}>
             <Biography>
-              <Body3 $color="#000" $align="center">
+              <Body
+                style={{ textAlign: "center" }}
+                $variant="body3"
+                $color="#000"
+              >
                 {item.biography}
-              </Body3>
+              </Body>
             </Biography>
             <Field $gap={16}>
               {item.contact.map((item, index) => (
                 <Link href={item.url} key={index}>
-                  {item.platform === "fb" ? (
+                  {item.platform === "facebook" ? (
                     <FacebookIC />
-                  ) : item.platform == "ig" ? (
+                  ) : item.platform == "instagram" ? (
                     <IGIC />
                   ) : item.platform === "x" ? (
                     <TwitterIC />

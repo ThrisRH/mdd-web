@@ -62,7 +62,7 @@ const CreateCategory = ({
         console.error("Post failed:", cateJson);
         return;
       }
-      window.location.href = "/adminpanel/mycates";
+      window.location.href = "/admin-panel/mycates";
     } catch (err: any) {
       toast.error("Có lỗi xảy ra khi tạo danh mục mới: " + err.message);
       console.error(err);

@@ -103,7 +103,7 @@ const BlogTable = ({
 
   // Đến trang chi tiết
   const handleToBlogDetail = (slug: string) => {
-    router.push(`/blogdetails/${slug}`);
+    router.push(`/blog-details/info/${slug}`);
   };
 
   return (

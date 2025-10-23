@@ -8,6 +8,7 @@ import {
 } from "../../../../../styles/components/inputs/Input.styles";
 import { Body1, Body3 } from "@/components/Typography/Body.styles";
 import AddImageIC from "@/assets/svg/addimage";
+import { ImageContainer } from "@/components/blogs/blogcard/styled";
 
 interface Props {
   previewImage: string | null;
@@ -36,7 +37,9 @@ const BlogImageInput = ({ previewImage, setPreviewImage }: Props) => {
       <ImageInputContainer>
         <LabelImageContainer htmlFor="file-upload">
           {previewImage ? (
-            <ImagePreview src={previewImage} alt="upload-image" />
+            <ImageContainer $variant="preview">
+              <ImagePreview src={previewImage} alt="upload-image" />
+            </ImageContainer>
           ) : (
             <>
               <AddImageIC />

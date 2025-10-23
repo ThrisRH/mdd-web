@@ -1,23 +1,17 @@
 "use client";
 import React, { ReactNode, useEffect, useState } from "react";
-import InfoCard from "@/components/Layout/UserLayout/LeftSideBar/Info/InfoCard";
-import SendContent from "@/components/Layout/UserLayout/LeftSideBar/SendContent/SendContent";
-import Topic from "@/components/Layout/UserLayout/LeftSideBar/Topic/Topic";
-import Image from "next/image";
-import IgImage from "@/assets/image/ig_pic.png";
-import FavoriteField from "../Layout/UserLayout/LeftSideBar/FavoriteField/FavoriteField";
-import { SideBar } from "./Styled/PageContainer.styles";
 import { MainContainer } from "@/styles/components/layout/Layout.styles";
+import Sidebar from "../Layout/UserLayout/LeftSideBar";
 
 interface PostProps {
   children: ReactNode;
 }
 
-export interface Blog {
+export type Blog = {
   id: string;
   title: string;
   slug: string;
-}
+};
 
 const PageContainer = ({ children }: PostProps) => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -42,13 +36,7 @@ const PageContainer = ({ children }: PostProps) => {
   return (
     <MainContainer>
       {children}
-      <SideBar>
-        <InfoCard isDetails={false} isNavbar={false} />
-        <Topic />
-        <FavoriteField blogs={blogs} />
-        <SendContent />
-        <Image src={IgImage} alt="Ig Image" width={322} height={322} />
-      </SideBar>
+      <Sidebar blogs={blogs} />
     </MainContainer>
   );
 };

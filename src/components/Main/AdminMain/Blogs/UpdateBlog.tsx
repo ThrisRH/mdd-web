@@ -8,7 +8,7 @@ import CategorySelectionBox from "./CreateInputs/CategorySelectionBox";
 import BlogSlugInput from "./CreateInputs/BlogSlugInput";
 import BlogTitleInput from "./CreateInputs/BlogTitleInput";
 import BlogContentInput from "./CreateInputs/BlogContentInput";
-import CustomEditor from "./CreateInputs/Editor/CustomEditor";
+import CustomEditor from "./CreateInputs/CKEditorInput/CustomEditor";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { BlogDetails } from "@/types/blog";
 import { CustomButton } from "@/components/ui/button/styled";
@@ -70,7 +70,7 @@ const UpdateBlog = ({ blog }: Props) => {
       }
 
       console.log(result);
-      router.replace("/adminpanel/myblogs");
+      router.replace("/admin-panel/myblogs");
     } catch (error) {
       setErrorMessage("Lỗi server");
     } finally {
@@ -183,15 +183,6 @@ const UpdateBlog = ({ blog }: Props) => {
             />
           )}
         </DetailContainer>
-
-        {/* Form footer */}
-        {/* <FormFooter>
-          {errorMessage !== "" ? (
-            <CustomBody $color="#8f4242">{errorMessage}</CustomBody>
-          ) : (
-            <CustomBody />
-          )}
-        </FormFooter> */}
       </FlexContainer>
     </FlexContainer>
   );

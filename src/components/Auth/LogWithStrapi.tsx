@@ -1,4 +1,4 @@
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import GoogleIC from "@/assets/svg/google";
 import { Body2 } from "../Typography/Body.styles";
 import { useState } from "react";
@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 import Input from "../ui/input";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import {} from "@/components/ui/button/styled";
-import MainButton from "../ui/button";
+import MainButton from "../ui/button/main_button";
+import { useUserInfoContext } from "@/context/user-info-context";
 
 export default function SignInStrapi() {
   const [identifier, setIdentifier] = useState("");
@@ -53,9 +54,6 @@ export default function SignInStrapi() {
         identifier,
         password,
       });
-
-      console.log(res);
-
       if (res?.error) {
         setError("Email or Password is incorrect!");
       } else {

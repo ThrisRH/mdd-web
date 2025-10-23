@@ -16,7 +16,7 @@ import { Body, Body2, Body3 } from "../../Typography/Body.styles";
 import { H1, H2 } from "../../Typography/Heading.styles";
 import { useRouter } from "next/navigation";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import MainButton from "../../ui/button";
+import MainButton from "../../ui/button/main_button";
 import { Row } from "@/components/ui/common/styled";
 
 interface Post {
@@ -133,7 +133,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
       <Container $flex={1}>
         <H1>{post.title}</H1>
       </Container>
-      <ImageContainer>
+      <ImageContainer $variant="blog-card">
         {blogAvatar?.cover && (
           <Image
             className="w-full h-full rounded-xl"

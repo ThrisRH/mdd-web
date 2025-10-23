@@ -1,7 +1,7 @@
 import React from "react";
 import AboutText from "@/assets/svg/textArea";
 import Image from "next/image";
-import { Body, Body1, Body2, Body3 } from "@/components/Typography/Body.styles";
+import { Body, Body1, Body3 } from "@/components/Typography/Body.styles";
 import rehypeRaw from "rehype-raw";
 import ReactMarkDown from "react-markdown";
 import {
@@ -21,18 +21,7 @@ import FacebookIC from "@/assets/svg/fb";
 import TwitterIC from "@/assets/svg/x";
 import IGIC from "@/assets/svg/ig";
 import LinkedinIC from "@/assets/svg/linkedin";
-
-export interface AboutResponse {
-  id: number;
-  aboutContent: string;
-  author: InfoProps;
-  contact: ContactProps[];
-}
-
-interface ContactProps {
-  id: number;
-  content: string;
-}
+import { About } from "@/types/about";
 
 // Lấy dữ liệu từ Serverside
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
@@ -56,7 +45,7 @@ async function getAboutData() {
 
 export default async function AboutPage() {
   const data = await getAboutData();
-  const about: AboutResponse | null = data.data || null;
+  const about: About | null = data.data || null;
 
   if (!about) notFound();
   return (

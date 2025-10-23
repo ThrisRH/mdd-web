@@ -1,18 +1,19 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 
-export interface InfoProps {
+export type InfoProps = {
+  documentId: string;
   fullname: string;
   biography: string;
   contact: { id: number; platform: string; url: string }[];
   interest: { id: number; interest: string }[];
   avatar: { id: string; url: string; name: string };
-}
+};
 
-interface InfoContextType {
+type InfoContextType = {
   info: InfoProps[] | null;
   loading: boolean;
-}
+};
 
 const InfoContext = createContext<InfoContextType>({
   info: null,

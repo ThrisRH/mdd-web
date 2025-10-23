@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Input from "../ui/input";
 import { capitalizeFirstLetter } from "@/lib/Uppercase";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import MainButton from "../ui/button";
+import MainButton from "../ui/button/main_button";
 
 export default function SignUpStrapi() {
   const [username, setUsername] = useState("");

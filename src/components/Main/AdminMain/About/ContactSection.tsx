@@ -5,20 +5,20 @@ import {
 } from "@/styles/components/layout/Common.styles";
 import React from "react";
 import { BodyContainer, IconContainer } from "../styles/Page.styles";
-import { AboutResponse } from "@/app/(user)/about/page";
 
 import DeleteIC from "@/assets/svg/Interact/RecycleBin";
 import DropdownIC from "@/assets/svg/arrowdown";
 import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
 import { Row } from "@/components/ui/common/styled";
+import { AboutState } from "@/types/about";
 
 export interface AboutPageSectionProps {
-  data: AboutResponse;
+  data: AboutState;
   selected: number | null;
   setSelected: React.Dispatch<React.SetStateAction<number | null>>;
   selectedDeleteItems: number[];
   toggleSelect: (id: number) => void;
-  setData: React.Dispatch<React.SetStateAction<AboutResponse>>;
+  setData: React.Dispatch<React.SetStateAction<AboutState>>;
 }
 const ContactSection = ({
   data,
@@ -75,13 +75,13 @@ const ContactSection = ({
               <BlogContentInput
                 label={"Nền tảng"}
                 value={item.platform}
-                onChange={(value: string) =>
+                onChange={(v: string) =>
                   setData((prev) => ({
                     ...prev,
                     author: {
                       ...prev.author,
                       contact: prev.author.contact.map((q, i) =>
-                        i === index ? { ...q, platform: value } : q
+                        i === index ? { ...q, platform: v } : q
                       ),
                     },
                   }))
@@ -91,13 +91,13 @@ const ContactSection = ({
               <BlogContentInput
                 label={"Đường dẫn"}
                 value={item.url}
-                onChange={(value: string) =>
+                onChange={(v: string) =>
                   setData((prev) => ({
                     ...prev,
                     author: {
                       ...prev.author,
                       contact: prev.author.contact.map((q, i) =>
-                        i === index ? { ...q, url: value } : q
+                        i === index ? { ...q, url: v } : q
                       ),
                     },
                   }))

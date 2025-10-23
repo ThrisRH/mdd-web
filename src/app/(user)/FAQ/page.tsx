@@ -12,18 +12,9 @@ import { FAQWrapper } from "@/components/Main/Styled/FAQContent.styles";
 import FAQBody from "./FAQBody";
 import { notFound } from "next/navigation";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { FAQ } from "@/types/faq";
 
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
-
-export interface FAQProps {
-  questionAnswer: QuestAnswer[];
-}
-
-interface QuestAnswer {
-  id: number;
-  question: string;
-  answer: string;
-}
 
 // Lấy dữ liệu từ Serverside
 
@@ -43,7 +34,7 @@ async function getFAQData() {
 
 export default async function FAQ() {
   const data = await getFAQData();
-  const faq: FAQProps | null = data?.data || null;
+  const faq: FAQ | null = data?.data || null;
 
   if (!faq) notFound();
 

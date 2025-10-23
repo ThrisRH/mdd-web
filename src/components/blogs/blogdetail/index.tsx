@@ -60,9 +60,9 @@ function PostDetailComponent({
         <H1>{title}</H1>
       </Container>
       <FlexContainer $gap="md">
-        <ImageContainer>
+        <ImageContainer $variant="blog-card">
           <Image
-            className="w-full h-[400px] rounded-xl"
+            className="rounded-xl"
             src={`${
               cover.url.startsWith("https") ? cover.url : `/baseurl${cover.url}`
             }`}

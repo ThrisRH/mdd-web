@@ -2,11 +2,10 @@ import { Body1, Body3 } from "@/components/Typography/Body.styles";
 import {
   FormInput,
   FormInputContainer,
-  FormNormalInput,
   LabelContainer,
 } from "../../../../../styles/components/inputs/Input.styles";
 import ReloadIC from "@/assets/svg/Interact/Reload";
-import { formatSlug } from "../utils/HandleSlug";
+import { formatSlug } from "../../../../../utils/HandleSlug";
 import { IconContainer } from "../../styles/Page.styles";
 
 interface Props {

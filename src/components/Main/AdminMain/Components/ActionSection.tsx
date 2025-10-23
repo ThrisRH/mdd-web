@@ -1,11 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { ActionContainer } from "../styles/Page.styles";
-import { CustomBody } from "@/components/Typography/Body.styles";
+import { Body, CustomBody } from "@/components/Typography/Body.styles";
 import BinIC from "@/assets/svg/Interact/RecycleBin";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { Loader } from "../../Loading.styles";
-import { CustomButton } from "@/components/ui/button/styled";
+import { ButtonWrapper, CustomButton } from "@/components/ui/button/styled";
+import MainButton from "@/components/ui/button/main_button";
+import IconButton from "@/components/ui/button/icon_button";
 
 interface Props {
   selectedItems: Set<string>;
@@ -34,8 +36,8 @@ const ActionSection = ({ selectedItems, forFeature }: Props) => {
         () =>
           (window.location.href =
             forFeature === "blogs"
-              ? "/adminpanel/myblogs"
-              : "/adminpanel/mycates"),
+              ? "/admin-panel/myblogs"
+              : "/admin-panel/mycates"),
         1000
       );
     } catch (error) {
@@ -51,17 +53,24 @@ const ActionSection = ({ selectedItems, forFeature }: Props) => {
       <FlexContainer $width="fit" $flexDirection="row">
         {/* Nút xóa hoặc hủy thao tác */}
         {!isDeleteMode ? (
-          <CustomButton
-            $bgColor="transparent"
-            $border="2px solid rgba(22, 31, 57, 0.8)"
-            $width="fit"
-            $hoverBgColor="transparent"
-            $hoverBorder="2px solid #f1dbc4"
+          // <CustomButton
+          //   $bgColor="transparent"
+          //   $border="2px solid rgba(22, 31, 57, 0.8)"
+          //   $width="fit"
+          //   $hoverBgColor="transparent"
+          //   $hoverBorder="2px solid #f1dbc4"
+          //   onClick={() => setIsDeleteMode(true)}
+          // >
+          //   <BinIC />
+          //   <CustomBody $color="#fff">Xóa</CustomBody>
+          // </CustomButton>
+          <IconButton
+            icon={<BinIC scale={16} stroke={"#000"} />}
+            variant="shadow"
             onClick={() => setIsDeleteMode(true)}
           >
-            <BinIC />
-            <CustomBody $color="#fff">Xóa</CustomBody>
-          </CustomButton>
+            Xóa
+          </IconButton>
         ) : (
           <CustomButton
             $bgColor="transparent"

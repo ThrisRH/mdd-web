@@ -23,11 +23,14 @@ import CreateBlog from "@/components/Main/AdminMain/Blogs/CreateBlog";
 import CreateCategory from "@/components/Main/AdminMain/Categories/CreateCate";
 import Link from "next/link";
 import { TabContainer } from "@/styles/components/layout/Layout.styles";
+import { Row } from "@/components/ui/common/styled";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const [isSelectionCreateOpen, setIsSelectionCreateOpen] = useState(false);
   const [isCreatePopupOpen, setIsCreatePopupOpen] = useState(false);
   const [isCreateCatePopupOpen, setIsCreateCatePopupOpen] = useState(false);
+  const router = useRouter();
   return (
     <>
       {isCreatePopupOpen && (
@@ -40,8 +43,15 @@ const Header = () => {
       <HeaderContainer>
         <HeaderItemsGroup>
           <MoreIC className="expand-tab-bar" color={"#1C1C1C"} />
-          <Image src={LogoImg} width={28} height={28} alt="MddLogo" />
-          <H5 $size={20}>MDD Blogs</H5>
+          <Row
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              router.push("/admin-panel/myblogs");
+            }}
+          >
+            <Image src={LogoImg} width={28} height={28} alt="MddLogo" />
+            <H5 $size={20}>MDD Blogs</H5>
+          </Row>
         </HeaderItemsGroup>
 
         <HeaderItemsGroup>

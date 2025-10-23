@@ -6,6 +6,7 @@ export const ButtonWrapper = styled.button<{
   $maxWidth?: boolean;
   $isDisable?: boolean;
 }>`
+  padding: 0px 12px;
   width: 100%;
   max-width: ${(props) => (props.$maxWidth ? "150px" : "none")};
   height: 48px;
@@ -43,9 +44,8 @@ export const ButtonWrapper = styled.button<{
         return `
           background-color: white;
           color: black;
-          box-shadow: 1px 1px 10px 10px rgba(0,0,0,0.1)
           &:hover {
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9);
           }
         `;
       case "outline":

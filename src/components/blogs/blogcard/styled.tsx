@@ -15,19 +15,55 @@ export const Title = styled.h3`
 `;
 
 export const ImageContainer = styled.div<{
-  $width?: string;
-  $height?: string;
-  $responsiveHeight?: string;
+  $variant?:
+    | "blog-card"
+    | "blog-detail"
+    | "avatar"
+    | "sidebar-blog-detail"
+    | "preview";
 }>`
   position: relative;
-  height: ${(props) => (props.$height ? props.$height : "100%")};
-  width: ${(props) => (props.$width ? props.$width : "100%")};
   border-radius: 16px;
 
-  @media (min-width: 40rem) {
-    height: ${(props) =>
-      props.$responsiveHeight ? props.$responsiveHeight : "400px"};
-  }
+  ${({ $variant }) => {
+    switch ($variant) {
+      case `blog-card`:
+        return `
+        width: 100%;
+        height: 180px;
+        
+        @media (min-width: 425px){
+          height: 400px
+        }
+        `;
+
+      case `avatar`:
+        return `
+        width: 100%;
+        max-width: 220px;
+        aspect-ratio: 1/1;
+        `;
+
+      case `sidebar-blog-detail`:
+        return `
+        width: 100%;
+        max-width: 220px;
+        height:120px;
+        `;
+      case `preview`:
+        return `
+        width: 200px;
+        max-width: 200px;
+        height:100px;
+        `;
+
+      default:
+        return `
+        width: 400px;
+        height: 400px
+      `;
+    }
+  }}
 `;
 
 export const LineContainer = styled.div`

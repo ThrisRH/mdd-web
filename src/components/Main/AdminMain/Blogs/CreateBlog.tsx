@@ -22,7 +22,7 @@ import BlogSlugInput from "./CreateInputs/BlogSlugInput";
 import BlogTitleInput from "./CreateInputs/BlogTitleInput";
 import BlogContentInput from "./CreateInputs/BlogContentInput";
 import BlogImageInput from "./CreateInputs/BlogImageInput";
-import CustomEditor from "./CreateInputs/Editor/CustomEditor";
+import CustomEditor from "./CreateInputs/CKEditorInput/CustomEditor";
 import TurndownService from "turndown";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { CustomButton } from "@/components/ui/button/styled";
@@ -64,7 +64,6 @@ const CreateBlog = ({
     const turndownService = new TurndownService();
     var subContentMarkDown = turndownService.turndown(subContent);
 
-    console.log(subContentMarkDown);
     try {
       const fileInput = document.getElementById(
         "file-upload"
@@ -78,7 +77,7 @@ const CreateBlog = ({
         const formData = new FormData();
         formData.append("files", file);
 
-        const uploadRes = await fetch("http://localhost:1337/api/upload", {
+        const uploadRes = await fetch("/mmdblogsapi/upload", {
           method: "POST",
           body: formData,
         });
@@ -109,7 +108,7 @@ const CreateBlog = ({
           },
         };
 
-        const postRes = await fetch("http://localhost:1337/api/blogs", {
+        const postRes = await fetch("/mmdblogsapi/blogs", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -125,7 +124,7 @@ const CreateBlog = ({
           return;
         }
       }
-      window.location.href = "/adminpanel/myblogs";
+      window.location.href = "/admin-panel/myblogs";
     } catch (err: any) {
       toast.error("Có lỗi xảy ra khi đăng bài: " + err.message);
       console.error(err);

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import SendArea from "@/assets/svg/sendContent";
 import { Body, Body3 } from "@/components/Typography/Body.styles";
 import { ButtonWrapper, Input, InputWrapper } from "../styled";
-import MainButton from "@/components/ui/button";
+import MainButton from "@/components/ui/button/main_button";
 
 interface CateProps {
   id: number;

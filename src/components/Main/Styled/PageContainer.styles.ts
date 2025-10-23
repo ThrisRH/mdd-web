@@ -1,11 +1,11 @@
 "use client";
 import styled from "styled-components";
 
-export const SideBar = styled.div`
+export const SideBarWrapper = styled.div`
   display: none;
 
   @media (min-width: 48rem) {
-    flex: 1;
+    width: 30%;
     display: flex;
     flex-direction: column;
     gap: 40px;

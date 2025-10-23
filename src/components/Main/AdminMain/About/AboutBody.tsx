@@ -1,9 +1,8 @@
 "use client";
-import { Body, CustomBody } from "@/components/Typography/Body.styles";
+import { Body } from "@/components/Typography/Body.styles";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import React, { useEffect, useState } from "react";
 
-import { AboutResponse } from "@/app/(user)/about/page";
 import {
   ActionContainer,
   BodyContainer,
@@ -12,13 +11,17 @@ import {
 } from "../styles/Page.styles";
 import { useToggleSelect } from "@/hooks/useToggleSelect";
 import ContactSection from "./ContactSection";
-import CustomEditor from "../Blogs/CreateInputs/Editor/CustomEditor";
+import CustomEditor from "../Blogs/CreateInputs/CKEditorInput/CustomEditor";
 import { ButtonWrapper, CustomButton } from "@/components/ui/button/styled";
 import ProfileSection from "./ProfileSection";
 import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
+import { AboutState } from "@/types/about";
+import { Loader } from "../../Loading.styles";
+import { Row } from "@/components/ui/common/styled";
+import { useInfo } from "@/context/InfoContext";
 
 interface Props {
-  about: AboutResponse;
+  about: AboutState;
 }
 
 const AboutBody = ({ about }: Props) => {
@@ -33,37 +36,63 @@ const AboutBody = ({ about }: Props) => {
   const handleUpdateAbout = async () => {
     try {
       setIsSaving(true);
+
+      let avatarId = data.author.avatar?.id;
+
       const afterUpdatedData = data.author.contact.filter(
         (item) => !selectedDeleteItems.includes(item.id)
       );
 
-      const response = await fetch("/mmdblogsapi/about?populate=*", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          data: {
-            aboutContent: data.aboutContent,
-            authour: {
+      if (data.avatarFileTemp) {
+        console.log("have data temp");
+        const formData = new FormData();
+        formData.append("files", data.avatarFileTemp);
+
+        const uploadRes = await fetch("/mmdblogsapi/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!uploadRes.ok) {
+          throw new Error("Lỗi khi upload ảnh");
+        }
+        const uploadJson = await uploadRes.json();
+        console.log("Upload response:", uploadJson);
+
+        avatarId = uploadJson[0].id;
+      }
+
+      const response = await fetch(
+        "/mmdblogsapi/authors/iy05sicekg9wxcfsmy3oxfzl?populate=*",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            data: {
+              avatar: avatarId,
               contact: afterUpdatedData.map((item) => ({
                 url: item.url,
               })),
             },
-          },
-        }),
-      });
-
+          }),
+        }
+      );
       const result = await response.json();
+      console.log("Step2: ", result);
       if (!response.ok) {
         setIsLoading(false);
         console.log(result.error);
         return;
       }
 
+      console.log("Step2: Avatar Id -> ", avatarId);
+      console.log("Step2: Upload new about");
+
       setTimeout(() => {
+        window.location.href = "/admin-panel/myaboutinfo";
         setIsSaving(false);
-        window.location.href = "/adminpanel/myaboutinfo";
       }, 1000);
     } catch (error: any) {
       throw new Error(error);
@@ -108,13 +137,27 @@ const AboutBody = ({ about }: Props) => {
             Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.
           </Body>
 
-          <ButtonWrapper
-            $maxWidth={true}
-            onClick={() => handleUpdateAbout()}
-            $variant="shadow"
-          >
-            Lưu thay đổi
-          </ButtonWrapper>
+          {isSaving ? (
+            <ButtonWrapper
+              $maxWidth={true}
+              onClick={() => handleUpdateAbout()}
+              $variant="shadow"
+              $isDisable={true}
+            >
+              <Row $align="center" $justify="center">
+                <Loader />
+                <Body $variant="body3">Đang lưu</Body>
+              </Row>
+            </ButtonWrapper>
+          ) : (
+            <ButtonWrapper
+              $maxWidth={true}
+              onClick={() => handleUpdateAbout()}
+              $variant="shadow"
+            >
+              Lưu thay đổi
+            </ButtonWrapper>
+          )}
         </FlexContainer>
       </ActionContainer>
       <BodyContainer $isPadding={true} $flexDirection="row">

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div<{$isNavbar?: boolean;}>`
+export const Container = styled.div<{ $isNavbar?: boolean }>`
   display: flex;
   width: 100%;
   height: auto;
@@ -8,32 +8,34 @@ export const Container = styled.div<{$isNavbar?: boolean;}>`
   background-color: transparent;
   padding: 0px 16px;
   gap: 16px;
-  
+
   flex-direction: ${({ $isNavbar }) => (!$isNavbar ? "column" : "row")};
   justify-content: ${({ $isNavbar }) => (!$isNavbar ? "center" : "start")};
 `;
 
-export const Field = styled.div<{$isNavbar?: boolean; $gap?: number}>`
+export const Field = styled.div<{ $isNavbar?: boolean; $gap?: number }>`
   width: 100%;
-    display: flex;
-    justify-content: ${({ $isNavbar }) => (!$isNavbar ? "center" : "start")};
-    flex-direction: row;
-    gap: ${props => props.$gap || 6}px;
+  display: flex;
+  justify-content: ${({ $isNavbar }) => (!$isNavbar ? "center" : "start")};
+  flex-direction: row;
+  gap: ${(props) => props.$gap || 6}px;
 
-    @media (min-width: 40rem) {
+  @media (min-width: 40rem) {
     justify-content: center;
-    }
-`
+  }
+`;
 
 // Avatar wrapper
 export const AvatarWrapper = styled.div`
   position: relative;
-  width: 80px;
-  height: 80px;
+  max-width: 220px;
+  width: 100%;
+  aspect-ratio: 1/1;
 
   @media (min-width: 640px) {
-    width: 220px;
-    height: 220px;
+    max-width: 220px;
+    width: 100%;
+    aspect-ratio: 1/1;
   }
 
   img {

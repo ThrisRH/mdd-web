@@ -46,8 +46,8 @@ export const BorderContainer = styled(FlexContainer)<{ $bgColor?: string }>`
 
 export const ImageInAdminContainer = styled.div`
   position: relative;
-  width: 72px;
-  height: 72px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 
   @media (min-width: 500px) {

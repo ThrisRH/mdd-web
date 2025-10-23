@@ -17,7 +17,7 @@ import {
 } from "@/components/Typography/Body.styles";
 
 import DropdownIC from "@/assets/svg/arrowdown";
-import MainButton from "@/components/ui/button";
+import MainButton from "@/components/ui/button/main_button";
 
 interface CateSelectionProps {
   cateSelectedId: string;

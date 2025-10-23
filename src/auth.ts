@@ -78,6 +78,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
                 name: data.user.username,
                 email: data.user.email,
                 jwt: data.jwt,
+                isAuthor: data.user.isAuthor,
               };
             } else {
               return null;
@@ -94,6 +95,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   callbacks: {
     async jwt({ token, user }) {
       if (user?.jwt) token.strapiToken = user.jwt;
+      if (user?.isAuthor !== undefined) token.isAuthor = user.isAuthor;
       return token;
     },
 
@@ -101,6 +103,8 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       // Thêm Strapi token vào session client
       (session as Session & { strapiToken?: string }).strapiToken =
         token.strapiToken as string;
+
+      (session.user as any).isAuthor = token.isAuthor;
 
       return session;
     },

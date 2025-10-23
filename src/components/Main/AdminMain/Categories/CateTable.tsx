@@ -145,7 +145,7 @@ const CateTable = ({
                   handleToDetail(item.documentId);
                 }}
               >
-                <Body $variant="body3" $size={14}>
+                <Body $variant="body4" $size={14}>
                   {item.tile}
                 </Body>
               </TableBodyCell>

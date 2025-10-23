@@ -58,7 +58,7 @@ const UpdateCate = ({ cate }: Props) => {
       }
 
       console.log(result);
-      router.replace("/adminpanel/mycates");
+      router.replace("/admin-panel/mycates");
     } catch (error) {
       setErrorMessage("Lỗi server");
     } finally {

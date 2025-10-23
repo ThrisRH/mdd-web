@@ -3,7 +3,7 @@
 import React from "react";
 import { CKEditor, useCKEditorCloud } from "@ckeditor/ckeditor5-react";
 import { PostInputProps } from "@/types/post-input";
-import { EditorWrapper } from "./CustomEditor.styles";
+import { EditorWrapper } from "./styled";
 
 const CustomEditor = ({ value, onChange, maxLength }: PostInputProps) => {
   const cloud = useCKEditorCloud({
@@ -23,8 +23,7 @@ const CustomEditor = ({ value, onChange, maxLength }: PostInputProps) => {
         editor={ClassicEditor}
         data={value || ""}
         config={{
-          licenseKey:
-            "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NjExNzc1OTksImp0aSI6IjUwYmU2NjIzLTgyZTEtNGExYS1hODg4LWRhM2YyMjMxMzZhZCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6IjEwMDc4NDg4In0.QDpcYg36Z1YH8im9I3UmfBBzK4xRqOwo3iQOKTeeZqKBSBeBLNEzPsPnn5IQyA-4Y5SmkLIwYOIQm-mEUB_rPA",
+          licenseKey: process.env.NEXT_PUBLIC_CKEDITOR_KEY,
           plugins: [Essentials, Paragraph, Bold, Italic, Heading, List],
           toolbar: {
             items: [
