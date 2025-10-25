@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { CommentWrapper } from "./styled";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { DetailContainer, HeaderFormContainer } from "../styles/Page.styles";
-import { H5 } from "@/components/Typography/Heading.styles";
-import { CustomButton } from "@/components/ui/button/styled";
-import { Loader } from "../../Loading.styles";
-import { Body, Body1, CustomBody } from "@/components/Typography/Body.styles";
+import { HeaderFormContainer } from "../styles/Page.styles";
 
 import CommentCard from "./comment-card";
 import { CommentProps } from "@/types/comment";
+import { Text } from "@/styles/theme/typography";
 
 export type Props = {
   comments: CommentProps[];
@@ -22,17 +19,15 @@ const Comment = ({ comments }: Props) => {
     <CommentWrapper>
       <FlexContainer>
         <HeaderFormContainer>
-          <H5 $size={24}>Bình luận của bài viết</H5>
+          <Text $variant="h1">Bình luận của bài viết</Text>
         </HeaderFormContainer>
-        <Body1 $fontSize="18px" $weight={600}>
-          Chi tiết
-        </Body1>
+        <Text $variant="body0">Chi tiết</Text>
         {comments ? (
           comments.map((item) => (
             <CommentCard key={item.documentId} comment={item} />
           ))
         ) : (
-          <Body $variant="body1">Hiện chưa có bình luận nào</Body>
+          <Text $variant="body1">Hiện chưa có bình luận nào</Text>
         )}
       </FlexContainer>
     </CommentWrapper>

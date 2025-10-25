@@ -1,22 +1,19 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { SidebarContainer, SidebarItemsContainer } from "../Layout.styles";
 
 import Image from "next/image";
-import { BlogDetails } from "@/types/blog";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { ImageContainer } from "@/components/blogs/blogcard/styled";
-import { Body } from "@/components/Typography/Body.styles";
 import { formatDate } from "@/components/Main/AdminMain/Blogs/BlogTable";
 
-import CommentIC from "@/assets/svg/sidebar/comment";
-import PencilIC from "@/assets/svg/sidebar/Pencil";
 import BackIC from "@/assets/svg/Interact/BackArrow";
 import { usePathname, useRouter } from "next/navigation";
 import { DateDetailContainer, TabsGroup } from "./Sidebar.styles";
 import { TabContainer } from "@/styles/components/layout/Layout.styles";
 import { useBlogdetailcontext } from "@/context/blogdetailcontext/index";
 import { BlogDetailTabs } from "@/app/(admin)/config/tabsConfig";
+import { Text } from "@/styles/theme/typography";
 
 const BlogDetailSidebar = () => {
   const { value } = useBlogdetailcontext();
@@ -34,9 +31,9 @@ const BlogDetailSidebar = () => {
             }}
           >
             <BackIC />
-            <Body $variant="body1" $color="#4f4f4f">
+            <Text $variant="body1" $color="#4f4f4f">
               Bài viết của kênh
-            </Body>
+            </Text>
           </TabContainer>
           {/* Vùng hiển thị 1 số thông tin của bài viết */}
           <FlexContainer className="basic-info">
@@ -53,23 +50,23 @@ const BlogDetailSidebar = () => {
               />
             </ImageContainer>
             <FlexContainer>
-              <Body $variant="body0">Thông tin bài viết</Body>
-              <Body $variant="body4" $color="#4F4F4F">
+              <Text $variant="body0">Thông tin bài viết</Text>
+              <Text $variant="body4" $color="#4F4F4F">
                 {value.title}
-              </Body>
+              </Text>
             </FlexContainer>
             <hr style={{ border: "none", borderTop: "1px dashed #000" }} />
             <FlexContainer $gap="xs">
               {/* Ngày tạo bài */}
               <DateDetailContainer>
-                <Body $variant="body1">Ngày tạo:</Body>
-                <Body $variant="body5">{formatDate(value.createdAt)}</Body>
+                <Text $variant="body1">Ngày tạo:</Text>
+                <Text $variant="body5">{formatDate(value.createdAt)}</Text>
               </DateDetailContainer>
 
               {/* Ngày cập nhật */}
               <DateDetailContainer>
-                <Body $variant="body1">Ngày cập nhật:</Body>
-                <Body $variant="body5">{formatDate(value.publishedAt)}</Body>
+                <Text $variant="body1">Ngày cập nhật:</Text>
+                <Text $variant="body5">{formatDate(value.publishedAt)}</Text>
               </DateDetailContainer>
             </FlexContainer>
           </FlexContainer>
@@ -84,9 +81,9 @@ const BlogDetailSidebar = () => {
                 }}
               >
                 <Icon />
-                <Body $variant="body2" $color="#4f4f4f">
+                <Text $variant="body2" $color="#4f4f4f">
                   {label}
-                </Body>
+                </Text>
               </TabContainer>
             ))}
           </TabsGroup>

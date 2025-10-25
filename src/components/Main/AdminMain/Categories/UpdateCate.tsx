@@ -1,9 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { DetailContainer, HeaderFormContainer } from "../styles/Page.styles";
-import { H5 } from "@/components/Typography/Heading.styles";
-
-import { Body1, CustomBody } from "@/components/Typography/Body.styles";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { CustomButton } from "@/components/ui/button/styled";
 import { Loader } from "../../Loading.styles";
@@ -11,6 +8,7 @@ import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";
 import { useRouter } from "next/navigation";
 import BlogTitleInput from "../Blogs/CreateInputs/BlogTitleInput";
 import BlogSlugInput from "../Blogs/CreateInputs/BlogSlugInput";
+import { Body, Text } from "@/styles/theme/typography";
 
 interface Props {
   cate: CateProps;
@@ -72,13 +70,11 @@ const UpdateCate = ({ cate }: Props) => {
     <FlexContainer $flexDirection="row">
       <FlexContainer>
         <HeaderFormContainer>
-          <H5 $size={24}>Chỉnh sửa danh mục</H5>
+          <Text $variant="h1">Chỉnh sửa danh mục</Text>
           {isLoading ? (
             <CustomButton $isDisable={true} $bgColor="#aeaeae" $width="150px">
               <Loader />
-              <CustomBody $color="#fff" $weight={600}>
-                Đang lưu
-              </CustomBody>
+              <Body $weight={600}>Đang lưu</Body>
             </CustomButton>
           ) : (
             <CustomButton
@@ -86,14 +82,12 @@ const UpdateCate = ({ cate }: Props) => {
               $hoverBgColor="rgba(0,0,0,0.8)"
               onClick={() => handleUpdateCate(form.documentId)}
             >
-              <CustomBody $color="#fff">Lưu thay đổi</CustomBody>
+              <Body $color="#fff">Lưu thay đổi</Body>
             </CustomButton>
           )}
         </HeaderFormContainer>
         <DetailContainer>
-          <Body1 $fontSize="18px" $weight={600}>
-            Chi tiết
-          </Body1>
+          <Text $variant="body0">Chi tiết</Text>
 
           <FlexContainer $flexDirection="row" $gap="md">
             {/* Input title */}

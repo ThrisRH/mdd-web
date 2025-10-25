@@ -3,10 +3,10 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { TitleContainer } from "@/components/Layout/AdminLayout/Layout.styles";
 import BlogTable from "@/components/Main/AdminMain/Blogs/BlogTable";
-import { H1 } from "@/components/Typography/Heading.styles";
 import Loading from "@/app/(user)/loading";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
+import { Text } from "@/styles/theme/typography";
 
 export default function MyBlogsPage() {
   const [data, setData] = useState<any>();
@@ -39,7 +39,7 @@ export default function MyBlogsPage() {
   return (
     <MainContentContainer>
       <TitleContainer>
-        <H1>BÀI VIẾT CỦA KÊNH BLOG</H1>
+        <Text $variant="h1">BÀI VIẾT CỦA KÊNH BLOG</Text>
       </TitleContainer>
 
       {loading ? (

@@ -6,9 +6,9 @@ import {
   LabelContainer,
   LabelImageContainer,
 } from "../../../../../styles/components/inputs/Input.styles";
-import { Body1, Body3 } from "@/components/Typography/Body.styles";
 import AddImageIC from "@/assets/svg/addimage";
 import { ImageContainer } from "@/components/blogs/blogcard/styled";
+import { Caption, Text } from "@/styles/theme/typography";
 
 interface Props {
   previewImage: string | null;
@@ -27,12 +27,12 @@ const BlogImageInput = ({ previewImage, setPreviewImage }: Props) => {
   return (
     <>
       <LabelContainer $padding="none">
-        <Body1 $fontSize="18px" $weight={600}>
+        <Text $variant="body0" $weight={600}>
           Ảnh bìa của bài viết
-        </Body1>
-        <Body3 $color="#979797" $size={14}>
+        </Text>
+        <Caption $color="#979797">
           Chọn ảnh bìa nổi bật để thu hút sự chú ý của người xem.
-        </Body3>
+        </Caption>
       </LabelContainer>
       <ImageInputContainer>
         <LabelImageContainer htmlFor="file-upload">
@@ -43,7 +43,7 @@ const BlogImageInput = ({ previewImage, setPreviewImage }: Props) => {
           ) : (
             <>
               <AddImageIC />
-              <Body3>Tải tệp lên</Body3>
+              <Text $variant="body3">Tải tệp lên</Text>
             </>
           )}
         </LabelImageContainer>

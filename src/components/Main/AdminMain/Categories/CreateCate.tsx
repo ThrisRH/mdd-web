@@ -7,11 +7,8 @@ import {
   FormWrapper,
   HeaderFormContainer,
 } from "../styles/Page.styles";
-import { H5 } from "@/components/Typography/Heading.styles";
 
 import CloseIC from "@/assets/svg/cancel";
-import { Body1, CustomBody } from "@/components/Typography/Body.styles";
-import { toast } from "react-toastify";
 
 import {
   FlexContainer,
@@ -20,6 +17,9 @@ import {
 import { CustomButton } from "@/components/ui/button/styled";
 import BlogTitleInput from "../Blogs/CreateInputs/BlogTitleInput";
 import BlogSlugInput from "../Blogs/CreateInputs/BlogSlugInput";
+import { Body, Text } from "@/styles/theme/typography";
+import { Loader } from "../../Loading.styles";
+import { Row } from "@/components/ui/common/styled";
 
 const CreateCategory = ({
   setIsCreateCatePopupOpen,
@@ -64,7 +64,6 @@ const CreateCategory = ({
       }
       window.location.href = "/admin-panel/mycates";
     } catch (err: any) {
-      toast.error("Có lỗi xảy ra khi tạo danh mục mới: " + err.message);
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -75,15 +74,13 @@ const CreateCategory = ({
     <FormWrapper>
       <FormContainer>
         <HeaderFormContainer>
-          <H5 $size={24}>Tạo danh mục mới</H5>
+          <Text $variant="h1">Tạo danh mục mới</Text>
           <CloseIconContainer onClick={() => setIsCreateCatePopupOpen(false)}>
             <CloseIC fill={"#000"} />
           </CloseIconContainer>
         </HeaderFormContainer>
         <DetailContainer>
-          <Body1 $fontSize="18px" $weight={600}>
-            Chi tiết
-          </Body1>
+          <Body $weight={600}>Chi tiết</Body>
 
           <FlexContainer $flexDirection="row">
             {/* Input title */}
@@ -110,30 +107,32 @@ const CreateCategory = ({
         {/* Form footer */}
         <FormFooter>
           {errorMessage !== "" ? (
-            <CustomBody $color="#8f4242">{errorMessage}</CustomBody>
+            <Body $color="#8f4242">{errorMessage}</Body>
           ) : (
-            <CustomBody />
+            <Body />
           )}
-          <ButtonContainer>
-            {isLoading ? (
-              <CustomButton
-                onClick={() => handlePublish()}
-                $bgColor="#CDCDCD"
-                $isDisable={true}
-                disabled={true}
-              >
-                <CustomBody>Tạo danh mục</CustomBody>
-              </CustomButton>
-            ) : (
-              <CustomButton
-                $width="auto"
-                onClick={() => handlePublish()}
-                $bgColor="#F1DBC4"
-              >
-                <CustomBody>Tạo danh mục</CustomBody>
-              </CustomButton>
-            )}
-          </ButtonContainer>
+          {isLoading ? (
+            <CustomButton
+              $width="200px"
+              onClick={() => handlePublish()}
+              $bgColor="#CDCDCD"
+              $isDisable={true}
+              disabled={true}
+            >
+              <Row $align="center" $justify="center">
+                <Loader />
+                <Body>Đang tạo</Body>
+              </Row>
+            </CustomButton>
+          ) : (
+            <CustomButton
+              $width="200px"
+              onClick={() => handlePublish()}
+              $bgColor="#F1DBC4"
+            >
+              <Body $whiteSpace="nowrap">Tạo danh mục</Body>
+            </CustomButton>
+          )}
         </FormFooter>
       </FormContainer>
     </FormWrapper>

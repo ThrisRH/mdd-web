@@ -16,15 +16,14 @@ import {
   HeaderContainer,
   ActionWrapper,
 } from "./Layout.styles";
-import { H5 } from "@/components/Typography/Heading.styles";
 import Image from "next/image";
-import { Body } from "@/components/Typography/Body.styles";
 import CreateBlog from "@/components/Main/AdminMain/Blogs/CreateBlog";
 import CreateCategory from "@/components/Main/AdminMain/Categories/CreateCate";
 import Link from "next/link";
 import { TabContainer } from "@/styles/components/layout/Layout.styles";
 import { Row } from "@/components/ui/common/styled";
 import { useRouter } from "next/navigation";
+import { Text } from "@/styles/theme/typography";
 
 const Header = () => {
   const [isSelectionCreateOpen, setIsSelectionCreateOpen] = useState(false);
@@ -50,7 +49,9 @@ const Header = () => {
             }}
           >
             <Image src={LogoImg} width={28} height={28} alt="MddLogo" />
-            <H5 $size={20}>MDD Blogs</H5>
+            <Text $variant="h5" $size={20}>
+              MDD Blogs
+            </Text>
           </Row>
         </HeaderItemsGroup>
 
@@ -58,9 +59,9 @@ const Header = () => {
           <RobotIC id="ai-hint" />
           <BellIC id="notification" />
           <Link href={"/"}>
-            <Body $variant="body5" $color="#4f6ffa">
+            <Text $variant="body5" $color="#4f6ffa">
               Về trang người dùng
-            </Body>
+            </Text>
           </Link>
           <ActionWrapper className="relative">
             <CreateBlogButton
@@ -69,7 +70,7 @@ const Header = () => {
               }}
             >
               <WriteNewIC />
-              <Body $variant="body3">Tạo</Body>
+              <Text $variant="body3">Tạo</Text>
             </CreateBlogButton>
             {isSelectionCreateOpen && (
               <DropdownCreateContainer>
@@ -81,9 +82,9 @@ const Header = () => {
                   $isSelected={false}
                 >
                   <UploadIC />
-                  <Body $variant="body4" $size={14}>
+                  <Text $variant="body4" $size={14}>
                     Tạo bài viết mới
-                  </Body>
+                  </Text>
                 </TabContainer>
 
                 <TabContainer
@@ -94,9 +95,9 @@ const Header = () => {
                   }}
                 >
                   <AddBlogIC />
-                  <Body $variant="body4" $size={14}>
+                  <Text $variant="body4" $size={14}>
                     Tạo danh mục mới
-                  </Body>
+                  </Text>
                 </TabContainer>
               </DropdownCreateContainer>
             )}

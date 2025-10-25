@@ -10,9 +10,9 @@ import {
   CommentBody,
 } from "./styled";
 import Image from "next/image";
-import { Body1, Body2, Body3 } from "../Typography/Body.styles";
 import { CommentInputProps, CommentProps } from "@/types/comment";
 import { BorderContainer } from "@/styles/components/layout/Common.styles";
+import { Body, Caption, Text } from "@/styles/theme/typography";
 
 interface Props {
   documentId: string;
@@ -105,10 +105,8 @@ const CommentCard = ({ reader, content }: CommentProps) => {
         />
       </CommentImageWrapper>
       <CommentContent>
-        <Body1 $color="#000" $weight={700}>
-          {reader.Fullname}
-        </Body1>
-        <Body3 $color="#000">{content}</Body3>
+        <Body $weight={700}>{reader.Fullname}</Body>
+        <Caption>{content}</Caption>
       </CommentContent>
     </CommentCardWrapper>
   );
@@ -133,7 +131,7 @@ const CommentInput = ({
       />
       <SubmitField>
         <SubmitButton onClick={handleSubmit}>
-          <Body2 $size={20}>Post Comment</Body2>
+          <Text $variant="body0">Post Comment</Text>
         </SubmitButton>
       </SubmitField>
     </BorderContainer>

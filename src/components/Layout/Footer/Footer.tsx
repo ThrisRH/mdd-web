@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 import { FooterContainer } from "./Footer.styles";
-import { Body } from "@/components/Typography/Body.styles";
+import { Text } from "@/styles/theme/typography";
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <Body $variant="body2" $color="#000" $size={15}>
+      <Text $variant="body2" $color="#000" $size={15}>
         Copyright © 2024 My MDD Diary
-      </Body>
+      </Text>
     </FooterContainer>
   );
 };

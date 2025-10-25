@@ -8,7 +8,6 @@ import {
   IconContainer,
   BodyContainer,
 } from "../styles/Page.styles";
-import { Body5, Body } from "@/components/Typography/Body.styles";
 import NoneSelectionIC from "@/assets/svg/Interact/NoneSelectionSquare";
 import SelectedIC from "@/assets/svg/Interact/SelectedSquare";
 
@@ -16,6 +15,7 @@ import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";
 import { useRouter, useSearchParams } from "next/navigation";
 import ActionSection from "../Components/ActionSection";
 import TablePaginationBar from "@/components/Layout/Pagination/ForTable/TablePaginationBar";
+import { Body, Text } from "@/styles/theme/typography";
 
 type TableItem = {
   title?: string;
@@ -110,9 +110,7 @@ const CateTable = ({
                 $topPosition={selectedBlogs.size !== 0 ? "156px" : "90px"}
               >
                 {item.title ? (
-                  <Body $variant="body1" $size={16}>
-                    {item.title}
-                  </Body>
+                  <Body>{item.title}</Body>
                 ) : (
                   <IconContainer onClick={selectAll}>
                     {selectedBlogs.size !== 0 ? (
@@ -145,30 +143,34 @@ const CateTable = ({
                   handleToDetail(item.documentId);
                 }}
               >
-                <Body $variant="body4" $size={14}>
-                  {item.tile}
-                </Body>
+                <Text $variant="body4">{item.tile}</Text>
               </TableBodyCell>
               <TableBodyCell
                 onClick={() => {
                   handleToDetail(item.documentId);
                 }}
               >
-                <Body5 $size={14}>{formatDate(item.publishedAt)}</Body5>
+                <Text $variant="body4" $size={14}>
+                  {formatDate(item.publishedAt)}
+                </Text>
               </TableBodyCell>
               <TableBodyCell
                 onClick={() => {
                   handleToDetail(item.documentId);
                 }}
               >
-                <Body5 $size={14}>{item.slug}</Body5>
+                <Text $variant="body4" $size={14}>
+                  {item.slug}
+                </Text>
               </TableBodyCell>
               <TableBodyCell
                 onClick={() => {
                   handleToDetail(item.documentId);
                 }}
               >
-                <Body5 $size={14}>{item.blogs.length}</Body5>
+                <Text $variant="body4" $size={14}>
+                  {item.blogs.length}
+                </Text>
               </TableBodyCell>
             </RowContainer>
           ))}

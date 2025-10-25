@@ -1,4 +1,3 @@
-import { Body1, Body3 } from "@/components/Typography/Body.styles";
 import {
   FormInput,
   FormInputContainer,
@@ -7,6 +6,7 @@ import {
 import ReloadIC from "@/assets/svg/Interact/Reload";
 import { formatSlug } from "../../../../../utils/HandleSlug";
 import { IconContainer } from "../../styles/Page.styles";
+import { Text } from "@/styles/theme/typography";
 
 interface Props {
   label: string;
@@ -29,9 +29,9 @@ const BlogSlugInput = ({ label, slug, setSlug, title, maxLength }: Props) => {
         $flexDirection="row"
         $justifyContent="space-between"
       >
-        <Body3 $size={12} $color="#979797" $fontWeight="500">
+        <Text $variant="body5" $color="#979797" $weight="500">
           {label}
-        </Body3>
+        </Text>
         <IconContainer onClick={handleAuto}>
           <ReloadIC />
         </IconContainer>
@@ -42,9 +42,9 @@ const BlogSlugInput = ({ label, slug, setSlug, title, maxLength }: Props) => {
         onBlur={handleBlur}
         placeholder="Tên viết tắt của bài viết"
       />
-      <Body1 $color="#979797" $fontSize="12px">
+      <Text $variant="body5" $color="#979797">
         {slug.length} / {maxLength}
-      </Body1>
+      </Text>
     </FormInputContainer>
   );
 };

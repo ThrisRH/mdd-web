@@ -1,4 +1,3 @@
-import { Body, Body2, CustomBody } from "@/components/Typography/Body.styles";
 import React from "react";
 import {
   InfoContainer,
@@ -8,12 +7,12 @@ import {
 
 import { useInfo } from "@/context/InfoContext";
 import Image from "next/image";
-import { H3 } from "@/components/Typography/Heading.styles";
 import { usePathname, useRouter } from "next/navigation";
 import { Tabs } from "@/app/(admin)/config/tabsConfig";
 import { TabsGroup } from "./Sidebar.styles";
 import { TabContainer } from "@/styles/components/layout/Layout.styles";
 import { ImageContainer } from "@/components/blogs/blogcard/styled";
+import { Text } from "@/styles/theme/typography";
 
 const AdminPanelSidebar = () => {
   const { info } = useInfo();
@@ -38,7 +37,7 @@ const AdminPanelSidebar = () => {
                 }
               />
             </ImageContainer>
-            <H3>my {item.fullname} diary</H3>
+            <Text $variant="h3">my {item.fullname} diary</Text>
           </InfoContainer>
         ))}
 
@@ -54,9 +53,9 @@ const AdminPanelSidebar = () => {
                 }}
               >
                 <Icon />
-                <Body $variant="body2" $color="#4f4f4f">
+                <Text $variant="body2" $color="#4f4f4f">
                   {label}
-                </Body>
+                </Text>
               </TabContainer>
             );
           })}

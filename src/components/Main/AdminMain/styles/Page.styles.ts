@@ -240,7 +240,7 @@ export const FormFooter = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 `;
 export const ButtonContainer = styled.div`
-  width: 120px;
+  width: fit-content;
 `;
 
 // Faq & about

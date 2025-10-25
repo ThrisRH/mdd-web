@@ -9,7 +9,7 @@ import {
   PaginationButton,
   PaginationControls,
 } from "../../AdminLayout/Layout.styles";
-import { Body } from "@/components/Typography/Body.styles";
+import { Text } from "@/styles/theme/typography";
 
 interface Props {
   currentPage: number;
@@ -40,9 +40,7 @@ const TablePaginationBar = ({
                 $active={currentPage === i + 1}
                 onClick={() => handleChangePage(i + 1)}
               >
-                <Body $variant="body2" $color="#000">
-                  {i + 1}
-                </Body>
+                <Text $variant="body2">{i + 1}</Text>
               </PageNumber>
             ))}
 

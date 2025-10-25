@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import { TitleContainer } from "@/components/Layout/AdminLayout/Layout.styles";
-import { H1 } from "@/components/Typography/Heading.styles";
 import Loading from "@/app/(user)/loading";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import FAQsBody from "@/components/Main/AdminMain/Faq/FAQsBody";
 import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
+import { Text } from "@/styles/theme/typography";
 
 export default function FAQsPage() {
   const [data, setData] = useState<any>();
@@ -33,7 +33,7 @@ export default function FAQsPage() {
   return (
     <MainContentContainer>
       <TitleContainer>
-        <H1>CÀI ĐẶT HỎI VÀ ĐÁP (FAQ)</H1>
+        <Text $variant="h1">CÀI ĐẶT HỎI VÀ ĐÁP (FAQ)</Text>
       </TitleContainer>
 
       {loading ? (

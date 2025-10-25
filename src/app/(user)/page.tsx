@@ -1,9 +1,9 @@
-import { H0 } from "@/components/Typography/Heading.styles";
 import PageContainer from "@/components/Main/PageContainer";
 import { BlogDetails } from "@/types/blog";
 import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 import { notFound } from "next/navigation";
 import PaginatedBlogList from "@/components/Layout/Pagination/PaginatedBlogList";
+import { Text } from "@/styles/theme/typography";
 
 const API_URL = process.env.SERVER_HOST;
 
@@ -68,7 +68,7 @@ export default async function Home(props: { searchParams: SearchParams }) {
   return (
     <PageContainer>
       <BlogContainer>
-        <H0>Blog</H0>
+        <Text $variant="h0">Blog</Text>
 
         <PaginatedBlogList totalPages={pageCount} page={pageNumber} />
       </BlogContainer>

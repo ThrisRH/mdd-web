@@ -1,4 +1,4 @@
-export type FAQ = {
+export type FAQData = {
   questionAnswer: QuestAnswer[];
 };
 

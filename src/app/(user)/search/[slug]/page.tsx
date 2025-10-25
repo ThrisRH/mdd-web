@@ -1,10 +1,10 @@
 // app/search/[slug]/page.tsx
 import PageContainer from "@/components/Main/PageContainer";
-import { H0 } from "@/components/Typography/Heading.styles";
 import { BlogDetails } from "@/types/blog";
 import NotFound from "@/components/Main/NotFound";
 import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 import PaginatedBlogList from "@/components/Layout/Pagination/PaginatedBlogList";
+import { Text } from "@/styles/theme/typography";
 
 // props
 type Params = Promise<{ slug: string }>;
@@ -86,7 +86,7 @@ export default async function SearchPage(props: {
   return (
     <PageContainer>
       <BlogContainer>
-        <H0>Kết quả tìm kiếm cho: {title}</H0>
+        <Text $variant="h0">Kết quả tìm kiếm cho: {title}</Text>
 
         <PaginatedBlogList
           page={pageNumber}

@@ -2,8 +2,8 @@ import PaginatedBlogList from "@/components/Layout/Pagination/PaginatedBlogList"
 import NotFound from "@/components/Main/NotFound";
 import PageContainer from "@/components/Main/PageContainer";
 import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
-import { H0 } from "@/components/Typography/Heading.styles";
 import { BlogDetails } from "@/types/blog";
+import { Text } from "@/styles/theme/typography";
 
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
@@ -105,7 +105,7 @@ export default async function CatePage(props: {
   return (
     <PageContainer>
       <BlogContainer>
-        <H0>{cate.data.tile}</H0>
+        <Text $variant="h0">{cate.data.tile}</Text>
 
         <PaginatedBlogList
           totalPages={blogData.meta.pagination.pageCount}

@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import { TitleContainer } from "@/components/Layout/AdminLayout/Layout.styles";
-import { H1 } from "@/components/Typography/Heading.styles";
 import Loading from "@/app/(user)/loading";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import AboutBody from "@/components/Main/AdminMain/About/AboutBody";
 import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
+import { Text } from "@/styles/theme/typography";
 
 export default function AboutPage() {
   const [data, setData] = useState<any>();
@@ -37,7 +37,7 @@ export default function AboutPage() {
   return (
     <MainContentContainer>
       <TitleContainer>
-        <H1>CÀI ĐẶT MÔ TẢ BẢN THÂN</H1>
+        <Text $variant="h1">CÀI ĐẶT MÔ TẢ BẢN THÂN</Text>
       </TitleContainer>
 
       {loading ? (

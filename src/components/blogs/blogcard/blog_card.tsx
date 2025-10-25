@@ -12,12 +12,11 @@ import {
   Dot,
   BlogCardWrapper,
 } from "./styled";
-import { Body, Body2, Body3 } from "../../Typography/Body.styles";
-import { H1, H2 } from "../../Typography/Heading.styles";
 import { useRouter } from "next/navigation";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import MainButton from "../../ui/button/main_button";
 import { Row } from "@/components/ui/common/styled";
+import { Text } from "@/styles/theme/typography";
 
 interface Post {
   documentId: string;
@@ -109,7 +108,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
 
   return (
     <BlogCardWrapper>
-      <Row $justify="center" $gap="sm">
+      <Row $justify="center" $align="center" $gap="sm">
         <Container $flex={3}>
           <LineContainer>
             <Line></Line>
@@ -119,7 +118,9 @@ const PostCard = ({ index, post }: PostCardProps) => {
           </LineContainer>
           <Dot></Dot>
         </Container>
-        <Body3 $color="#000">{formatDate(post.publishedAt)}</Body3>
+        <Text $variant="body3" theme="light">
+          {formatDate(post.publishedAt)}
+        </Text>
         <Container $flex={3}>
           <Dot></Dot>
           <LineContainer>
@@ -131,7 +132,9 @@ const PostCard = ({ index, post }: PostCardProps) => {
         </Container>
       </Row>
       <Container $flex={1}>
-        <H1>{post.title}</H1>
+        <Text $variant="h1" $theme="light" $color="#000">
+          {post.title}
+        </Text>
       </Container>
       <ImageContainer $variant="blog-card">
         {blogAvatar?.cover && (
@@ -148,7 +151,9 @@ const PostCard = ({ index, post }: PostCardProps) => {
           />
         )}
       </ImageContainer>
-      <Body2>{post.mainContent}</Body2>
+      <Text $variant="body2" $theme="light">
+        {post.mainContent}
+      </Text>
       <MainButton variant="secondary" onClick={() => handleToDetail(post.slug)}>
         Xem thêm
       </MainButton>

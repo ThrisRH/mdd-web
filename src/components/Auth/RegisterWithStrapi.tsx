@@ -1,10 +1,10 @@
-import { Body2 } from "../Typography/Body.styles";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Input from "../ui/input";
 import { capitalizeFirstLetter } from "@/lib/Uppercase";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import MainButton from "../ui/button/main_button";
+import { ErrorText } from "@/styles/theme/typography";
 
 export default function SignUpStrapi() {
   const [username, setUsername] = useState("");
@@ -120,7 +120,7 @@ export default function SignUpStrapi() {
         label="Confirm password"
         placeholder="Confirm password"
       />
-      <Body2 $color="#ff0000">{error}</Body2>
+      <ErrorText>{error}</ErrorText>
       <FlexContainer $flexDirection="row">
         <MainButton
           variant="secondary"

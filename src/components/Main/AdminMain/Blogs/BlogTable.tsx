@@ -14,13 +14,13 @@ import {
   TableHeaderCell,
   BodyContainer,
 } from "../styles/Page.styles";
-import { Body5, Body3, Body } from "@/components/Typography/Body.styles";
 import { BlogDetails } from "@/types/blog";
 import NoneSelectionIC from "@/assets/svg/Interact/NoneSelectionSquare";
 import SelectedIC from "@/assets/svg/Interact/SelectedSquare";
 import Image from "next/image";
 import ActionSection from "../Components/ActionSection";
 import TablePaginationBar from "@/components/Layout/Pagination/ForTable/TablePaginationBar";
+import { Body, Text } from "@/styles/theme/typography";
 
 type TableItem = {
   title?: string;
@@ -121,9 +121,7 @@ const BlogTable = ({
                 $topPosition={selectedBlogs.size !== 0 ? "156px" : "90px"}
               >
                 {item.title ? (
-                  <Body $variant="body1" $color="#000" $size={16}>
-                    {item.title}
-                  </Body>
+                  <Body>{item.title}</Body>
                 ) : (
                   <IconContainer onClick={selectAll}>
                     {selectedBlogs.size !== 0 ? (
@@ -167,30 +165,28 @@ const BlogTable = ({
                   </ImageContainer>
 
                   <ContentField>
-                    <Body $variant="body4" $color="#000">
-                      {item.title}
-                    </Body>
+                    <Body>{item.title}</Body>
                     <MainContent>
-                      <Body5 $size={14} $color="#7a7a7a">
+                      <Text $variant="body4" $color="#7a7a7a">
                         {item.mainContent}
-                      </Body5>
+                      </Text>
                     </MainContent>
                   </ContentField>
                 </TableFlexWrapper>
               </TableBodyCell>
 
               <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                <Body5 $size={14}>{formatDate(item.publishedAt)}</Body5>
+                <Text $variant="body4">{formatDate(item.publishedAt)}</Text>
               </TableBodyCell>
 
               <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                <Body5 $size={14}>{item.cate?.tile}</Body5>
+                <Text $variant="body4">{item.cate?.tile}</Text>
               </TableBodyCell>
               <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                <Body5 $size={14}>{item.comments?.length}</Body5>
+                <Text $variant="body4">{item.comments?.length}</Text>
               </TableBodyCell>
               <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                <Body5 $size={14}>{item.slug}</Body5>
+                <Text $variant="body4">{item.slug}</Text>
               </TableBodyCell>
             </RowContainer>
           ))}

@@ -8,17 +8,17 @@ import {
 import DeleteIC from "@/assets/svg/Interact/RecycleBin";
 import DropdownIC from "@/assets/svg/arrowdown";
 import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
-import { Body } from "@/components/Typography/Body.styles";
 import { CustomButton } from "@/components/ui/button/styled";
-import { FAQ } from "@/types/faq";
+import { FAQData } from "@/types/faq";
+import { Text } from "@/styles/theme/typography";
 
 interface Props {
-  data: FAQ;
+  data: FAQData;
   selected: number | null;
   setSelected: React.Dispatch<React.SetStateAction<number | null>>;
   selectedDeleteItems: number[];
   toggleSelect: (id: number) => void;
-  setData: React.Dispatch<React.SetStateAction<FAQ>>;
+  setData: React.Dispatch<React.SetStateAction<FAQData>>;
   addNewFaq: () => void;
 }
 
@@ -61,7 +61,7 @@ const FAQsSection = ({
                 </FlexContainer>
               </IconContainer>
               <FlexContainer style={{ justifyContent: "center" }}>
-                <Body $variant="body2">{item.question}</Body>
+                <Text $variant="body2">{item.question}</Text>
               </FlexContainer>
             </FlexContainer>
 

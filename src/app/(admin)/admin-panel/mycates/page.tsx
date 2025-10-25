@@ -2,11 +2,11 @@
 import Loading from "@/app/(user)/loading";
 import { TitleContainer } from "@/components/Layout/AdminLayout/Layout.styles";
 import CateTable from "@/components/Main/AdminMain/Categories/CateTable";
-import { H1 } from "@/components/Typography/Heading.styles";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Text } from "@/styles/theme/typography";
 
 export default function MyCatesPage() {
   const [data, setData] = useState<any>();
@@ -49,7 +49,7 @@ export default function MyCatesPage() {
   return (
     <MainContentContainer>
       <TitleContainer>
-        <H1>DANH SÁCH THƯ MỤC CỦA KÊNH BLOG</H1>
+        <Text $variant="h1">DANH SÁCH THƯ MỤC CỦA KÊNH BLOG</Text>
       </TitleContainer>
       <CateTable
         totalPages={data.meta.pagination.pageCount}

@@ -1,6 +1,6 @@
 import React from "react";
 import { ButtonWrapper } from "./styled";
-import { H2 } from "@/components/Typography/Heading.styles";
+import { Text } from "@/styles/theme/typography";
 
 export type MainButtonProps = {
   variant: "primary" | "secondary";
@@ -22,7 +22,9 @@ const MainButton = ({
       $isDisable={isDisable || false}
       disabled={isDisable || false}
     >
-      <H2>{children}</H2>
+      <Text $variant="h2" $align="center">
+        {children}
+      </Text>
     </ButtonWrapper>
   );
 };

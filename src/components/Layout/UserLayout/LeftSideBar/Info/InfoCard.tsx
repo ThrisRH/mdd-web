@@ -8,8 +8,6 @@ import {
   Field,
   InfoWrapper,
 } from "./InfoCard.styles";
-import { H2 } from "@/components/Typography/Heading.styles";
-import { Body, Body3 } from "@/components/Typography/Body.styles";
 import Image from "next/image";
 
 import FacebookIC from "@/assets/svg/fb";
@@ -18,6 +16,7 @@ import IGIC from "@/assets/svg/ig";
 import LinkedinIC from "@/assets/svg/linkedin";
 import Link from "next/link";
 import { useInfo } from "@/context/InfoContext";
+import { Caption, Text } from "@/styles/theme/typography";
 
 interface InfoProps {
   fullname: string;
@@ -80,24 +79,22 @@ const InfoCard = ({ isNavbar, textColor, isDetails }: InfoCardProps) => {
           </AvatarWrapper>
 
           <InfoWrapper>
-            <H2 $color={textColor}>my {item.fullname} diary</H2>
+            <Text $variant="h2" $color={textColor}>
+              my {item.fullname} diary
+            </Text>
             <Field $isNavbar={isNavbar}>
               {item.interest.map((item, index) => (
-                <Body3 $color={textColor} key={index}>
+                <Caption $color={textColor} key={index}>
                   {item.interest}
-                </Body3>
+                </Caption>
               ))}
             </Field>
           </InfoWrapper>
           <DetailsWrapper $isDetails={isDetails}>
             <Biography>
-              <Body
-                style={{ textAlign: "center" }}
-                $variant="body3"
-                $color="#000"
-              >
+              <Caption style={{ textAlign: "center" }}>
                 {item.biography}
-              </Body>
+              </Caption>
             </Biography>
             <Field $gap={16}>
               {item.contact.map((item, index) => (

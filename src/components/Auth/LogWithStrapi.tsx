@@ -1,13 +1,11 @@
-import { signIn, useSession } from "next-auth/react";
-import GoogleIC from "@/assets/svg/google";
-import { Body2 } from "../Typography/Body.styles";
+import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Input from "../ui/input";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import {} from "@/components/ui/button/styled";
 import MainButton from "../ui/button/main_button";
-import { useUserInfoContext } from "@/context/user-info-context";
+import { ErrorText } from "@/styles/theme/typography";
 
 export default function SignInStrapi() {
   const [identifier, setIdentifier] = useState("");
@@ -88,7 +86,7 @@ export default function SignInStrapi() {
         label="Password"
         placeholder="Your password"
       />
-      <Body2 $color="#ff0000">{error}</Body2>
+      <ErrorText>{error}</ErrorText>
       <FlexContainer $flexDirection="row">
         <MainButton
           variant="secondary"

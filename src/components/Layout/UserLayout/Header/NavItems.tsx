@@ -2,13 +2,12 @@
 import { Dropdown, DropdownItem, NavItem } from "./Header.styles";
 import SearchIC from "@/assets/svg/search";
 import ArrowIC from "@/assets/svg/arrowdown";
-import { Body, Body2 } from "../../../Typography/Body.styles";
-import { H5 } from "../../../Typography/Heading.styles";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import { CateProps } from "./DesktopNav";
+import { Text } from "@/styles/theme/typography";
 
 interface Props {
   pathname: string;
@@ -67,31 +66,34 @@ const NavItems = ({
     <>
       <NavItem>
         <Link href="/">
-          <H5
+          <Text
+            $variant="h5"
             $size={18}
             onClick={onNavPhoneClose ?? onNavPhoneClose}
             $color={pathname === "/" ? "#EA8E31" : "#fff"}
           >
             TRANG CHỦ
-          </H5>
+          </Text>
         </Link>
       </NavItem>
 
       <NavItem>
         <Link href="/about">
-          <H5
+          <Text
+            $variant="h5"
             $size={18}
             onClick={onNavPhoneClose ?? onNavPhoneClose}
             $color={pathname === "/about" ? "#EA8E31" : "#fff"}
           >
             GIỚI THIỆU
-          </H5>
+          </Text>
         </Link>
       </NavItem>
 
       <NavItem onClick={() => setOpen(!open)}>
         <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
-          <H5
+          <Text
+            $variant="h5"
             $size={18}
             $color={
               pathname.startsWith("/category") || pathname.startsWith("/blogs")
@@ -100,7 +102,7 @@ const NavItems = ({
             }
           >
             CHỦ ĐỀ
-          </H5>
+          </Text>
           <ArrowIC
             className={`${open ? "rotate-180" : ""}`}
             fill={
@@ -118,13 +120,13 @@ const NavItems = ({
                 key={i}
                 onClick={() => handleSearchByCate(item.documentId)}
               >
-                <Body2
-                  $color="#fff"
+                <Text
+                  $variant="body2"
                   onClick={onNavPhoneClose ?? onNavPhoneClose}
                   $hoverColor="#EA8E31"
                 >
                   {item.tile}
-                </Body2>
+                </Text>
               </DropdownItem>
             ))}
           </Dropdown>
@@ -133,13 +135,14 @@ const NavItems = ({
 
       <NavItem>
         <Link href="/FAQ">
-          <H5
+          <Text
+            $variant="h5"
             $size={18}
             onClick={onNavPhoneClose ?? onNavPhoneClose}
             $color={pathname === "/FAQ" ? "#EA8E31" : "#fff"}
           >
             HỎI ĐÁP
-          </H5>
+          </Text>
         </Link>
       </NavItem>
 
@@ -151,16 +154,16 @@ const NavItems = ({
 
       {/* Nút đăng nhập / đăng xuất */}
       <NavItem onClick={tokenExists ? handleLogout : handleLogin}>
-        <H5 $size={18} $color="#fff">
+        <Text $size={18} $color="#fff">
           {tokenExists ? "Đăng xuất" : "Đăng nhập"}
-        </H5>
+        </Text>
       </NavItem>
 
       {role && (
         <Link href={"/admin-panel/myblogs"}>
-          <Body $variant="body2" $color="#4f6ffa">
+          <Text $variant="body2" $color="#4f6ffa">
             Đến trang quảng lý
-          </Body>
+          </Text>
         </Link>
       )}
     </>

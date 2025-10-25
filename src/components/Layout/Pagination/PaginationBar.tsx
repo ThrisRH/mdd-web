@@ -6,7 +6,7 @@ import {
   PaginationContainer,
 } from "./PaginationBar.styles";
 import Arrow from "@/assets/svg/arrowdown";
-import { Body } from "@/components/Typography/Body.styles";
+import { Text } from "@/styles/theme/typography";
 
 interface Props {
   currentPage: number;
@@ -40,9 +40,9 @@ const PaginationBar = ({ currentPage, totalPages, onPageChange }: Props) => {
           $active={page === currentPage}
           onClick={() => onPageChange(page)}
         >
-          <Body $variant="body2" color="#000">
+          <Text $variant="body2" color="#000">
             {page}
-          </Body>
+          </Text>
         </PageNumber>
       ))}
 

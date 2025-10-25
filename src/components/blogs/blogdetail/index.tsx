@@ -1,6 +1,5 @@
 "use client";
 import React, { memo } from "react";
-import { Body3, CustomBody } from "../../Typography/Body.styles";
 import Vector from "@/assets/svg/vector";
 import rehypeRaw from "rehype-raw";
 import ReactMarkDown from "react-markdown";
@@ -14,9 +13,9 @@ import {
   VectorContainer,
 } from "../blogcard/styled";
 import { BlogDetails } from "@/types/blog";
-import { H1, H2, H3, H4 } from "../../Typography/Heading.styles";
 import Image from "next/image";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { Body, Caption, Text } from "@/styles/theme/typography";
 
 function PostDetailComponent({
   title,
@@ -43,7 +42,7 @@ function PostDetailComponent({
           </LineContainer>
           <Dot></Dot>
         </Container>
-        <Body3 $color="#000">{formatDate(publishedAt)}</Body3>
+        <Caption>{formatDate(publishedAt)}</Caption>
         <Container $flex={3}>
           <Dot></Dot>
           <LineContainer>
@@ -57,7 +56,7 @@ function PostDetailComponent({
 
       {/* Vùng nội dung */}
       <Container $flex={1}>
-        <H1>{title}</H1>
+        <Text $variant="h1">{title}</Text>
       </Container>
       <FlexContainer $gap="md">
         <ImageContainer $variant="blog-card">
@@ -71,36 +70,36 @@ function PostDetailComponent({
             fill
           />
         </ImageContainer>
-        <CustomBody
-          $align="justify"
-          $whiteSpace="normal"
-          $color="#000"
-          $fontSize={20}
-        >
+        <Body $align="justify" $whiteSpace="normal">
           {mainContent}
-        </CustomBody>
+        </Body>
 
         <ReactMarkDown
           rehypePlugins={[rehypeRaw]}
           components={{
-            h1: ({ node, ...props }) => <H1 $color="#000" {...props} />,
-            h2: ({ node, ...props }) => <H2 $color="#000" {...props} />,
-            h3: ({ node, ...props }) => <H3 {...props} />,
-            h4: ({ node, ...props }) => <H4 {...props} />,
-            p: ({ node, ...props }) => (
-              <CustomBody $whiteSpace="normal" $color="#000" {...props} />
+            h1: ({ node, ...props }) => (
+              <Text $variant="h1" $align="justify" {...props} />
             ),
+            h2: ({ node, ...props }) => (
+              <Text $variant="h2" $align="justify" {...props} />
+            ),
+            h3: ({ node, ...props }) => (
+              <Text $variant="h3" $align="justify" {...props} />
+            ),
+            h4: ({ node, ...props }) => (
+              <Text $variant="h4" $align="justify" {...props} />
+            ),
+            p: ({ node, ...props }) => <Caption $align="justify" {...props} />,
             ol: ({ node, ...props }) => (
-              <ol className="list-decimal pl-6" {...props} />
-            ),
-            li: ({ node, ...props }) => (
-              <CustomBody
-                $whiteSpace="normal"
-                $color="#000"
-                className=""
-                as={"li"}
+              <Body
+                $align="justify"
+                as={"ol"}
+                className="list-decimal pl-6"
                 {...props}
               />
+            ),
+            li: ({ node, ...props }) => (
+              <Body $align="justify" as={"li"} {...props} />
             ),
             // strong: ({ node, ...props }) => (
             //   <CustomBody $whiteSpace="normal" $color="#000" $weight={600} />

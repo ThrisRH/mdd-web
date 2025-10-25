@@ -1,22 +1,13 @@
 import React, { useState } from "react";
 import {
-  ButtonContainer,
   CloseIconContainer,
   DetailContainer,
   FormFooter,
   FormWrapper,
   HeaderFormContainer,
 } from "../styles/Page.styles";
-import { H5 } from "@/components/Typography/Heading.styles";
 
 import CloseIC from "@/assets/svg/cancel";
-import {
-  Body,
-  Body1,
-  Body3,
-  CustomBody,
-} from "@/components/Typography/Body.styles";
-import { toast } from "react-toastify";
 import CategorySelectionBox from "./CreateInputs/CategorySelectionBox";
 import BlogSlugInput from "./CreateInputs/BlogSlugInput";
 import BlogTitleInput from "./CreateInputs/BlogTitleInput";
@@ -24,9 +15,11 @@ import BlogContentInput from "./CreateInputs/BlogContentInput";
 import BlogImageInput from "./CreateInputs/BlogImageInput";
 import CustomEditor from "./CreateInputs/CKEditorInput/CustomEditor";
 import TurndownService from "turndown";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { CustomButton } from "@/components/ui/button/styled";
 import { FormContainer } from "@/styles/components/layout/Common.styles";
+import { Body, Text } from "@/styles/theme/typography";
+import { Loader } from "../../Loading.styles";
+import { Row } from "@/components/ui/common/styled";
 
 const CreateBlog = ({
   setIsCreatePopUpOpen,
@@ -119,15 +112,12 @@ const CreateBlog = ({
         const postJson = await postRes.json();
 
         if (!postRes.ok) {
-          console.error("Post failed:", postJson);
-          toast.error("Đăng bài thất bại: " + postJson.error?.message);
-          return;
+          throw new Error(postJson);
         }
       }
       window.location.href = "/admin-panel/myblogs";
     } catch (err: any) {
-      toast.error("Có lỗi xảy ra khi đăng bài: " + err.message);
-      console.error(err);
+      throw new Error(err);
     } finally {
       setIsLoading(false);
     }
@@ -137,13 +127,13 @@ const CreateBlog = ({
     <FormWrapper>
       <FormContainer>
         <HeaderFormContainer>
-          <H5 $size={24}>Tạo bài viết mới</H5>
+          <Text $variant="h1">Tạo bài viết mới</Text>
           <CloseIconContainer onClick={() => setIsCreatePopUpOpen(false)}>
             <CloseIC fill={"#000"} />
           </CloseIconContainer>
         </HeaderFormContainer>
         <DetailContainer>
-          <Body $variant="body0">Chi tiết</Body>
+          <Text $variant="body0">Chi tiết</Text>
 
           {/* Input title */}
           <BlogTitleInput
@@ -194,26 +184,32 @@ const CreateBlog = ({
         {/* Form footer */}
         <FormFooter>
           {errorMessage !== "" ? (
-            <CustomBody $color="#8f4242">{errorMessage}</CustomBody>
+            <Body $color="#8f4242">{errorMessage}</Body>
           ) : (
-            <CustomBody />
+            <Body />
           )}
-          <ButtonContainer>
-            {isLoading ? (
-              <CustomButton
-                onClick={() => handlePublish()}
-                $bgColor="#CDCDCD"
-                $isDisable={true}
-                disabled={true}
-              >
-                <CustomBody>Xuất bản</CustomBody>
-              </CustomButton>
-            ) : (
-              <CustomButton onClick={() => handlePublish()} $bgColor="#F1DBC4">
-                <CustomBody>Xuất bản</CustomBody>
-              </CustomButton>
-            )}
-          </ButtonContainer>
+          {isLoading ? (
+            <CustomButton
+              $width="200px"
+              onClick={() => handlePublish()}
+              $bgColor="#CDCDCD"
+              $isDisable={true}
+              disabled={true}
+            >
+              <Row $justify="center" $align="center">
+                <Loader />
+                <Body>Đang xuất bản</Body>
+              </Row>
+            </CustomButton>
+          ) : (
+            <CustomButton
+              $width="200px"
+              onClick={() => handlePublish()}
+              $bgColor="#F1DBC4"
+            >
+              <Body>Xuất bản</Body>
+            </CustomButton>
+          )}
         </FormFooter>
       </FormContainer>
     </FormWrapper>

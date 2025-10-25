@@ -1,7 +1,6 @@
 import React from "react";
 import AboutText from "@/assets/svg/textArea";
 import Image from "next/image";
-import { Body, Body1, Body3 } from "@/components/Typography/Body.styles";
 import rehypeRaw from "rehype-raw";
 import ReactMarkDown from "react-markdown";
 import {
@@ -12,9 +11,7 @@ import {
   Content,
   FooterSection,
 } from "@/components/Main/Styled/AboutContent.styles";
-import { H1, H2, H3, H4, H5 } from "@/components/Typography/Heading.styles";
 import { notFound } from "next/navigation";
-import { InfoProps } from "@/context/InfoContext";
 import Link from "next/link";
 
 import FacebookIC from "@/assets/svg/fb";
@@ -22,6 +19,7 @@ import TwitterIC from "@/assets/svg/x";
 import IGIC from "@/assets/svg/ig";
 import LinkedinIC from "@/assets/svg/linkedin";
 import { About } from "@/types/about";
+import { Body, Caption, Text } from "@/styles/theme/typography";
 
 // Lấy dữ liệu từ Serverside
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
@@ -68,11 +66,21 @@ export default async function AboutPage() {
         <ReactMarkDown
           rehypePlugins={[rehypeRaw]}
           components={{
-            h1: ({ node, ...props }) => <H1 $color="#000" {...props} />,
-            h2: ({ node, ...props }) => <H2 $color="#000" {...props} />,
-            h3: ({ node, ...props }) => <H3 {...props} />,
-            h4: ({ node, ...props }) => <H4 {...props} />,
-            p: ({ node, ...props }) => <Body $color="#000" {...props} />,
+            h1: ({ node, ...props }) => (
+              <Text $variant="h1" $color="#000" {...props} />
+            ),
+            h2: ({ node, ...props }) => (
+              <Text $variant="h2" $color="#000" {...props} />
+            ),
+            h3: ({ node, ...props }) => (
+              <Text $variant="h3" $color="#000" {...props} />
+            ),
+            h4: ({ node, ...props }) => (
+              <Text $variant="h4" $color="#000" {...props} />
+            ),
+            p: ({ node, ...props }) => (
+              <Text $variant="body3" $color="#000" {...props} />
+            ),
             ol: ({ node, ...props }) => (
               <ol className="list-decimal pl-6" {...props} />
             ),
@@ -91,7 +99,7 @@ export default async function AboutPage() {
         </ReactMarkDown>
 
         <ContactSection>
-          <Body1>Liên hệ qua:</Body1>
+          <Text $variant="body1">Liên hệ qua:</Text>
 
           <Content $gap={12}>
             {about.author.contact?.map((item) => (
@@ -111,10 +119,10 @@ export default async function AboutPage() {
         </ContactSection>
 
         <FooterSection>
-          <H5 $color="$000" $size={15}>
+          <Text $variant="h5" $size={15}>
             Have a nice day!
-          </H5>
-          <Body3 $color="#000">my MDD diary</Body3>
+          </Text>
+          <Caption>my MDD diary</Caption>
         </FooterSection>
       </Card>
     </AboutWrapper>

@@ -1,25 +1,16 @@
 "use client";
-import { Body, CustomBody } from "@/components/Typography/Body.styles";
-import {
-  BorderContainer,
-  FlexContainer,
-} from "@/styles/components/layout/Common.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import React, { useEffect, useState } from "react";
 
 import { CustomButton } from "@/components/ui/button/styled";
-import { Loader } from "../../Loading.styles";
-import {
-  ActionContainer,
-  BodyContainer,
-  ProfileSideContainer,
-} from "../styles/Page.styles";
+import { ActionContainer, BodyContainer } from "../styles/Page.styles";
 import { useToggleSelect } from "@/hooks/useToggleSelect";
-import MainButton from "@/components/ui/button/main_button";
 import FAQsSection from "./FAQsSection";
-import { FAQ } from "@/types/faq";
+import { FAQData } from "@/types/faq";
+import { Body, Caption } from "@/styles/theme/typography";
 
 interface Props {
-  faqs: FAQ;
+  faqs: FAQData;
 }
 
 const faqBody = ({ faqs }: Props) => {
@@ -100,9 +91,7 @@ const faqBody = ({ faqs }: Props) => {
           $flexDirection="row"
           style={{ alignItems: "center" }}
         >
-          <Body $variant="body3" $color="#fff">
-            Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.
-          </Body>
+          <Caption>Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.</Caption>
           <CustomButton
             $bgColor="transparent"
             $border="2px solid rgba(22, 31, 57, 0.8)"
@@ -111,7 +100,7 @@ const faqBody = ({ faqs }: Props) => {
             $hoverBorder="2px solid #f1dbc4"
             onClick={() => handleUpdateFAQ()}
           >
-            <CustomBody $color="#fff">Lưu thay đổi</CustomBody>
+            <Body $color="#fff">Lưu thay đổi</Body>
           </CustomButton>
         </FlexContainer>
       </ActionContainer>

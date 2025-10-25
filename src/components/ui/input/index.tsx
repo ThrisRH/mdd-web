@@ -5,9 +5,8 @@ import {
   InputWrapper,
   ShowPasswordField,
 } from "./styled";
-import { H5 } from "@/components/Typography/Heading.styles";
 import EyeIC from "@/assets/svg/eye.jsx";
-import { Body } from "@/components/Typography/Body.styles";
+import { Text } from "@/styles/theme/typography";
 
 export type InputProps = {
   type: "text" | "password";
@@ -21,9 +20,7 @@ const Input = ({ label, placeholder, value, onchange, type }: InputProps) => {
   const [isPassword, setIsPassword] = useState(type === "password");
   return (
     <InputWrapper>
-      <Body $variant="body0" $color="#000">
-        {label}
-      </Body>
+      <Text $variant="body0">{label}</Text>
       <InputContainer>
         <InputField
           placeholder={placeholder}

@@ -7,8 +7,6 @@ import {
   QuestionRow,
 } from "@/components/Main/Styled/FAQContent.styles";
 import React, { useState } from "react";
-import { H0, H3 } from "@/components/Typography/Heading.styles";
-import { Body2 } from "@/components/Typography/Body.styles";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import {
   Container,
@@ -18,16 +16,17 @@ import {
   VectorContainer,
 } from "@/components/blogs/blogcard/styled";
 import Vector from "@/assets/svg/vector";
-import { FAQ } from "@/types/faq";
+import { FAQData } from "@/types/faq";
+import { Text } from "@/styles/theme/typography";
 
 // Component
 
-const FAQBody = ({ ...faq }: FAQ) => {
+const FAQBody = ({ ...faq }: FAQData) => {
   const [selected, setSelected] = useState(0);
   if (!faq) return null;
   return (
     <FAQWrapper>
-      <H0>Câu hỏi thường gặp</H0>
+      <Text $variant="h0">Câu hỏi thường gặp</Text>
       <FlexContainer $flexDirection="row" $justify="center" $gap="xs">
         <Container $flex={3}>
           <LineContainer>
@@ -55,20 +54,24 @@ const FAQBody = ({ ...faq }: FAQ) => {
       <FaqCard>
         {faq.questionAnswer.map((item, index) => (
           <QuestionBlock key={index}>
-            <QuestionRow>
-              <H3 $color={selected === index ? "#EA8E31" : "#000"}>
-                {item.question}
-              </H3>
-              <button
-                className="cursor-pointer"
-                onClick={() => setSelected(index)}
+            <QuestionRow
+              className="cursor-pointer"
+              onClick={() => setSelected(index)}
+            >
+              <Text
+                $variant="h3"
+                $color={selected === index ? "#EA8E31" : "#000"}
               >
-                <H3>{selected === index ? "-" : "+"}</H3>
-              </button>
+                {item.question}
+              </Text>
+              <Text $variant="h3">{selected === index ? "-" : "+"}</Text>
             </QuestionRow>
-            <Body2 className={`${selected === index ? "flex" : "hidden"}`}>
+            <Text
+              $variant="body2"
+              className={`${selected === index ? "flex" : "hidden"}`}
+            >
               {item.answer}
-            </Body2>
+            </Text>
             <Divider />
           </QuestionBlock>
         ))}

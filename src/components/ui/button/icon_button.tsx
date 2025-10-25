@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonWrapper } from "./styled";
-import { Body } from "@/components/Typography/Body.styles";
 import { Row } from "../common/styled";
+import { Body, Caption } from "@/styles/theme/typography";
 
 export type IconButtonProps = {
   icon: React.ReactNode;
@@ -27,7 +27,7 @@ const IconButton = ({
     >
       <Row $justify="center" $align="center">
         {icon}
-        <Body $variant="body3">{children}</Body>
+        <Body>{children}</Body>
       </Row>
     </ButtonWrapper>
   );

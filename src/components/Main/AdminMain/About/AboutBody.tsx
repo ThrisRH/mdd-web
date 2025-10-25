@@ -1,5 +1,4 @@
 "use client";
-import { Body } from "@/components/Typography/Body.styles";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import React, { useEffect, useState } from "react";
 
@@ -18,7 +17,7 @@ import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
 import { AboutState } from "@/types/about";
 import { Loader } from "../../Loading.styles";
 import { Row } from "@/components/ui/common/styled";
-import { useInfo } from "@/context/InfoContext";
+import { Caption, Text } from "@/styles/theme/typography";
 
 interface Props {
   about: AboutState;
@@ -133,9 +132,9 @@ const AboutBody = ({ about }: Props) => {
           $flexDirection="row"
           style={{ alignItems: "center" }}
         >
-          <Body $variant="body3" $color="#fff">
+          <Caption $color="#fff">
             Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.
-          </Body>
+          </Caption>
 
           {isSaving ? (
             <ButtonWrapper
@@ -146,7 +145,7 @@ const AboutBody = ({ about }: Props) => {
             >
               <Row $align="center" $justify="center">
                 <Loader />
-                <Body $variant="body3">Đang lưu</Body>
+                <Caption $variant="body3">Đang lưu</Caption>
               </Row>
             </ButtonWrapper>
           ) : (
@@ -171,7 +170,7 @@ const AboutBody = ({ about }: Props) => {
             setData={setData}
           />
           {/* For editing contact info (social media, etc..)  */}
-          <Body $variant="body0">Thông tin liên hệ</Body>
+          <Text $variant="body0">Thông tin liên hệ</Text>
           <ContactSection
             data={data}
             setData={setData}
@@ -195,7 +194,7 @@ const AboutBody = ({ about }: Props) => {
             Thêm liên hệ mới
           </CustomButton>
 
-          <Body $variant="body0">Mô tả về bản thân</Body>
+          <Text $variant="body0">Mô tả về bản thân</Text>
           <CustomEditor
             value={data.aboutContent}
             onChange={(e) => setData((prev) => ({ ...prev, aboutContent: e }))}

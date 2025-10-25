@@ -3,9 +3,8 @@ import { BlogDetails } from "@/types/blog";
 import React from "react";
 import { RelativeBlogImageContainer, RelativeBlogWrapper } from "./styled";
 import Image from "next/image";
-import { H4 } from "../../Typography/Heading.styles";
-import { Body } from "../../Typography/Body.styles";
 import { useRouter } from "next/navigation";
+import { Text } from "@/styles/theme/typography";
 
 const SmallPostCard = ({ title, publishedAt, cover, slug }: BlogDetails) => {
   const router = useRouter();
@@ -33,10 +32,8 @@ const SmallPostCard = ({ title, publishedAt, cover, slug }: BlogDetails) => {
           fill
         />
       </RelativeBlogImageContainer>
-      <H4 $color="#000">{title}</H4>
-      <Body $variant="body3" $color="#000">
-        {formatDate(publishedAt)}
-      </Body>
+      <Text $variant="h4">{title}</Text>
+      <Text $variant="body3">{formatDate(publishedAt)}</Text>
     </RelativeBlogWrapper>
   );
 };

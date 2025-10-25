@@ -8,10 +8,10 @@ import NotFound from "@/components/Main/NotFound";
 import PostDetail from "@/components/blogs/blogdetail";
 import Section from "@/components/blogs/blogdetail/section";
 import SmallPostCard from "@/components/blogs/blogcard/small_blog_card";
-import { H4 } from "@/components/Typography/Heading.styles";
 import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 import { BlogGrid } from "@/components/blogs/blogdetail/section/styled";
 import CommentWrapper from "@/components/comment";
+import { Text } from "@/styles/theme/typography";
 
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
@@ -122,7 +122,9 @@ export default async function Page({
         />
         {/* Chia sẻ mạng xã hội */}
         <Section flexDirection="row">
-          <H4 className="uppercase">Chia sẻ bài viết qua</H4>
+          <Text $variant="h4" className="uppercase">
+            Chia sẻ bài viết qua
+          </Text>
           <FacebookIC />
           <TwitterIC />
           <LinkedinIC />
@@ -130,7 +132,9 @@ export default async function Page({
 
         {/* Các bài viết liên quan */}
         <Section flexDirection="column">
-          <H4 className="uppercase">Các bài viết liên quan</H4>
+          <Text $variant="h4" className="uppercase">
+            Các bài viết liên quan
+          </Text>
           <BlogGrid>
             {blogs.map((item, index) => (
               <SmallPostCard key={index} {...item} />
@@ -139,7 +143,9 @@ export default async function Page({
         </Section>
 
         <Section>
-          <H4 className="uppercase">Leave a comment</H4>
+          <Text $variant="h4" className="uppercase">
+            Leave a comment
+          </Text>
           <CommentWrapper documentId={blogDetail.documentId} />
         </Section>
       </BlogContainer>

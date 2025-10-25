@@ -36,6 +36,9 @@ export const SubmitField = styled.div`
 `;
 
 export const SubmitButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 60px;
   background-color: transparent;

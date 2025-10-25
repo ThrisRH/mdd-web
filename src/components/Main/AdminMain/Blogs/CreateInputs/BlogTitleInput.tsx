@@ -1,8 +1,8 @@
-import { Body1, Body3 } from "@/components/Typography/Body.styles";
 import {
   FormInput,
   FormInputContainer,
 } from "../../../../../styles/components/inputs/Input.styles";
+import { Text } from "@/styles/theme/typography";
 
 interface Props {
   label: string;
@@ -26,13 +26,14 @@ const BlogTitleInput = ({
       value.length > maxLength || isEmpty ? "#ad3945" : "rgba(0,0,0,0.2)"
     }
   >
-    <Body3
+    <Text
+      $variant="body5"
       $size={12}
       $color={isEmpty ? "#ad3945" : "#979797"}
-      $fontWeight="500"
+      $weight="500"
     >
       {label}
-    </Body3>
+    </Text>
     <FormInput
       value={value}
       onChange={(e) => {
@@ -42,9 +43,9 @@ const BlogTitleInput = ({
       placeholder="Thêm tiêu đề mô tả bài viết của bạn"
       rows={2}
     />
-    <Body1 $color="#979797" $fontSize="12px">
+    <Text $variant="body5" $color="#979797">
       {value.length} / {maxLength}
-    </Body1>
+    </Text>
   </FormInputContainer>
 );
 

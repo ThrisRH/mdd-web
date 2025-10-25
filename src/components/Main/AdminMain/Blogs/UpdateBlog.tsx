@@ -1,9 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { DetailContainer, HeaderFormContainer } from "../styles/Page.styles";
-import { H5 } from "@/components/Typography/Heading.styles";
 
-import { Body, Body1, CustomBody } from "@/components/Typography/Body.styles";
 import CategorySelectionBox from "./CreateInputs/CategorySelectionBox";
 import BlogSlugInput from "./CreateInputs/BlogSlugInput";
 import BlogTitleInput from "./CreateInputs/BlogTitleInput";
@@ -18,6 +16,7 @@ import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";
 import { useRouter } from "next/navigation";
 
 import SaveIC from "@/assets/svg/Interact/SaveButton";
+import { Body, Text } from "@/styles/theme/typography";
 
 interface Props {
   blog: BlogDetails;
@@ -97,13 +96,13 @@ const UpdateBlog = ({ blog }: Props) => {
     <FlexContainer $flexDirection="row">
       <FlexContainer>
         <HeaderFormContainer>
-          <H5 $size={24}>Chỉnh sửa bài viết</H5>
+          <Text $variant="h1">Chỉnh sửa bài viết</Text>
           {isLoading ? (
             <CustomButton $isDisable={true} $bgColor="#aeaeae" $width="150px">
               <Loader />
-              <CustomBody $color="#fff" $weight={600}>
+              <Body $color="#fff" $weight={600}>
                 Đang lưu
-              </CustomBody>
+              </Body>
             </CustomButton>
           ) : (
             <CustomButton
@@ -112,16 +111,12 @@ const UpdateBlog = ({ blog }: Props) => {
               onClick={() => handleUpdateBlog(form.documentId)}
             >
               <SaveIC />
-              <Body $variant="body3" $color="#fff">
-                Lưu thay đổi
-              </Body>
+              <Body $color="#fff">Lưu thay đổi</Body>
             </CustomButton>
           )}
         </HeaderFormContainer>
         <DetailContainer>
-          <Body1 $fontSize="18px" $weight={600}>
-            Chi tiết
-          </Body1>
+          <Text $variant="body0">Chi tiết</Text>
 
           {/* Input title */}
           <BlogTitleInput

@@ -3,7 +3,7 @@ import {
   FormInput,
   FormInputContainer,
 } from "../../../../../styles/components/inputs/Input.styles";
-import { Body, Body1, Body3 } from "@/components/Typography/Body.styles";
+import { Text } from "@/styles/theme/typography";
 
 interface Props {
   label: string;
@@ -27,9 +27,9 @@ const BlogContentInput = ({
       $maxHeight={maxHeight}
       $borderColor={value.length > maxLength ? "#ad3945" : "rgba(0, 0, 0, 0.2)"}
     >
-      <Body $variant="custom" $size={12} $color="#979797">
+      <Text $variant="body5" $color="#979797">
         {label}
-      </Body>
+      </Text>
       <FormInput
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -37,9 +37,9 @@ const BlogContentInput = ({
         $minHeight="100px"
         $canOverflow={canOverflow}
       />
-      <Body1 $color="#979797" $fontSize="12px">
+      <Text $variant="body5" $color="#979797">
         {value.length} / {maxLength}
-      </Body1>
+      </Text>
     </FormInputContainer>
   );
 };

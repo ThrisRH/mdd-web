@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const BlogList = styled.ol`
-  list-style-type: decimal;
-  list-style-position: inside;
+export const BlogList = styled.ul`
+  list-style-type: none;
+  list-style-position: outside;
   width: 100%;
   display: flex;
   flex-direction: column;

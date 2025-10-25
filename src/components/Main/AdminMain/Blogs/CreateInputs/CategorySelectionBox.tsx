@@ -9,15 +9,10 @@ import {
 } from "../../../../../styles/components/inputs/Input.styles";
 import { ButtonContainer, FormFooter } from "../../styles/Page.styles";
 import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";
-import {
-  Body,
-  Body1,
-  Body3,
-  CustomBody,
-} from "@/components/Typography/Body.styles";
 
 import DropdownIC from "@/assets/svg/arrowdown";
 import MainButton from "@/components/ui/button/main_button";
+import { Body, Caption, Text } from "@/styles/theme/typography";
 
 interface CateSelectionProps {
   cateSelectedId: string;
@@ -63,31 +58,31 @@ const CategorySelectionBox = ({
   return (
     <SelectionContainer>
       <LabelContainer $padding="none">
-        <Body1 $fontSize="18px" $weight={600}>
+        <Text $variant="body0" $weight={600}>
           Chọn danh mục cho bài viết
-        </Body1>
-        <Body3 $color="#979797" $size={14}>
+        </Text>
+        <Caption $color="#979797">
           Thêm video của bạn vào danh sách phát để sắp xếp nội dung cho người
           xem.
-        </Body3>
+        </Caption>
       </LabelContainer>
       <FlexInputContainer
         $haveHover={true}
         onClick={() => setIsCateSelectionOpen(true)}
       >
         {cateSelectedName !== "" ? (
-          <Body3 $color="#979797">{cateSelectedName}</Body3>
+          <Caption $color="#979797">{cateSelectedName}</Caption>
         ) : (
-          <Body3 $color="#979797">Chọn danh mục</Body3>
+          <Caption $color="#979797">Chọn danh mục</Caption>
         )}
         <DropdownIC fill={"#000"} />
       </FlexInputContainer>
       {isCateSelectionOpen && (
         <SelectionBoxContainer>
           <SelectionTitleWrapper>
-            <Body $color="#4f4f4f" $variant="body0">
+            <Text $color="#4f4f4f" $variant="body0">
               Danh sách danh mục của bạn
-            </Body>
+            </Text>
           </SelectionTitleWrapper>
           <CateListContainer>
             {data === null ? (
@@ -114,7 +109,7 @@ const CategorySelectionBox = ({
                       setSelectedName(item.tile);
                     }}
                   />
-                  <CustomBody>{item.tile}</CustomBody>
+                  <Body>{item.tile}</Body>
                 </FlexInputContainer>
               ))
             )}

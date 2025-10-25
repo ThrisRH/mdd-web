@@ -1,13 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import { ActionContainer } from "../styles/Page.styles";
-import { Body, CustomBody } from "@/components/Typography/Body.styles";
 import BinIC from "@/assets/svg/Interact/RecycleBin";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { Loader } from "../../Loading.styles";
-import { ButtonWrapper, CustomButton } from "@/components/ui/button/styled";
-import MainButton from "@/components/ui/button/main_button";
+import { CustomButton } from "@/components/ui/button/styled";
 import IconButton from "@/components/ui/button/icon_button";
+import { Body, Text } from "@/styles/theme/typography";
 
 interface Props {
   selectedItems: Set<string>;
@@ -49,21 +48,12 @@ const ActionSection = ({ selectedItems, forFeature }: Props) => {
 
   return (
     <ActionContainer $visible={selectedItems.size !== 0}>
-      <CustomBody $color="#fff">Đã chọn: {selectedItems.size}</CustomBody>
+      <Text $variant="body3" $color="#fff">
+        Đã chọn: {selectedItems.size}
+      </Text>
       <FlexContainer $width="fit" $flexDirection="row">
         {/* Nút xóa hoặc hủy thao tác */}
         {!isDeleteMode ? (
-          // <CustomButton
-          //   $bgColor="transparent"
-          //   $border="2px solid rgba(22, 31, 57, 0.8)"
-          //   $width="fit"
-          //   $hoverBgColor="transparent"
-          //   $hoverBorder="2px solid #f1dbc4"
-          //   onClick={() => setIsDeleteMode(true)}
-          // >
-          //   <BinIC />
-          //   <CustomBody $color="#fff">Xóa</CustomBody>
-          // </CustomButton>
           <IconButton
             icon={<BinIC scale={16} stroke={"#000"} />}
             variant="shadow"
@@ -81,7 +71,7 @@ const ActionSection = ({ selectedItems, forFeature }: Props) => {
             onClick={() => setIsDeleteMode(false)}
           >
             <BinIC />
-            <CustomBody $color="#fff">Hủy</CustomBody>
+            <Body $color="#fff">Hủy</Body>
           </CustomButton>
         )}
 
@@ -96,11 +86,11 @@ const ActionSection = ({ selectedItems, forFeature }: Props) => {
             onClick={() => handleDeleteBlog()}
           >
             {!hover ? (
-              <CustomBody $color="#fff">Bạn chắc chắn chứ?</CustomBody>
+              <Body $color="#fff">Bạn chắc chắn chứ?</Body>
             ) : (
-              <CustomBody $color="#fff" $weight={600}>
+              <Body $color="#fff" $weight={600}>
                 Chắc chắn!
-              </CustomBody>
+              </Body>
             )}
           </CustomButton>
         )}
@@ -114,9 +104,9 @@ const ActionSection = ({ selectedItems, forFeature }: Props) => {
             $hoverBgColor="#f45c5c"
           >
             <Loader />
-            <CustomBody $color="#fff" $weight={600}>
+            <Body $color="#fff" $weight={600}>
               Đang xóa
-            </CustomBody>
+            </Body>
           </CustomButton>
         )}
       </FlexContainer>

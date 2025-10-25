@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import TopicTitle from "@/assets/svg/topicSelect";
 import { InputWrapper, Select } from "../styled";
 import { usePathname, useRouter } from "next/navigation";
-import { Body3 } from "@/components/Typography/Body.styles";
 
 interface CateProps {
   id: number;

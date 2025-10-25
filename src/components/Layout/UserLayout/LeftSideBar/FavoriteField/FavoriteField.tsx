@@ -1,9 +1,9 @@
 "use client";
-import { Body1 } from "@/components/Typography/Body.styles";
 import FavoriteArea from "@/assets/svg/favoriteArea";
 import { Blog } from "@/components/Main/PageContainer";
 import { BlogItem, BlogList } from "../styled";
 import { useRouter } from "next/navigation";
+import { Text } from "@/styles/theme/typography";
 
 const FavoriteField = ({ blogs }: { blogs: Blog[] }) => {
   const router = useRouter();
@@ -13,11 +13,11 @@ const FavoriteField = ({ blogs }: { blogs: Blog[] }) => {
   return (
     <FavoriteArea className="w-full max-w-[320px] h-fit">
       <BlogList>
-        {blogs.map((blog) => (
+        {blogs.map((blog, index) => (
           <BlogItem onClick={() => handleToDetail(blog.slug)} key={blog.id}>
-            <Body1 $color="#000" className="w-full">
-              {blog.title}
-            </Body1>
+            <Text $variant="body1" $whiteSpace="normal" className="w-full">
+              {`${index + 1}.   ${blog.title}`}
+            </Text>
           </BlogItem>
         ))}
       </BlogList>

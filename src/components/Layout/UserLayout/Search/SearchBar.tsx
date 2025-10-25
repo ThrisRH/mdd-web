@@ -11,7 +11,7 @@ import {
 } from "./SearchBar.styles";
 import SearchIC from "@/assets/svg/search";
 import { useRouter } from "next/navigation";
-import { H5 } from "@/components/Typography/Heading.styles";
+import { Text } from "@/styles/theme/typography";
 
 interface SearchBarProps {
   onCancel: () => void;
@@ -51,7 +51,7 @@ const SearchBar = ({ onCancel }: SearchBarProps) => {
           onClick={() => handleSearch(searchValue)}
           $primary={false}
         >
-          <H5 $size={14}>Tìm kiếm</H5>
+          <Text $variant="h5">Tìm kiếm</Text>
         </ButtonSearch>
       </SearchMainField>
       <CancelButton onClick={onCancel}>
