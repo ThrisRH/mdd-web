@@ -5,7 +5,6 @@ import {
   SidebarContainer,
 } from "../Layout.styles";
 
-import { useInfo } from "@/context/InfoContext";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { Tabs } from "@/app/(admin)/config/tabsConfig";
@@ -13,12 +12,17 @@ import { TabsGroup } from "./Sidebar.styles";
 import { TabContainer } from "@/styles/components/layout/Layout.styles";
 import { ImageContainer } from "@/components/blogs/blogcard/styled";
 import { Text } from "@/styles/theme/typography";
+import { useAppSelector } from "@/redux/hook";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 
 const AdminPanelSidebar = () => {
-  const { info } = useInfo();
+  const MDDAuthor = useAppSelector((state) => state.mainBlogAuthor);
+  const info = MDDAuthor.data;
   const pathname = usePathname();
   const router = useRouter();
 
+  if (MDDAuthor.loading === "idle") return <FlexContainer></FlexContainer>;
+  if (MDDAuthor.loading === "pending") return <FlexContainer></FlexContainer>;
   return (
     <SidebarContainer>
       <SidebarItemsContainer $gap={32}>

@@ -214,7 +214,7 @@ export const HeaderFormContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 24px;
+  padding: 32px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `;
 
@@ -244,17 +244,21 @@ export const ButtonContainer = styled.div`
 `;
 
 // Faq & about
-export const BodyContainer = styled(FlexContainer)<{ $isPadding?: boolean }>`
+export const BodyContainer = styled(FlexContainer)<{
+  $align?: "flex-start" | "center" | "flex-end" | "justify";
+  $isPadding?: boolean;
+}>`
   height: fit-content;
   display: flex;
   width: 100%;
+  align-items: ${(props) => props.$align || "flex-start"};
   gap: 24px;
   padding: ${(props) => (props.$isPadding ? "24px" : 0)};
 `;
 
 export const ContentSideContainer = styled(BodyContainer)`
   width: 100%;
-  gap: 12px;
+  gap: 24px;
 
   .profile-in-content {
     display: flex;

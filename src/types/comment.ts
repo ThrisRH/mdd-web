@@ -2,6 +2,7 @@ export type CommentProps = {
   documentId: string;
   reader: Reader;
   content: string;
+  publishedAt: string;
 };
 
 export type CommentInputProps = {

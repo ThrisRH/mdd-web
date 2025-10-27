@@ -123,6 +123,7 @@ const NavItems = ({
                 <Text
                   $variant="body2"
                   onClick={onNavPhoneClose ?? onNavPhoneClose}
+                  $color="#fff"
                   $hoverColor="#EA8E31"
                 >
                   {item.tile}

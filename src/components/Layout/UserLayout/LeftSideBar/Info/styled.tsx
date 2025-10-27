@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div<{ $isNavbar?: boolean }>`
   display: flex;
@@ -26,6 +26,11 @@ export const Field = styled.div<{ $isNavbar?: boolean; $gap?: number }>`
 `;
 
 // Avatar wrapper
+const reflect = keyframes`
+  to {
+    left: calc(100% + 100px);
+  }
+`;
 export const AvatarWrapper = styled.div`
   position: relative;
   max-width: 220px;
@@ -41,6 +46,15 @@ export const AvatarWrapper = styled.div`
   img {
     border-radius: 9999px; /* rounded-full */
     object-fit: cover;
+  }
+
+  image::after {
+    content: "";
+    height: 600px;
+    width: 600px;
+
+    background: linear-gradient(to right, transparen, #ffffff70, transparent);
+    animation: ${reflect} 800ms ease-out infinite;
   }
 `;
 

@@ -213,7 +213,7 @@ const Typography = styled.p<TypographyProps>`
   ${({ $color }) =>
     $color &&
     css`
-      color: ${$color};
+      color: ${$color} !important;
     `}
   
   // Override size if provided
@@ -241,12 +241,10 @@ const Typography = styled.p<TypographyProps>`
   `}
   
   // Hover effect
-  ${({ $hoverColor, $color, $theme = "light" }) => {
-    const colors = themeColors[$theme];
-
+  ${({ $hoverColor, $color }) => {
     return css`
       &:hover {
-        color: ${$hoverColor || $color};
+        color: ${$hoverColor || $color} !important;
         transition: color 0.2s ease-in-out;
       }
     `;

@@ -16,6 +16,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import ActionSection from "../Components/ActionSection";
 import TablePaginationBar from "@/components/Layout/Pagination/ForTable/TablePaginationBar";
 import { Body, Text } from "@/styles/theme/typography";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 
 type TableItem = {
   title?: string;
@@ -96,10 +97,10 @@ const CateTable = ({
   };
 
   const handleToDetail = (documentId: string) => {
-    router.push(`/catedetails/${documentId}`);
+    router.push(`/cate-details/${documentId}`);
   };
   return (
-    <BodyContainer>
+    <BodyContainer $align="center" $justify="center">
       <ActionSection forFeature="cates" selectedItems={selectedBlogs} />
       <TableWrapper>
         <thead>
@@ -125,65 +126,70 @@ const CateTable = ({
           </tr>
         </thead>
 
-        <tbody>
-          {categories.map((item) => (
-            <RowContainer key={item.documentId}>
-              <TableBodyCell>
-                <IconContainer onClick={() => selectCate(item.documentId)}>
-                  {selectedBlogs.has(item.documentId) ? (
-                    <SelectedIC />
-                  ) : (
-                    <NoneSelectionIC />
-                  )}
-                </IconContainer>
-              </TableBodyCell>
+        {categories.length !== 0 && (
+          <>
+            <tbody>
+              {categories.map((item) => (
+                <RowContainer key={item.documentId}>
+                  <TableBodyCell>
+                    <IconContainer onClick={() => selectCate(item.documentId)}>
+                      {selectedBlogs.has(item.documentId) ? (
+                        <SelectedIC />
+                      ) : (
+                        <NoneSelectionIC />
+                      )}
+                    </IconContainer>
+                  </TableBodyCell>
 
-              <TableBodyCell
-                onClick={() => {
-                  handleToDetail(item.documentId);
-                }}
-              >
-                <Text $variant="body4">{item.tile}</Text>
-              </TableBodyCell>
-              <TableBodyCell
-                onClick={() => {
-                  handleToDetail(item.documentId);
-                }}
-              >
-                <Text $variant="body4" $size={14}>
-                  {formatDate(item.publishedAt)}
-                </Text>
-              </TableBodyCell>
-              <TableBodyCell
-                onClick={() => {
-                  handleToDetail(item.documentId);
-                }}
-              >
-                <Text $variant="body4" $size={14}>
-                  {item.slug}
-                </Text>
-              </TableBodyCell>
-              <TableBodyCell
-                onClick={() => {
-                  handleToDetail(item.documentId);
-                }}
-              >
-                <Text $variant="body4" $size={14}>
-                  {item.blogs.length}
-                </Text>
-              </TableBodyCell>
-            </RowContainer>
-          ))}
-        </tbody>
+                  <TableBodyCell
+                    onClick={() => {
+                      handleToDetail(item.documentId);
+                    }}
+                  >
+                    <Text $variant="body4">{item.tile}</Text>
+                  </TableBodyCell>
+                  <TableBodyCell
+                    onClick={() => {
+                      handleToDetail(item.documentId);
+                    }}
+                  >
+                    <Text $variant="body4" $size={14}>
+                      {formatDate(item.publishedAt)}
+                    </Text>
+                  </TableBodyCell>
+                  <TableBodyCell
+                    onClick={() => {
+                      handleToDetail(item.documentId);
+                    }}
+                  >
+                    <Text $variant="body4" $size={14}>
+                      {item.slug}
+                    </Text>
+                  </TableBodyCell>
+                  <TableBodyCell
+                    onClick={() => {
+                      handleToDetail(item.documentId);
+                    }}
+                  >
+                    <Text $variant="body4" $size={14}>
+                      {item.blogs.length}
+                    </Text>
+                  </TableBodyCell>
+                </RowContainer>
+              ))}
+            </tbody>
 
-        <tfoot>
-          <TablePaginationBar
-            currentPage={currentPage}
-            totalPages={totalPages}
-            handleChangePage={handleChangePage}
-          />
-        </tfoot>
+            <tfoot>
+              <TablePaginationBar
+                currentPage={currentPage}
+                totalPages={totalPages}
+                handleChangePage={handleChangePage}
+              />
+            </tfoot>
+          </>
+        )}
       </TableWrapper>
+      <Body>Bạn chưa có danh mục nào!</Body>
     </BodyContainer>
   );
 };

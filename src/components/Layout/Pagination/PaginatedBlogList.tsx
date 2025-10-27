@@ -5,6 +5,7 @@ import PostCard from "@/components/blogs/blogcard/blog_card";
 import { BlogDetails } from "@/types/blog";
 import { useRouter, useSearchParams } from "next/navigation";
 import { BlogCardFrame } from "@/components/Main/Styled/PageContainer.styles";
+import NotFound from "@/components/Main/NotFound";
 
 interface BaseProps {
   totalPages: number;
@@ -61,6 +62,7 @@ export default function PaginatedBlogList({
     router.push(`?page=${p}`);
   };
 
+  if (posts.length === 0 && type === "category") return <NotFound />;
   return (
     <>
       {/* Danh sách bài viết */}

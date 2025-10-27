@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Lora, Inter } from "next/font/google";
 import { InfoProvider } from "@/context/InfoContext";
+import { Provider } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
 import { auth } from "@/auth";
 import SessionWrapper from "@/components/Main/SessionWrapper";
+import { store } from "@/redux/store";
+import ReduxProvider from "./providers/redux_provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,12 +34,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
+  console.log("SESSION DATA", session);
   return (
     <html lang="en" className={`${lora.variable} ${inter.variable}`}>
       <body className={`antialiased`}>
         <StyledComponentsRegistry>
           <SessionWrapper session={session}>
-            <InfoProvider>{children}</InfoProvider>
+            <ReduxProvider>
+              <InfoProvider>{children}</InfoProvider>
+            </ReduxProvider>
           </SessionWrapper>
         </StyledComponentsRegistry>
       </body>

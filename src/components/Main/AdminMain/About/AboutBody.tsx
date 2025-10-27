@@ -18,6 +18,7 @@ import { AboutState } from "@/types/about";
 import { Loader } from "../../Loading.styles";
 import { Row } from "@/components/ui/common/styled";
 import { Caption, Text } from "@/styles/theme/typography";
+import { platform } from "os";
 
 interface Props {
   about: AboutState;
@@ -73,6 +74,7 @@ const AboutBody = ({ about }: Props) => {
               avatar: avatarId,
               contact: afterUpdatedData.map((item) => ({
                 url: item.url,
+                platform: item.platform,
               })),
             },
           }),
@@ -179,12 +181,7 @@ const AboutBody = ({ about }: Props) => {
             selectedDeleteItems={selectedDeleteItems}
             toggleSelect={toggleSelect}
           />
-          <BlogContentInput
-            label="Nền tảng"
-            value={testData}
-            maxLength={1000}
-            onChange={(value: string) => setTestData(value)}
-          />
+
           {/* Add button */}
           <CustomButton
             $bgColor="transparent"

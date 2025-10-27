@@ -81,7 +81,16 @@ export default async function SearchPage(props: {
     );
   }
 
-  const pageCount = res.meta.pagination.pageCount;
+  const blogs: BlogDetails[] | undefined = res?.data;
+  const pageCount: number | undefined = res?.meta?.pagination?.pageCount;
+
+  if (!blogs || blogs.length === 0 || !pageCount) {
+    return (
+      <PageContainer>
+        <NotFound />
+      </PageContainer>
+    );
+  }
 
   return (
     <PageContainer>

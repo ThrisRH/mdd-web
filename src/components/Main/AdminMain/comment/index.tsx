@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CommentWrapper } from "./styled";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { HeaderFormContainer } from "../styles/Page.styles";
+import { BodyContainer, HeaderFormContainer } from "../styles/Page.styles";
 
 import CommentCard from "./comment-card";
 import { CommentProps } from "@/types/comment";
@@ -12,22 +12,26 @@ export type Props = {
 };
 
 const Comment = ({ comments }: Props) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-
   return (
     <CommentWrapper>
       <FlexContainer>
         <HeaderFormContainer>
           <Text $variant="h1">Bình luận của bài viết</Text>
         </HeaderFormContainer>
-        <Text $variant="body0">Chi tiết</Text>
-        {comments ? (
+        {comments.length !== 0 ? (
           comments.map((item) => (
             <CommentCard key={item.documentId} comment={item} />
           ))
         ) : (
-          <Text $variant="body1">Hiện chưa có bình luận nào</Text>
+          <BodyContainer
+            $isPadding={true}
+            $justify="center"
+            $flexDirection="row"
+          >
+            <Text $variant="body0" $weight={400}>
+              Hiện chưa có bình luận nào
+            </Text>
+          </BodyContainer>
         )}
       </FlexContainer>
     </CommentWrapper>

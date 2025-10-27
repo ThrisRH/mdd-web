@@ -2,7 +2,7 @@ import React from "react";
 import Topic from "./Topic/Topic";
 import SendContent from "./SendContent/SendContent";
 import Image from "next/image";
-import InfoCard from "./Info/InfoCard";
+import InfoCard from "./Info";
 import FavoriteField from "./FavoriteField/FavoriteField";
 import IgImage from "@/assets/image/ig_pic.png";
 import { SideBarWrapper } from "@/components/Main/Styled/PageContainer.styles";

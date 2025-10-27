@@ -35,7 +35,7 @@ const CateDetailSidebar = ({ cate }: Props) => {
         </Text>
       </TabContainer>
       {/* Vùng hiển thị 1 số thông tin của bài viết */}
-      <FlexContainer>
+      <FlexContainer className="basic-info">
         <FlexContainer>
           <Text $variant="body1">Thông tin danh mục</Text>
           <Text $variant="body4" $color="#4f4f4f">

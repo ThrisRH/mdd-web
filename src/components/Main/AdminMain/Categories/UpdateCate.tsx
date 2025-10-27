@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import BlogTitleInput from "../Blogs/CreateInputs/BlogTitleInput";
 import BlogSlugInput from "../Blogs/CreateInputs/BlogSlugInput";
 import { Body, Text } from "@/styles/theme/typography";
+import SaveIC from "@/assets/svg/Interact/SaveButton";
 
 interface Props {
   cate: CateProps;
@@ -78,10 +79,11 @@ const UpdateCate = ({ cate }: Props) => {
             </CustomButton>
           ) : (
             <CustomButton
-              $width="150px"
+              $width="fit-content"
               $hoverBgColor="rgba(0,0,0,0.8)"
               onClick={() => handleUpdateCate(form.documentId)}
             >
+              <SaveIC />
               <Body $color="#fff">Lưu thay đổi</Body>
             </CustomButton>
           )}
@@ -89,25 +91,23 @@ const UpdateCate = ({ cate }: Props) => {
         <DetailContainer>
           <Text $variant="body0">Chi tiết</Text>
 
-          <FlexContainer $flexDirection="row" $gap="md">
-            {/* Input title */}
-            <BlogTitleInput
-              label={"Tiều đề danh mục"}
-              isEmpty={errorMessage !== ""}
-              value={form.tile}
-              onChange={(e) => setForm((prev) => ({ ...prev, tile: e }))}
-              setIsEmpty={setErrorMessage}
-              maxLength={100}
-            />
-            {/* Input title */}
-            <BlogSlugInput
-              label={"Tên viết tắt của danh mục"}
-              slug={form.slug}
-              setSlug={(e) => setForm((prev) => ({ ...prev, slug: e }))}
-              title={form.tile}
-              maxLength={100}
-            />
-          </FlexContainer>
+          {/* Input title */}
+          <BlogTitleInput
+            label={"Tiều đề danh mục"}
+            isEmpty={errorMessage !== ""}
+            value={form.tile}
+            onChange={(e) => setForm((prev) => ({ ...prev, tile: e }))}
+            setIsEmpty={setErrorMessage}
+            maxLength={100}
+          />
+          {/* Input title */}
+          <BlogSlugInput
+            label={"Tên viết tắt của danh mục"}
+            slug={form.slug}
+            setSlug={(e) => setForm((prev) => ({ ...prev, slug: e }))}
+            title={form.tile}
+            maxLength={100}
+          />
         </DetailContainer>
       </FlexContainer>
     </FlexContainer>

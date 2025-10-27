@@ -32,7 +32,7 @@ const Topic = () => {
     const value = e.target.value;
 
     if (value) {
-      router.push(`/${value}`);
+      router.push(`/category/${value}`);
     } else {
       router.push("/");
     }

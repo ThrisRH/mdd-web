@@ -14,6 +14,7 @@ import { TabContainer } from "@/styles/components/layout/Layout.styles";
 import { useBlogdetailcontext } from "@/context/blogdetailcontext/index";
 import { BlogDetailTabs } from "@/app/(admin)/config/tabsConfig";
 import { Text } from "@/styles/theme/typography";
+import { Column } from "@/components/ui/common/styled";
 
 const BlogDetailSidebar = () => {
   const { value } = useBlogdetailcontext();
@@ -49,12 +50,12 @@ const BlogDetailSidebar = () => {
                 }
               />
             </ImageContainer>
-            <FlexContainer>
+            <Column $gap="none">
               <Text $variant="body0">Thông tin bài viết</Text>
               <Text $variant="body4" $color="#4F4F4F">
                 {value.title}
               </Text>
-            </FlexContainer>
+            </Column>
             <hr style={{ border: "none", borderTop: "1px dashed #000" }} />
             <FlexContainer $gap="xs">
               {/* Ngày tạo bài */}

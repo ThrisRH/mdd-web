@@ -1,6 +1,6 @@
 "use client";
 import SendContent from "@/components/Layout/UserLayout/LeftSideBar/SendContent/SendContent";
-import InfoCard from "@/components/Layout/UserLayout/LeftSideBar/Info/InfoCard";
+import InfoCard from "@/components/Layout/UserLayout/LeftSideBar/Info";
 import Topic from "@/components/Layout/UserLayout/LeftSideBar/Topic/Topic";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";

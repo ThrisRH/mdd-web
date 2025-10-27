@@ -19,6 +19,7 @@ export const ImageContainer = styled.div<{
     | "blog-card"
     | "blog-detail"
     | "avatar"
+    | "cmt-avatar"
     | "sidebar-blog-detail"
     | "preview";
 }>`
@@ -42,6 +43,14 @@ export const ImageContainer = styled.div<{
         width: 100%;
         max-width: 220px;
         aspect-ratio: 1/1;
+        `;
+
+      case `cmt-avatar`:
+        return `
+        position: relative;
+        aspect-ratio: 1 / 1;
+        width: 42px;
+        height: 42px;
         `;
 
       case `sidebar-blog-detail`:
@@ -94,11 +103,11 @@ export const Line = styled.div<{ $width?: number }>`
 
   ${({ $width }) => ($width ? `width: ${$width}px;` : `flex: 1;`)}
 `;
-export const Dot = styled.div`
-  width: 6px;
-  height: 6px;
+export const Dot = styled.div<{ $color?: string; $scale?: number }>`
+  width: ${(props) => `${props.$scale}px` || "6px"};
+  height: ${(props) => `${props.$scale}px` || " 6px"};
   border-radius: 100%;
-  background: #000;
+  background: ${(props) => props.$color || "#000"};
 `;
 
 // Relative Blog Wrapper in blog detail

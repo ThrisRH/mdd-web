@@ -7,7 +7,7 @@ import {
   DetailsWrapper,
   Field,
   InfoWrapper,
-} from "./InfoCard.styles";
+} from "./styled";
 import Image from "next/image";
 
 import FacebookIC from "@/assets/svg/fb";
@@ -15,39 +15,8 @@ import TwitterIC from "@/assets/svg/x";
 import IGIC from "@/assets/svg/ig";
 import LinkedinIC from "@/assets/svg/linkedin";
 import Link from "next/link";
-import { useInfo } from "@/context/InfoContext";
 import { Caption, Text } from "@/styles/theme/typography";
-
-interface InfoProps {
-  fullname: string;
-  biography: string;
-  contact: ContactProps[];
-  interest: InterestProps[];
-  avatar: AvatarProps;
-}
-
-interface ContactProps {
-  id: number;
-  platform: string;
-  url: string;
-}
-
-interface InterestProps {
-  id: number;
-  interest: string;
-}
-
-interface AvatarProps {
-  id: string;
-  url: string;
-  name: string;
-  formats?: {
-    thumbnail?: { url: string };
-    small?: { url: string };
-    medium?: { url: string };
-    large?: { url: string };
-  };
-}
+import { useAppSelector } from "@/redux/hook";
 
 interface InfoCardProps {
   isNavbar: boolean;
@@ -56,9 +25,8 @@ interface InfoCardProps {
 }
 
 const InfoCard = ({ isNavbar, textColor, isDetails }: InfoCardProps) => {
-  const { info, loading } = useInfo();
-
-  if (!info) return <p>Loading...</p>;
+  const authorMDD = useAppSelector((state) => state.mainBlogAuthor);
+  const info = authorMDD.data;
 
   return (
     <>

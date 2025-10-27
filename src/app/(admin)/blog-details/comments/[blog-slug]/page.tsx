@@ -18,34 +18,33 @@ const Page = () => {
   const [comments, setComments] = useState<CommentProps[] | null>(null);
   const { value, setValue } = useBlogdetailcontext();
 
+  const getComment = async () => {
+    try {
+      const [blogRes, commentRes] = await Promise.all([
+        fetch(`/mmdblogsapi/blogs/by-slug/${slug}`, { cache: "no-store" }),
+        fetch(
+          `/mmdblogsapi/comments?filters[blog][slug][$eq]=${slug}&populate[reader][populate]=avatar`,
+          { cache: "no-store" }
+        ),
+      ]);
+
+      const [blogData, commentData] = await Promise.all([
+        blogRes.json(),
+        commentRes.json(),
+      ]);
+
+      setValue?.(blogData.data);
+      setComments(commentData.data);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const getComment = async () => {
-      try {
-        const blogRes = await fetch(`/mmdblogsapi/blogs/by-slug/${slug}`, {
-          cache: "no-store",
-        });
-        const blogData = await blogRes.json();
-        setValue?.(blogData?.data);
-
-        const commentRes = await fetch(
-          `/mmdblogsapi/comments?filters[blog][documentId][$eq]=${value?.documentId}&populate[reader][populate]=avatar`,
-          {
-            cache: "no-store",
-          }
-        );
-
-        const commentData = await commentRes.json();
-        setComments(commentData.data);
-      } catch (error) {
-        console.error(error);
-        setValue?.(undefined);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     getComment();
-  }, [slug, setValue]);
+  }, [value?.documentId]);
 
   return (
     <MainContentContainer>
