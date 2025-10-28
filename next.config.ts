@@ -6,13 +6,13 @@ const nextConfig: NextConfig = {
       // Base API url
       {
         source: "/baseurl/:path*",
-        destination: `${process.env.NEXT_PUBLIC_SERVER_HOST}/:path*`,
+        destination: `${process.env.SERVER_HOST}/:path*`,
       },
 
       // API url
       {
         source: "/mmdblogsapi/:path*",
-        destination: `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/:path*`,
+        destination: `${process.env.SERVER_HOST}/api/:path*`,
       },
     ];
   },
