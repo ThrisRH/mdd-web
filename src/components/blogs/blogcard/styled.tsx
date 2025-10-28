@@ -21,6 +21,7 @@ export const ImageContainer = styled.div<{
     | "avatar"
     | "cmt-avatar"
     | "sidebar-blog-detail"
+    | "notification"
     | "preview";
 }>`
   position: relative;
@@ -37,6 +38,11 @@ export const ImageContainer = styled.div<{
           height: 400px
         }
         `;
+      case `notification`:
+        return `
+        width: 120px;
+        height: 50px;
+        `;
 
       case `avatar`:
         return `
@@ -50,7 +56,6 @@ export const ImageContainer = styled.div<{
         position: relative;
         aspect-ratio: 1 / 1;
         width: 42px;
-        height: 42px;
         `;
 
       case `sidebar-blog-detail`:
@@ -105,7 +110,7 @@ export const Line = styled.div<{ $width?: number }>`
 `;
 export const Dot = styled.div<{ $color?: string; $scale?: number }>`
   width: ${(props) => `${props.$scale}px` || "6px"};
-  height: ${(props) => `${props.$scale}px` || " 6px"};
+  height: ${(props) => `${props.$scale}px` || "6px"};
   border-radius: 100%;
   background: ${(props) => props.$color || "#000"};
 `;

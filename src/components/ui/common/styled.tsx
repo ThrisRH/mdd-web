@@ -33,9 +33,11 @@ export const Flex = styled.div<{
   justify-content: ${(props) => props.$justify || "flex-start"};
 `;
 
-export const Row = styled(Flex)`
+export const Row = styled(Flex)<{ $padding?: string }>`
+  padding: ${(props) => props.$padding || "0px"};
   flex-direction: row;
 `;
-export const Column = styled(Flex)`
+export const Column = styled(Flex)<{ $padding?: string }>`
+  padding: ${(props) => props.$padding || "0px"};
   flex-direction: column;
 `;

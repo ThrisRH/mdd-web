@@ -1,10 +1,9 @@
 "use client";
 
 import Loading from "@/app/(user)/loading";
-import UpdateBlog from "@/components/Main/AdminMain/Blogs/UpdateBlog";
 import Comment from "@/components/Main/AdminMain/comment";
 import NotFound from "@/components/Main/NotFound";
-import { useBlogdetailcontext } from "@/context/blogdetailcontext/index";
+import { useBlogdetailcontext } from "@/context/blogdetailcontext";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
 import { CommentProps } from "@/types/comment";

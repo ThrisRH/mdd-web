@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import PaginationBar from "./PaginationBar";
 import PostCard from "@/components/blogs/blogcard/blog_card";
 import { BlogDetails } from "@/types/blog";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { BlogCardFrame } from "@/components/Main/Styled/PageContainer.styles";
 import NotFound from "@/components/Main/NotFound";
 
@@ -33,7 +33,6 @@ export default function PaginatedBlogList({
   const [currentPage, setCurrentPage] = useState(page);
   const [posts, setPosts] = useState<BlogDetails[]>([]);
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     async function fetchPage() {

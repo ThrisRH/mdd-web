@@ -27,8 +27,7 @@ const ActionSection = ({ selectedItems, forFeature }: Props) => {
         });
 
         if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || "Failed to delete document.");
+          return null;
         }
       }
       setTimeout(
@@ -40,7 +39,7 @@ const ActionSection = ({ selectedItems, forFeature }: Props) => {
         1000
       );
     } catch (error) {
-      console.log(error);
+      return null;
     } finally {
       setTimeout(() => setIsDeleting(false), 1000);
     }

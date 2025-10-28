@@ -16,7 +16,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import ActionSection from "../Components/ActionSection";
 import TablePaginationBar from "@/components/Layout/Pagination/ForTable/TablePaginationBar";
 import { Body, Text } from "@/styles/theme/typography";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { Row } from "@/components/ui/common/styled";
 
 type TableItem = {
   title?: string;
@@ -111,7 +111,7 @@ const CateTable = ({
                 $topPosition={selectedBlogs.size !== 0 ? "156px" : "90px"}
               >
                 {item.title ? (
-                  <Body>{item.title}</Body>
+                  <Body $whiteSpace="nowrap">{item.title}</Body>
                 ) : (
                   <IconContainer onClick={selectAll}>
                     {selectedBlogs.size !== 0 ? (
@@ -126,7 +126,7 @@ const CateTable = ({
           </tr>
         </thead>
 
-        {categories.length !== 0 && (
+        {categories.length !== 0 ? (
           <>
             <tbody>
               {categories.map((item) => (
@@ -187,9 +187,16 @@ const CateTable = ({
               />
             </tfoot>
           </>
+        ) : (
+          <tbody>
+            <TableBodyCell colSpan={6}>
+              <Row $justify="center">
+                <Body>Bạn chưa có danh mục nào!</Body>
+              </Row>
+            </TableBodyCell>
+          </tbody>
         )}
       </TableWrapper>
-      <Body>Bạn chưa có danh mục nào!</Body>
     </BodyContainer>
   );
 };

@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import { CateProps } from "./DesktopNav";
 import { Text } from "@/styles/theme/typography";
+import { useAppSelector } from "@/redux/hook";
 
 interface Props {
   pathname: string;
@@ -32,9 +33,10 @@ const NavItems = ({
 }: Props) => {
   const router = useRouter();
   const { data: session } = useSession();
-  const [role, setRole] = useState();
   const tokenExists = !!session;
-  console.log(tokenExists);
+
+  const authInfo = useAppSelector((state) => state.auth);
+  const isAdmin = authInfo.isAuthor || null;
 
   // Hàm đăng nhập
   const handleLogin = async () => {
@@ -45,22 +47,6 @@ const NavItems = ({
   const handleLogout = () => {
     signOut({ callbackUrl: "/" });
   };
-
-  const fetchUserRole = async () => {
-    const token = session?.strapiToken;
-
-    const response = await fetch("/mmdblogsapi/users/me", {
-      method: "GET",
-      headers: { Authorization: `bearer ${token}` },
-    });
-    const data = await response.json();
-    setRole(data.isAuthor);
-    console.log(data);
-    console.log(session);
-  };
-  useEffect(() => {
-    fetchUserRole();
-  }, [session]);
 
   return (
     <>
@@ -160,7 +146,7 @@ const NavItems = ({
         </Text>
       </NavItem>
 
-      {role && (
+      {isAdmin && (
         <Link href={"/admin-panel/myblogs"}>
           <Text $variant="body2" $color="#4f6ffa">
             Đến trang quảng lý

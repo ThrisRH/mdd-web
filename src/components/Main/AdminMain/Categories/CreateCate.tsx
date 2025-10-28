@@ -56,15 +56,12 @@ const CreateCategory = ({
         body: JSON.stringify(cateBody),
       });
 
-      const cateJson = await response.json();
-
       if (!response.ok) {
-        console.error("Post failed:", cateJson);
-        return;
+        return null;
       }
       window.location.href = "/admin-panel/mycates";
     } catch (err: any) {
-      console.error(err);
+      return null;
     } finally {
       setIsLoading(false);
     }

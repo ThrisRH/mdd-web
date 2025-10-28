@@ -59,20 +59,18 @@ const faqBody = ({ faqs }: Props) => {
       });
 
       if (!response.ok) {
-        const result = await response.json();
         setIsLoading(false);
-        console.log(result.error);
-        return;
+        return null;
       }
 
-      const result = await response.json();
-      console.log(result);
       setTimeout(() => {
         setIsLoading(false);
         window.location.href = "/admin-panel/myfaqsetting";
       }, 1000);
     } catch (error: any) {
-      throw new Error(error);
+      return null;
+    } finally {
+      setIsLoading(false);
     }
   };
 

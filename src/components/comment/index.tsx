@@ -54,14 +54,11 @@ const CommentWrapper = ({ documentId }: Props) => {
       });
 
       setComment("");
-      const data = await response.json();
       if (!response.ok) {
-        return console.log(data.error);
+        return null;
       }
-
-      return console.log(data.data);
     } catch (error) {
-      console.log(error);
+      return null;
     }
   }, [comment]);
 
@@ -77,6 +74,7 @@ const CommentWrapper = ({ documentId }: Props) => {
           documentId={item.documentId}
           reader={item.reader}
           content={item.content}
+          publishedAt={item.publishedAt}
         />
       ))}
       <CommentInput

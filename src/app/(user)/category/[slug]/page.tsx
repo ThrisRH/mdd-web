@@ -19,7 +19,7 @@ async function getCateInfo(cateId: string) {
     });
     return await res.json();
   } catch {
-    throw new Error("Failed to fetch cate");
+    return null;
   }
 }
 
@@ -31,7 +31,7 @@ async function getBlogsByCate(cateId: string, pageNumber: number) {
     );
     return await res.json();
   } catch {
-    throw new Error("Failed to fetch blogs");
+    return null;
   }
 }
 

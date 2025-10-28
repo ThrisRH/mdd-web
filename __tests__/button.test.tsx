@@ -1,41 +1,43 @@
-// import Button from "@/components/Button/button";
-// import { fireEvent, render, screen } from "@testing-library/react";
+import React from "react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import MainButton from "../src/components/ui/button/main_button";
 
-// describe("Button component", () => {
-//   it("Renders đúng component không?", () => {
-//     render(<Button>Click Me</Button>);
-//     expect(screen.getByText("Click Me")).toBeInTheDocument();
-//   });
+describe("MainButton component", () => {
+  it("renders children and has role button", () => {
+    render(
+      <MainButton variant="secondary" onClick={() => {}}>
+        Click Me
+      </MainButton>
+    );
 
-//   it("Default props có hoạt động đúng mặt định là secondary hay không?", () => {
-//     render(<Button>Secondary Btn</Button>);
-//     const button = screen.getByRole("button");
-//     expect(button).toHaveAttribute("class");
-//   });
+    expect(screen.getByText("Click Me")).toBeInTheDocument();
+    expect(screen.getByRole("button")).toBeInTheDocument();
+  });
 
-//   it("Chiều cao có đúng 60px không?", () => {
-//     render(<Button height="60px">Tall Btn</Button>);
-//     const button = screen.getByRole("button");
-//     expect(button).toHaveStyle({ height: "60px" });
-//   });
+  it("calls onClick when clicked", () => {
+    const handle = jest.fn();
+    render(
+      <MainButton variant="primary" onClick={handle}>
+        Press
+      </MainButton>
+    );
 
-//   it("Có gọi hàm onClickFunc khi click không?", () => {
-//     const handleClick = jest.fn();
-//     render(<Button onClickFunc={handleClick}>Click</Button>);
-//     fireEvent.click(screen.getByText("Click"));
-//     expect(handleClick).toHaveBeenCalledTimes(1);
-//   });
+    const btn = screen.getByText("Press");
+    fireEvent.click(btn);
+    expect(handle).toHaveBeenCalledTimes(1);
+  });
 
-//   it("Vô hiệu hóa nút khi disabled == true", () => {
-//     const handleClick = jest.fn();
-//     render(
-//       <Button disable={true} onClickFunc={handleClick}>
-//         Disabled
-//       </Button>
-//     );
-//     const button = screen.getByRole("button");
-//     expect(button).toBeDisabled();
-//     fireEvent.click(button);
-//     expect(handleClick).not.toHaveBeenCalled();
-//   });
-// });
+  it("respects disabled prop", () => {
+    const handle = jest.fn();
+    render(
+      <MainButton variant="secondary" onClick={handle} isDisable={true}>
+        Disabled
+      </MainButton>
+    );
+
+    const btn = screen.getByRole("button");
+    expect(btn).toBeDisabled();
+    fireEvent.click(btn);
+    expect(handle).not.toHaveBeenCalled();
+  });
+});

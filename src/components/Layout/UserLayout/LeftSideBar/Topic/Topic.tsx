@@ -24,7 +24,7 @@ const Topic = () => {
       const data = await response.json();
       setCate(data.data);
     } catch (error) {
-      console.log(error);
+      return null;
     }
   };
 

@@ -56,10 +56,10 @@ const UpdateCate = ({ cate }: Props) => {
         setErrorMessage(result.error);
       }
 
-      console.log(result);
       router.replace("/admin-panel/mycates");
     } catch (error) {
       setErrorMessage("Lỗi server");
+      return null;
     } finally {
       setTimeout(() => {
         setIsLoading(false);

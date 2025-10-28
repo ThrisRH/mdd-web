@@ -31,7 +31,7 @@ export const InfoProvider = ({ children }: { children: React.ReactNode }) => {
       const data = await res.json();
       setInfo(data.data);
     } catch (err) {
-      console.error(err);
+      return null;
     } finally {
       setLoading(false);
     }

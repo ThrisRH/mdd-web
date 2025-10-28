@@ -25,7 +25,7 @@ const PageContainer = ({ children }: PostProps) => {
       if (!res.ok) return;
       setBlogs(data.data);
     } catch (err) {
-      console.log(err);
+      return null;
     }
   };
 

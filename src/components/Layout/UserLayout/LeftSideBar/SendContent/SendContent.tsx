@@ -21,7 +21,7 @@ const SendContent = () => {
       const data = await response.json();
       setCate(data.data);
     } catch (error) {
-      console.log(error);
+      return null;
     }
   };
 
@@ -40,7 +40,7 @@ const SendContent = () => {
       }
       setEmail("");
     } catch (error) {
-      throw new Error("Failed to send content;");
+      return null;
     }
   };
 

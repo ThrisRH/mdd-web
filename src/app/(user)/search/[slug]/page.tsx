@@ -23,8 +23,7 @@ async function getBlogsByName(title: string, pageNumber: number) {
     const data = await res.json();
     return data || null;
   } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch posts");
+    return null;
   }
 }
 

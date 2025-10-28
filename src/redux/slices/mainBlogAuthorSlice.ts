@@ -32,7 +32,7 @@ export const fetchAuthorData = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await fetch("/mmdblogsapi/authors?populate=*");
-      if (!response.ok) throw new Error("Failed to fetch authors");
+      if (!response.ok) return null;
       const data = await response.json();
       return data.data;
     } catch (error: any) {

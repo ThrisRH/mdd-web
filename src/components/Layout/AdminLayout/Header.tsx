@@ -1,6 +1,5 @@
 "use client";
 import MoreIC from "@/assets/svg/more";
-import BellIC from "@/assets/svg/noticebell";
 import WriteNewIC from "@/assets/svg/writingblog";
 import RobotIC from "@/assets/svg/airobot"; // Chat with AI function
 import LogoImg from "@/assets/image/logo.png";
@@ -24,6 +23,7 @@ import { TabContainer } from "@/styles/components/layout/Layout.styles";
 import { Row } from "@/components/ui/common/styled";
 import { useRouter } from "next/navigation";
 import { Text } from "@/styles/theme/typography";
+import Notification from "./HeaderComponents/notification";
 
 const Header = () => {
   const [isSelectionCreateOpen, setIsSelectionCreateOpen] = useState(false);
@@ -57,7 +57,7 @@ const Header = () => {
 
         <HeaderItemsGroup>
           <RobotIC id="ai-hint" />
-          <BellIC id="notification" />
+          <Notification />
           <Link href={"/"}>
             <Text $variant="body5" $color="#4f6ffa">
               Về trang người dùng

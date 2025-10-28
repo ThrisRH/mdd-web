@@ -23,9 +23,8 @@ export default function AboutPage() {
         );
         const result = await res.json();
         setData(result.data);
-        console.log("data: ", result);
       } catch (err) {
-        console.error(err);
+        return null;
       } finally {
         setLoading(false);
       }

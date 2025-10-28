@@ -21,8 +21,8 @@ const Header = () => {
       const response = await fetch("/mmdblogsapi/cates?populate=*");
       const data = await response.json();
       setCate(data.data);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      return null;
     }
   };
 

@@ -26,7 +26,6 @@ export default function MyCatesPage() {
         return null;
       }
       const result = await res.json();
-      console.log(result);
       setData(result);
     } catch (error) {
       return null;

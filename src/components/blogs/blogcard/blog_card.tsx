@@ -84,8 +84,8 @@ const PostCard = ({ index, post }: PostCardProps) => {
       }
 
       setBlogAvatar(data.data);
-    } catch (error) {
-      console.log("Error: " + error);
+    } catch (error: any) {
+      return null;
     } finally {
       setLoading(false);
     }

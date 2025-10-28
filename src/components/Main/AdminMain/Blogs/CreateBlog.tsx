@@ -76,16 +76,15 @@ const CreateBlog = ({
         });
 
         if (!uploadRes.ok) {
-          throw new Error("Lỗi khi upload ảnh");
+          return null;
         }
 
         const uploadJson = await uploadRes.json();
-        console.log("Upload response:", uploadJson);
 
         if (uploadJson && uploadJson[0]?.id) {
           imageId = uploadJson[0].id;
         } else {
-          throw new Error("Không thể lấy ID ảnh từ phản hồi của Strapi");
+          return null;
         }
       }
 
@@ -112,12 +111,12 @@ const CreateBlog = ({
         const postJson = await postRes.json();
 
         if (!postRes.ok) {
-          throw new Error(postJson);
+          return null;
         }
       }
       window.location.href = "/admin-panel/myblogs";
     } catch (err: any) {
-      throw new Error(err);
+      return null;
     } finally {
       setIsLoading(false);
     }

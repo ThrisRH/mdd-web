@@ -13,12 +13,10 @@ import ContactSection from "./ContactSection";
 import CustomEditor from "../Blogs/CreateInputs/CKEditorInput/CustomEditor";
 import { ButtonWrapper, CustomButton } from "@/components/ui/button/styled";
 import ProfileSection from "./ProfileSection";
-import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
 import { AboutState } from "@/types/about";
 import { Loader } from "../../Loading.styles";
 import { Row } from "@/components/ui/common/styled";
 import { Caption, Text } from "@/styles/theme/typography";
-import { platform } from "os";
 
 interface Props {
   about: AboutState;
@@ -26,7 +24,6 @@ interface Props {
 
 const AboutBody = ({ about }: Props) => {
   const [data, setData] = useState(about);
-  const [testData, setTestData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const { selectedDeleteItems, toggleSelect } = useToggleSelect();
@@ -44,7 +41,6 @@ const AboutBody = ({ about }: Props) => {
       );
 
       if (data.avatarFileTemp) {
-        console.log("have data temp");
         const formData = new FormData();
         formData.append("files", data.avatarFileTemp);
 
@@ -54,10 +50,9 @@ const AboutBody = ({ about }: Props) => {
         });
 
         if (!uploadRes.ok) {
-          throw new Error("Lỗi khi upload ảnh");
+          return null;
         }
         const uploadJson = await uploadRes.json();
-        console.log("Upload response:", uploadJson);
 
         avatarId = uploadJson[0].id;
       }
@@ -81,22 +76,19 @@ const AboutBody = ({ about }: Props) => {
         }
       );
       const result = await response.json();
-      console.log("Step2: ", result);
       if (!response.ok) {
         setIsLoading(false);
-        console.log(result.error);
         return;
       }
-
-      console.log("Step2: Avatar Id -> ", avatarId);
-      console.log("Step2: Upload new about");
 
       setTimeout(() => {
         window.location.href = "/admin-panel/myaboutinfo";
         setIsSaving(false);
       }, 1000);
     } catch (error: any) {
-      throw new Error(error);
+      return null;
+    } finally {
+      setIsSaving(false);
     }
   };
 

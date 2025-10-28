@@ -69,12 +69,6 @@ const CateDetailSidebar = ({ cate }: Props) => {
             Chi tiết
           </Text>
         </TabContainer>
-        <TabContainer $isSelected={false}>
-          <CommentIC />
-          <Text $variant="body2" $color="#4f4f4f">
-            Bài viết
-          </Text>
-        </TabContainer>
       </TabsGroup>
     </SidebarItemsContainer>
   );

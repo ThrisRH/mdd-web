@@ -21,8 +21,8 @@ const Page = () => {
       if (!res.ok) return;
 
       setBlogs(data.data);
-    } catch (err) {
-      console.log(err);
+    } catch (err: any) {
+      return null;
     }
   };
 

@@ -9,7 +9,6 @@ export default function AuthAsync() {
 
   useEffect(() => {
     if (session?.user) {
-      console.log("Session Log: ", session.user);
       dispatch(setAuth(session));
     } else {
       dispatch(clearAuth());

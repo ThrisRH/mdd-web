@@ -42,9 +42,8 @@ const CategorySelectionBox = ({
           { cache: "no-store" }
         );
         const result = await res.json();
-        console.log("result cate: ", result);
+
         setData(result.data);
-        console.log("result cate: ", data);
       } catch (err) {
         console.error(err);
       } finally {

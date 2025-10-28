@@ -21,6 +21,7 @@ import Image from "next/image";
 import ActionSection from "../Components/ActionSection";
 import TablePaginationBar from "@/components/Layout/Pagination/ForTable/TablePaginationBar";
 import { Body, Text } from "@/styles/theme/typography";
+import { Flex, Row } from "@/components/ui/common/styled";
 
 type TableItem = {
   title?: string;
@@ -121,7 +122,7 @@ const BlogTable = ({
                 $topPosition={selectedBlogs.size !== 0 ? "156px" : "90px"}
               >
                 {item.title ? (
-                  <Body>{item.title}</Body>
+                  <Body $whiteSpace="nowrap">{item.title}</Body>
                 ) : (
                   <IconContainer onClick={selectAll}>
                     {selectedBlogs.size !== 0 ? (
@@ -136,69 +137,81 @@ const BlogTable = ({
           </tr>
         </thead>
 
-        <tbody>
-          {posts.map((item) => (
-            <RowContainer key={item.documentId}>
-              <TableBodyCell>
-                <IconContainer onClick={() => selectBlog(item.documentId)}>
-                  {selectedBlogs.has(item.documentId) ? (
-                    <SelectedIC />
-                  ) : (
-                    <NoneSelectionIC />
-                  )}
-                </IconContainer>
-              </TableBodyCell>
+        {posts.length !== 0 ? (
+          <>
+            <tbody>
+              {posts.map((item) => (
+                <RowContainer key={item.documentId}>
+                  <TableBodyCell>
+                    <IconContainer onClick={() => selectBlog(item.documentId)}>
+                      {selectedBlogs.has(item.documentId) ? (
+                        <SelectedIC />
+                      ) : (
+                        <NoneSelectionIC />
+                      )}
+                    </IconContainer>
+                  </TableBodyCell>
 
-              <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                <TableFlexWrapper>
-                  <ImageContainer $height="72px">
-                    <Image
-                      src={
-                        item.cover.url.startsWith("https")
-                          ? item.cover.url
-                          : `/baseurl${item.cover.url}`
-                      }
-                      alt="image"
-                      fill
-                      style={{ objectFit: "cover" }}
-                    />
-                  </ImageContainer>
+                  <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
+                    <TableFlexWrapper>
+                      <ImageContainer $height="72px">
+                        <Image
+                          src={
+                            item.cover.url.startsWith("https")
+                              ? item.cover.url
+                              : `/baseurl${item.cover.url}`
+                          }
+                          alt="image"
+                          fill
+                          style={{ objectFit: "cover" }}
+                        />
+                      </ImageContainer>
 
-                  <ContentField>
-                    <Body>{item.title}</Body>
-                    <MainContent>
-                      <Text $variant="body4" $color="#7a7a7a">
-                        {item.mainContent}
-                      </Text>
-                    </MainContent>
-                  </ContentField>
-                </TableFlexWrapper>
-              </TableBodyCell>
+                      <ContentField>
+                        <Body>{item.title}</Body>
+                        <MainContent>
+                          <Text $variant="body4" $color="#7a7a7a">
+                            {item.mainContent}
+                          </Text>
+                        </MainContent>
+                      </ContentField>
+                    </TableFlexWrapper>
+                  </TableBodyCell>
 
-              <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                <Text $variant="body4">{formatDate(item.publishedAt)}</Text>
-              </TableBodyCell>
+                  <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
+                    <Text $variant="body4">{formatDate(item.publishedAt)}</Text>
+                  </TableBodyCell>
 
-              <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                <Text $variant="body4">{item.cate?.tile}</Text>
-              </TableBodyCell>
-              <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                <Text $variant="body4">{item.comments?.length}</Text>
-              </TableBodyCell>
-              <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                <Text $variant="body4">{item.slug}</Text>
-              </TableBodyCell>
-            </RowContainer>
-          ))}
-        </tbody>
+                  <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
+                    <Text $variant="body4">{item.cate?.tile}</Text>
+                  </TableBodyCell>
+                  <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
+                    <Text $variant="body4">{item.comments?.length}</Text>
+                  </TableBodyCell>
+                  <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
+                    <Text $variant="body4">{item.slug}</Text>
+                  </TableBodyCell>
+                </RowContainer>
+              ))}
+            </tbody>
 
-        <tfoot>
-          <TablePaginationBar
-            currentPage={currentPage}
-            totalPages={totalPages}
-            handleChangePage={handleChangePage}
-          />
-        </tfoot>
+            <tfoot>
+              <TablePaginationBar
+                currentPage={currentPage}
+                totalPages={totalPages}
+                handleChangePage={handleChangePage}
+              />
+            </tfoot>
+          </>
+        ) : (
+          <tbody>
+            <TableBodyCell colSpan={6}>
+              <Row $justify="center">
+                <Body>Bạn chưa có danh mục nào!</Body>
+              </Row>
+            </TableBodyCell>
+          </tbody>
+        )}
       </TableWrapper>
     </BodyContainer>
   );

@@ -68,7 +68,6 @@ const UpdateBlog = ({ blog }: Props) => {
         setErrorMessage(result.error);
       }
 
-      console.log(result);
       router.replace("/admin-panel/myblogs");
     } catch (error) {
       setErrorMessage("Lỗi server");
