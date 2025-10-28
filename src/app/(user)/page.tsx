@@ -4,6 +4,7 @@ import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 import { notFound } from "next/navigation";
 import PaginatedBlogList from "@/components/Layout/Pagination/PaginatedBlogList";
 import { Text } from "@/styles/theme/typography";
+import NotFound from "@/components/Main/NotFound";
 
 const API_URL = process.env.SERVER_HOST;
 
@@ -52,16 +53,11 @@ export async function generateMetadata() {
 
 export default async function Home(props: { searchParams: SearchParams }) {
   const searchParams = await props.searchParams;
-  const query = searchParams.query;
-  const pageRaw = query || "1";
+  const pageRaw = searchParams.page || "1";
   const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
-  const pageNumber = parseInt(pageStr);
+  const pageNumber = parseInt(pageStr, 10);
 
   const data = await getBlogs(pageNumber);
-
-  if (!data) {
-    notFound();
-  }
 
   const pageCount = data.meta.pagination.pageCount;
 
@@ -69,8 +65,11 @@ export default async function Home(props: { searchParams: SearchParams }) {
     <PageContainer>
       <BlogContainer>
         <Text $variant="h0">Blog</Text>
-
-        <PaginatedBlogList totalPages={pageCount} page={pageNumber} />
+        {!data || data.data.length === 0 ? (
+          <NotFound />
+        ) : (
+          <PaginatedBlogList totalPages={pageCount} page={pageNumber} />
+        )}
       </BlogContainer>
     </PageContainer>
   );

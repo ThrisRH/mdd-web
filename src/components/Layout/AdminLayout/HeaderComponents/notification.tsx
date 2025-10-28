@@ -60,7 +60,7 @@ const Notification = () => {
   const handleReadNotification = async (notification: NotificationProps) => {
     try {
       const res = await fetch(
-        `http://localhost:1337/api/notifications/${notification.documentId}`,
+        `/mmdblogsapi/notifications/${notification.documentId}`,
         {
           method: "PUT",
           headers: {

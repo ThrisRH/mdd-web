@@ -20,6 +20,7 @@ import BlogSlugInput from "../Blogs/CreateInputs/BlogSlugInput";
 import { Body, Text } from "@/styles/theme/typography";
 import { Loader } from "../../Loading.styles";
 import { Row } from "@/components/ui/common/styled";
+import { handleError } from "@/utils/HandleError";
 
 const CreateCategory = ({
   setIsCreateCatePopupOpen,
@@ -61,7 +62,7 @@ const CreateCategory = ({
       }
       window.location.href = "/admin-panel/mycates";
     } catch (err: any) {
-      return null;
+      handleError();
     } finally {
       setIsLoading(false);
     }

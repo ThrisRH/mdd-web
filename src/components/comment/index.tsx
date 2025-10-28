@@ -13,6 +13,8 @@ import Image from "next/image";
 import { CommentInputProps, CommentProps } from "@/types/comment";
 import { BorderContainer } from "@/styles/components/layout/Common.styles";
 import { Body, Caption, Text } from "@/styles/theme/typography";
+import { handleError } from "@/utils/HandleError";
+import { toast } from "react-toastify";
 
 interface Props {
   documentId: string;
@@ -55,10 +57,10 @@ const CommentWrapper = ({ documentId }: Props) => {
 
       setComment("");
       if (!response.ok) {
-        return null;
+        toast.error("Failed to post comment!");
       }
     } catch (error) {
-      return null;
+      handleError();
     }
   }, [comment]);
 

@@ -17,6 +17,7 @@ import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import MainButton from "../../ui/button/main_button";
 import { Row } from "@/components/ui/common/styled";
 import { Text } from "@/styles/theme/typography";
+import { handleError } from "@/utils/HandleError";
 
 interface Post {
   documentId: string;
@@ -85,7 +86,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
 
       setBlogAvatar(data.data);
     } catch (error: any) {
-      return null;
+      handleError();
     } finally {
       setLoading(false);
     }

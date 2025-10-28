@@ -6,6 +6,8 @@ import SearchBar from "../Search/SearchBar";
 import MobileMenu from "./MobileHeader";
 import NavOverlay from "./NavOverlay";
 import DesktopNav, { CateProps } from "./DesktopNav";
+import { toast } from "react-toastify";
+import { handleError } from "@/utils/HandleError";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -22,7 +24,7 @@ const Header = () => {
       const data = await response.json();
       setCate(data.data);
     } catch (error: any) {
-      return null;
+      handleError();
     }
   };
 

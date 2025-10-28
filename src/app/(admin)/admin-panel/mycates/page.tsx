@@ -7,6 +7,7 @@ import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Text } from "@/styles/theme/typography";
+import { handleError } from "@/utils/HandleError";
 
 export default function MyCatesPage() {
   const [data, setData] = useState<any>();
@@ -23,12 +24,12 @@ export default function MyCatesPage() {
         { cache: "no-store" }
       );
       if (!res.ok) {
-        return null;
+        handleError();
       }
       const result = await res.json();
       setData(result);
     } catch (error) {
-      return null;
+      handleError();
     } finally {
       setLoading(false);
     }

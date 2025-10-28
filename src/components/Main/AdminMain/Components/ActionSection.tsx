@@ -7,6 +7,7 @@ import { Loader } from "../../Loading.styles";
 import { CustomButton } from "@/components/ui/button/styled";
 import IconButton from "@/components/ui/button/icon_button";
 import { Body, Text } from "@/styles/theme/typography";
+import { handleError } from "@/utils/HandleError";
 
 interface Props {
   selectedItems: Set<string>;
@@ -39,7 +40,7 @@ const ActionSection = ({ selectedItems, forFeature }: Props) => {
         1000
       );
     } catch (error) {
-      return null;
+      handleError();
     } finally {
       setTimeout(() => setIsDeleting(false), 1000);
     }

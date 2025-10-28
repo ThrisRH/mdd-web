@@ -17,6 +17,7 @@ import { AboutState } from "@/types/about";
 import { Loader } from "../../Loading.styles";
 import { Row } from "@/components/ui/common/styled";
 import { Caption, Text } from "@/styles/theme/typography";
+import { handleError } from "@/utils/HandleError";
 
 interface Props {
   about: AboutState;
@@ -86,7 +87,7 @@ const AboutBody = ({ about }: Props) => {
         setIsSaving(false);
       }, 1000);
     } catch (error: any) {
-      return null;
+      handleError();
     } finally {
       setIsSaving(false);
     }

@@ -7,6 +7,7 @@ import Loading from "@/app/(user)/loading";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
 import { Text } from "@/styles/theme/typography";
+import { handleError } from "@/utils/HandleError";
 
 export default function MyBlogsPage() {
   const [data, setData] = useState<any>();
@@ -27,7 +28,7 @@ export default function MyBlogsPage() {
         const result = await res.json();
         setData(result);
       } catch (err) {
-        console.error(err);
+        handleError();
       } finally {
         setLoading(false);
       }

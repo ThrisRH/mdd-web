@@ -5,6 +5,7 @@ import NotFound from "@/components/Main/NotFound";
 import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 import PaginatedBlogList from "@/components/Layout/Pagination/PaginatedBlogList";
 import { Text } from "@/styles/theme/typography";
+import { handleError } from "@/utils/HandleError";
 
 // props
 type Params = Promise<{ slug: string }>;
@@ -16,14 +17,14 @@ const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 async function getBlogsByName(title: string, pageNumber: number) {
   try {
     const res = await fetch(
-      `${API_URL}/api/blogs/by-title/${title}?page=${pageNumber}&pageSize=3&populate=*`,
+      `${API_URL}/api/blogs/by-title/${title}?pagination=${pageNumber}&pageSize=3&populate=*`,
       { cache: "no-store" }
     );
 
     const data = await res.json();
     return data || null;
   } catch (error) {
-    return null;
+    handleError();
   }
 }
 
@@ -62,10 +63,10 @@ export default async function SearchPage(props: {
   const params = await props.params;
   const searchParams = await props.searchParams;
   const slug = params.slug;
-  const query = searchParams.query;
-  const pageRaw = query || "1";
+  const pageQuery = searchParams.page;
+  const pageRaw = pageQuery || "1";
   const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
-  const pageNumber = parseInt(pageStr);
+  const pageNumber = parseInt(pageStr, 10);
 
   const title = decodeURIComponent(slug);
 

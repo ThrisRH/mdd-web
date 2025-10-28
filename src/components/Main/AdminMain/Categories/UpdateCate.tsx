@@ -10,6 +10,7 @@ import BlogTitleInput from "../Blogs/CreateInputs/BlogTitleInput";
 import BlogSlugInput from "../Blogs/CreateInputs/BlogSlugInput";
 import { Body, Text } from "@/styles/theme/typography";
 import SaveIC from "@/assets/svg/Interact/SaveButton";
+import { handleError } from "@/utils/HandleError";
 
 interface Props {
   cate: CateProps;
@@ -58,8 +59,7 @@ const UpdateCate = ({ cate }: Props) => {
 
       router.replace("/admin-panel/mycates");
     } catch (error) {
-      setErrorMessage("Lỗi server");
-      return null;
+      handleError();
     } finally {
       setTimeout(() => {
         setIsLoading(false);

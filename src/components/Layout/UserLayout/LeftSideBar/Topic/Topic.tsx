@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import TopicTitle from "@/assets/svg/topicSelect";
 import { InputWrapper, Select } from "../styled";
 import { usePathname, useRouter } from "next/navigation";
+import { handleError } from "@/utils/HandleError";
 
 interface CateProps {
   id: number;
@@ -24,7 +25,7 @@ const Topic = () => {
       const data = await response.json();
       setCate(data.data);
     } catch (error) {
-      return null;
+      handleError();
     }
   };
 

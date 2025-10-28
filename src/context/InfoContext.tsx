@@ -1,4 +1,5 @@
 "use client";
+import { handleError } from "@/utils/HandleError";
 import { createContext, useContext, useEffect, useState } from "react";
 
 export type InfoProps = {
@@ -31,7 +32,7 @@ export const InfoProvider = ({ children }: { children: React.ReactNode }) => {
       const data = await res.json();
       setInfo(data.data);
     } catch (err) {
-      return null;
+      handleError();
     } finally {
       setLoading(false);
     }

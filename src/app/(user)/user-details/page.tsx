@@ -8,6 +8,7 @@ import IgImage from "@/assets/image/ig_pic.png";
 import FavoriteField from "@/components/Layout/UserLayout/LeftSideBar/FavoriteField/FavoriteField";
 import { Blog } from "@/components/Main/PageContainer";
 import UserDetails from "@/components/Main/UserDetails";
+import { handleError } from "@/utils/HandleError";
 
 const Page = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -22,7 +23,7 @@ const Page = () => {
 
       setBlogs(data.data);
     } catch (err: any) {
-      return null;
+      handleError();
     }
   };
 

@@ -86,10 +86,10 @@ export default async function CatePage(props: {
   const params = await props.params;
   const searchParams = await props.searchParams;
   const slug = params.slug;
-  const query = searchParams.query;
-  const pageRaw = query ?? "1";
+  const pageQuery = searchParams.page;
+  const pageRaw = pageQuery ?? "1";
   const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
-  const pageNumber = parseInt(pageStr);
+  const pageNumber = parseInt(pageStr, 10);
 
   const cate = await getCateInfo(slug);
   if (!cate?.data) {

@@ -8,6 +8,7 @@ import { useToggleSelect } from "@/hooks/useToggleSelect";
 import FAQsSection from "./FAQsSection";
 import { FAQData } from "@/types/faq";
 import { Body, Caption } from "@/styles/theme/typography";
+import { handleError } from "@/utils/HandleError";
 
 interface Props {
   faqs: FAQData;
@@ -68,7 +69,7 @@ const faqBody = ({ faqs }: Props) => {
         window.location.href = "/admin-panel/myfaqsetting";
       }, 1000);
     } catch (error: any) {
-      return null;
+      handleError();
     } finally {
       setIsLoading(false);
     }

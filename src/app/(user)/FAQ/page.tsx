@@ -1,9 +1,8 @@
 import React from "react";
-import { FAQWrapper } from "@/components/Main/Styled/FAQContent.styles";
 import FAQBody from "./FAQBody";
 import { notFound } from "next/navigation";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { FAQData } from "@/types/faq";
+import { handleError } from "@/utils/HandleError";
 
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
@@ -15,11 +14,14 @@ async function getFAQData() {
       method: "GET",
     });
 
-    if (!res.ok) return null;
+    if (!res.ok) {
+      const error = await res.json();
+      throw new Error(error.error.message);
+    }
     const data = await res.json();
     return data;
   } catch (error) {
-    return null;
+    handleError();
   }
 }
 

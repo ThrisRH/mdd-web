@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import PaginationBar from "./PaginationBar";
 import PostCard from "@/components/blogs/blogcard/blog_card";
 import { BlogDetails } from "@/types/blog";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { BlogCardFrame } from "@/components/Main/Styled/PageContainer.styles";
 import NotFound from "@/components/Main/NotFound";
+import { toast } from "react-toastify";
 
 interface BaseProps {
   totalPages: number;
@@ -37,7 +38,6 @@ export default function PaginatedBlogList({
   useEffect(() => {
     async function fetchPage() {
       let url = "";
-
       if (slug && type === "category") {
         // cate mode
         url = `/mmdblogsapi/blogs?filters[cate][documentId][$eq]=${slug}&populate=cover&pagination[page]=${currentPage}&pagination[pageSize]=3&sort=createdAt:desc`;
@@ -48,10 +48,13 @@ export default function PaginatedBlogList({
         // home mode
         url = `/mmdblogsapi/blogs?pagination[page]=${currentPage}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`;
       }
-
-      const res = await fetch(url);
-      const data = await res.json();
-      setPosts(data.data);
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        setPosts(data.data);
+      } catch (error) {
+        toast.error("Something went wrong. Please try again later.");
+      }
     }
     fetchPage();
   }, [currentPage, slug]);
