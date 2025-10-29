@@ -1,7 +1,8 @@
 "use client";
+import BottomNavbar from "@/components/Layout/AdminLayout/BottomNavbar";
 import Header from "@/components/Layout/AdminLayout/Header";
 import { AdminLayoutContainer } from "@/components/Layout/AdminLayout/Layout.styles";
-import { InfoProvider } from "@/context/InfoContext";
+import { BlogdetailcontextProvider } from "@/context/blogdetailcontext";
 import React from "react";
 
 interface LayoutProps {
@@ -10,11 +11,12 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <InfoProvider>
-      <AdminLayoutContainer>
+    <AdminLayoutContainer>
+      <BlogdetailcontextProvider>
         <Header />
         {children}
-      </AdminLayoutContainer>
-    </InfoProvider>
+        <BottomNavbar />
+      </BlogdetailcontextProvider>
+    </AdminLayoutContainer>
   );
 }

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Flex = styled.div<{
   $gap?: "none" | "xs" | "sm" | "md" | "lg";
   $align?: "flex-start" | "flex-end" | "center" | "baseline" | "stretch";
+  $width?: string;
   $justify?:
     | "flex-start"
     | "flex-end"
@@ -12,7 +13,7 @@ export const Flex = styled.div<{
     | "space-evenly";
 }>`
   display: flex;
-  width: 100%;
+  width: ${(props) => props.$width || "100%"};
   gap: ${(props) => {
     switch (props.$gap) {
       case "none":

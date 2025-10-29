@@ -11,14 +11,23 @@ export const NotificationWrapper = styled.div`
 export const NotificationBox = styled.div`
   position: absolute;
   top: 40px;
-  right: -100px;
-  width: 450px;
-  height: 600px;
+  right: -50px;
+  width: 250px;
+  height: 400px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   border-radius: 6px;
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+
+  @media (min-width: 768px) {
+    width: 400px;
+  }
+
+  @media (min-width: 425px) {
+    right: -100px;
+    width: 300px;
+  }
 `;
 
 export const ContentBox = styled.div`

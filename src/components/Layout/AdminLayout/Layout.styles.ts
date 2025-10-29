@@ -6,17 +6,25 @@ export const HeaderContainer = styled.div`
   flex-direction: row;
   width: 100%;
   min-height: 64px;
-  height: 200px;
   background-color: #fff;
   box-shadow: 0px 0px 5px 0.2px rgba(0, 0, 0, 0.5);
   align-items: center;
   padding: 0px 24px;
   justify-content: space-between;
   z-index: 100;
+
+  .SearchArea {
+    width: 50%;
+
+    @media (min-width: 425px) {
+      width: 40%;
+    }
+  }
 `;
 
-export const HeaderItemsGroup = styled.div`
+export const HeaderItemsGroup = styled.div<{ $width?: string }>`
   display: flex;
+  width: ${(props) => props.$width || "auto"};
   flex-direction: row;
   align-items: center;
   gap: 12px;
@@ -24,7 +32,7 @@ export const HeaderItemsGroup = styled.div`
   .expand-tab-bar {
     display: none;
 
-    @media (min-width: 1024px) {
+    @media (max-width: 424px) {
       display: flex;
       gap: 24px;
     }
@@ -34,6 +42,14 @@ export const HeaderItemsGroup = styled.div`
     display: none;
 
     @media (min-width: 425px) {
+      display: block;
+    }
+  }
+
+  .logoText {
+    display: none;
+
+    @media (min-width: 768px) {
       display: block;
     }
   }
@@ -93,15 +109,23 @@ export const AdminLayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: hidden;
+
+  .BottomNavbar {
+    display: flex;
+
+    @media (min-width: 424px) {
+      display: none;
+    }
+  }
 `;
 
 export const BodyWrapper = styled.div`
   display: flex;
+  flex: 1;
   width: 100%;
   flex-direction: row;
   min-height: calc(100vh - 64px);
-  overflow: hidden;
+  overflow-y: auto;
 `;
 
 // Side bar

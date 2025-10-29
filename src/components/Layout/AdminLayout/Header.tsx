@@ -24,6 +24,7 @@ import { Row } from "@/components/ui/common/styled";
 import { useRouter } from "next/navigation";
 import { Text } from "@/styles/theme/typography";
 import Notification from "./HeaderComponents/notification";
+import SearchBarAdmin from "./HeaderComponents/searchbar";
 
 const Header = () => {
   const [isSelectionCreateOpen, setIsSelectionCreateOpen] = useState(false);
@@ -41,7 +42,6 @@ const Header = () => {
       )}
       <HeaderContainer>
         <HeaderItemsGroup>
-          <MoreIC className="expand-tab-bar" color={"#1C1C1C"} />
           <Row
             style={{ cursor: "pointer" }}
             onClick={() => {
@@ -49,14 +49,22 @@ const Header = () => {
             }}
           >
             <Image src={LogoImg} width={28} height={28} alt="MddLogo" />
-            <Text $variant="h5" $size={20}>
+            <Text
+              className="logoText"
+              $whiteSpace="nowrap"
+              $variant="h5"
+              $size={20}
+            >
               MDD Blogs
             </Text>
           </Row>
         </HeaderItemsGroup>
 
+        <HeaderItemsGroup className="SearchArea">
+          <SearchBarAdmin />
+        </HeaderItemsGroup>
+
         <HeaderItemsGroup>
-          <RobotIC id="ai-hint" />
           <Notification />
           <Link href={"/"}>
             <Text $variant="body5" $color="#4f6ffa">

@@ -10,11 +10,9 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <BlogdetailcontextProvider>
-      <BodyWrapper>
-        <BlogDetailSidebar />
-        {children}
-      </BodyWrapper>
-    </BlogdetailcontextProvider>
+    <BodyWrapper>
+      <BlogDetailSidebar />
+      {children}
+    </BodyWrapper>
   );
 }

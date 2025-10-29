@@ -27,7 +27,7 @@ const CommentCard = ({ comment }: CommentCardProps) => {
           alt="image"
         />
       </ImageContainer>
-      <Column $gap="none">
+      <Column $gap="none" $width="fit-content">
         <ReaderDetailContainer $align="center">
           <Text $variant="body1">{comment.reader.Fullname}</Text>
           <Dot $scale={3} $color="rgba(0,0,0,0.5)" />

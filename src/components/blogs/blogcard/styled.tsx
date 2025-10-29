@@ -22,6 +22,7 @@ export const ImageContainer = styled.div<{
     | "cmt-avatar"
     | "sidebar-blog-detail"
     | "notification"
+    | "fit-image"
     | "preview";
 }>`
   position: relative;
@@ -44,6 +45,12 @@ export const ImageContainer = styled.div<{
         height: 50px;
         `;
 
+      case `fit-image`:
+        return `
+        width: 150px;
+        height: 100%;
+        `;
+
       case `avatar`:
         return `
         width: 100%;
@@ -54,8 +61,8 @@ export const ImageContainer = styled.div<{
       case `cmt-avatar`:
         return `
         position: relative;
-        aspect-ratio: 1 / 1;
-        width: 42px;
+        min-width: 48px;
+        height: 48px;
         `;
 
       case `sidebar-blog-detail`:

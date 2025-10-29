@@ -29,6 +29,7 @@ export const MainContentContainer = styled.div`
 
 // Container của tab trên navbar
 export const TabContainer = styled.div<{
+  $scale?: string;
   $isSelected: boolean;
 }>`
   display: flex;
@@ -36,8 +37,8 @@ export const TabContainer = styled.div<{
   background-color: ${(props) =>
     props.$isSelected ? "rgba(0,0,0,0.03)" : "transparent"};
   gap: 24px;
-  width: 100%;
-  height: 48px;
+  width: ${(props) => props.$scale || "100%"};
+  height: ${(props) => props.$scale || "48px"};
   padding: 4px 12px;
   align-items: center;
   border-radius: 12px;
