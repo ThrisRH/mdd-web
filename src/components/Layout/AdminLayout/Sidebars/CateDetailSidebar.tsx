@@ -26,7 +26,7 @@ const CateDetailSidebar = ({ cate }: Props) => {
       <TabContainer
         $isSelected={false}
         onClick={() => {
-          router.back();
+          router.push("/admin-panel/mycates");
         }}
       >
         <BackIC />

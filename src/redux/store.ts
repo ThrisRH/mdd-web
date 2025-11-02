@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authSlice from "./slices/authSlice";
 import mainBlogAuthorSlice from "./slices/mainBlogAuthorSlice";
+import blogSlice from "./slices/blogSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authSlice,
     mainBlogAuthor: mainBlogAuthorSlice,
+    blogBasicInfo: blogSlice,
   },
   devTools: true,
 });

@@ -9,7 +9,7 @@ interface NotFoundProps {
 
 const NotFound = ({ title }: NotFoundProps) => {
   return (
-    <div className="flex flex-col w-full flex-2 items-center center gap-8">
+    <div className="flex flex-col w-full flex-2 items-center center gap-8 my-20">
       <NotFoundIC className={"max-w-[510px] w-full max-h-[377px]"} />
       <Text $variant="h1">{title ? title : "No results found"}</Text>
       <Text $variant="body2" $align="center">

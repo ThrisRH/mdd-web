@@ -13,9 +13,9 @@ export const Tabs = [
 ];
 
 export const BlogDetailTabs = [
-  { path: `/blog-details/info`, icon: PencilIC, label: "Chi tiết" },
+  { path: `/info`, icon: PencilIC, label: "Chi tiết" },
   {
-    path: `/blog-details/comments`,
+    path: `/comment`,
     icon: CommentIC,
     label: "Bình luận",
   },

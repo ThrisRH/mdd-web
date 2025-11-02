@@ -23,9 +23,68 @@ interface Props {
   about: AboutState;
 }
 
+async function updateAvatar(file: File | null) {
+  if (!file) return null;
+
+  const formData = new FormData();
+  formData.append("files", file);
+
+  const res = await fetch("/mmdblogsapi/upload", {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!res.ok) {
+    throw new Error("Upload image failed!");
+  }
+  const uploadJson = await res.json();
+
+  return uploadJson[0].id || null;
+}
+
+async function updateAuthor(avatarId: string | null, contact: any[]) {
+  console.log(contact);
+  const res = await fetch(
+    "/mmdblogsapi/authors/iy05sicekg9wxcfsmy3oxfzl?populate=*",
+    {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        data: {
+          avatar: avatarId,
+          contact: contact.map((item) => ({
+            url: item.url,
+            platform: item.platform,
+          })),
+        },
+      }),
+    }
+  );
+  if (!res.ok) {
+    throw new Error("Update author failed");
+  }
+  return res.json();
+}
+
+async function updateAboutContent(aboutContent: string | null) {
+  if (!aboutContent) return null;
+  const res = await fetch("/mmdblogsapi/about?populate=*", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      data: {
+        aboutContent: aboutContent,
+      },
+    }),
+  });
+  if (!res.ok) {
+    throw new Error("Update author failed");
+  }
+  return res.json();
+}
+
 const AboutBody = ({ about }: Props) => {
   const [data, setData] = useState(about);
-  const [isLoading, setIsLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const { selectedDeleteItems, toggleSelect } = useToggleSelect();
   const [selected, setSelected] = useState<number | null>(null);
@@ -41,46 +100,22 @@ const AboutBody = ({ about }: Props) => {
         (item) => !selectedDeleteItems.includes(item.id)
       );
 
-      if (data.avatarFileTemp) {
-        const formData = new FormData();
-        formData.append("files", data.avatarFileTemp);
+      const promises = [];
 
-        const uploadRes = await fetch("/mmdblogsapi/upload", {
-          method: "POST",
-          body: formData,
-        });
-
-        if (!uploadRes.ok) {
-          return null;
-        }
-        const uploadJson = await uploadRes.json();
-
-        avatarId = uploadJson[0].id;
+      if (
+        avatarId !== data.author.avatar?.id ||
+        JSON.stringify(afterUpdatedData) !==
+          JSON.stringify(about.author.contact)
+      ) {
+        console.log("yess");
+        promises.push(updateAuthor(avatarId, afterUpdatedData));
       }
 
-      const response = await fetch(
-        "/mmdblogsapi/authors/iy05sicekg9wxcfsmy3oxfzl?populate=*",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            data: {
-              avatar: avatarId,
-              contact: afterUpdatedData.map((item) => ({
-                url: item.url,
-                platform: item.platform,
-              })),
-            },
-          }),
-        }
-      );
-      const result = await response.json();
-      if (!response.ok) {
-        setIsLoading(false);
-        return;
+      if (data.aboutContent !== about.aboutContent) {
+        promises.push(updateAboutContent(data.aboutContent));
       }
+
+      await Promise.all(promises);
 
       setTimeout(() => {
         window.location.href = "/admin-panel/myaboutinfo";
@@ -88,8 +123,6 @@ const AboutBody = ({ about }: Props) => {
       }, 1000);
     } catch (error: any) {
       handleError();
-    } finally {
-      setIsSaving(false);
     }
   };
 

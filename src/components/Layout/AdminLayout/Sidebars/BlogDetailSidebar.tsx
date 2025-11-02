@@ -28,7 +28,7 @@ const BlogDetailSidebar = () => {
           <TabContainer
             $isSelected={false}
             onClick={() => {
-              router.back();
+              router.push("/admin-panel/myblogs");
             }}
           >
             <BackIC />
@@ -76,9 +76,9 @@ const BlogDetailSidebar = () => {
             {BlogDetailTabs.map(({ path, icon: Icon, label }) => (
               <TabContainer
                 key={path}
-                $isSelected={pathname.startsWith(path)}
+                $isSelected={pathname.endsWith(path)}
                 onClick={() => {
-                  router.push(`${path}/${value.slug}`);
+                  router.push(`/blog-details/${value.slug}${path}`);
                 }}
               >
                 <Icon />
