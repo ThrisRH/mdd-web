@@ -37,9 +37,12 @@ const CategorySelectionBox = ({
     const getBlogs = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`${process.env.SERVER_HOST}/api/cates`, {
-          cache: "no-store",
-        });
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/cates`,
+          {
+            cache: "no-store",
+          }
+        );
         const result = await res.json();
 
         setData(result.data);

@@ -23,23 +23,13 @@ const CategoryManagementScreen = ({
   const router = useRouter();
 
   useEffect(() => {
-    if (categories) {
-      setLoading(false);
-    }
+    setLoading(false);
   }, [categories]);
 
   if (loading) {
     return (
       <MainContentContainer>
         <Loading />
-      </MainContentContainer>
-    );
-  }
-
-  if (!categories[0].documentId) {
-    return (
-      <MainContentContainer>
-        <NotFound />
       </MainContentContainer>
     );
   }

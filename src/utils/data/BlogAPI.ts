@@ -26,23 +26,20 @@ export async function fetchBlogDetail(
   }
 }
 
-export async function fetchBlog(pageNumber: number) {
+export async function fetchBlog(pageNumber: number, pageSize: number) {
   try {
     const res = await fetch(
-      `${HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=10&populate=*&sort=createdAt:desc`
+      `${HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=${pageSize}&populate=*&sort=createdAt:desc`
     );
 
     if (!res.ok) {
-      return null;
+      throw new Error("Fetch data failed");
     }
 
     const data = await res.json();
-    if (!data.data[0].documentId) {
-      return null;
-    }
 
     return {
-      data: data.data,
+      data: data.data || [],
       meta: data.meta,
     };
   } catch (error) {

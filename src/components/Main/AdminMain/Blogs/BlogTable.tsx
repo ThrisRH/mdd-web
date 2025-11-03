@@ -205,11 +205,13 @@ const BlogTable = ({
           </>
         ) : (
           <tbody>
-            <TableBodyCell colSpan={6}>
-              <Row $justify="center">
-                <Body>Bạn chưa có danh mục nào!</Body>
-              </Row>
-            </TableBodyCell>
+            <RowContainer>
+              <TableBodyCell colSpan={6}>
+                <Row $justify="center">
+                  <Body>Bạn chưa có danh mục nào!</Body>
+                </Row>
+              </TableBodyCell>
+            </RowContainer>
           </tbody>
         )}
       </TableWrapper>

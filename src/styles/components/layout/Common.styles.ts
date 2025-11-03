@@ -30,6 +30,8 @@ export const FlexContainer = styled.div<{
 
 export const FormContainer = styled(FlexContainer)`
   width: 900px;
+  max-width: 900px;
+
   height: fit-content;
   max-height: 100%;
   background-color: white;

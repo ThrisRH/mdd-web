@@ -6,7 +6,7 @@ import { Text } from "@/styles/theme/typography";
 import NotFound from "@/components/Main/NotFound";
 import { fetchBlog } from "@/utils/data/BlogAPI";
 
-const API_URL = process.env.SERVER_HOST;
+const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
 // props
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
@@ -43,7 +43,7 @@ export default async function Home(props: { searchParams: SearchParams }) {
   const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
   const pageNumber = parseInt(pageStr, 10);
 
-  const result = await fetchBlog(pageNumber);
+  const result = await fetchBlog(pageNumber, 3);
 
   if (!result) return;
 

@@ -7,14 +7,14 @@ export async function fetchFAQ() {
     });
 
     if (!res.ok) {
-      return null;
+      throw new Error("Fetch data failed");
     }
 
     const data = await res.json();
 
     return data.data;
-  } catch (err) {
-    console.error(err);
-    return null;
+  } catch (error) {
+    console.error("A server error occurred. Try again later.");
+    throw error;
   }
 }

@@ -1,21 +1,17 @@
 import { HOST } from "@/app/(admin)/config/constant";
-import { handleError } from "../HandleError";
 
 export async function fetchComment(slug: string) {
   try {
     const res = await fetch(
       `${HOST}/api/comments?filters[blog][slug][$eq]=${slug}&populate[reader][populate]=avatar`,
-      { next: { revalidate: 3600 } }
+      { cache: "no-store" }
     );
 
     if (!res.ok) {
-      return null;
+      throw new Error("Fetch data failed");
     }
 
     const data = await res.json();
-    if (!data.data.documentId) {
-      return null;
-    }
 
     return data.data;
   } catch (error) {

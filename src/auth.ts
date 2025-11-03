@@ -46,7 +46,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
           }
 
           const userRes = await fetch(
-            `${process.env.SERVER_HOST}/api/users?filters[email][$eq]=${credentials.identifier}`,
+            `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/users?filters[email][$eq]=${credentials.identifier}`,
             { method: "GET", headers: { "Content-Type": "application/json" } }
           );
           const userData = await userRes.json();
@@ -56,14 +56,17 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
             return null;
           }
 
-          const res = await fetch(`${process.env.SERVER_HOST}/api/auth/local`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              identifier: credentials.identifier,
-              password: credentials.password,
-            }),
-          });
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/auth/local`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                identifier: credentials.identifier,
+                password: credentials.password,
+              }),
+            }
+          );
 
           const data = await res.json();
 

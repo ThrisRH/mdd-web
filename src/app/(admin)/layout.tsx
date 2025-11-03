@@ -1,7 +1,9 @@
 "use client";
+import BottomNavbar from "@/components/Layout/AdminLayout/BottomNavbar";
 import Header from "@/components/Layout/AdminLayout/Header";
 import { AdminLayoutContainer } from "@/components/Layout/AdminLayout/Layout.styles";
 import React from "react";
+import { BlogdetailcontextProvider } from "@/context/blogdetailcontext";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,10 +11,12 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <AdminLayoutContainer>
-      <Header />
-      {children}
-      {/* <BottomNavbar /> */}
-    </AdminLayoutContainer>
+    <BlogdetailcontextProvider>
+      <AdminLayoutContainer>
+        <Header />
+        {children}
+        <BottomNavbar />
+      </AdminLayoutContainer>
+    </BlogdetailcontextProvider>
   );
 }

@@ -32,9 +32,9 @@ const BottomNavbar = () => {
               <TabContainer
                 $scale="48px"
                 key={path}
-                $isSelected={pathname.startsWith(path)}
+                $isSelected={pathname.endsWith(path)}
                 onClick={() => {
-                  router.push(`${path}/${value?.slug}`);
+                  router.push(`/blog-details/${value?.slug}/${path}`);
                 }}
               >
                 <Icon />

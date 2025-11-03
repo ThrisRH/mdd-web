@@ -18,7 +18,7 @@ pipelines:
           caches:
             - node
           script:
-            - echo "SERVER_HOST=$SERVER_HOST"
+            - echo "NEXT_PUBLIC_SERVER_HOST=$NEXT_PUBLIC_SERVER_HOST"
             - yarn build
 
     master:
@@ -35,5 +35,5 @@ pipelines:
           caches:
             - node
           script:
-            - echo "SERVER_HOST=$SERVER_HOST"
+            - echo "NEXT_PUBLIC_SERVER_HOST=$NEXT_PUBLIC_SERVER_HOST"
             - yarn build

@@ -8,12 +8,9 @@ export async function fetchAbout() {
     );
 
     if (!res.ok) {
-      return null;
+      throw new Error("Fetch data failed");
     }
     const data = await res.json();
-    if (!data.data.documentId) {
-      return null;
-    }
 
     return data.data;
   } catch (error: any) {

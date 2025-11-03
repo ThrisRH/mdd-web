@@ -5,7 +5,7 @@ import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 import { BlogDetails } from "@/types/blog";
 import { Text } from "@/styles/theme/typography";
 
-const API_URL = process.env.SERVER_HOST;
+const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
 // Props
 type Params = Promise<{ slug: string }>;

@@ -1,5 +1,6 @@
 import { fetchCate } from "@/utils/data/CateAPI";
 import CategoryManagementScreen from "@/app/screens/admin-panel-tabs/cate-management";
+import NotFound from "@/components/Main/NotFound";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -11,8 +12,8 @@ export default async function MyCatesPage(props: {
   const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
   const pageNumber = parseInt(pageStr, 10);
 
-  const result = await fetchCate(pageNumber);
-  if (result) {
+  try {
+    const result = await fetchCate(pageNumber);
     return (
       <CategoryManagementScreen
         categories={result.data}
@@ -20,5 +21,7 @@ export default async function MyCatesPage(props: {
         pageNumber={pageNumber}
       />
     );
+  } catch (error) {
+    return <NotFound />;
   }
 }

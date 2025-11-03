@@ -1,4 +1,5 @@
 import BlogManagementScreen from "@/app/screens/admin-panel-tabs/blog-management";
+import NotFound from "@/components/Main/NotFound";
 import { fetchBlog } from "@/utils/data/BlogAPI";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
@@ -11,9 +12,9 @@ export default async function MyBlogsPage(props: {
   const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
   const pageNumber = parseInt(pageStr, 10);
 
-  const result = await fetchBlog(pageNumber);
+  try {
+    const result = await fetchBlog(pageNumber, 10);
 
-  if (result) {
     return (
       <BlogManagementScreen
         blogs={result.data}
@@ -21,5 +22,7 @@ export default async function MyBlogsPage(props: {
         pageNumber={pageNumber}
       />
     );
+  } catch (error) {
+    return <NotFound />;
   }
 }

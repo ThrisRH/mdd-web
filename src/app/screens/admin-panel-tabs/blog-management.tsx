@@ -20,23 +20,13 @@ const BlogManagementScreen = ({ blogs, totalPages, pageNumber }: Props) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (blogs) {
-      setLoading(false);
-    }
+    setLoading(false);
   }, [blogs]);
 
   if (loading) {
     return (
       <MainContentContainer>
         <Loading />
-      </MainContentContainer>
-    );
-  }
-
-  if (!blogs[0].documentId) {
-    return (
-      <MainContentContainer>
-        <NotFound />
       </MainContentContainer>
     );
   }

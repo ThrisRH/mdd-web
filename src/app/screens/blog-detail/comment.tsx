@@ -22,8 +22,8 @@ const CommentScreen = ({ comments, blogDetail }: Props) => {
     // Set value khi blogDetail đã có dữ liệu
     if (comments && blogDetail) {
       setValue!(blogDetail);
-      setLoading(false); // Đảm bảo sẽ mount khi đã có đủ dữ liệu
     }
+    setLoading(false); // Đảm bảo sẽ mount khi đã có đủ dữ liệu
   }, [comments, blogDetail, setValue]);
 
   if (loading) {
@@ -36,15 +36,6 @@ const CommentScreen = ({ comments, blogDetail }: Props) => {
     );
   }
 
-  if (!comments[0]?.documentId) {
-    return (
-      <MainContentContainer>
-        <FlexContainer $justify="center">
-          <NotFound />
-        </FlexContainer>
-      </MainContentContainer>
-    );
-  }
   return (
     <MainContentContainer>
       <Comment comments={comments} />
