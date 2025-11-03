@@ -1,4 +1,4 @@
-import AboutScreen from "@/app/screens/blog-detail/about-admin";
+import AboutScreen from "@/app/screens/admin-panel-tabs/about-admin";
 import { fetchAbout } from "@/utils/data/FetchAbout";
 
 export default async function AboutPage() {

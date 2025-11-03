@@ -27,6 +27,7 @@ const nextConfig: NextConfig = {
   },
   compiler: {
     styledComponents: true,
+    removeConsole: true,
   },
 };
 

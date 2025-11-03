@@ -145,6 +145,7 @@ export const SidebarContainer = styled.div`
   flex-direction: column;
   width: fit-content;
   min-width: 80px;
+  max-width: 217px;
   height: calc(100vh - 64px);
   padding: 24px 16px;
   background-color: #fff;

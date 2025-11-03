@@ -1,35 +1,21 @@
 import PageContainer from "@/components/Main/PageContainer";
 import { BlogDetails } from "@/types/blog";
 import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
-import { notFound } from "next/navigation";
 import PaginatedBlogList from "@/components/Layout/Pagination/PaginatedBlogList";
 import { Text } from "@/styles/theme/typography";
 import NotFound from "@/components/Main/NotFound";
+import { fetchBlog } from "@/utils/data/BlogAPI";
 
 const API_URL = process.env.SERVER_HOST;
 
 // props
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
-async function getBlogs(pageNumber: number) {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=3&populate=*&sort=createdAt:desc`,
-      { cache: "no-store" }
-    );
-    if (!res.ok) {
-      return null;
-    }
-    return await res.json();
-  } catch (error) {
-    return null;
-  }
-}
-
 // Tạo metadata
 export async function generateMetadata() {
   try {
-    const data = await getBlogs(1);
+    const data = await fetchBlog(1);
+    if (!data) return;
     const blogs: BlogDetails[] = data.data;
 
     const title = blogs[0].title;
@@ -57,15 +43,17 @@ export default async function Home(props: { searchParams: SearchParams }) {
   const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
   const pageNumber = parseInt(pageStr, 10);
 
-  const data = await getBlogs(pageNumber);
+  const result = await fetchBlog(pageNumber);
 
-  const pageCount = data.meta.pagination.pageCount;
+  if (!result) return;
+
+  const pageCount = result.meta.pagination.pageCount;
 
   return (
     <PageContainer>
       <BlogContainer>
         <Text $variant="h0">Blog</Text>
-        {!data || data.data.length === 0 ? (
+        {!result || result.data.length === 0 ? (
           <NotFound />
         ) : (
           <PaginatedBlogList totalPages={pageCount} page={pageNumber} />

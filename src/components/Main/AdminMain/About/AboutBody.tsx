@@ -43,7 +43,6 @@ async function updateAvatar(file: File | null) {
 }
 
 async function updateAuthor(avatarId: string | null, contact: any[]) {
-  console.log(contact);
   const res = await fetch(
     "/mmdblogsapi/authors/iy05sicekg9wxcfsmy3oxfzl?populate=*",
     {
@@ -107,7 +106,6 @@ const AboutBody = ({ about }: Props) => {
         JSON.stringify(afterUpdatedData) !==
           JSON.stringify(about.author.contact)
       ) {
-        console.log("yess");
         promises.push(updateAuthor(avatarId, afterUpdatedData));
       }
 

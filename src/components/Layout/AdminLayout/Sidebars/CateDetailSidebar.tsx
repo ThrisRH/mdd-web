@@ -15,7 +15,7 @@ import { DateDetailContainer, TabsGroup } from "./Sidebar.styles";
 import { Text } from "@/styles/theme/typography";
 
 interface Props {
-  cate: CateProps;
+  cate: CateProps | null;
 }
 
 const CateDetailSidebar = ({ cate }: Props) => {
@@ -35,32 +35,34 @@ const CateDetailSidebar = ({ cate }: Props) => {
         </Text>
       </TabContainer>
       {/* Vùng hiển thị 1 số thông tin của bài viết */}
-      <FlexContainer className="basic-info">
-        <FlexContainer>
-          <Text $variant="body1">Thông tin danh mục</Text>
-          <Text $variant="body4" $color="#4f4f4f">
-            {cate.tile}
-          </Text>
-        </FlexContainer>
-        <hr style={{ border: "none", borderTop: "1px dashed #000" }} />
-        <FlexContainer $gap="xs">
-          {/* Ngày tạo bài */}
-          <DateDetailContainer>
-            <Text $variant="body1">Ngày tạo</Text>
-            <Text $variant="body5" $color="#4f4f4f">
-              {formatDate(form.createdAt)}
+      {cate && form ? (
+        <FlexContainer className="basic-info">
+          <FlexContainer>
+            <Text $variant="body1">Thông tin danh mục</Text>
+            <Text $variant="body4" $color="#4f4f4f">
+              {cate.tile}
             </Text>
-          </DateDetailContainer>
+          </FlexContainer>
+          <hr style={{ border: "none", borderTop: "1px dashed #000" }} />
+          <FlexContainer $gap="xs">
+            {/* Ngày tạo bài */}
+            <DateDetailContainer>
+              <Text $variant="body1">Ngày tạo</Text>
+              <Text $variant="body5" $color="#4f4f4f">
+                {formatDate(form.createdAt)}
+              </Text>
+            </DateDetailContainer>
 
-          {/* Ngày cập nhật */}
-          <DateDetailContainer>
-            <Text $variant="body1">Ngày cập nhật</Text>
-            <Text $variant="body5" $color="#4f4f4f">
-              {formatDate(form.publishedAt)}
-            </Text>
-          </DateDetailContainer>
+            {/* Ngày cập nhật */}
+            <DateDetailContainer>
+              <Text $variant="body1">Ngày cập nhật</Text>
+              <Text $variant="body5" $color="#4f4f4f">
+                {formatDate(form.publishedAt)}
+              </Text>
+            </DateDetailContainer>
+          </FlexContainer>
         </FlexContainer>
-      </FlexContainer>
+      ) : null}
 
       <TabsGroup>
         <TabContainer $isSelected={true}>

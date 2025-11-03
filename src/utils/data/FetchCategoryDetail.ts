@@ -7,12 +7,16 @@ export async function fetchCateDetail(slug: string) {
     });
 
     if (!res.ok) {
-      return null;
+      return {
+        type: "error",
+      };
     }
 
     const data = await res.json();
     if (!data.data.documentId) {
-      return null;
+      return {
+        type: "error",
+      };
     }
 
     return data.data;

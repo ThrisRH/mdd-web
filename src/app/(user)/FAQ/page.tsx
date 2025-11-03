@@ -3,6 +3,7 @@ import FAQBody from "./FAQBody";
 import { notFound } from "next/navigation";
 import { FAQData } from "@/types/faq";
 import { handleError } from "@/utils/HandleError";
+import { fetchFAQ } from "@/utils/data/FaqAPI";
 
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 
@@ -26,8 +27,7 @@ async function getFAQData() {
 }
 
 export default async function FAQ() {
-  const data = await getFAQData();
-  const faq: FAQData | null = data?.data || null;
+  const faq: FAQData = await fetchFAQ();
 
   if (!faq) notFound();
 

@@ -2,7 +2,7 @@ import React from "react";
 import { SearchBlogCardWrapper } from "../../../UserLayout/Search/SearchBar.styles";
 import { BlogDetails } from "@/types/blog";
 import { Column } from "@/components/ui/common/styled";
-import { Body, Caption, Text } from "@/styles/theme/typography";
+import { Body, Text } from "@/styles/theme/typography";
 import { MainContent } from "@/components/Main/AdminMain/styles/Page.styles";
 import { ImageContainer } from "@/components/blogs/blogcard/styled";
 import Image from "next/image";
@@ -22,7 +22,7 @@ const SearchBlogCard = ({
   const router = useRouter();
 
   const handleToBlog = (slug: string) => {
-    router.push(`/blog-details/info/${slug}`);
+    router.push(`/blog-details/${slug}/info`);
     setOnFocus(false);
     setSearchValue("");
   };

@@ -24,8 +24,6 @@ const UpdateCate = ({ cate }: Props) => {
 
   const router = useRouter();
 
-  useState("");
-
   const handleUpdateCate = async (documentId: string) => {
     setIsLoading(true);
     try {

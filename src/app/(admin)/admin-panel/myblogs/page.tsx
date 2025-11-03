@@ -1,60 +1,25 @@
-"use client";
-import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { TitleContainer } from "@/components/Layout/AdminLayout/Layout.styles";
-import BlogTable from "@/components/Main/AdminMain/Blogs/BlogTable";
-import Loading from "@/app/(user)/loading";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
-import { Text } from "@/styles/theme/typography";
-import { handleError } from "@/utils/HandleError";
+import BlogManagementScreen from "@/app/screens/admin-panel-tabs/blog-management";
+import { fetchBlog } from "@/utils/data/BlogAPI";
 
-export default function MyBlogsPage() {
-  const [data, setData] = useState<any>();
-  const [loading, setLoading] = useState<boolean>(true);
-  const searchParams = useSearchParams();
-  const router = useRouter();
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
-  const pageNumber = Number(searchParams.get("page")) || 1;
+export default async function MyBlogsPage(props: {
+  searchParams: SearchParams;
+}) {
+  const searchParams = await props.searchParams;
+  const pageRaw = searchParams.page || "1";
+  const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
+  const pageNumber = parseInt(pageStr, 10);
 
-  useEffect(() => {
-    const getBlogs = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=10&populate=*&sort=createdAt:desc`,
-          { cache: "no-store" }
-        );
-        const result = await res.json();
-        setData(result);
-      } catch (err) {
-        handleError();
-      } finally {
-        setLoading(false);
-      }
-    };
+  const result = await fetchBlog(pageNumber);
 
-    getBlogs();
-  }, [pageNumber]);
-
-  return (
-    <MainContentContainer>
-      <TitleContainer>
-        <Text $variant="h1">BÀI VIẾT CỦA KÊNH BLOG</Text>
-      </TitleContainer>
-
-      {loading ? (
-        <FlexContainer $justify="center">
-          <Loading />
-        </FlexContainer>
-      ) : (
-        <BlogTable
-          totalPages={data.meta.pagination.pageCount}
-          posts={data?.data || []}
-          currentPage={pageNumber}
-          setPageNumber={(page) => router.push(`?page=${page}`)}
-        />
-      )}
-    </MainContentContainer>
-  );
+  if (result) {
+    return (
+      <BlogManagementScreen
+        blogs={result.data}
+        totalPages={result.meta.pagination.pageCount}
+        pageNumber={pageNumber}
+      />
+    );
+  }
 }

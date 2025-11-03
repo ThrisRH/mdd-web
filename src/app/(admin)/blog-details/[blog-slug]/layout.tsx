@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
-import { BodyWrapper } from "@/components/Layout/AdminLayout/Layout.styles";
+import {
+  BodyWrapper,
+  SidebarContainer,
+} from "@/components/Layout/AdminLayout/Layout.styles";
 import BlogDetailSidebar from "@/components/Layout/AdminLayout/Sidebars/BlogDetailSidebar";
 import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
 import { BlogdetailcontextProvider } from "@/context/blogdetailcontext";
@@ -13,7 +16,9 @@ export default function Layout({ children }: Props) {
   return (
     <BlogdetailcontextProvider>
       <BodyWrapper>
-        <BlogDetailSidebar />
+        <SidebarContainer>
+          <BlogDetailSidebar />
+        </SidebarContainer>
         <MainContentContainer>{children}</MainContentContainer>
       </BodyWrapper>
     </BlogdetailcontextProvider>

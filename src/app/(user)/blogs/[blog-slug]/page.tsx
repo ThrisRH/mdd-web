@@ -12,27 +12,14 @@ import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 import { BlogGrid } from "@/components/blogs/blogdetail/section/styled";
 import CommentWrapper from "@/components/comment";
 import { Text } from "@/styles/theme/typography";
-
-const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
-
-async function getBlog(slug: string): Promise<BlogDetails | null> {
-  try {
-    const res = await fetch(`${API_URL}/api/blogs/by-slug/${slug}`, {
-      cache: "no-store",
-    });
-    const data = await res.json();
-    return data.data || null;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-}
+import { fetchBlogDetail } from "@/utils/data/BlogAPI";
+import { HOST } from "@/app/(admin)/config/constant";
 
 // Fetch bài liên quan
 async function getRelatedBlogs(categoryId: string): Promise<BlogDetails[]> {
   try {
     const res = await fetch(
-      `${API_URL}/api/blogs?filters[cate][documentId][$eq]=${categoryId}&populate=cover&pagination[page]=1&pagination[pageSize]=3`,
+      `${HOST}/api/blogs?filters[cate][documentId][$eq]=${categoryId}&populate=cover&pagination[page]=1&pagination[pageSize]=3`,
       { cache: "no-store" }
     );
     const data = await res.json();
@@ -50,7 +37,7 @@ export async function generateMetadata({
   params: Promise<{ "blog-slug": string }>;
 }) {
   const { "blog-slug": slug } = await params;
-  const blog = await getBlog(slug);
+  const blog = await fetchBlogDetail(slug);
   try {
     if (!blog)
       return {
@@ -66,7 +53,7 @@ export async function generateMetadata({
           .join(" ")
           .slice(0, 160)
       : blog.subContent ?? "";
-    const image = `${API_URL}${blog.cover.url}` || "";
+    const image = `${HOST}${blog.cover.url}` || "";
     return {
       title: `my MDD diary | ${title}`,
       description: description,
@@ -90,7 +77,7 @@ export default async function Page({
   params: Promise<{ "blog-slug": string }>;
 }) {
   const { "blog-slug": slug } = await params;
-  const blogDetail = await getBlog(slug);
+  const blogDetail = await fetchBlogDetail(slug);
 
   if (!blogDetail) {
     return (

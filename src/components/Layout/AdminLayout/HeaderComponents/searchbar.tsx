@@ -54,7 +54,6 @@ const SearchBarAdmin = () => {
       timeout && clearTimeout(timeout);
       timeout = setTimeout(() => {
         result = callback(...args);
-        console.log("Searching...");
       }, waitFor);
       return result;
     };
@@ -71,7 +70,6 @@ const SearchBarAdmin = () => {
     const { value } = e.target;
     setSearchValue(value);
     debounceDropdown(value);
-    console.log(blogs);
   }
 
   return (
@@ -105,7 +103,7 @@ const SearchBarAdmin = () => {
                     setSearchValue={setSearchValue}
                     blog={item}
                     key={item.documentId}
-                  ></SearchBlogCard>
+                  />
                 ))
               ) : (
                 <Row $justify="center">

@@ -1,62 +1,24 @@
-"use client";
-import Loading from "@/app/(user)/loading";
-import { TitleContainer } from "@/components/Layout/AdminLayout/Layout.styles";
-import CateTable from "@/components/Main/AdminMain/Categories/CateTable";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { Text } from "@/styles/theme/typography";
-import { handleError } from "@/utils/HandleError";
+import { fetchCate } from "@/utils/data/CateAPI";
+import CategoryManagementScreen from "@/app/screens/admin-panel-tabs/cate-management";
 
-export default function MyCatesPage() {
-  const [data, setData] = useState<any>();
-  const [loading, setLoading] = useState<boolean>(true);
-  const searchParams = useSearchParams();
-  const router = useRouter();
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
-  const pageNumber = Number(searchParams.get("page")) || 1;
+export default async function MyCatesPage(props: {
+  searchParams: SearchParams;
+}) {
+  const searchParams = await props.searchParams;
+  const pageRaw = searchParams.page || "1";
+  const pageStr = Array.isArray(pageRaw) ? pageRaw[0] : pageRaw;
+  const pageNumber = parseInt(pageStr, 10);
 
-  const getCates = async (pageNumber: number) => {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/cates?pagination[page]=${pageNumber}&pagination[pageSize]=10&populate=*&sort=createdAt:desc`,
-        { cache: "no-store" }
-      );
-      if (!res.ok) {
-        handleError();
-      }
-      const result = await res.json();
-      setData(result);
-    } catch (error) {
-      handleError();
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getCates(pageNumber);
-  }, [pageNumber]);
-
-  if (loading)
+  const result = await fetchCate(pageNumber);
+  if (result) {
     return (
-      <FlexContainer $justify="center">
-        <Loading />
-      </FlexContainer>
-    );
-
-  return (
-    <MainContentContainer>
-      <TitleContainer>
-        <Text $variant="h1">DANH SÁCH THƯ MỤC CỦA KÊNH BLOG</Text>
-      </TitleContainer>
-      <CateTable
-        totalPages={data.meta.pagination.pageCount}
-        currentPage={pageNumber}
-        setPageNumber={(page) => router.push(`?page=${page}`)}
-        categories={data.data}
+      <CategoryManagementScreen
+        categories={result.data}
+        totalPages={result.meta.pagination.pageCount}
+        pageNumber={pageNumber}
       />
-    </MainContentContainer>
-  );
+    );
+  }
 }

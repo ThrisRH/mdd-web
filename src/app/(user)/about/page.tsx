@@ -20,6 +20,7 @@ import IGIC from "@/assets/svg/ig";
 import LinkedinIC from "@/assets/svg/linkedin";
 import { About } from "@/types/about";
 import { Body, Caption, Text } from "@/styles/theme/typography";
+import { fetchAbout } from "@/utils/data/FetchAbout";
 
 // Lấy dữ liệu từ Serverside
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
@@ -42,8 +43,7 @@ async function getAboutData() {
 }
 
 export default async function AboutPage() {
-  const data = await getAboutData();
-  const about: About | null = data.data || null;
+  const about: About = await fetchAbout();
 
   if (!about) notFound();
   return (
@@ -87,12 +87,6 @@ export default async function AboutPage() {
             li: ({ node, ...props }) => (
               <Body $color="#000" className="" as={"li"} {...props} />
             ),
-            // strong: ({ node, ...props }) => (
-            //   <CustomBody $whiteSpace="normal" $color="#000" $weight={600} />
-            // ),
-            // em: ({ node, ...props }) => (
-            //   <CustomBody $whiteSpace="normal" $color="#000" $weight={400} />
-            // ),
           }}
         >
           {about.aboutContent}

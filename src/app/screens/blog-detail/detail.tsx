@@ -20,8 +20,8 @@ const BlogDetailScreen = ({ blogDetail }: Props) => {
     // Set value khi blogDetail đã có dữ liệu
     if (blogDetail) {
       setValue!(blogDetail);
-      setLoading(false); // Đảm bảo sẽ mount khi đã có đủ dữ liệu
     }
+    setLoading(false); // Đảm bảo sẽ mount khi đã có đủ dữ liệu
   }, [blogDetail, setValue]);
 
   if (loading) {
