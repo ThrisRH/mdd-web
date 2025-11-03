@@ -5,7 +5,7 @@ import { FAQData } from "@/types/faq";
 import { handleError } from "@/utils/HandleError";
 import { fetchFAQ } from "@/utils/data/FaqAPI";
 
-const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
+const API_URL = process.env.SERVER_HOST;
 
 // Lấy dữ liệu từ Serverside
 

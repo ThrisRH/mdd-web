@@ -23,7 +23,7 @@ import { Body, Caption, Text } from "@/styles/theme/typography";
 import { fetchAbout } from "@/utils/data/FetchAbout";
 
 // Lấy dữ liệu từ Serverside
-const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
+const API_URL = process.env.SERVER_HOST;
 
 async function getAboutData() {
   try {

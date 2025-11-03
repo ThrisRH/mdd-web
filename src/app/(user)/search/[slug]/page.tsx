@@ -11,7 +11,7 @@ import { handleError } from "@/utils/HandleError";
 type Params = Promise<{ slug: string }>;
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
-const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
+const API_URL = process.env.SERVER_HOST;
 // Lấy dữ liệu từ Serverside
 
 async function getBlogsByName(title: string, pageNumber: number) {
