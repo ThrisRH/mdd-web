@@ -1,0 +1,1 @@
+export const SocialMediaPlatform = ["Facebook", "Instagram", "X", "Telegram", "LinkedIn", "Github", "Youtube"]

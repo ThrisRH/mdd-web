@@ -28,6 +28,7 @@ const ProfileSection = ({ data, setData }: AboutPageSectionProps) => {
         ...prev,
         avatarFileTemp: file,
       }));
+      console.log("data after file change: ", data)
     }
   };
 
@@ -51,8 +52,8 @@ const ProfileSection = ({ data, setData }: AboutPageSectionProps) => {
                 previewImage
                   ? previewImage
                   : data.author.avatar.url.startsWith("https")
-                  ? data.author.avatar.url
-                  : `/baseurl${data.author.avatar.url}`
+                    ? data.author.avatar.url
+                    : `/baseurl${data.author.avatar.url}`
               }
             />
           </ImageContainer>

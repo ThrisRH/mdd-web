@@ -13,7 +13,7 @@ export const FormInputContainer = styled.div<{
   padding: 12px;
   border: 1px solid
     ${(props) =>
-      props.$borderColor ? props.$borderColor : "rgba(0, 0, 0, 0.4);"};
+    props.$borderColor ? props.$borderColor : "rgba(0, 0, 0, 0.4);"};
   border-radius: 16px;
   gap: 12px;
 
@@ -22,7 +22,7 @@ export const FormInputContainer = styled.div<{
   }
 `;
 
-export const FormInput = styled(TextareaAutosize)<{
+export const FormInput = styled(TextareaAutosize) <{
   $minHeight?: string;
   $canOverflow?: boolean;
 }>`
@@ -169,7 +169,7 @@ export const SelectionBoxContainer = styled.div`
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 `;
 
-export const SelectionContainer = styled.div`
+export const SelectionWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: space-between;
@@ -190,3 +190,43 @@ export const SelectionTitleWrapper = styled.div`
   padding: 24px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 `;
+
+export const Box = styled.div`
+  padding: 8px 12px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const List = styled.ul`
+  position: absolute;
+  top: 120px;
+  left: 0;
+  right:0;
+  background-color: #fff;
+  border-radius: 8px;
+  border: solid 1px rgba(0,0,0,0.2);
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 4px 0;
+  z-index: 10;
+`;
+
+export const Item = styled.li`
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+`;
+
+export const DropdownInputWrapper = styled(FormInputContainer)`
+    position: relative;
+`

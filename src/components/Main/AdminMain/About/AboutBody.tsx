@@ -19,6 +19,7 @@ import { Row } from "@/components/ui/common/styled";
 import { Caption, Text } from "@/styles/theme/typography";
 import { handleError } from "@/utils/HandleError";
 
+
 interface Props {
   about: AboutState;
 }
@@ -82,6 +83,7 @@ async function updateAboutContent(aboutContent: string | null) {
   return res.json();
 }
 
+
 const AboutBody = ({ about }: Props) => {
   const [data, setData] = useState(about);
   const [isSaving, setIsSaving] = useState(false);
@@ -93,7 +95,8 @@ const AboutBody = ({ about }: Props) => {
     try {
       setIsSaving(true);
 
-      let avatarId = data.author.avatar?.id;
+      let avatarFileTemp: File = data.avatarFileTemp || null
+
 
       const afterUpdatedData = data.author.contact.filter(
         (item) => !selectedDeleteItems.includes(item.id)
@@ -102,10 +105,11 @@ const AboutBody = ({ about }: Props) => {
       const promises = [];
 
       if (
-        avatarId !== data.author.avatar?.id ||
+        avatarFileTemp !== null ||
         JSON.stringify(afterUpdatedData) !==
-          JSON.stringify(about.author.contact)
+        JSON.stringify(about.author.contact)
       ) {
+        const avatarId = await updateAvatar(avatarFileTemp) || data.author.avatar.id
         promises.push(updateAuthor(avatarId, afterUpdatedData));
       }
 
@@ -197,14 +201,14 @@ const AboutBody = ({ about }: Props) => {
           />
           {/* For editing contact info (social media, etc..)  */}
           <Text $variant="body0">Thông tin liên hệ</Text>
-          <ContactSection
+          {data.contact !== null ? <ContactSection
             data={data}
             setData={setData}
             selected={selected}
             setSelected={setSelected}
             selectedDeleteItems={selectedDeleteItems}
             toggleSelect={toggleSelect}
-          />
+          /> : null}
 
           {/* Add button */}
           <CustomButton

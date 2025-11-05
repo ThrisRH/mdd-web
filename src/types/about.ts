@@ -4,7 +4,7 @@ export type About = {
   id: number;
   aboutContent: string;
   author: InfoProps;
-  contact: Contact[];
+  contact: Contact[] | undefined;
 };
 
 export type AboutState = About & {

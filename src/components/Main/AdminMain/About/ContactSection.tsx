@@ -11,6 +11,8 @@ import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
 import { Row } from "@/components/ui/common/styled";
 import { AboutState } from "@/types/about";
 import { Text } from "@/styles/theme/typography";
+import DropdownInput from "../Blogs/CreateInputs/DropdownInput";
+import { platform } from "os";
 
 export interface AboutPageSectionProps {
   data: AboutState;
@@ -52,9 +54,8 @@ const ContactSection = ({
               <IconContainer $haveBg={true}>
                 <FlexContainer
                   style={{
-                    transform: `${
-                      selected === index ? "rotate(180deg)" : "rotate(0deg)"
-                    }`,
+                    transform: `${selected === index ? "rotate(180deg)" : "rotate(0deg)"
+                      }`,
                   }}
                 >
                   <DropdownIC fill="#233238" />
@@ -72,22 +73,14 @@ const ContactSection = ({
 
           {selected === index && (
             <Row>
-              <BlogContentInput
-                label={"Nền tảng"}
-                value={item.platform}
-                onChange={(v: string) =>
-                  setData((prev) => ({
-                    ...prev,
-                    author: {
-                      ...prev.author,
-                      contact: prev.author.contact.map((q, i) =>
-                        i === index ? { ...q, platform: v } : q
-                      ),
-                    },
-                  }))
+              <DropdownInput label="Nền tảng" value={item.platform} onChange={(v: string) => setData((prev) => ({
+                ...prev,
+                author: {
+                  ...prev.author,
+                  contact: prev.author.contact.map((q, i) => i === index ? { ...q, platform: v } : q)
                 }
-                maxLength={100}
-              />
+              }))} />
+
               <BlogContentInput
                 label={"Đường dẫn"}
                 value={item.url}

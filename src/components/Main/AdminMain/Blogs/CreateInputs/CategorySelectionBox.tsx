@@ -4,8 +4,8 @@ import {
   FlexInputContainer,
   LabelContainer,
   SelectionBoxContainer,
-  SelectionContainer,
   SelectionTitleWrapper,
+  SelectionWrapper,
 } from "../../../../../styles/components/inputs/Input.styles";
 import { ButtonContainer, FormFooter } from "../../styles/Page.styles";
 import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";
@@ -57,7 +57,7 @@ const CategorySelectionBox = ({
   }, []);
 
   return (
-    <SelectionContainer>
+    <SelectionWrapper>
       <LabelContainer $padding="none">
         <Text $variant="body0" $weight={600}>
           Chọn danh mục cho bài viết
@@ -127,7 +127,7 @@ const CategorySelectionBox = ({
           </FormFooter>
         </SelectionBoxContainer>
       )}
-    </SelectionContainer>
+    </SelectionWrapper>
   );
 };
 

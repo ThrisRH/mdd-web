@@ -14,7 +14,7 @@ type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 // Tạo metadata
 export async function generateMetadata() {
   try {
-    const data = await fetchBlog(1);
+    const data = await fetchBlog(1, 1);
     if (!data) return;
     const blogs: BlogDetails[] = data.data;
 
