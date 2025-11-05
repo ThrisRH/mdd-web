@@ -4,7 +4,7 @@ export async function fetchComment(slug: string) {
   try {
     const res = await fetch(
       `${HOST}/api/comments?filters[blog][slug][$eq]=${slug}&populate[reader][populate]=avatar`,
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
 
     if (!res.ok) {

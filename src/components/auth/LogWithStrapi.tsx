@@ -34,7 +34,7 @@ export default function SignInStrapi() {
 
     const userRes = await fetch(
       `/mmdblogsapi/users?filters[email][$eq]=${identifier}`,
-      { method: "GET", headers: { "Content-Type": "application/json" } }
+      { method: "GET", headers: { "Content-Type": "application/json" } },
     );
     const userData = await userRes.json();
 

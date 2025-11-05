@@ -79,7 +79,7 @@ const FAQsSection = ({
                   setData((prev) => ({
                     ...prev,
                     questionAnswer: prev.questionAnswer.map((q, i) =>
-                      i === index ? { ...q, question: value } : q
+                      i === index ? { ...q, question: value } : q,
                     ),
                   }));
                 }}
@@ -94,7 +94,7 @@ const FAQsSection = ({
                   setData((prev) => ({
                     ...prev,
                     questionAnswer: prev.questionAnswer.map((q, i) =>
-                      i === index ? { ...q, answer: value } : q
+                      i === index ? { ...q, answer: value } : q,
                     ),
                   }));
                 }}

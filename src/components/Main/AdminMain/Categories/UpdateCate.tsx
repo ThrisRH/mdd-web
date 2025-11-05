@@ -47,7 +47,7 @@ const UpdateCate = ({ cate }: Props) => {
               ...updatedFields,
             },
           }),
-        }
+        },
       );
 
       const result = await response.json();

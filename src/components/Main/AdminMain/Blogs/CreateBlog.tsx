@@ -59,7 +59,7 @@ const CreateBlog = ({
 
     try {
       const fileInput = document.getElementById(
-        "file-upload"
+        "file-upload",
       ) as HTMLInputElement;
       const file = fileInput?.files?.[0];
 

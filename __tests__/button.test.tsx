@@ -7,7 +7,7 @@ describe("MainButton component", () => {
     render(
       <MainButton variant="secondary" onClick={() => {}}>
         Click Me
-      </MainButton>
+      </MainButton>,
     );
 
     expect(screen.getByText("Click Me")).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe("MainButton component", () => {
     render(
       <MainButton variant="primary" onClick={handle}>
         Press
-      </MainButton>
+      </MainButton>,
     );
 
     const btn = screen.getByText("Press");
@@ -32,7 +32,7 @@ describe("MainButton component", () => {
     render(
       <MainButton variant="secondary" onClick={handle} isDisable={true}>
         Disabled
-      </MainButton>
+      </MainButton>,
     );
 
     const btn = screen.getByRole("button");

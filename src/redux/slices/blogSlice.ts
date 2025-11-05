@@ -21,7 +21,7 @@ const blogSlice = createSlice({
       state.title = action.payload.title;
     },
     clearBlog: (state) => {
-      (state.slug = ""), (state.title = "");
+      ((state.slug = ""), (state.title = ""));
     },
   },
 });

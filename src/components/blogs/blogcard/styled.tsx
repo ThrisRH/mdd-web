@@ -100,7 +100,9 @@ export const Container = styled.div<{ $flex: number }>`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
   gap: 12px;
+  height: 24px;
 `;
 
 export const VectorContainer = styled.div<{ $left: boolean }>`
@@ -116,8 +118,9 @@ export const Line = styled.div<{ $width?: number }>`
   ${({ $width }) => ($width ? `width: ${$width}px;` : `flex: 1;`)}
 `;
 export const Dot = styled.div<{ $color?: string; $scale?: number }>`
-  width: ${(props) => `${props.$scale}px` || "6px"};
-  height: ${(props) => `${props.$scale}px` || "6px"};
+  width: ${(props) => (props.$scale ? `${props.$scale}px` : "6px")};
+  height: ${(props) => (props.$scale ? `${props.$scale}px` : "6px")};
+
   border-radius: 100%;
   background: ${(props) => props.$color || "#000"};
 `;

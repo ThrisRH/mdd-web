@@ -18,7 +18,7 @@ async function getBlogsByName(title: string, pageNumber: number) {
   try {
     const res = await fetch(
       `${API_URL}/api/blogs/by-title/${title}?pagination=${pageNumber}&pageSize=3&populate=*`,
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
 
     const data = await res.json();

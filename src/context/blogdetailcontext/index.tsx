@@ -16,7 +16,7 @@ export const useBlogdetailcontext = () => {
   const context = useContext(BlogdetailcontextContext);
   if (!context) {
     throw new Error(
-      "useBlogdetailcontext can only be used within BlogdetailcontextProvider"
+      "useBlogdetailcontext can only be used within BlogdetailcontextProvider",
     );
   }
   return context;

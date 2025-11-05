@@ -21,7 +21,7 @@ export const useUserInfoContext = () => {
   const context = useContext(UserInfoContextContext);
   if (!context) {
     throw new Error(
-      "useUserInfoContext can only be used within UserInfoContextProvider"
+      "useUserInfoContext can only be used within UserInfoContextProvider",
     );
   }
   return context;

@@ -54,8 +54,9 @@ const ContactSection = ({
               <IconContainer $haveBg={true}>
                 <FlexContainer
                   style={{
-                    transform: `${selected === index ? "rotate(180deg)" : "rotate(0deg)"
-                      }`,
+                    transform: `${
+                      selected === index ? "rotate(180deg)" : "rotate(0deg)"
+                    }`,
                   }}
                 >
                   <DropdownIC fill="#233238" />
@@ -73,13 +74,21 @@ const ContactSection = ({
 
           {selected === index && (
             <Row>
-              <DropdownInput label="Nền tảng" value={item.platform} onChange={(v: string) => setData((prev) => ({
-                ...prev,
-                author: {
-                  ...prev.author,
-                  contact: prev.author.contact.map((q, i) => i === index ? { ...q, platform: v } : q)
+              <DropdownInput
+                label="Nền tảng"
+                value={item.platform}
+                onChange={(v: string) =>
+                  setData((prev) => ({
+                    ...prev,
+                    author: {
+                      ...prev.author,
+                      contact: prev.author.contact.map((q, i) =>
+                        i === index ? { ...q, platform: v } : q,
+                      ),
+                    },
+                  }))
                 }
-              }))} />
+              />
 
               <BlogContentInput
                 label={"Đường dẫn"}
@@ -90,7 +99,7 @@ const ContactSection = ({
                     author: {
                       ...prev.author,
                       contact: prev.author.contact.map((q, i) =>
-                        i === index ? { ...q, url: v } : q
+                        i === index ? { ...q, url: v } : q,
                       ),
                     },
                   }))

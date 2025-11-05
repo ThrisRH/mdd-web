@@ -32,7 +32,7 @@ type NotificationProps = {
 
 const Notification = () => {
   const [notifications, setNotifications] = useState<NotificationProps[] | []>(
-    []
+    [],
   );
   const [notificationCounter, setNotificationCounter] = useState(0);
   const [isOpenNotification, setIsOpenNotification] = useState(false);
@@ -43,7 +43,7 @@ const Notification = () => {
   const fetchNotification = async () => {
     try {
       const response = await fetch(
-        "/mmdblogsapi/notifications?pagination[pageSize]=6&sort=createdAt:desc&populate[blog][populate]=cover"
+        "/mmdblogsapi/notifications?pagination[pageSize]=6&sort=createdAt:desc&populate[blog][populate]=cover",
       );
       if (!response.ok) {
         return null;
@@ -73,7 +73,7 @@ const Notification = () => {
               blog: notification.blog.documentId,
             },
           }),
-        }
+        },
       );
 
       if (!res.ok) {

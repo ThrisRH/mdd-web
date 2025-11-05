@@ -3,7 +3,7 @@ import { BlogDetails } from "@/types/blog";
 import { console } from "inspector";
 
 export async function fetchBlogDetail(
-  slug: string
+  slug: string,
 ): Promise<BlogDetails | null> {
   try {
     const res = await fetch(`${HOST}/api/blogs/by-slug/${slug}`, {
@@ -29,7 +29,7 @@ export async function fetchBlogDetail(
 export async function fetchBlog(pageNumber: number, pageSize: number) {
   try {
     const res = await fetch(
-      `${HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=${pageSize}&populate=*&sort=createdAt:desc`
+      `${HOST}/api/blogs?pagination[page]=${pageNumber}&pagination[pageSize]=${pageSize}&populate=*&sort=createdAt:desc`,
     );
 
     if (!res.ok) {

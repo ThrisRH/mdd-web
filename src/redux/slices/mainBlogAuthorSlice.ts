@@ -38,7 +38,7 @@ export const fetchAuthorData = createAsyncThunk(
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 const mainBlogAuthorSlice = createSlice({

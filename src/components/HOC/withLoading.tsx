@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import Loading from '@/app/(user)/loading';
-import NotFound from '@/components/Main/NotFound';
-import { MainContentContainer } from '@/styles/components/layout/Layout.styles';
-import { FlexContainer } from '@/styles/components/layout/Common.styles';
+import React, { useEffect, useState } from "react";
+import Loading from "@/app/(user)/loading";
+import NotFound from "@/components/Main/NotFound";
+import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
+import { FlexContainer } from "@/styles/components/layout/Common.styles";
 
 interface WithLoadingProps {
   [key: string]: any;
@@ -10,7 +10,7 @@ interface WithLoadingProps {
 
 export function withLoading<P extends WithLoadingProps>(
   WrappedComponent: React.ComponentType<P>,
-  dataKey: string
+  dataKey: string,
 ) {
   return function WithLoadingComponent(props: P) {
     const [loading, setLoading] = useState(true);

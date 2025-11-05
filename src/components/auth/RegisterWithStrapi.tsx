@@ -39,7 +39,7 @@ export default function SignUpStrapi() {
     // Password check
     if (!passwordRegex.test(password)) {
       setError(
-        "Password must be at least 8 characters long and include at least one uppercase letter and one number."
+        "Password must be at least 8 characters long and include at least one uppercase letter and one number.",
       );
       setIsSending(false);
       return;
@@ -68,7 +68,7 @@ export default function SignUpStrapi() {
 
       // 🔹 Hiển thị lỗi Strapi, viết hoa chữ cái đầu
       setError(
-        capitalizeFirstLetter(data?.error?.message || "Đăng ký thất bại")
+        capitalizeFirstLetter(data?.error?.message || "Đăng ký thất bại"),
       );
     } catch {
       // 🔹 Không log lỗi network ra console

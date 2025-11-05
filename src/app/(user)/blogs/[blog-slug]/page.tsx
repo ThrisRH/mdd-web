@@ -7,7 +7,7 @@ import PageContainer from "@/components/Main/PageContainer";
 import NotFound from "@/components/Main/NotFound";
 import PostDetail from "@/components/blogs/blogdetail";
 import Section from "@/components/blogs/blogdetail/section";
-import SmallPostCard from "@/components/blogs/blogcard/small_blog_card";
+import SmallPostCard from "@/components/blogs/blogcard/small-blog-card";
 import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 import { BlogGrid } from "@/components/blogs/blogdetail/section/styled";
 import CommentWrapper from "@/components/comment";
@@ -20,7 +20,7 @@ async function getRelatedBlogs(categoryId: string): Promise<BlogDetails[]> {
   try {
     const res = await fetch(
       `${HOST}/api/blogs?filters[cate][documentId][$eq]=${categoryId}&populate=cover&pagination[page]=1&pagination[pageSize]=3`,
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
     const data = await res.json();
     return data.data || [];
@@ -49,10 +49,10 @@ export async function generateMetadata({
     const title = blog.title;
     const description = Array.isArray(blog.subContent)
       ? blog.subContent
-        .map((item) => item.content)
-        .join(" ")
-        .slice(0, 160)
-      : blog.subContent ?? "";
+          .map((item) => item.content)
+          .join(" ")
+          .slice(0, 160)
+      : (blog.subContent ?? "");
     const image = `${HOST}${blog.cover.url}` || "";
     return {
       title: `my MDD diary | ${title}`,
@@ -109,9 +109,7 @@ export default async function Page({
         />
         {/* Chia sẻ mạng xã hội */}
         <Section flexDirection="row">
-          <Text $variant="h4" className="uppercase">
-            Chia sẻ bài viết qua
-          </Text>
+          <h4>Chia sẻ bài viết qua</h4>
           <FacebookIC />
           <TwitterIC />
           <LinkedinIC />

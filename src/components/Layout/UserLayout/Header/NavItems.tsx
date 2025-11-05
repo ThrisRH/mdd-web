@@ -52,14 +52,7 @@ const NavItems = ({
     <>
       <NavItem>
         <Link href="/">
-          <Text
-            $variant="h5"
-            $size={18}
-            onClick={onNavPhoneClose ?? onNavPhoneClose}
-            $color={pathname === "/" ? "#EA8E31" : "#fff"}
-          >
-            TRANG CHỦ
-          </Text>
+          <h5>TRANG CHỦ</h5>
         </Link>
       </NavItem>
 

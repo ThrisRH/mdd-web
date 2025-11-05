@@ -37,7 +37,7 @@ const ActionSection = ({ selectedItems, forFeature }: Props) => {
             forFeature === "blogs"
               ? "/admin-panel/myblogs"
               : "/admin-panel/mycates"),
-        1000
+        1000,
       );
     } catch (error) {
       handleError();

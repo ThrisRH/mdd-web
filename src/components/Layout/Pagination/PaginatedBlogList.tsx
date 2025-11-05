@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import PaginationBar from "./PaginationBar";
-import PostCard from "@/components/blogs/blogcard/blog_card";
+import PostCard from "@/components/blogs/blogcard/blog-card";
 import { BlogDetails } from "@/types/blog";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { BlogCardFrame } from "@/components/Main/Styled/PageContainer.styles";
 import NotFound from "@/components/Main/NotFound";
 import { toast } from "react-toastify";

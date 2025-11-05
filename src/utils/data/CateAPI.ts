@@ -4,7 +4,7 @@ export async function fetchCate(pageNumber: number) {
   try {
     const res = await fetch(
       `${HOST}/api/cates?pagination[page]=${pageNumber}&pagination[pageSize]=10&populate=*&sort=createdAt:desc`,
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
 
     if (!res.ok) {

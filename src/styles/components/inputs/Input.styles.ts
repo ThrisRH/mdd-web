@@ -13,7 +13,7 @@ export const FormInputContainer = styled.div<{
   padding: 12px;
   border: 1px solid
     ${(props) =>
-    props.$borderColor ? props.$borderColor : "rgba(0, 0, 0, 0.4);"};
+      props.$borderColor ? props.$borderColor : "rgba(0, 0, 0, 0.4);"};
   border-radius: 16px;
   gap: 12px;
 
@@ -22,7 +22,7 @@ export const FormInputContainer = styled.div<{
   }
 `;
 
-export const FormInput = styled(TextareaAutosize) <{
+export const FormInput = styled(TextareaAutosize)<{
   $minHeight?: string;
   $canOverflow?: boolean;
 }>`
@@ -206,10 +206,10 @@ export const List = styled.ul`
   position: absolute;
   top: 120px;
   left: 0;
-  right:0;
+  right: 0;
   background-color: #fff;
   border-radius: 8px;
-  border: solid 1px rgba(0,0,0,0.2);
+  border: solid 1px rgba(0, 0, 0, 0.2);
   max-height: 200px;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -228,5 +228,5 @@ export const Item = styled.li`
 `;
 
 export const DropdownInputWrapper = styled(FormInputContainer)`
-    position: relative;
-`
+  position: relative;
+`;

@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const NavWrapper = styled.div`
+  display: hidden;
+
+  @media (min-width: 48rem) {
+    display: flex;
+  }
+`;
+
 export const HeaderContainer = styled.header`
   display: flex;
   flex-direction: row;
@@ -40,17 +48,14 @@ export const NavList = styled.ul<{ $isVertical?: boolean }>`
   gap: ${({ $isVertical }) => ($isVertical ? "16px" : "63px")};
   flex-direction: ${({ $isVertical }) => ($isVertical ? "column" : "row")};
   align-items: ${({ $isVertical }) => ($isVertical ? "start" : "center")};
-  height: ${({ $isVertical }) => ($isVertical ? "auto" : "20px")};
   width: 100%;
   user-select: none;
-  padding: 8px 16px;
 
   @media (min-width: 768px) {
     flex-direction: row;
     gap: 63px;
     display: flex;
     align-items: center;
-    padding: 8px 16px;
   }
 `;
 

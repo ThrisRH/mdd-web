@@ -27,7 +27,7 @@ async function getBlogsByCate(cateId: string, pageNumber: number) {
   try {
     const res = await fetch(
       `${API_URL}/api/blogs?filters[cate][documentId][$eq]=${cateId}&populate=cover&pagination[page]=${pageNumber}&pagination[pageSize]=3&sort=createdAt:desc`,
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
     return await res.json();
   } catch {

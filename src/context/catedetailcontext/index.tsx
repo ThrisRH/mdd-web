@@ -15,7 +15,7 @@ export const useCateDetailContext = () => {
   const context = useContext(CateDetailContextContext);
   if (!context) {
     throw new Error(
-      "useCateDetailContext can only be used within CateDetailContextProvider"
+      "useCateDetailContext can only be used within CateDetailContextProvider",
     );
   }
   return context;

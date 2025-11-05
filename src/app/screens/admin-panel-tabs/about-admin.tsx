@@ -17,7 +17,7 @@ const AboutScreen = ({ about }: Props) => {
 
   useEffect(() => {
     setLoading(false);
-    console.log(about)
+    console.log(about);
   }, [about]);
 
   if (loading) {

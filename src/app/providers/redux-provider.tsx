@@ -2,8 +2,8 @@
 import { store } from "@/redux/store";
 import React from "react";
 import { Provider } from "react-redux";
-import AuthAsync from "./async_auth";
-import MDDAsync from "./async_mdd";
+import AuthAsync from "./async-auth";
+import MDDAsync from "./async-mdd";
 
 type Props = {
   children: React.ReactNode;

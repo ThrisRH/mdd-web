@@ -1,3 +1,4 @@
+import { theme } from "@/styles/theme";
 import styled from "styled-components";
 
 // Button chính 2 màu primary và secondary
@@ -26,18 +27,18 @@ export const ButtonWrapper = styled.button<{
     switch ($variant) {
       case "primary":
         return `
-          background-color: #EA8E31;
+          background-color: ${theme.colors.primary400};
           border: none;
           &:hover {
-            background-color: #d67c22;
+            background-color: ${theme.colors.primary500};
           }
         `;
       case "secondary":
         return `
-          background-color: #F1DBC4;
+          background-color: ${theme.colors.secondary400};
           border: none;
           &:hover {
-            background-color: #E9C7A5;
+            background-color: ${theme.colors.secondary500};
           }
         `;
       case "shadow":

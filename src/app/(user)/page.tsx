@@ -2,7 +2,6 @@ import PageContainer from "@/components/Main/PageContainer";
 import { BlogDetails } from "@/types/blog";
 import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
 import PaginatedBlogList from "@/components/Layout/Pagination/PaginatedBlogList";
-import { Text } from "@/styles/theme/typography";
 import NotFound from "@/components/Main/NotFound";
 import { fetchBlog } from "@/utils/data/BlogAPI";
 
@@ -52,7 +51,7 @@ export default async function Home(props: { searchParams: SearchParams }) {
   return (
     <PageContainer>
       <BlogContainer>
-        <Text $variant="h0">Blog</Text>
+        <div className="h0">Blog</div>
         {!result || result.data.length === 0 ? (
           <NotFound />
         ) : (

@@ -28,7 +28,7 @@ const SearchBarAdmin = () => {
   const fetchBlogSearch = async (search: string) => {
     try {
       const result = await fetch(
-        `/mmdblogsapi/blogs/by-title/${search}?populate=*`
+        `/mmdblogsapi/blogs/by-title/${search}?populate=*`,
       );
       if (!result.ok) {
         return setBlogs([]);
@@ -46,7 +46,7 @@ const SearchBarAdmin = () => {
 
   const debounce = <T extends (...args: any[]) => any>(
     callback: T,
-    waitFor: number
+    waitFor: number,
   ) => {
     let timeout: ReturnType<typeof setTimeout>;
     return (...args: Parameters<T>): ReturnType<T> => {
@@ -61,7 +61,7 @@ const SearchBarAdmin = () => {
 
   const debounceDropdown = useCallback(
     debounce((nextValue) => fetchBlogSearch(nextValue), 1500),
-    []
+    [],
   );
 
   function handleInputOnchange(e: React.ChangeEvent<HTMLInputElement>) {

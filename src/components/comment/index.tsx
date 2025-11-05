@@ -26,7 +26,7 @@ const CommentWrapper = ({ documentId }: Props) => {
   const handleGetBlogWithComments = async () => {
     try {
       const commentRes = await fetch(
-        `/mmdblogsapi/comments?filters[blog][documentId][$eq]=${documentId}&populate[reader][populate]=avatar`
+        `/mmdblogsapi/comments?filters[blog][documentId][$eq]=${documentId}&populate[reader][populate]=avatar`,
       );
       const commentData = await commentRes.json();
 

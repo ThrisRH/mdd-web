@@ -1,23 +1,28 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Lora, Inter } from "next/font/google";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
 import { auth } from "@/auth";
 import SessionWrapper from "@/components/Main/SessionWrapper";
-import ReduxProvider from "./providers/redux_provider";
+import ReduxProvider from "./providers/redux-provider";
+import StyledComponentsProvider from "./providers/styled-components-provider";
+import { GlobalStyle } from "@/styles/global";
+import localFont from "next/font/local";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // các trọng số muốn dùng
-  variable: "--font-inter", // tạo biến CSS để dùng trong globals.css hoặc tailwind
+const inter = localFont({
+  src: "../../public/fonts/Inter-VariableFont_opsz,wght.ttf",
+  variable: "--font-lora",
+  weight: "400 700",
+  style: "normal",
+  display: "swap",
 });
 
-const lora = Lora({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // các trọng số muốn dùng
-  variable: "--font-lora", // tạo biến CSS để dùng trong globals.css hoặc tailwind
+const lora = localFont({
+  src: "../../public/fonts/Lora-VariableFont_wght.ttf",
+  variable: "--font-lora",
+  weight: "400 700",
+  style: "normal",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -35,12 +40,13 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${lora.variable} ${inter.variable}`}>
       <body className={`antialiased`}>
-        <StyledComponentsRegistry>
+        <StyledComponentsProvider>
+          <GlobalStyle />
           <SessionWrapper session={session}>
             <ReduxProvider>{children}</ReduxProvider>
           </SessionWrapper>
           <ToastContainer />
-        </StyledComponentsRegistry>
+        </StyledComponentsProvider>
       </body>
     </html>
   );

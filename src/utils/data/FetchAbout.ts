@@ -4,7 +4,7 @@ export async function fetchAbout() {
   try {
     const res = await fetch(
       `${HOST}/api/about?populate[author][populate]=avatar&populate[author][populate]=contact`,
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
 
     if (!res.ok) {

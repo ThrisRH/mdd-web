@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { NavList } from "./Header.styles";
+import { NavList, NavWrapper } from "./Header.styles";
 import NavItems from "./NavItems";
 import { BlogDetails } from "@/types/blog";
 
@@ -32,7 +32,7 @@ const DesktopNav: React.FC<Props> = ({
   onSearch,
 }) => {
   return (
-    <div className="hidden md:flex">
+    <NavWrapper>
       <NavList>
         <NavItems
           pathname={pathname}
@@ -44,7 +44,7 @@ const DesktopNav: React.FC<Props> = ({
           onSearch={onSearch}
         />
       </NavList>
-    </div>
+    </NavWrapper>
   );
 };
 

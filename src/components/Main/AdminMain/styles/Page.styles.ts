@@ -140,7 +140,10 @@ export const ActionContainer = styled.div<{
   transform: ${(props) =>
     props.$visible ? "translateY(0)" : "translateY(-20px)"};
   pointer-events: ${(props) => (props.$visible ? "auto" : "none")};
-  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
 `;
 
 export const SelectIconContainer = styled.div`

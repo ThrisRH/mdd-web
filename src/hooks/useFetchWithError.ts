@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import { handleError } from '@/utils/HandleError';
+import { useState, useCallback } from "react";
+import { handleError } from "@/utils/HandleError";
 
 interface FetchState<T> {
   data: T | null;
@@ -15,7 +15,7 @@ export function useFetchWithError<T>(defaultValue: T | null = null) {
   });
 
   const fetchData = useCallback(async (url: string, options?: RequestInit) => {
-    setState(prev => ({ ...prev, loading: true }));
+    setState((prev) => ({ ...prev, loading: true }));
     try {
       const res = await fetch(url, options);
       if (!res.ok) {
@@ -25,7 +25,7 @@ export function useFetchWithError<T>(defaultValue: T | null = null) {
       setState({ data, loading: false, error: null });
       return data;
     } catch (err) {
-      const error = err instanceof Error ? err : new Error('An error occurred');
+      const error = err instanceof Error ? err : new Error("An error occurred");
       setState({ data: null, loading: false, error });
       handleError();
       return null;

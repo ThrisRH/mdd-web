@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import styled from "styled-components";
 
 export const FlexContainer = styled.div<{
@@ -39,7 +39,7 @@ export const FormContainer = styled(FlexContainer)`
   border-radius: 24px;
 `;
 
-export const BorderContainer = styled(FlexContainer) <{ $bgColor?: string }>`
+export const BorderContainer = styled(FlexContainer)<{ $bgColor?: string }>`
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   background-color: ${(props) => props.$bgColor || "transparent"};

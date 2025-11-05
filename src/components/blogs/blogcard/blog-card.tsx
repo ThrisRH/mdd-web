@@ -74,7 +74,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
     try {
       const response = await fetch(
         `/mmdblogsapi/blogs/${post.documentId}?populate=*`,
-        { method: "GET" }
+        { method: "GET" },
       );
 
       const data = await response.json();
@@ -119,9 +119,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
           </LineContainer>
           <Dot></Dot>
         </Container>
-        <Text $variant="body3" theme="light">
-          {formatDate(post.publishedAt)}
-        </Text>
+        <p className="body-3">{formatDate(post.publishedAt)}</p>
         <Container $flex={3}>
           <Dot></Dot>
           <LineContainer>
@@ -132,11 +130,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
           </LineContainer>
         </Container>
       </Row>
-      <Container $flex={1}>
-        <Text $variant="h1" $theme="light" $color="#000">
-          {post.title}
-        </Text>
-      </Container>
+      <h1 style={{ textAlign: "center" }}>{post.title}</h1>
       <ImageContainer $variant="blog-card">
         {blogAvatar?.cover && (
           <Image
@@ -152,9 +146,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
           />
         )}
       </ImageContainer>
-      <Text $variant="body2" $theme="light">
-        {post.mainContent}
-      </Text>
+      <p className="body-2">{post.mainContent}</p>
       <MainButton variant="secondary" onClick={() => handleToDetail(post.slug)}>
         Xem thêm
       </MainButton>

@@ -47,7 +47,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 
           const userRes = await fetch(
             `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/users?filters[email][$eq]=${credentials.identifier}`,
-            { method: "GET", headers: { "Content-Type": "application/json" } }
+            { method: "GET", headers: { "Content-Type": "application/json" } },
           );
           const userData = await userRes.json();
 
@@ -65,7 +65,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
                 identifier: credentials.identifier,
                 password: credentials.password,
               }),
-            }
+            },
           );
 
           const data = await res.json();

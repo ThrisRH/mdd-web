@@ -28,8 +28,9 @@ export const BlogContainer = styled.div`
 
 export const BlogCardFrame = styled.div`
   display: flex;
-  width: 100%;
   flex-direction: column;
+
+  width: 100%;
   gap: 40px;
 
   @media (min-width: 48rem) {

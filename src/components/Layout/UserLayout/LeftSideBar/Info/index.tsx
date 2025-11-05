@@ -13,6 +13,7 @@ import Link from "next/link";
 import { Caption, Text } from "@/styles/theme/typography";
 import { useAppSelector } from "@/redux/hook";
 import { getSocialMediaIcon } from "@/utils/GetSocialMediaIcon";
+import Loading from "@/app/(user)/loading";
 
 interface InfoCardProps {
   isNavbar: boolean;
@@ -23,10 +24,11 @@ interface InfoCardProps {
 const InfoCard = ({ isNavbar, textColor, isDetails }: InfoCardProps) => {
   const authorMDD = useAppSelector((state) => state.mainBlogAuthor);
   const info = authorMDD.data;
+  if (info[0].documentId === "") return <Loading />;
 
   return (
     <>
-      {info?.map((item, index) => (
+      {info.map((item, index) => (
         <Container $isNavbar={isNavbar} key={index}>
           <AvatarWrapper>
             <Image

@@ -6,20 +6,20 @@ import YoutubeIC from "@/assets/svg/youtube";
 import GithubIC from "@/assets/svg/github";
 
 export function getSocialMediaIcon(platform: string) {
-    switch (platform) {
-        case 'Facebook':
-            return <FacebookIC />
-        case 'Instagram':
-            return <IGIC />
-        case 'X':
-            return <TwitterIC />
-        case 'LinkedIn':
-            return <LinkedinIC />
-        case 'Youtube':
-            return <YoutubeIC />
-        case 'Github':
-            return <GithubIC />
-        default:
-            return null
-    }
+  switch (platform) {
+    case "Facebook":
+      return <FacebookIC />;
+    case "Instagram":
+      return <IGIC />;
+    case "X":
+      return <TwitterIC />;
+    case "LinkedIn":
+      return <LinkedinIC />;
+    case "Youtube":
+      return <YoutubeIC />;
+    case "Github":
+      return <GithubIC />;
+    default:
+      return null;
+  }
 }

@@ -42,7 +42,7 @@ const faqBody = ({ faqs }: Props) => {
       setIsLoading(true);
 
       const afterUpdatedData = data.questionAnswer.filter(
-        (item) => !selectedDeleteItems.includes(item.id)
+        (item) => !selectedDeleteItems.includes(item.id),
       );
       const response = await fetch("/mmdblogsapi/faq?populate=*", {
         method: "PUT",
@@ -90,7 +90,9 @@ const faqBody = ({ faqs }: Props) => {
           $flexDirection="row"
           style={{ alignItems: "center" }}
         >
-          <Caption $color="#fff">Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.</Caption>
+          <Caption $color="#fff">
+            Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.
+          </Caption>
           <CustomButton
             $bgColor="transparent"
             $border="2px solid rgba(22, 31, 57, 0.8)"

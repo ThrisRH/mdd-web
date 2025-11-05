@@ -60,7 +60,7 @@ const UpdateBlog = ({ blog }: Props) => {
               ...updatedFields,
             },
           }),
-        }
+        },
       );
 
       const result = await response.json();

@@ -16,7 +16,7 @@ const Page = () => {
   const fetchBlogs = async () => {
     try {
       const res = await fetch(
-        "/mmdblogsapi/blogs?pagination[page]=1&pagination[pageSize]=6&populate=*"
+        "/mmdblogsapi/blogs?pagination[page]=1&pagination[pageSize]=6&populate=*",
       );
       const data = await res.json();
       if (!res.ok) return;

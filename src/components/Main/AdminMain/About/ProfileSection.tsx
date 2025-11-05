@@ -28,7 +28,7 @@ const ProfileSection = ({ data, setData }: AboutPageSectionProps) => {
         ...prev,
         avatarFileTemp: file,
       }));
-      console.log("data after file change: ", data)
+      console.log("data after file change: ", data);
     }
   };
 
