@@ -20,7 +20,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "lovely-candy-ca0ee5cc4b.media.strapiapp.com",
+        hostname: "*.media.strapiapp.com",
+        pathname: "/**",
       },
     ],
   },

@@ -39,7 +39,7 @@ const CategorySelectionBox = ({
       setLoading(true);
       try {
         const res = await fetch(
-          `${HOST}}/api/cates`,
+          `${HOST}/api/cates`,
           {
             cache: "no-store",
           }
