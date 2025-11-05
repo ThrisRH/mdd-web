@@ -13,6 +13,7 @@ import { CateProps } from "@/components/Layout/UserLayout/Header/DesktopNav";
 import DropdownIC from "@/assets/svg/arrowdown";
 import MainButton from "@/components/ui/button/main_button";
 import { Body, Caption, Text } from "@/styles/theme/typography";
+import { HOST } from "@/app/(admin)/config/constant";
 
 interface CateSelectionProps {
   cateSelectedId: string;
@@ -38,7 +39,7 @@ const CategorySelectionBox = ({
       setLoading(true);
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/cates`,
+          `${HOST}}/api/cates`,
           {
             cache: "no-store",
           }

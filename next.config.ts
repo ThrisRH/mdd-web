@@ -1,18 +1,17 @@
 import type { NextConfig } from "next";
 
+const serverHost = process.env.SERVER_HOST || process.env.NEXT_PUBLIC_SERVER_HOST || "http://localhost:1337";
+
 const nextConfig: NextConfig = {
   async rewrites() {
     return [
-      // Base API url
       {
         source: "/baseurl/:path*",
-        destination: `${process.env.NEXT_PUBLIC_SERVER_HOST}/:path*`,
+        destination: `${serverHost}/:path*`,
       },
-
-      // API url
       {
         source: "/mmdblogsapi/:path*",
-        destination: `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/:path*`,
+        destination: `${serverHost}/api/:path*`,
       },
     ];
   },
@@ -27,7 +26,6 @@ const nextConfig: NextConfig = {
   },
   compiler: {
     styledComponents: true,
-    // removeConsole: true,
   },
 };
 
