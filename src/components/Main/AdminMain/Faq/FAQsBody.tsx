@@ -79,8 +79,8 @@ const faqBody = ({ faqs }: Props) => {
     const origindata = JSON.stringify(faqs);
     const current = JSON.stringify(data);
 
-    setIsChanged(origindata !== current);
-  }, [data, faqs]);
+    setIsChanged(origindata !== current || selectedDeleteItems.length !== 0);
+  }, [data, faqs, selectedDeleteItems]);
   return (
     <>
       <ActionContainer $visible={isChanged}>
@@ -90,7 +90,7 @@ const faqBody = ({ faqs }: Props) => {
           $flexDirection="row"
           style={{ alignItems: "center" }}
         >
-          <Caption>Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.</Caption>
+          <Caption $color="#fff">Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.</Caption>
           <CustomButton
             $bgColor="transparent"
             $border="2px solid rgba(22, 31, 57, 0.8)"

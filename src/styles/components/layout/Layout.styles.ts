@@ -35,13 +35,13 @@ export const TabContainer = styled.div<{
   display: flex;
   flex-direction: row;
   background-color: ${(props) =>
-    props.$isSelected ? "rgba(0,0,0,0.03)" : "transparent"};
+    props.$isSelected ? "rgba(0,0,0,0.05) " : "transparent"};
   gap: 24px;
   width: ${(props) => props.$scale || "100%"};
   height: ${(props) => props.$scale || "48px"};
   padding: 4px 12px;
   align-items: center;
-  border-radius: 12px;
+  border-radius: 6px;
   cursor: pointer;
 
   &:hover {

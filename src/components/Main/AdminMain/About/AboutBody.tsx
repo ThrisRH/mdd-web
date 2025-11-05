@@ -150,8 +150,8 @@ const AboutBody = ({ about }: Props) => {
     const origindata = JSON.stringify(about);
     const current = JSON.stringify(data);
 
-    setIsChanged(origindata !== current);
-  }, [data, about]);
+    setIsChanged(origindata !== current || selectedDeleteItems.length !== 0);
+  }, [data, about, selectedDeleteItems]);
 
   return (
     <>

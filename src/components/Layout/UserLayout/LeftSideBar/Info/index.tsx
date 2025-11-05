@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   AvatarWrapper,
   Biography,
@@ -9,14 +9,10 @@ import {
   InfoWrapper,
 } from "./styled";
 import Image from "next/image";
-
-import FacebookIC from "@/assets/svg/fb";
-import TwitterIC from "@/assets/svg/x";
-import IGIC from "@/assets/svg/ig";
-import LinkedinIC from "@/assets/svg/linkedin";
 import Link from "next/link";
 import { Caption, Text } from "@/styles/theme/typography";
 import { useAppSelector } from "@/redux/hook";
+import { getSocialMediaIcon } from "@/utils/GetSocialMediaIcon";
 
 interface InfoCardProps {
   isNavbar: boolean;
@@ -67,15 +63,7 @@ const InfoCard = ({ isNavbar, textColor, isDetails }: InfoCardProps) => {
             <Field $gap={16}>
               {item.contact.map((item, index) => (
                 <Link href={item.url} key={index}>
-                  {item.platform === "facebook" ? (
-                    <FacebookIC />
-                  ) : item.platform == "instagram" ? (
-                    <IGIC />
-                  ) : item.platform === "x" ? (
-                    <TwitterIC />
-                  ) : (
-                    <LinkedinIC />
-                  )}
+                  {getSocialMediaIcon(item.platform)}
                 </Link>
               ))}
             </Field>

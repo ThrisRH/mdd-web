@@ -49,9 +49,9 @@ export async function generateMetadata({
     const title = blog.title;
     const description = Array.isArray(blog.subContent)
       ? blog.subContent
-          .map((item) => item.content)
-          .join(" ")
-          .slice(0, 160)
+        .map((item) => item.content)
+        .join(" ")
+        .slice(0, 160)
       : blog.subContent ?? "";
     const image = `${HOST}${blog.cover.url}` || "";
     return {
