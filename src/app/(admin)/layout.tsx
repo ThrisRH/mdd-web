@@ -1,9 +1,9 @@
 "use client";
-import BottomNavbar from "@/components/Layout/AdminLayout/BottomNavbar";
-import Header from "@/components/Layout/AdminLayout/Header";
-import { AdminLayoutContainer } from "@/components/Layout/AdminLayout/Layout.styles";
+import BottomNavbar from "@/component/layout/admin/bottom-navbar";
+import Header from "@/component/layout/admin/header/admin-header";
 import React from "react";
 import { BlogdetailcontextProvider } from "@/context/blogdetailcontext";
+import { AdminLayoutContainer } from "@/styles/layout";
 
 interface LayoutProps {
   children: React.ReactNode;

@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/assets/svg/arrowdown.jsx",
+    "src/assets/svg/arrow-down.jsx",
     "src/assets/svg/google.jsx",
     "src/auth.config.js",
     "src/app/(user)/api/auth/[...nextauth]/route.js",

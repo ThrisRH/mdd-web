@@ -1,9 +1,9 @@
 import React from "react";
-import FAQBody from "./FAQBody";
 import { notFound } from "next/navigation";
 import { FAQData } from "@/types/faq";
-import { handleError } from "@/utils/HandleError";
-import { fetchFAQ } from "@/utils/data/FaqAPI";
+import { handleError } from "@/utils/handle-error";
+import { fetchFAQ } from "@/utils/data/faq-api";
+import FAQBody from "@/app/screens/client/faq";
 
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 

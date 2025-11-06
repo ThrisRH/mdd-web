@@ -1,5 +1,5 @@
-import { fetchCateDetail } from "@/utils/data/FetchCategoryDetail";
-import CateDetailScreen from "../../../screens/cate-detail/cate-detail";
+import { fetchCateDetail } from "@/utils/data/cate-detail-api";
+import CateDetailScreen from "../../../screens/admin/cate-detail/cate-detail";
 
 type Props = {
   params: Promise<{ "cate-slug": string }>;

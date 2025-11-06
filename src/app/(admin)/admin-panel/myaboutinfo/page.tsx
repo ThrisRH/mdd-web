@@ -1,6 +1,6 @@
-import AboutScreen from "@/app/screens/admin-panel-tabs/about-admin";
-import NotFound from "@/components/Main/NotFound";
-import { fetchAbout } from "@/utils/data/FetchAbout";
+import AboutScreen from "@/app/screens/admin/admin-panel-tabs/about-admin";
+import NotFound from "@/section/client/main/not-found";
+import { fetchAbout } from "@/utils/data/about-api";
 
 export default async function AboutPage() {
   try {

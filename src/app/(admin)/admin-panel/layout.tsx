@@ -1,7 +1,7 @@
 "use client";
-import { BodyWrapper } from "@/components/Layout/AdminLayout/Layout.styles";
+import AdminPanelSidebar from "@/section/admin/Sidebars/AdminPanelSidebar";
+import { BodyWrapper } from "@/styles/layout";
 import React from "react";
-import AdminPanelSidebar from "@/components/Layout/AdminLayout/Sidebars/AdminPanelSidebar";
 
 interface LayoutProps {
   children: React.ReactNode;

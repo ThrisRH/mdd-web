@@ -3,11 +3,11 @@ import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { auth } from "@/auth";
-import SessionWrapper from "@/components/Main/SessionWrapper";
 import ReduxProvider from "./providers/redux-provider";
 import StyledComponentsProvider from "./providers/styled-components-provider";
 import { GlobalStyle } from "@/styles/global";
 import localFont from "next/font/local";
+import SessionWrapper from "./providers/session-provider";
 
 const inter = localFont({
   src: "../../public/fonts/Inter-VariableFont_opsz,wght.ttf",

@@ -1,6 +1,6 @@
-import { fetchCate } from "@/utils/data/CateAPI";
-import CategoryManagementScreen from "@/app/screens/admin-panel-tabs/cate-management";
-import NotFound from "@/components/Main/NotFound";
+import { fetchCate } from "@/utils/data/cate-api";
+import CategoryManagementScreen from "@/app/screens/admin/admin-panel-tabs/cate-management";
+import NotFound from "@/section/client/main/not-found";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 

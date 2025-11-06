@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import MainButton from "../src/components/ui/button/main_button";
+import MainButton from "../src/component/button/main-button";
 
 describe("MainButton component", () => {
   it("renders children and has role button", () => {

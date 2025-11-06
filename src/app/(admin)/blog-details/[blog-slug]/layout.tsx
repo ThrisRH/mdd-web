@@ -1,11 +1,9 @@
 "use client";
 import React from "react";
-import {
-  BodyWrapper,
-  SidebarContainer,
-} from "@/components/Layout/AdminLayout/Layout.styles";
-import BlogDetailSidebar from "@/components/Layout/AdminLayout/Sidebars/BlogDetailSidebar";
 import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
+import { BodyWrapper } from "@/styles/layout";
+import { SidebarContainer } from "@/section/admin/Sidebars/styled";
+import BlogDetailSidebar from "@/section/admin/Sidebars/BlogDetailSidebar";
 
 type Props = {
   children: React.ReactNode;

@@ -3,17 +3,17 @@ import TwitterIC from "@/assets/svg/x";
 import LinkedinIC from "@/assets/svg/linkedin";
 
 import { BlogDetails } from "@/types/blog";
-import PageContainer from "@/components/Main/PageContainer";
-import NotFound from "@/components/Main/NotFound";
-import PostDetail from "@/components/blogs/blogdetail";
-import Section from "@/components/blogs/blogdetail/section";
-import SmallPostCard from "@/components/blogs/blogcard/small-blog-card";
-import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
-import { BlogGrid } from "@/components/blogs/blogdetail/section/styled";
-import CommentWrapper from "@/components/comment";
+import NotFound from "@/section/client/main/not-found";
+import PostDetail from "@/section/client/blogs/blogdetail";
+import Section from "@/section/client/blogs/blogdetail/section";
+import SmallPostCard from "@/section/client/blogs/blogcard/small-blog-card";
+import { BlogGrid } from "@/section/client/blogs/blogdetail/section/styled";
+import CommentWrapper from "@/section/client/comment";
 import { Text } from "@/styles/theme/typography";
-import { fetchBlogDetail } from "@/utils/data/BlogAPI";
-import { HOST } from "@/app/(admin)/config/constant";
+import { fetchBlogDetail } from "@/utils/data/blog-api";
+import { HOST } from "@/config/host-env";
+import PageContainer from "@/section/client/main/page-container";
+import { BlogContainer } from "@/styles/common";
 
 // Fetch bài liên quan
 async function getRelatedBlogs(categoryId: string): Promise<BlogDetails[]> {

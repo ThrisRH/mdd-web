@@ -1,6 +1,6 @@
-import { fetchFAQ } from "@/utils/data/FaqAPI";
-import FAQScreen from "@/app/screens/admin-panel-tabs/faq-admin";
-import NotFound from "@/components/Main/NotFound";
+import { fetchFAQ } from "@/utils/data/faq-api";
+import FAQScreen from "@/app/screens/admin/admin-panel-tabs/faq-admin";
+import NotFound from "@/section/client/main/not-found";
 
 export default async function FAQsPage() {
   try {

@@ -1,5 +1,5 @@
 "use client";
-import { handleError } from "@/utils/HandleError";
+import { handleError } from "@/utils/handle-error";
 import { createContext, useContext, useEffect, useState } from "react";
 
 export type InfoProps = {

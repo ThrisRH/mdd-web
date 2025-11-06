@@ -1,7 +1,7 @@
 "use client";
-import { AuthBodyContainer } from "@/components/auth/styled";
-import SignInGoogle from "@/components/auth/LogWithGoogle";
-import SignUpStrapi from "@/components/auth/RegisterWithStrapi";
+import { AuthBodyContainer } from "@/section/client/auth/styled";
+import SignInGoogle from "@/section/client/auth/LogWithGoogle";
+import SignUpStrapi from "@/section/client/auth/RegisterWithStrapi";
 import {
   FlexContainer,
   FormContainer,

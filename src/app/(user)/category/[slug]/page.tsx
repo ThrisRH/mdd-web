@@ -1,9 +1,9 @@
-import PaginatedBlogList from "@/components/Layout/Pagination/PaginatedBlogList";
-import NotFound from "@/components/Main/NotFound";
-import PageContainer from "@/components/Main/PageContainer";
-import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
+import NotFound from "@/section/client/main/not-found";
 import { BlogDetails } from "@/types/blog";
 import { Text } from "@/styles/theme/typography";
+import PaginatedBlogList from "@/component/pagination/PaginatedBlogList";
+import PageContainer from "@/section/client/main/page-container";
+import { BlogContainer } from "@/styles/common";
 
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 

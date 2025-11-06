@@ -6,7 +6,8 @@ export const GlobalStyle = createGlobalStyle`
 
     /* Header */
     .h0, h1, h2, h3, h4, h5 {
-        word-spacing: 0;
+        letter-spacing: 0;
+        line-height: 100%;
 
         font-family: var(--font-lora), serif;
         color: ${theme.colors.black500};
@@ -63,4 +64,9 @@ export const GlobalStyle = createGlobalStyle`
     .body-3{
         font-size: 14px;
     }
+
+    .h0, h1, h2, h3, h4, h5{
+        color: ${theme.colors.primary500};
+    }
+
 `;

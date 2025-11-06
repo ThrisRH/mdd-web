@@ -1,6 +1,6 @@
-import BlogManagementScreen from "@/app/screens/admin-panel-tabs/blog-management";
-import NotFound from "@/components/Main/NotFound";
-import { fetchBlog } from "@/utils/data/BlogAPI";
+import BlogManagementScreen from "@/app/screens/admin/admin-panel-tabs/blog-management";
+import NotFound from "@/section/client/main/not-found";
+import { fetchBlog } from "@/utils/data/blog-api";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 

@@ -1,6 +1,6 @@
 "use client";
-import { AuthBodyContainer } from "@/components/auth/styled";
-import NotFound from "@/components/Main/NotFound";
+import { AuthBodyContainer } from "@/section/client/auth/styled";
+import NotFound from "@/section/client/main/not-found";
 
 export default function NotFoundPage() {
   return (

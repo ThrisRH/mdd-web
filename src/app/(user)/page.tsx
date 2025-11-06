@@ -1,9 +1,9 @@
-import PageContainer from "@/components/Main/PageContainer";
 import { BlogDetails } from "@/types/blog";
-import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
-import PaginatedBlogList from "@/components/Layout/Pagination/PaginatedBlogList";
-import NotFound from "@/components/Main/NotFound";
-import { fetchBlog } from "@/utils/data/BlogAPI";
+import NotFound from "@/section/client/main/not-found";
+import { fetchBlog } from "@/utils/data/blog-api";
+import PaginatedBlogList from "@/component/pagination/PaginatedBlogList";
+import PageContainer from "@/section/client/main/page-container";
+import { BlogContainer } from "@/styles/common";
 
 const API_URL = process.env.NEXT_PUBLIC_SERVER_HOST;
 

@@ -1,11 +1,10 @@
-// app/search/[slug]/page.tsx
-import PageContainer from "@/components/Main/PageContainer";
 import { BlogDetails } from "@/types/blog";
-import NotFound from "@/components/Main/NotFound";
-import { BlogContainer } from "@/components/Main/Styled/PageContainer.styles";
-import PaginatedBlogList from "@/components/Layout/Pagination/PaginatedBlogList";
+import NotFound from "@/section/client/main/not-found";
 import { Text } from "@/styles/theme/typography";
-import { handleError } from "@/utils/HandleError";
+import { handleError } from "@/utils/handle-error";
+import PageContainer from "@/section/client/main/page-container";
+import { BlogContainer } from "@/styles/common";
+import PaginatedBlogList from "@/component/pagination/PaginatedBlogList";
 
 // props
 type Params = Promise<{ slug: string }>;

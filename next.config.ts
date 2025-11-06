@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  reactStrictMode: false,
   images: {
     domains: ["localhost"],
     remotePatterns: [

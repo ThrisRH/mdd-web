@@ -11,7 +11,7 @@ export type AboutState = About & {
   avatarFileTemp: File;
 };
 
-type Contact = {
+export type Contact = {
   id: number;
   content: string;
 };

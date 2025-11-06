@@ -1,8 +1,8 @@
 import React from "react";
-import CommentScreen from "@/app/screens/blog-detail/comment";
-import { fetchComment } from "@/utils/data/FetchComment";
-import { fetchBlogDetail } from "@/utils/data/BlogAPI";
-import NotFound from "@/components/Main/NotFound";
+import CommentScreen from "@/app/screens/admin/blog-detail/comment";
+import { fetchComment } from "@/utils/data/comment-api";
+import { fetchBlogDetail } from "@/utils/data/blog-api";
+import NotFound from "@/section/client/main/not-found";
 
 type Props = {
   params: Promise<{ "blog-slug": string }>;

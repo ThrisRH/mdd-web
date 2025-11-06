@@ -1,5 +1,5 @@
 "use client";
-import { Dot, LoaderWrapper } from "@/components/Main/Loading.styles";
+import { Dot, LoaderWrapper } from "@/section/client/main/loading/styled";
 
 export default function Loading() {
   return (
