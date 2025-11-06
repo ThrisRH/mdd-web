@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { FooterContainer } from "./style";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 
 const Footer = () => {
   return (

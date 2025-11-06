@@ -6,7 +6,7 @@ import {
 import ReloadIC from "@/assets/svg/interact/reload";
 import { formatSlug } from "../../../../utils/handle-slug";
 import { IconContainer } from "../../styles/Page.styles";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 
 interface Props {
   label: string;

@@ -4,7 +4,6 @@ import React from "react";
 import { RelativeBlogImageContainer, RelativeBlogWrapper } from "./styled";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Text } from "@/styles/theme/typography";
 
 const SmallPostCard = ({ title, publishedAt, cover, slug }: BlogDetails) => {
   const router = useRouter();
@@ -32,8 +31,8 @@ const SmallPostCard = ({ title, publishedAt, cover, slug }: BlogDetails) => {
           fill
         />
       </RelativeBlogImageContainer>
-      <Text $variant="h4">{title}</Text>
-      <Text $variant="body3">{formatDate(publishedAt)}</Text>
+      <h4>{title}</h4>
+      <p className="body-3">{formatDate(publishedAt)}</p>
     </RelativeBlogWrapper>
   );
 };

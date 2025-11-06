@@ -4,7 +4,6 @@ import { TitleContainer } from "./styled";
 import FAQsBody from "@/section/admin/Faq/FAQsBody";
 import NotFound from "@/section/client/main/not-found";
 import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
-import { Text } from "@/styles/theme/typography";
 import { FAQData } from "@/types/faq";
 import React, { useEffect, useState } from "react";
 
@@ -39,7 +38,7 @@ const FAQScreen = ({ faqs }: Props) => {
   return (
     <MainContentContainer>
       <TitleContainer>
-        <Text $variant="h1">CÀI ĐẶT HỎI VÀ ĐÁP (FAQ)</Text>
+        <h1>CÀI ĐẶT HỎI VÀ ĐÁP (FAQ)</h1>
       </TitleContainer>
 
       <FAQsBody faqs={faqs} />

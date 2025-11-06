@@ -1,4 +1,5 @@
 "use client";
+import { Column } from "@/styles/common";
 import styled from "styled-components";
 
 export const FAQWrapper = styled.div`
@@ -6,15 +7,21 @@ export const FAQWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
-  margin-top: 2.5rem;
-  padding: 1rem;
+
+  gap: 40px;
+  margin-top: 40px;
+  padding: 16px;
 
   @media (min-width: 768px) {
-    padding: 12rem;
+    padding: 40px;
     gap: 5rem;
     margin-top: 0;
   }
+`;
+
+export const FAQContainer = styled(Column)`
+  gap: 40px;
+  max-width: 988px;
 `;
 
 export const FaqCard = styled.div`
@@ -42,6 +49,10 @@ export const QuestionRow = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const AnswerContent = styled.p<{ $hidden?: boolean }>`
+  display: ${({ $hidden }) => ($hidden ? "none" : "false")};
 `;
 
 export const Divider = styled.div`

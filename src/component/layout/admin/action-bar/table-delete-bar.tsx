@@ -6,7 +6,7 @@ import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { Loader } from "../../../../section/client/main/loading/styled";
 import { CustomButton } from "@/component/button/styled";
 import IconButton from "@/component/button/icon-button";
-import { Body, Text } from "@/styles/theme/typography";
+import { Body, Text } from "@/styles/theme/temp-typo";
 import { handleError } from "@/utils/handle-error";
 
 interface Props {

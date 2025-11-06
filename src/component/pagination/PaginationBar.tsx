@@ -2,7 +2,7 @@
 import React from "react";
 import { ArrowButton, PageNumber, PaginationContainer } from "./styled";
 import Arrow from "@/assets/svg/arrow-down";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 
 interface Props {
   currentPage: number;

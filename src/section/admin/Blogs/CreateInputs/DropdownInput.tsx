@@ -7,7 +7,7 @@ import {
   Item,
   List,
 } from "@/styles/components/inputs/Input.styles";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 import DropdownIC from "@/assets/svg/arrow-down";
 
 type Props = {

@@ -8,7 +8,7 @@ import Image from "next/image";
 import { AboutPageSectionProps } from "./contact-box";
 import { ImageInput } from "@/styles/components/inputs/Input.styles";
 import { ImageContainer } from "@/section/client/blogs/blogcard/styled";
-import { Caption, Text } from "@/styles/theme/typography";
+import { Caption, Text } from "@/styles/theme/temp-typo";
 
 const AvatarEditDescription = {
   content:

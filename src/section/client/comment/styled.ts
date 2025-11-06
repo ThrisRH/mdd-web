@@ -50,6 +50,12 @@ export const SubmitButton = styled.button`
   }
 `;
 
+export const Content = styled.p`
+  font-size: 20px;
+`;
+
+// User comment card
+
 export const CommentCardWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -66,4 +72,9 @@ export const CommentContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
+`;
+
+export const UserName = styled.p`
+  font-weight: 700;
+  font-style: 16px;
 `;

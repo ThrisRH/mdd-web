@@ -5,7 +5,7 @@ import {
 } from "@/section/admin/styles/Page.styles";
 import React from "react";
 
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 import { PageNumber, PaginationContainer } from "../styled";
 import { PaginationButton, PaginationControls } from "./styled";
 

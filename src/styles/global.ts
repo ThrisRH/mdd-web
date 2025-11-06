@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     /* Header */
     .h0, h1, h2, h3, h4, h5 {
         letter-spacing: 0;
-        line-height: 100%;
+        line-height: 1.5;
 
         font-family: var(--font-lora), serif;
         color: ${theme.colors.black500};
@@ -50,6 +50,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         word-spacing: 0;
         line-height: 24px;
+        font-weight: 400;
 
         font-family: var(--font-inter), sans-serif;
         color: ${theme.colors.black500};
@@ -57,6 +58,7 @@ export const GlobalStyle = createGlobalStyle`
 
     .body-1{
         font-size: 16px;
+        font-weight: 500 !important;
     }
     .body-2{
         font-size: 16px;
@@ -66,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .h0, h1, h2, h3, h4, h5{
-        color: ${theme.colors.primary500};
+        color: ${theme.colors.black500};
     }
 
 `;

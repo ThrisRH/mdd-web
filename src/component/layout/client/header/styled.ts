@@ -1,3 +1,4 @@
+import { theme } from "@/styles/theme";
 import styled from "styled-components";
 
 export const NavWrapper = styled.div`
@@ -13,7 +14,7 @@ export const HeaderContainer = styled.header`
   flex-direction: row;
   width: 100%;
   background-color: black;
-  height: 58px;
+  padding: 16px 0;
   align-items: center;
   justify-content: center;
 `;

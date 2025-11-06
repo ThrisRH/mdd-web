@@ -5,7 +5,7 @@ import { BodyContainer, HeaderFormContainer } from "../styles/Page.styles";
 
 import CommentCard from "./comment-card";
 import { CommentProps } from "@/types/comment";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 
 export type Props = {
   comments: CommentProps[];

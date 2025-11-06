@@ -13,7 +13,6 @@ import Image from "next/image";
 import rehypeRaw from "rehype-raw";
 import { About } from "@/types/about";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { Body, Caption, Text } from "@/styles/theme/typography";
 import Link from "next/link";
 import { getSocialMediaIcon } from "@/utils/get-social-media-icon";
 
@@ -43,27 +42,15 @@ const AboutScreen = ({ about }: Props) => {
           <ReactMarkDown
             rehypePlugins={[rehypeRaw]}
             components={{
-              h1: ({ node, ...props }) => (
-                <Text $variant="h1" $color="#000" {...props} />
-              ),
-              h2: ({ node, ...props }) => (
-                <Text $variant="h2" $color="#000" {...props} />
-              ),
-              h3: ({ node, ...props }) => (
-                <Text $variant="h3" $color="#000" {...props} />
-              ),
-              h4: ({ node, ...props }) => (
-                <Text $variant="h4" $color="#000" {...props} />
-              ),
-              p: ({ node, ...props }) => (
-                <Text $variant="body3" $color="#000" {...props} />
-              ),
+              h1: ({ node, ...props }) => <h1 {...props} />,
+              h2: ({ node, ...props }) => <h2 {...props} />,
+              h3: ({ node, ...props }) => <h3 {...props} />,
+              h4: ({ node, ...props }) => <h4 {...props} />,
+              p: ({ node, ...props }) => <p className="body-3" {...props} />,
               ol: ({ node, ...props }) => (
                 <ol className="list-decimal pl-6" {...props} />
               ),
-              li: ({ node, ...props }) => (
-                <Body $color="#000" className="" as={"li"} {...props} />
-              ),
+              li: ({ node, ...props }) => <li {...props} />,
             }}
           >
             {about.aboutContent}
@@ -71,7 +58,7 @@ const AboutScreen = ({ about }: Props) => {
         </FlexContainer>
 
         <ContactSection>
-          <Text $variant="body1">Liên hệ qua:</Text>
+          <p className="body-1">Liên hệ qua:</p>
 
           <Content $gap={12}>
             {about.author.contact.map((item) => (
@@ -83,10 +70,8 @@ const AboutScreen = ({ about }: Props) => {
         </ContactSection>
 
         <FooterSection>
-          <Text $variant="h5" $size={15}>
-            Have a nice day!
-          </Text>
-          <Caption>my MDD diary</Caption>
+          <h4>Have a nice day!</h4>
+          <p className="body-2">my MDD diary</p>
         </FooterSection>
       </Card>
     </AboutWrapper>

@@ -56,10 +56,6 @@ const createVariantStyles = (theme: Theme = "light") => {
   return {
     // Headings
     h0: css`
-      font-size: 32px;
-      line-height: 1.2;
-      font-weight: bold;
-      font-family: var(--font-lora), serif;
       color: ${colors.primary};
 
       @media (min-width: 40rem) {
@@ -68,10 +64,6 @@ const createVariantStyles = (theme: Theme = "light") => {
     `,
 
     h1: css`
-      font-size: 18px;
-      line-height: 28px;
-      font-weight: bold;
-      font-family: var(--font-lora), serif;
       color: ${colors.primary};
 
       @media (min-width: 680px) {
@@ -80,10 +72,6 @@ const createVariantStyles = (theme: Theme = "light") => {
     `,
 
     h2: css`
-      font-size: 22px;
-      line-height: 1.3;
-      font-weight: 600;
-      font-family: var(--font-lora), serif;
       color: ${theme === "dark" ? colors.primary : colors.primary};
 
       @media (min-width: 40rem) {

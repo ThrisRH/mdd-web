@@ -4,7 +4,7 @@ import Input from "../../../component/input";
 import { capitalizeFirstLetter } from "@/utils/convert-to-uppercase";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import MainButton from "../../../component/button/main-button";
-import { ErrorText } from "@/styles/theme/typography";
+import { ErrorText } from "@/styles/theme/temp-typo";
 
 export default function SignUpStrapi() {
   const [username, setUsername] = useState("");

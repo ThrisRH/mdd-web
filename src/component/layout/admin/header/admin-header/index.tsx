@@ -13,7 +13,7 @@ import Link from "next/link";
 import { TabContainer } from "@/styles/components/layout/Layout.styles";
 import { Row } from "@/styles/common";
 import { useRouter } from "next/navigation";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 import Notification from "../notification";
 import SearchBarAdmin from "../searchbar";
 import {

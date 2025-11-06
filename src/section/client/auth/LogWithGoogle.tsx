@@ -1,7 +1,7 @@
 import { signIn } from "next-auth/react";
 import GoogleIC from "@/assets/svg/google";
 import { CustomButton } from "@/component/button/styled";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 
 export default function SignInGoogle() {
   const handleSignIn = async () => {

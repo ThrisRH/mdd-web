@@ -1,6 +1,5 @@
 import { BlogDetails } from "@/types/blog";
 import NotFound from "@/section/client/main/not-found";
-import { Text } from "@/styles/theme/typography";
 import { handleError } from "@/utils/handle-error";
 import PageContainer from "@/section/client/main/page-container";
 import { BlogContainer } from "@/styles/common";
@@ -94,7 +93,7 @@ export default async function SearchPage(props: {
   return (
     <PageContainer>
       <BlogContainer>
-        <Text $variant="h0">Kết quả tìm kiếm cho: {title}</Text>
+        <div className="h0">Kết quả tìm kiếm cho: {title}</div>
 
         <PaginatedBlogList
           page={pageNumber}

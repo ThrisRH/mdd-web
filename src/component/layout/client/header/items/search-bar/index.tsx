@@ -11,7 +11,7 @@ import {
 } from "./styled";
 import SearchIC from "@/assets/svg/search";
 import { useRouter } from "next/navigation";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 
 interface SearchBarProps {
   onCancel: () => void;

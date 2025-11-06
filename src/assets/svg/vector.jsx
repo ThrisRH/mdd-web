@@ -1,13 +1,13 @@
 import * as React from "react";
 const SvgComponent = (props) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={28}
-    height={8}
+    width="28"
+    height="9"
+    viewBox="0 0 28 8"
     fill="none"
-    {...props}
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <path fill="#000" d="M6 0 0 4l6 4 22-4L6 0Z" />
+    <path d="M6 0L0 4L6 8L28 4L6 0Z" fill="black" />
   </svg>
 );
 export default SvgComponent;

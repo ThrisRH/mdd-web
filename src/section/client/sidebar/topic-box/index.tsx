@@ -59,7 +59,7 @@ const Topic = () => {
     <TopicTitle className="w-full max-w-[320px] h-fit">
       <InputWrapper>
         <Select value={selected} onChange={handleChange}>
-          <option value="">-- Tất cả --</option>
+          <option value="">Chọn chủ đề</option>
           {cate.map((item) => (
             <option key={item.id} value={item.documentId}>
               {item.tile}

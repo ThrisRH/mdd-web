@@ -10,7 +10,7 @@ import {
   SearchResultArea,
 } from "../../client/header/items/search-bar/styled";
 import SearchIC from "@/assets/svg/search";
-import { Body, Text } from "@/styles/theme/typography";
+import { Body, Text } from "@/styles/theme/temp-typo";
 import { BlogDetails } from "@/types/blog";
 import { handleError } from "@/utils/handle-error";
 import SearchBlogCard from "./search-blog-card";

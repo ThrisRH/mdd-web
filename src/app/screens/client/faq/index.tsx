@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import {
   Container,
   Dot,
@@ -11,14 +10,17 @@ import {
 } from "@/section/client/blogs/blogcard/styled";
 import Vector from "@/assets/svg/vector";
 import { FAQData } from "@/types/faq";
-import { Text } from "@/styles/theme/typography";
 import {
+  AnswerContent,
   Divider,
   FaqCard,
+  FAQContainer,
   FAQWrapper,
   QuestionBlock,
   QuestionRow,
 } from "./styled";
+import { TextCanChangeColor } from "@/styles/typography";
+import { Row } from "@/styles/common";
 
 // Component
 
@@ -27,56 +29,50 @@ const FAQBody = ({ ...faq }: FAQData) => {
   if (!faq) return null;
   return (
     <FAQWrapper>
-      <Text $variant="h0">Câu hỏi thường gặp</Text>
-      <FlexContainer $flexDirection="row" $justify="center" $gap="xs">
-        <Container $flex={3}>
-          <LineContainer>
-            <Line></Line>
-            <VectorContainer $left={false}>
-              <Vector />
-            </VectorContainer>
-          </LineContainer>
-          <Dot></Dot>
-        </Container>
-        {/* Dot */}
-        {Array.from({ length: 9 }).map((_, index) => (
-          <Dot key={index} />
-        ))}
-        <Container $flex={3}>
-          <Dot></Dot>
-          <LineContainer>
-            <VectorContainer $left={true}>
-              <Vector />
-            </VectorContainer>
-            <Line></Line>
-          </LineContainer>
-        </Container>
-      </FlexContainer>
-      <FaqCard>
-        {faq.questionAnswer.map((item, index) => (
-          <QuestionBlock key={index}>
-            <QuestionRow
-              className="cursor-pointer"
-              onClick={() => setSelected(index)}
-            >
-              <Text
-                $variant="h3"
-                $color={selected === index ? "#EA8E31" : "#000"}
+      <FAQContainer $align="center">
+        <div className="h0">Câu hỏi thường gặp</div>
+        <Row $align="center" $justify="center" style={{ gap: "6px" }}>
+          <Container $flex={3}>
+            <LineContainer>
+              <Line $left={false} />
+              <VectorContainer $left={false}>
+                <Vector />
+              </VectorContainer>
+            </LineContainer>
+          </Container>
+          {/* Dot */}
+          {Array.from({ length: 10 }).map((_, index) => (
+            <Dot key={index} />
+          ))}
+          <Container $flex={3}>
+            <LineContainer>
+              <VectorContainer $left={true}>
+                <Vector />
+              </VectorContainer>
+              <Line $left={true} />
+            </LineContainer>
+          </Container>
+        </Row>
+        <FaqCard>
+          {faq.questionAnswer.map((item, index) => (
+            <QuestionBlock key={index}>
+              <QuestionRow
+                className="cursor-pointer"
+                onClick={() => setSelected(index)}
               >
-                {item.question}
-              </Text>
-              <Text $variant="h3">{selected === index ? "-" : "+"}</Text>
-            </QuestionRow>
-            <Text
-              $variant="body2"
-              className={`${selected === index ? "flex" : "hidden"}`}
-            >
-              {item.answer}
-            </Text>
-            <Divider />
-          </QuestionBlock>
-        ))}
-      </FaqCard>
+                <TextCanChangeColor as="h3" $isActive={selected === index}>
+                  {item.question}
+                </TextCanChangeColor>
+                <h3>{selected === index ? "-" : "+"}</h3>
+              </QuestionRow>
+              <AnswerContent className="body-2" $hidden={selected !== index}>
+                {item.answer}
+              </AnswerContent>
+              <Divider />
+            </QuestionBlock>
+          ))}
+        </FaqCard>
+      </FAQContainer>
     </FAQWrapper>
   );
 };

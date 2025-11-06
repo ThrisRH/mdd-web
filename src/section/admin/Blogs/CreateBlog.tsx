@@ -17,7 +17,7 @@ import CustomEditor from "./CreateInputs/CKEditorInput/CustomEditor";
 import TurndownService from "turndown";
 import { CustomButton } from "@/component/button/styled";
 import { FormContainer } from "@/styles/components/layout/Common.styles";
-import { Body, Text } from "@/styles/theme/typography";
+import { Body, Text } from "@/styles/theme/temp-typo";
 import { Loader } from "../../client/main/loading/styled";
 import { Row } from "@/styles/common";
 

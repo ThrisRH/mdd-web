@@ -1,7 +1,7 @@
 import React from "react";
 import { BlogDetails } from "@/types/blog";
 import { Column } from "@/styles/common";
-import { Body, Text } from "@/styles/theme/typography";
+import { Body, Text } from "@/styles/theme/temp-typo";
 import { MainContent } from "@/section/admin/styles/Page.styles";
 import { ImageContainer } from "@/section/client/blogs/blogcard/styled";
 import Image from "next/image";

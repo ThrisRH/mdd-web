@@ -3,7 +3,7 @@ import {
   FormInput,
   FormInputContainer,
 } from "../../../../styles/components/inputs/Input.styles";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 
 interface Props {
   label: string;

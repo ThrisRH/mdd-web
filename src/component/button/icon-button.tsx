@@ -1,7 +1,5 @@
 import React from "react";
 import { ButtonWrapper } from "./styled";
-import { Row } from "../../styles/common";
-import { Body, Caption } from "@/styles/theme/typography";
 
 export type IconButtonProps = {
   icon: React.ReactNode;
@@ -16,19 +14,12 @@ const IconButton = ({
   variant,
   children,
   onClick,
-  isDisable,
+  isDisable = false,
 }: IconButtonProps) => {
   return (
-    <ButtonWrapper
-      $variant={variant}
-      onClick={onClick}
-      $isDisable={isDisable || false}
-      disabled={isDisable || false}
-    >
-      <Row $justify="center" $align="center">
-        {icon}
-        <Body>{children}</Body>
-      </Row>
+    <ButtonWrapper $variant={variant} onClick={onClick} disabled={isDisable}>
+      {icon}
+      <h2>{children}</h2>
     </ButtonWrapper>
   );
 };

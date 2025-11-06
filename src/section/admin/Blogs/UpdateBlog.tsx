@@ -16,7 +16,7 @@ import { CateProps } from "@/component/layout/client/header/items/desktop-nav";
 import { useRouter } from "next/navigation";
 
 import SaveIC from "@/assets/svg/interact/save-button";
-import { Body, Text } from "@/styles/theme/typography";
+import { Body, Text } from "@/styles/theme/temp-typo";
 
 interface Props {
   blog: BlogDetails;

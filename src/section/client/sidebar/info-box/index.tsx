@@ -10,7 +10,6 @@ import {
 } from "./styled";
 import Image from "next/image";
 import Link from "next/link";
-import { Caption, Text } from "@/styles/theme/typography";
 import { useAppSelector } from "@/redux/hook";
 import { getSocialMediaIcon } from "@/utils/get-social-media-icon";
 import Loading from "@/app/(user)/loading";
@@ -21,7 +20,7 @@ interface InfoCardProps {
   textColor?: string;
 }
 
-const InfoCard = ({ isNavbar, textColor, isDetails }: InfoCardProps) => {
+const InfoCard = ({ isNavbar, isDetails }: InfoCardProps) => {
   const authorMDD = useAppSelector((state) => state.mainBlogAuthor);
   const info = authorMDD.data;
 
@@ -46,22 +45,20 @@ const InfoCard = ({ isNavbar, textColor, isDetails }: InfoCardProps) => {
           </AvatarWrapper>
 
           <InfoWrapper>
-            <Text $variant="h2" $color={textColor}>
-              my {item.fullname} diary
-            </Text>
+            <h2>my {item.fullname} diary</h2>
             <Field $isNavbar={isNavbar}>
-              {item.interest.map((item, index) => (
-                <Caption $color={textColor} key={index}>
-                  {item.interest}
-                </Caption>
+              {item.interest.map((i, index) => (
+                <p className="body-3" key={index}>
+                  {" "}
+                  {i.interest}
+                  {index === item.interest.length - 1 ? "" : ", "}
+                </p>
               ))}
             </Field>
           </InfoWrapper>
           <DetailsWrapper $isDetails={isDetails}>
             <Biography>
-              <Caption style={{ textAlign: "center" }}>
-                {item.biography}
-              </Caption>
+              <p className="body-3">{item.biography}</p>
             </Biography>
             <Field $gap={16}>
               {item.contact.map((item, index) => (

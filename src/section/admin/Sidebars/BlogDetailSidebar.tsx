@@ -16,7 +16,7 @@ import {
 import { TabContainer } from "@/styles/components/layout/Layout.styles";
 import { useBlogdetailcontext } from "@/context/blogdetailcontext/index";
 import { BlogDetailTabs } from "@/config/tabs-config";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 import { Column } from "@/styles/common";
 
 const BlogDetailSidebar = () => {

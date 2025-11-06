@@ -10,7 +10,7 @@ import {
   NotificationWrapper,
 } from "./styled";
 import BellIC from "@/assets/svg/notice-bell";
-import { Body, Caption, Text } from "@/styles/theme/typography";
+import { Body, Caption, Text } from "@/styles/theme/temp-typo";
 
 import Logo from "@/assets/image/logo.png";
 import Image from "next/image";

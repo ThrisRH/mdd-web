@@ -10,7 +10,7 @@ import DropdownIC from "@/assets/svg/arrow-down";
 import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
 import { Row } from "@/styles/common";
 import { AboutState } from "@/types/about";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 import DropdownInput from "../Blogs/CreateInputs/DropdownInput";
 
 export interface AboutPageSectionProps {

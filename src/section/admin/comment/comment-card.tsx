@@ -3,7 +3,7 @@ import React from "react";
 import { CommentCardWrapper, ReaderDetailContainer } from "./styled";
 import Image from "next/image";
 import { Dot, ImageContainer } from "@/section/client/blogs/blogcard/styled";
-import { Caption, Text } from "@/styles/theme/typography";
+import { Caption, Text } from "@/styles/theme/temp-typo";
 import { Column, Row } from "@/styles/common";
 import { formatDate } from "../Blogs/BlogTable";
 

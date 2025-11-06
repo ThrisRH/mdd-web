@@ -107,13 +107,14 @@ export const Container = styled.div<{ $flex: number }>`
 
 export const VectorContainer = styled.div<{ $left: boolean }>`
   position: absolute;
-  ${({ $left }) => ($left ? "left: -5px" : "right: -5px")};
+  ${({ $left }) => ($left ? "left: 0px" : "right: 0px")};
   ${({ $left }) => ($left ? "" : "transform: rotate(180deg)")}
 `;
 
-export const Line = styled.div<{ $width?: number }>`
+export const Line = styled.div<{ $width?: number; $left: boolean }>`
   background: #000;
   height: 2px;
+  ${({ $left }) => ($left ? "  margin-left: 10px" : "margin-right: 10px")};
 
   ${({ $width }) => ($width ? `width: ${$width}px;` : `flex: 1;`)}
 `;

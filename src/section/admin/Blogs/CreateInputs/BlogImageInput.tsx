@@ -8,7 +8,7 @@ import {
 } from "../../../../styles/components/inputs/Input.styles";
 import AddImageIC from "@/assets/svg/add-image";
 import { ImageContainer } from "@/section/client/blogs/blogcard/styled";
-import { Caption, Text } from "@/styles/theme/typography";
+import { Caption, Text } from "@/styles/theme/temp-typo";
 
 interface Props {
   previewImage: string | null;

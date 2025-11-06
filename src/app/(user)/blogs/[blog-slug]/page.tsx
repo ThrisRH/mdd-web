@@ -9,7 +9,6 @@ import Section from "@/section/client/blogs/blogdetail/section";
 import SmallPostCard from "@/section/client/blogs/blogcard/small-blog-card";
 import { BlogGrid } from "@/section/client/blogs/blogdetail/section/styled";
 import CommentWrapper from "@/section/client/comment";
-import { Text } from "@/styles/theme/typography";
 import { fetchBlogDetail } from "@/utils/data/blog-api";
 import { HOST } from "@/config/host-env";
 import PageContainer from "@/section/client/main/page-container";
@@ -109,7 +108,7 @@ export default async function Page({
         />
         {/* Chia sẻ mạng xã hội */}
         <Section flexDirection="row">
-          <h4>Chia sẻ bài viết qua</h4>
+          <h4>CHIA SẺ BÀI VIẾT QUA</h4>
           <FacebookIC />
           <TwitterIC />
           <LinkedinIC />
@@ -117,9 +116,7 @@ export default async function Page({
 
         {/* Các bài viết liên quan */}
         <Section flexDirection="column">
-          <Text $variant="h4" className="uppercase">
-            Các bài viết liên quan
-          </Text>
+          <h4>CÁC BÀI VIẾT LIÊN QUAN</h4>
           <BlogGrid>
             {blogs.map((item, index) => (
               <SmallPostCard key={index} {...item} />
@@ -128,9 +125,7 @@ export default async function Page({
         </Section>
 
         <Section>
-          <Text $variant="h4" className="uppercase">
-            Leave a comment
-          </Text>
+          <h4>Leave a comment</h4>
           <CommentWrapper documentId={blogDetail.documentId} />
         </Section>
       </BlogContainer>

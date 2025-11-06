@@ -14,7 +14,7 @@ import SelectedIC from "@/assets/svg/interact/selected-square";
 import { CateProps } from "@/component/layout/client/header/items/desktop-nav";
 import { useRouter, useSearchParams } from "next/navigation";
 import ActionSection from "../../../component/layout/admin/action-bar/table-delete-bar";
-import { Body, Text } from "@/styles/theme/typography";
+import { Body, Text } from "@/styles/theme/temp-typo";
 import { Row } from "@/styles/common";
 import TablePaginationBar from "@/component/pagination/admin-table-pagination";
 

@@ -13,7 +13,7 @@ import {
   SidebarItemsContainer,
   TabsGroup,
 } from "./styled";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 import { CateProps } from "@/component/layout/client/header/items/desktop-nav";
 
 interface Props {

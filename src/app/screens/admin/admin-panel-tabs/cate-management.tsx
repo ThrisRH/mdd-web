@@ -4,7 +4,6 @@ import { TitleContainer } from "./styled";
 import { CateProps } from "@/component/layout/client/header/items/desktop-nav";
 import CateTable from "@/section/admin/Categories/CateTable";
 import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
-import { Text } from "@/styles/theme/typography";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -36,7 +35,7 @@ const CategoryManagementScreen = ({
   return (
     <MainContentContainer>
       <TitleContainer>
-        <Text $variant="h1">DANH SÁCH THƯ MỤC CỦA KÊNH BLOG</Text>
+        <h1>DANH SÁCH THƯ MỤC CỦA KÊNH BLOG</h1>
       </TitleContainer>
       <CateTable
         totalPages={totalPages}

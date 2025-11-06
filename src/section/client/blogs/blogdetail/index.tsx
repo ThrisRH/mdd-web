@@ -15,7 +15,7 @@ import {
 import { BlogDetails } from "@/types/blog";
 import Image from "next/image";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { Body, Caption, Text } from "@/styles/theme/typography";
+import { Body, Caption, Text } from "@/styles/theme/temp-typo";
 
 function PostDetailComponent({
   title,
@@ -35,28 +35,28 @@ function PostDetailComponent({
       <FlexContainer $flexDirection="row" $justify="center" $gap="xs">
         <Container $flex={3}>
           <LineContainer>
-            <Line></Line>
+            <Line $left={false} />
             <VectorContainer $left={false}>
               <Vector />
             </VectorContainer>
           </LineContainer>
           <Dot></Dot>
         </Container>
-        <Caption>{formatDate(publishedAt)}</Caption>
+        <p className="body-3">{formatDate(publishedAt)}</p>
         <Container $flex={3}>
           <Dot></Dot>
           <LineContainer>
             <VectorContainer $left={true}>
               <Vector />
             </VectorContainer>
-            <Line></Line>
+            <Line $left={true} />
           </LineContainer>
         </Container>
       </FlexContainer>
 
       {/* Vùng nội dung */}
       <Container $flex={1}>
-        <Text $variant="h1">{title}</Text>
+        <h1>{title}</h1>
       </Container>
       <FlexContainer $gap="md">
         <ImageContainer $variant="blog-card">
@@ -70,43 +70,20 @@ function PostDetailComponent({
             fill
           />
         </ImageContainer>
-        <Body $align="justify" $whiteSpace="normal">
-          {mainContent}
-        </Body>
+        <p className="body-3">{mainContent}</p>
 
         <ReactMarkDown
           rehypePlugins={[rehypeRaw]}
           components={{
-            h1: ({ node, ...props }) => (
-              <Text $variant="h1" $align="justify" {...props} />
-            ),
-            h2: ({ node, ...props }) => (
-              <Text $variant="h2" $align="justify" {...props} />
-            ),
-            h3: ({ node, ...props }) => (
-              <Text $variant="h3" $align="justify" {...props} />
-            ),
-            h4: ({ node, ...props }) => (
-              <Text $variant="h4" $align="justify" {...props} />
-            ),
-            p: ({ node, ...props }) => <Caption $align="justify" {...props} />,
+            h1: ({ node, ...props }) => <h1 {...props} />,
+            h2: ({ node, ...props }) => <h2 {...props} />,
+            h3: ({ node, ...props }) => <h3 {...props} />,
+            h4: ({ node, ...props }) => <h4 {...props} />,
+            p: ({ node, ...props }) => <p {...props} />,
             ol: ({ node, ...props }) => (
-              <Body
-                $align="justify"
-                as={"ol"}
-                className="list-decimal pl-6"
-                {...props}
-              />
+              <ol className="list-decimal pl-6" {...props} />
             ),
-            li: ({ node, ...props }) => (
-              <Body $align="justify" as={"li"} {...props} />
-            ),
-            // strong: ({ node, ...props }) => (
-            //   <CustomBody $whiteSpace="normal" $color="#000" $weight={600} />
-            // ),
-            // em: ({ node, ...props }) => (
-            //   <CustomBody $whiteSpace="normal" $color="#000" $weight={400} />
-            // ),
+            li: ({ node, ...props }) => <li {...props} />,
           }}
         >
           {subContent}

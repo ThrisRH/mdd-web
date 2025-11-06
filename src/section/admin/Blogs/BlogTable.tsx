@@ -19,7 +19,7 @@ import NoneSelectionIC from "@/assets/svg/interact/none-selection-square";
 import SelectedIC from "@/assets/svg/interact/selected-square";
 import Image from "next/image";
 import ActionSection from "../../../component/layout/admin/action-bar/table-delete-bar";
-import { Body, Text } from "@/styles/theme/typography";
+import { Body, Text } from "@/styles/theme/temp-typo";
 import { Flex, Row } from "@/styles/common";
 import TablePaginationBar from "@/component/pagination/admin-table-pagination";
 

@@ -17,7 +17,7 @@ export const ContentWrapper = styled(Row)`
 
 export const Container = styled.div`
   display: flex;
-  max-width: 1280px;
+  max-width: 1480px;
   gap: 64px;
 `;
 

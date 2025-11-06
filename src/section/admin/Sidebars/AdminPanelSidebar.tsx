@@ -11,7 +11,7 @@ import {
 } from "./styled";
 import { TabContainer } from "@/styles/components/layout/Layout.styles";
 import { ImageContainer } from "@/section/client/blogs/blogcard/styled";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 import { useAppSelector } from "@/redux/hook";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 

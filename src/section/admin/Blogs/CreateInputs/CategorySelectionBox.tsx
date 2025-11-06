@@ -12,7 +12,7 @@ import { CateProps } from "@/component/layout/client/header/items/desktop-nav";
 
 import DropdownIC from "@/assets/svg/arrow-down";
 import MainButton from "@/component/button/main-button";
-import { Body, Caption, Text } from "@/styles/theme/typography";
+import { Body, Caption, Text } from "@/styles/theme/temp-typo";
 import { HOST } from "@/config/host-env";
 
 interface CateSelectionProps {

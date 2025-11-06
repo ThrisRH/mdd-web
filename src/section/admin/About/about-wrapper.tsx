@@ -16,7 +16,7 @@ import ProfileSection from "./profile-box";
 import { AboutState } from "@/types/about";
 import { Loader } from "../../client/main/loading/styled";
 import { Row } from "@/styles/common";
-import { Caption, Text } from "@/styles/theme/typography";
+import { Caption, Text } from "@/styles/theme/temp-typo";
 import { handleError } from "@/utils/handle-error";
 
 interface Props {
@@ -169,7 +169,7 @@ const AboutBody = ({ about }: Props) => {
               $maxWidth={true}
               onClick={() => handleUpdateAbout()}
               $variant="shadow"
-              $isDisable={true}
+              disabled={true}
             >
               <Row $align="center" $justify="center">
                 <Loader />

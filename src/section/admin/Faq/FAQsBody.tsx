@@ -7,7 +7,7 @@ import { ActionContainer, BodyContainer } from "../styles/Page.styles";
 import { useToggleSelect } from "@/hooks/use-toggle-select";
 import FAQsSection from "./FAQsSection";
 import { FAQData } from "@/types/faq";
-import { Body, Caption } from "@/styles/theme/typography";
+import { Body, Caption } from "@/styles/theme/temp-typo";
 import { handleError } from "@/utils/handle-error";
 
 interface Props {

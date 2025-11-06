@@ -17,7 +17,7 @@ import {
 import { CustomButton } from "@/component/button/styled";
 import BlogTitleInput from "../Blogs/CreateInputs/BlogTitleInput";
 import BlogSlugInput from "../Blogs/CreateInputs/BlogSlugInput";
-import { Body, Text } from "@/styles/theme/typography";
+import { Body, Text } from "@/styles/theme/temp-typo";
 import { Loader } from "../../client/main/loading/styled";
 import { Row } from "@/styles/common";
 import { handleError } from "@/utils/handle-error";

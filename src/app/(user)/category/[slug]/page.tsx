@@ -1,6 +1,5 @@
 import NotFound from "@/section/client/main/not-found";
 import { BlogDetails } from "@/types/blog";
-import { Text } from "@/styles/theme/typography";
 import PaginatedBlogList from "@/component/pagination/PaginatedBlogList";
 import PageContainer from "@/section/client/main/page-container";
 import { BlogContainer } from "@/styles/common";
@@ -105,7 +104,7 @@ export default async function CatePage(props: {
   return (
     <PageContainer>
       <BlogContainer>
-        <Text $variant="h0">{cate.data.tile}</Text>
+        <div className="h0">{cate.data.tile}</div>
 
         <PaginatedBlogList
           totalPages={blogData.meta.pagination.pageCount}

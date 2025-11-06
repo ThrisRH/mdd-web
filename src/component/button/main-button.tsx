@@ -15,11 +15,7 @@ const MainButton = ({
   isDisable = false,
 }: MainButtonProps) => {
   return (
-    <ButtonWrapper
-      onClick={onClick}
-      $variant={variant}
-      disabled={isDisable || false}
-    >
+    <ButtonWrapper onClick={onClick} $variant={variant} disabled={isDisable}>
       <h2>{children}</h2>
     </ButtonWrapper>
   );

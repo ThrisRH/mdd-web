@@ -8,11 +8,12 @@ import {
   SubmitField,
   SubmitButton,
   CommentBody,
+  Content,
+  UserName,
 } from "./styled";
 import Image from "next/image";
 import { CommentInputProps, CommentProps } from "@/types/comment";
 import { BorderContainer } from "@/styles/components/layout/Common.styles";
-import { Body, Caption, Text } from "@/styles/theme/typography";
 import { handleError } from "@/utils/handle-error";
 import { toast } from "react-toastify";
 
@@ -105,8 +106,8 @@ const CommentCard = ({ reader, content }: CommentProps) => {
         />
       </CommentImageWrapper>
       <CommentContent>
-        <Body $weight={700}>{reader.Fullname}</Body>
-        <Caption>{content}</Caption>
+        <UserName>{reader.Fullname}</UserName>
+        <p className="body-3">{content}</p>
       </CommentContent>
     </CommentCardWrapper>
   );
@@ -131,7 +132,7 @@ const CommentInput = ({
       />
       <SubmitField>
         <SubmitButton onClick={handleSubmit}>
-          <Text $variant="body0">Post Comment</Text>
+          <Content>Post Comment</Content>
         </SubmitButton>
       </SubmitField>
     </BorderContainer>

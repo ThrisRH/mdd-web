@@ -1,9 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import SendArea from "@/assets/svg/send-content";
-import { ButtonWrapper, Input, InputWrapper } from "../styled";
+import { Input, InputWrapper } from "../styled";
 import MainButton from "@/component/button/main-button";
-import { Caption } from "@/styles/theme/typography";
 
 interface CateProps {
   id: number;
@@ -50,11 +49,11 @@ const SendContent = () => {
 
   if (cate.length == 0) return null;
   return (
-    <SendArea className="w-full max-w-[320px] h-fit">
-      <Caption className="w-full">
+    <SendArea>
+      <p className="body-3">
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry
-      </Caption>
+      </p>
 
       <InputWrapper>
         <Input
@@ -64,11 +63,9 @@ const SendContent = () => {
         />
       </InputWrapper>
 
-      <ButtonWrapper>
-        <MainButton variant="secondary" onClick={handleSubmitContent}>
-          Đăng ký
-        </MainButton>
-      </ButtonWrapper>
+      <MainButton variant="secondary" onClick={handleSubmitContent}>
+        Đăng ký
+      </MainButton>
     </SendArea>
   );
 };

@@ -5,25 +5,29 @@ import styled from "styled-components";
 export const ButtonWrapper = styled.button<{
   $variant: "primary" | "secondary" | "outline" | "shadow";
   $maxWidth?: boolean;
-  $isDisable?: boolean;
 }>`
-  padding: 0px 12px;
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
   max-width: ${(props) => (props.$maxWidth ? "150px" : "none")};
   height: 48px;
+  width: 100%;
+  padding: 0px 12px;
   border-radius: 8px;
-  cursor: ${(props) => (props.$isDisable ? "not-allowed" : "pointer")};
+
+  cursor: pointer;
   transition: all 0.1s ease-in-out;
 
-  ${({ $variant, $isDisable }) => {
-    if ($isDisable) {
-      return `
-      background-color: #CBCBCB;
-        color: white;
-        border: none;
-      `;
-    }
+  &:disabled {
+    background-color: #cbcbcb;
+    color: white;
+    border: none;
+    cursor: not-allowed;
+  }
 
+  ${({ $variant }) => {
     switch ($variant) {
       case "primary":
         return `

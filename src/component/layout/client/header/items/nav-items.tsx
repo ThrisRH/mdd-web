@@ -6,8 +6,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import { CateProps } from "./desktop-nav";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 import { useAppSelector } from "@/redux/hook";
+import { Row } from "@/styles/common";
+import { TextCanChangeColor } from "@/styles/typography";
 
 interface Props {
   pathname: string;
@@ -51,36 +53,37 @@ const NavItems = ({
     <>
       <NavItem>
         <Link href="/">
-          <h5>TRANG CHỦ</h5>
+          <TextCanChangeColor
+            $defaultColor="header"
+            $isActive={pathname === "/"}
+          >
+            TRANG CHỦ
+          </TextCanChangeColor>
         </Link>
       </NavItem>
 
       <NavItem>
         <Link href="/about">
-          <Text
-            $variant="h5"
-            $size={18}
-            onClick={onNavPhoneClose ?? onNavPhoneClose}
-            $color={pathname === "/about" ? "#EA8E31" : "#fff"}
+          <TextCanChangeColor
+            $defaultColor="header"
+            $isActive={pathname === "/about"}
           >
             GIỚI THIỆU
-          </Text>
+          </TextCanChangeColor>
         </Link>
       </NavItem>
 
       <NavItem onClick={() => setOpen(!open)}>
-        <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
-          <Text
-            $variant="h5"
-            $size={18}
-            $color={
+        <Row $align="center">
+          <TextCanChangeColor
+            $defaultColor="header"
+            $isActive={
               pathname.startsWith("/category") || pathname.startsWith("/blogs")
-                ? "#EA8E31"
-                : "#fff"
             }
           >
             CHỦ ĐỀ
-          </Text>
+          </TextCanChangeColor>
+
           <ArrowIC
             className={`${open ? "rotate-180" : ""}`}
             fill={
@@ -89,7 +92,7 @@ const NavItems = ({
                 : "#fff"
             }
           />
-        </div>
+        </Row>
         {open && (
           <Dropdown $relative={isRelative}>
             {cate.map((item, i) => (
@@ -113,15 +116,13 @@ const NavItems = ({
       </NavItem>
 
       <NavItem>
-        <Link href="/FAQ">
-          <Text
-            $variant="h5"
-            $size={18}
-            onClick={onNavPhoneClose ?? onNavPhoneClose}
-            $color={pathname === "/FAQ" ? "#EA8E31" : "#fff"}
+        <Link href="/faq">
+          <TextCanChangeColor
+            $defaultColor="header"
+            $isActive={pathname === "/faq"}
           >
             HỎI ĐÁP
-          </Text>
+          </TextCanChangeColor>
         </Link>
       </NavItem>
 
@@ -133,9 +134,9 @@ const NavItems = ({
 
       {/* Nút đăng nhập / đăng xuất */}
       <NavItem onClick={tokenExists ? handleLogout : handleLogin}>
-        <Text $size={18} $color="#fff">
+        <TextCanChangeColor $defaultColor="header">
           {tokenExists ? "Đăng xuất" : "Đăng nhập"}
-        </Text>
+        </TextCanChangeColor>
       </NavItem>
 
       {isAdmin && (

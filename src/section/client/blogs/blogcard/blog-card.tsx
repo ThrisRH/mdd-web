@@ -110,7 +110,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
       <Row $justify="center" $align="center" $gap="sm">
         <Container $flex={3}>
           <LineContainer>
-            <Line></Line>
+            <Line $left={false} />
             <VectorContainer $left={false}>
               <Vector />
             </VectorContainer>
@@ -124,7 +124,7 @@ const PostCard = ({ index, post }: PostCardProps) => {
             <VectorContainer $left={true}>
               <Vector />
             </VectorContainer>
-            <Line></Line>
+            <Line $left={true} />
           </LineContainer>
         </Container>
       </Row>

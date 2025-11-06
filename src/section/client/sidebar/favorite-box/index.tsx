@@ -1,7 +1,7 @@
 "use client";
 import FavoriteArea from "@/assets/svg/favorite-area";
 import { useRouter } from "next/navigation";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 import { BlogItem, BlogList } from "../styled";
 import { useEffect, useState } from "react";
 import { BlogDetails } from "@/types/blog";
@@ -31,16 +31,14 @@ const FavoriteField = () => {
     router.push(`/blogs/${blogSlug}`);
   };
   return (
-    <FavoriteArea className="w-full max-w-[320px] h-fit">
+    <FavoriteArea>
       <BlogList>
         {blogs.map((blog, index) => (
           <BlogItem
             onClick={() => handleToDetail(blog.slug)}
             key={blog.documentId}
           >
-            <Text $variant="body1" $whiteSpace="normal" className="w-full">
-              {`${index + 1}.   ${blog.title}`}
-            </Text>
+            <p className="body-1"> {`${index + 1}.   ${blog.title}`}</p>
           </BlogItem>
         ))}
       </BlogList>

@@ -5,7 +5,7 @@ import Input from "../../../component/input";
 import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import {} from "@/component/button/styled";
 import MainButton from "../../../component/button/main-button";
-import { ErrorText } from "@/styles/theme/typography";
+import { ErrorText } from "@/styles/theme/temp-typo";
 
 export default function SignInStrapi() {
   const [identifier, setIdentifier] = useState("");

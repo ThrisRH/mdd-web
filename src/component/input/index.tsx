@@ -6,7 +6,7 @@ import {
   ShowPasswordField,
 } from "./styled";
 import EyeIC from "@/assets/svg/eye.jsx";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 
 export type InputProps = {
   type: "text" | "password";

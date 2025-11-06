@@ -3,7 +3,6 @@ import Loading from "@/app/(user)/loading";
 import { TitleContainer } from "./styled";
 import BlogTable from "@/section/admin/Blogs/BlogTable";
 import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
-import { Text } from "@/styles/theme/typography";
 import { BlogDetails } from "@/types/blog";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -33,7 +32,7 @@ const BlogManagementScreen = ({ blogs, totalPages, pageNumber }: Props) => {
   return (
     <MainContentContainer>
       <TitleContainer>
-        <Text $variant="h1">BÀI VIẾT CỦA KÊNH BLOG</Text>
+        <h1>BÀI VIẾT CỦA KÊNH BLOG</h1>
       </TitleContainer>
 
       <BlogTable

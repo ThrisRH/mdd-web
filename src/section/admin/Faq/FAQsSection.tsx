@@ -10,7 +10,7 @@ import DropdownIC from "@/assets/svg/arrow-down";
 import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
 import { CustomButton } from "@/component/button/styled";
 import { FAQData } from "@/types/faq";
-import { Text } from "@/styles/theme/typography";
+import { Text } from "@/styles/theme/temp-typo";
 
 interface Props {
   data: FAQData;
