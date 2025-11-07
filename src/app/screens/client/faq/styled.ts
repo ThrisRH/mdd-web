@@ -55,8 +55,8 @@ export const AnswerContent = styled.p<{ $hidden?: boolean }>`
   display: ${({ $hidden }) => ($hidden ? "none" : "false")};
 `;
 
-export const Divider = styled.div`
+export const Divider = styled.div<{ $color?: string }>`
   width: 100%;
   height: 1px;
-  background: black;
+  background: ${(props) => props.$color || "black"};
 `;

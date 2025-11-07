@@ -1,20 +1,18 @@
 "use client";
 import React, { useState } from "react";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { formatDate } from "@/section/admin/Blogs/BlogTable";
+import { formatDate } from "@/section/admin/blogs/blog-table";
 
 import PencilIC from "@/assets/svg/detail-sidebar/Pencil";
 import BackIC from "@/assets/svg/interact/back-arrow";
 
 import { useRouter } from "next/navigation";
-import { TabContainer } from "@/styles/components/layout/Layout.styles";
 import {
   DateDetailContainer,
   SidebarItemsContainer,
   TabsGroup,
 } from "./styled";
-import { Text } from "@/styles/theme/temp-typo";
 import { CateProps } from "@/component/layout/client/header/items/desktop-nav";
+import { FlexContainer, TabContainer } from "@/styles/layout";
 
 interface Props {
   cate: CateProps | null;
@@ -32,35 +30,27 @@ const CateDetailSidebar = ({ cate }: Props) => {
         }}
       >
         <BackIC />
-        <Text $variant="body1" $color="#4f4f4f">
-          Bài viết của kênh
-        </Text>
+        <p className="body-1">Bài viết của kênh</p>
       </TabContainer>
       {/* Vùng hiển thị 1 số thông tin của bài viết */}
       {cate && form ? (
         <FlexContainer className="basic-info">
           <FlexContainer>
-            <Text $variant="body1">Thông tin danh mục</Text>
-            <Text $variant="body4" $color="#4f4f4f">
-              {cate.tile}
-            </Text>
+            <p className="body-1">Thông tin danh mục</p>
+            <p className="body-5">{cate.tile}</p>
           </FlexContainer>
           <hr style={{ border: "none", borderTop: "1px dashed #000" }} />
           <FlexContainer $gap="xs">
             {/* Ngày tạo bài */}
             <DateDetailContainer>
-              <Text $variant="body1">Ngày tạo</Text>
-              <Text $variant="body5" $color="#4f4f4f">
-                {formatDate(form.createdAt)}
-              </Text>
+              <p className="body-1">Ngày tạo</p>
+              <p className="body-5">{formatDate(form.createdAt)}</p>
             </DateDetailContainer>
 
             {/* Ngày cập nhật */}
             <DateDetailContainer>
-              <Text $variant="body1">Ngày cập nhật</Text>
-              <Text $variant="body5" $color="#4f4f4f">
-                {formatDate(form.publishedAt)}
-              </Text>
+              <p className="body-1">Ngày cập nhật</p>
+              <p className="body-5">{formatDate(form.publishedAt)}</p>
             </DateDetailContainer>
           </FlexContainer>
         </FlexContainer>
@@ -69,9 +59,7 @@ const CateDetailSidebar = ({ cate }: Props) => {
       <TabsGroup>
         <TabContainer $isSelected={true}>
           <PencilIC />
-          <Text $variant="body2" $color="#4f4f4f">
-            Chi tiết
-          </Text>
+          <p className="body-2">Chi tiết</p>
         </TabContainer>
       </TabsGroup>
     </SidebarItemsContainer>

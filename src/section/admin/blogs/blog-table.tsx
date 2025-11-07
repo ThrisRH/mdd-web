@@ -14,14 +14,16 @@ import {
   TableHeaderCell,
   BodyContainer,
 } from "../styles/Page.styles";
-import { BlogDetails } from "@/types/blog";
-import NoneSelectionIC from "@/assets/svg/interact/none-selection-square";
-import SelectedIC from "@/assets/svg/interact/selected-square";
 import Image from "next/image";
 import ActionSection from "../../../component/layout/admin/action-bar/table-delete-bar";
-import { Body, Text } from "@/styles/theme/temp-typo";
-import { Flex, Row } from "@/styles/common";
+import { Row } from "@/styles/common";
+import { BlogDetails } from "@/types/blog";
 import TablePaginationBar from "@/component/pagination/admin-table-pagination";
+
+import NoneSelectionIC from "@/assets/svg/interact/none-selection-square";
+import SelectedIC from "@/assets/svg/interact/selected-square";
+import { TitleBlogNoWrap } from "@/styles/typography";
+import { BlogMainContentText } from "@/component/layout/admin/header/search-blog-card/styled";
 
 type TableItem = {
   title?: string;
@@ -122,7 +124,7 @@ const BlogTable = ({
                 $topPosition={selectedBlogs.size !== 0 ? "156px" : "90px"}
               >
                 {item.title ? (
-                  <Body $whiteSpace="nowrap">{item.title}</Body>
+                  <TitleBlogNoWrap>{item.title}</TitleBlogNoWrap>
                 ) : (
                   <IconContainer onClick={selectAll}>
                     {selectedBlogs.size !== 0 ? (
@@ -168,28 +170,28 @@ const BlogTable = ({
                       </ImageContainer>
 
                       <ContentField>
-                        <Body>{item.title}</Body>
+                        <p className="body-1">{item.title}</p>
                         <MainContent>
-                          <Text $variant="body4" $color="#7a7a7a">
+                          <BlogMainContentText className="body-3">
                             {item.mainContent}
-                          </Text>
+                          </BlogMainContentText>
                         </MainContent>
                       </ContentField>
                     </TableFlexWrapper>
                   </TableBodyCell>
 
                   <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                    <Text $variant="body4">{formatDate(item.publishedAt)}</Text>
+                    <p className="body-3">{formatDate(item.publishedAt)}</p>
                   </TableBodyCell>
 
                   <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                    <Text $variant="body4">{item.cate?.tile}</Text>
+                    <p className="body-3">{item.cate?.tile}</p>
                   </TableBodyCell>
                   <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                    <Text $variant="body4">{item.comments?.length}</Text>
+                    <p className="body-3">{item.comments?.length}</p>
                   </TableBodyCell>
                   <TableBodyCell onClick={() => handleToBlogDetail(item.slug)}>
-                    <Text $variant="body4">{item.slug}</Text>
+                    <p className="body-3">{item.slug}</p>
                   </TableBodyCell>
                 </RowContainer>
               ))}
@@ -208,7 +210,7 @@ const BlogTable = ({
             <RowContainer>
               <TableBodyCell colSpan={6}>
                 <Row $justify="center">
-                  <Body>Bạn chưa có danh mục nào!</Body>
+                  <p className="body-1">Bạn chưa có danh mục nào!</p>
                 </Row>
               </TableBodyCell>
             </RowContainer>

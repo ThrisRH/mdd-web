@@ -1,16 +1,12 @@
 import React from "react";
 import { ContentSideContainer, IconContainer } from "../styles/Page.styles";
-import {
-  BorderContainer,
-  FlexContainer,
-} from "@/styles/components/layout/Common.styles";
 
 import DeleteIC from "@/assets/svg/interact/recycle-bin";
 import DropdownIC from "@/assets/svg/arrow-down";
-import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
+import BlogContentInput from "../blogs/inputs/blog-content-input";
 import { CustomButton } from "@/component/button/styled";
 import { FAQData } from "@/types/faq";
-import { Text } from "@/styles/theme/temp-typo";
+import { BorderContainer, FlexContainer } from "@/styles/layout";
 
 interface Props {
   data: FAQData;
@@ -61,7 +57,7 @@ const FAQsSection = ({
                 </FlexContainer>
               </IconContainer>
               <FlexContainer style={{ justifyContent: "center" }}>
-                <Text $variant="body2">{item.question}</Text>
+                <p className="body-2">{item.question}</p>
               </FlexContainer>
             </FlexContainer>
 

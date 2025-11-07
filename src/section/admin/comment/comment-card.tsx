@@ -3,9 +3,10 @@ import React from "react";
 import { CommentCardWrapper, ReaderDetailContainer } from "./styled";
 import Image from "next/image";
 import { Dot, ImageContainer } from "@/section/client/blogs/blogcard/styled";
-import { Caption, Text } from "@/styles/theme/temp-typo";
-import { Column, Row } from "@/styles/common";
-import { formatDate } from "../Blogs/BlogTable";
+
+import { Column } from "@/styles/common";
+import { formatDate } from "../blogs/blog-table";
+import { DateTimeText } from "@/component/layout/admin/header/styled";
 
 type CommentCardProps = {
   comment: CommentProps;
@@ -29,13 +30,13 @@ const CommentCard = ({ comment }: CommentCardProps) => {
       </ImageContainer>
       <Column $gap="none" $width="fit-content">
         <ReaderDetailContainer $align="center">
-          <Text $variant="body1">{comment.reader.Fullname}</Text>
+          <p className="body-1">{comment.reader.Fullname}</p>
           <Dot $scale={3} $color="rgba(0,0,0,0.5)" />
-          <Text $variant="body5" $color="rgba(0,0,0,0.5)">
+          <DateTimeText className="body-5">
             {formatDate(comment.publishedAt)}
-          </Text>
+          </DateTimeText>
         </ReaderDetailContainer>
-        <Caption $weight={400}>{comment.content}</Caption>
+        <p className="body-3">{comment.content}</p>
       </Column>
     </CommentCardWrapper>
   );

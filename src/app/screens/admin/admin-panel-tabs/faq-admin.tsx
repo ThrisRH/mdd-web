@@ -1,11 +1,11 @@
 "use client";
 import Loading from "@/app/(user)/loading";
 import { TitleContainer } from "./styled";
-import FAQsBody from "@/section/admin/Faq/FAQsBody";
+import FAQsBody from "@/section/admin/faq/FAQsBody";
 import NotFound from "@/section/client/main/not-found";
-import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
 import { FAQData } from "@/types/faq";
 import React, { useEffect, useState } from "react";
+import { MainContentContainer } from "@/styles/layout";
 
 type Props = {
   faqs: FAQData;

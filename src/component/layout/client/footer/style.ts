@@ -7,3 +7,7 @@ export const FooterContainer = styled.footer`
   height: 46px;
   background-color: #f4f4f4;
 `;
+
+export const FooterText = styled.p`
+  font-size: 15px;
+`;

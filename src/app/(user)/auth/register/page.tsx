@@ -2,10 +2,7 @@
 import { AuthBodyContainer } from "@/section/client/auth/styled";
 import SignInGoogle from "@/section/client/auth/LogWithGoogle";
 import SignUpStrapi from "@/section/client/auth/RegisterWithStrapi";
-import {
-  FlexContainer,
-  FormContainer,
-} from "@/styles/components/layout/Common.styles";
+import { FlexContainer, FormContainer } from "@/styles/layout";
 
 export default function RegisterPage() {
   return (

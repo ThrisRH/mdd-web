@@ -1,14 +1,10 @@
 import React, { useRef, useState } from "react";
 import { CustomButton } from "@/component/button/styled";
-import {
-  BorderContainer,
-  FlexContainer,
-} from "@/styles/components/layout/Common.styles";
 import Image from "next/image";
-import { AboutPageSectionProps } from "./contact-box";
-import { ImageInput } from "@/styles/components/inputs/Input.styles";
 import { ImageContainer } from "@/section/client/blogs/blogcard/styled";
-import { Caption, Text } from "@/styles/theme/temp-typo";
+import { BorderContainer, FlexContainer } from "@/styles/layout";
+import { AboutPageSectionProps } from "./contact-box";
+import { ImageInput } from "../blogs/inputs/styled";
 
 const AvatarEditDescription = {
   content:
@@ -38,7 +34,7 @@ const ProfileBox = ({ data, setData }: AboutPageSectionProps) => {
 
   return (
     <FlexContainer className="profile-in-content" $gap="sm">
-      <Text $variant="body0">Ảnh đại diện</Text>
+      <p className="body-1">Ảnh đại diện</p>
 
       <FlexContainer $flexDirection="row" $gap="md">
         <BorderContainer $justify="center">
@@ -60,7 +56,7 @@ const ProfileBox = ({ data, setData }: AboutPageSectionProps) => {
         </BorderContainer>
 
         <FlexContainer $justify="center">
-          <Caption>{AvatarEditDescription.content}</Caption>
+          <p className="body-3">{AvatarEditDescription.content}</p>
           <CustomButton
             $width="100px"
             $bgColor="transparent"

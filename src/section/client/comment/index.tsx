@@ -13,9 +13,9 @@ import {
 } from "./styled";
 import Image from "next/image";
 import { CommentInputProps, CommentProps } from "@/types/comment";
-import { BorderContainer } from "@/styles/components/layout/Common.styles";
 import { handleError } from "@/utils/handle-error";
 import { toast } from "react-toastify";
+import { BorderContainer } from "@/styles/layout";
 
 interface Props {
   documentId: string;

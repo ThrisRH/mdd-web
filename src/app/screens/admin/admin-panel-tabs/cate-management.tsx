@@ -2,10 +2,10 @@
 import Loading from "@/app/(user)/loading";
 import { TitleContainer } from "./styled";
 import { CateProps } from "@/component/layout/client/header/items/desktop-nav";
-import CateTable from "@/section/admin/Categories/CateTable";
-import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
+import CateTable from "@/section/admin/categories/cate-table";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { MainContentContainer } from "@/styles/layout";
 
 type Props = {
   categories: CateProps[];

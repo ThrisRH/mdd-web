@@ -39,11 +39,14 @@ export const SubmitButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+
   width: 100%;
   height: 60px;
-  background-color: transparent;
+
   border: 1px #000 solid;
   color: #000;
+  background-color: transparent;
 
   @media (min-width: 40rem) {
     width: 208px;

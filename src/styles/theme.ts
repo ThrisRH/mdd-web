@@ -8,14 +8,18 @@ export const theme = {
 
     // Text
     black500: "#000",
-    white500: "#fff",
+    grey500: "#7a7a7a",
+    grey400: "#979797",
+    white500: "#FFF",
+    blue500: "#1877F2",
+    error: "#FF0000",
   },
 
   // Responsive
   breakpoints: {
-    miniPhone: "@media (min-width: 320px)",
-    phone: "@media (min-width: 480px)",
-    tablet: "@media (min-width: 768px)",
-    laptop: "@media (min-width: 1024px)",
+    miniPhone: "min-width: 320px",
+    phone: "min-width: 480px",
+    tablet: "min-width: 768px",
+    laptop: "min-width: 1024px",
   },
 };

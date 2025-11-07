@@ -1,16 +1,14 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
   AdminSearchBarContainer,
   AdminSearchMainField,
-  ButtonSearch,
   Input,
   Overlay,
   SearchIConWrapper,
   SearchResultArea,
 } from "../../client/header/items/search-bar/styled";
 import SearchIC from "@/assets/svg/search";
-import { Body, Text } from "@/styles/theme/temp-typo";
 import { BlogDetails } from "@/types/blog";
 import { handleError } from "@/utils/handle-error";
 import SearchBlogCard from "./search-blog-card";
@@ -92,7 +90,7 @@ const SearchBarAdmin = () => {
           <SearchResultArea>
             {isLoading && <LoadingBar />}
             <BoxTitle>
-              <Text $variant="h3">Kết quả tìm kiếm</Text>
+              <h3>Kết quả tìm kiếm</h3>
             </BoxTitle>
             <SearchResultContainer>
               {blogs.length > 0 ? (
@@ -106,7 +104,7 @@ const SearchBarAdmin = () => {
                 ))
               ) : (
                 <Row $justify="center">
-                  <Body>Không có bài viết phù hợp</Body>
+                  <p className="body-1">Không có bài viết phù hợp</p>
                 </Row>
               )}
             </SearchResultContainer>

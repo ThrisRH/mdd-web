@@ -8,18 +8,18 @@ import {
 } from "../styles/Page.styles";
 
 import CloseIC from "@/assets/svg/cancel";
-import CategorySelectionBox from "./CreateInputs/CategorySelectionBox";
-import BlogSlugInput from "./CreateInputs/BlogSlugInput";
-import BlogTitleInput from "./CreateInputs/BlogTitleInput";
-import BlogContentInput from "./CreateInputs/BlogContentInput";
-import BlogImageInput from "./CreateInputs/BlogImageInput";
-import CustomEditor from "./CreateInputs/CKEditorInput/CustomEditor";
+import CustomEditor from "./inputs/ck-editor-input";
 import TurndownService from "turndown";
 import { CustomButton } from "@/component/button/styled";
-import { FormContainer } from "@/styles/components/layout/Common.styles";
-import { Body, Text } from "@/styles/theme/temp-typo";
 import { Loader } from "../../client/main/loading/styled";
 import { Row } from "@/styles/common";
+import { ErrorText } from "@/styles/typography";
+import { FormContainer } from "@/styles/layout";
+import BlogTitleInput from "./inputs/blog-title-input";
+import BlogContentInput from "./inputs/blog-content-input";
+import BlogSlugInput from "./inputs/blog-slug-input";
+import BlogImageInput from "./inputs/blog-image-input";
+import CategorySelectionBox from "./inputs/category-selection-box";
 
 const CreateBlog = ({
   setIsCreatePopUpOpen,
@@ -126,13 +126,13 @@ const CreateBlog = ({
     <FormWrapper>
       <FormContainer>
         <HeaderFormContainer>
-          <Text $variant="h1">Tạo bài viết mới</Text>
+          <h1>Tạo bài viết mới</h1>
           <CloseIconContainer onClick={() => setIsCreatePopUpOpen(false)}>
             <CloseIC fill={"#000"} />
           </CloseIconContainer>
         </HeaderFormContainer>
         <DetailContainer>
-          <Text $variant="body0">Chi tiết</Text>
+          <p className="body-1">Chi tiết</p>
 
           {/* Input title */}
           <BlogTitleInput
@@ -182,22 +182,17 @@ const CreateBlog = ({
 
         {/* Form footer */}
         <FormFooter>
-          {errorMessage !== "" ? (
-            <Body $color="#8f4242">{errorMessage}</Body>
-          ) : (
-            <Body />
-          )}
+          {errorMessage !== "" ? <ErrorText>{errorMessage}</ErrorText> : <p />}
           {isLoading ? (
             <CustomButton
               $width="200px"
               onClick={() => handlePublish()}
               $bgColor="#CDCDCD"
-              $isDisable={true}
               disabled={true}
             >
               <Row $justify="center" $align="center">
                 <Loader />
-                <Body>Đang xuất bản</Body>
+                <p className="body-1">Đang xuất bản</p>
               </Row>
             </CustomButton>
           ) : (
@@ -206,7 +201,7 @@ const CreateBlog = ({
               onClick={() => handlePublish()}
               $bgColor="#F1DBC4"
             >
-              <Body>Xuất bản</Body>
+              <p className="body-1">Xuất bản</p>
             </CustomButton>
           )}
         </FormFooter>

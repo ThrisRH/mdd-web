@@ -1,14 +1,11 @@
 "use client";
 import React from "react";
-import { FooterContainer } from "./style";
-import { Text } from "@/styles/theme/temp-typo";
+import { FooterContainer, FooterText } from "./style";
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <Text $variant="body2" $color="#000" $size={15}>
-        Copyright © 2024 My MDD Diary
-      </Text>
+      <FooterText className="body-2">Copyright © 2024 My MDD Diary</FooterText>
     </FooterContainer>
   );
 };

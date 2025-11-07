@@ -2,9 +2,8 @@
 import React from "react";
 
 import Image from "next/image";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { ImageContainer } from "@/section/client/blogs/blogcard/styled";
-import { formatDate } from "@/section/admin/Blogs/BlogTable";
+import { formatDate } from "@/section/admin/blogs/blog-table";
 
 import BackIC from "@/assets/svg/interact/back-arrow";
 import { usePathname, useRouter } from "next/navigation";
@@ -13,11 +12,10 @@ import {
   SidebarItemsContainer,
   TabsGroup,
 } from "./styled";
-import { TabContainer } from "@/styles/components/layout/Layout.styles";
 import { useBlogdetailcontext } from "@/context/blogdetailcontext/index";
 import { BlogDetailTabs } from "@/config/tabs-config";
-import { Text } from "@/styles/theme/temp-typo";
 import { Column } from "@/styles/common";
+import { FlexContainer, TabContainer } from "@/styles/layout";
 
 const BlogDetailSidebar = () => {
   const { value } = useBlogdetailcontext();
@@ -34,9 +32,7 @@ const BlogDetailSidebar = () => {
           }}
         >
           <BackIC />
-          <Text $variant="body1" $color="#4f4f4f">
-            Bài viết của kênh
-          </Text>
+          <p className="body-1">Bài viết của kênh</p>
         </TabContainer>
         {/* Vùng hiển thị 1 số thông tin của bài viết */}
         <FlexContainer className="basic-info">
@@ -53,23 +49,21 @@ const BlogDetailSidebar = () => {
             />
           </ImageContainer>
           <Column $gap="none">
-            <Text $variant="body0">Thông tin bài viết</Text>
-            <Text $variant="body4" $color="#4F4F4F" $whiteSpace="normal">
-              {value.title}
-            </Text>
+            <p className="body-1">Thông tin bài viết</p>
+            <p className="body-3">{value.title}</p>
           </Column>
           <hr style={{ border: "none", borderTop: "1px dashed #000" }} />
           <FlexContainer $gap="xs">
             {/* Ngày tạo bài */}
             <DateDetailContainer>
-              <Text $variant="body1">Ngày tạo:</Text>
-              <Text $variant="body5">{formatDate(value.createdAt)}</Text>
+              <p className="body-1">Ngày tạo:</p>
+              <p className="body-5">{formatDate(value.createdAt)}</p>
             </DateDetailContainer>
 
             {/* Ngày cập nhật */}
             <DateDetailContainer>
-              <Text $variant="body1">Ngày cập nhật:</Text>
-              <Text $variant="body5">{formatDate(value.publishedAt)}</Text>
+              <p className="body-1">Ngày cập nhật:</p>
+              <p className="body-5">{formatDate(value.publishedAt)}</p>
             </DateDetailContainer>
           </FlexContainer>
         </FlexContainer>
@@ -84,9 +78,7 @@ const BlogDetailSidebar = () => {
               }}
             >
               <Icon />
-              <Text $variant="body2" $color="#4f4f4f">
-                {label}
-              </Text>
+              <p className="body-2">{label}</p>
             </TabContainer>
           ))}
         </TabsGroup>

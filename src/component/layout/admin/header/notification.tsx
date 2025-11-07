@@ -4,23 +4,23 @@ import {
   BellContainer,
   BoxTitle,
   ContentBox,
+  DateTimeText,
   DotAlarmAbsolute,
   NotificationBox,
   NotificationCard,
   NotificationWrapper,
 } from "./styled";
 import BellIC from "@/assets/svg/notice-bell";
-import { Body, Caption, Text } from "@/styles/theme/temp-typo";
 
 import Logo from "@/assets/image/logo.png";
 import Image from "next/image";
 import { BlogDetails } from "@/types/blog";
 import Loading from "@/app/(user)/loading";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { Column, Flex, Row } from "@/styles/common";
-import { formatDate } from "@/section/admin/Blogs/BlogTable";
+import { Column, Row } from "@/styles/common";
+import { formatDate } from "@/section/admin/blogs/blog-table";
 import { Dot, ImageContainer } from "@/section/client/blogs/blogcard/styled";
 import { useRouter } from "next/navigation";
+import { FlexContainer } from "@/styles/layout";
 
 type NotificationProps = {
   documentId: string;
@@ -112,7 +112,7 @@ const Notification = () => {
       {isOpenNotification && (
         <NotificationBox>
           <BoxTitle style={{ userSelect: "none" }}>
-            <Text $variant="h3">Thông báo</Text>
+            <h3>Thông báo</h3>
           </BoxTitle>
           <ContentBox>
             {isLoading ? (
@@ -137,10 +137,10 @@ const Notification = () => {
                   )}
                   <Image width={50} height={50} src={Logo} alt="logo" />
                   <Column $gap="none">
-                    <Caption>{item.message}</Caption>
-                    <Text $variant="body5" $color="rgba(0,0,0,0.5)">
+                    <p className="body-3">{item.message}</p>
+                    <DateTimeText className="body-5">
                       {formatDate(item.publishedAt)}
-                    </Text>
+                    </DateTimeText>
                   </Column>
                   <ImageContainer $variant="notification">
                     <Image
@@ -158,7 +158,7 @@ const Notification = () => {
               ))
             ) : (
               <Row $padding="12px" $justify="center" $align="center">
-                <Body>Không có thông báo mới</Body>
+                <p className="body-1">Không có thông báo mới</p>
               </Row>
             )}
           </ContentBox>

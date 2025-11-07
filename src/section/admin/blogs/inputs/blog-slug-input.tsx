@@ -1,12 +1,7 @@
-import {
-  FormInput,
-  FormInputContainer,
-  LabelContainer,
-} from "../../../../styles/components/inputs/Input.styles";
 import ReloadIC from "@/assets/svg/interact/reload";
 import { formatSlug } from "../../../../utils/handle-slug";
 import { IconContainer } from "../../styles/Page.styles";
-import { Text } from "@/styles/theme/temp-typo";
+import { FormInput, FormInputContainer, Label, LabelContainer } from "./styled";
 
 interface Props {
   label: string;
@@ -29,9 +24,7 @@ const BlogSlugInput = ({ label, slug, setSlug, title, maxLength }: Props) => {
         $flexDirection="row"
         $justifyContent="space-between"
       >
-        <Text $variant="body5" $color="#979797" $weight="500">
-          {label}
-        </Text>
+        <Label className="body-5">{label}</Label>
         <IconContainer onClick={handleAuto}>
           <ReloadIC />
         </IconContainer>
@@ -42,9 +35,9 @@ const BlogSlugInput = ({ label, slug, setSlug, title, maxLength }: Props) => {
         onBlur={handleBlur}
         placeholder="Tên viết tắt của bài viết"
       />
-      <Text $variant="body5" $color="#979797">
+      <Label className="body-5">
         {slug.length} / {maxLength}
-      </Text>
+      </Label>
     </FormInputContainer>
   );
 };

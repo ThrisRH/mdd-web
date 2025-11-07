@@ -9,11 +9,9 @@ import {
   SidebarItemsContainer,
   TabsGroup,
 } from "./styled";
-import { TabContainer } from "@/styles/components/layout/Layout.styles";
+import { FlexContainer, TabContainer } from "@/styles/layout";
 import { ImageContainer } from "@/section/client/blogs/blogcard/styled";
-import { Text } from "@/styles/theme/temp-typo";
 import { useAppSelector } from "@/redux/hook";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
 
 const AdminPanelSidebar = () => {
   const MDDAuthor = useAppSelector((state) => state.mainBlogAuthor);
@@ -41,7 +39,7 @@ const AdminPanelSidebar = () => {
                 }
               />
             </ImageContainer>
-            <Text $variant="h3">my {item.fullname} diary</Text>
+            <h3>my {item.fullname} diary</h3>
           </InfoContainer>
         ))}
 
@@ -57,9 +55,7 @@ const AdminPanelSidebar = () => {
                 }}
               >
                 <Icon />
-                <Text $variant="body2" $color="#4f4f4f">
-                  {label}
-                </Text>
+                <p className="body-2">{label}</p>
               </TabContainer>
             );
           })}

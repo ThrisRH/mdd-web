@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import TextareaAutosize from "react-textarea-autosize";
+import { theme } from "@/styles/theme";
 
 //  Text input
 export const FormInputContainer = styled.div<{
@@ -229,4 +230,8 @@ export const Item = styled.li`
 
 export const DropdownInputWrapper = styled(FormInputContainer)`
   position: relative;
+`;
+
+export const Label = styled.p`
+  color: ${theme.colors.grey400};
 `;

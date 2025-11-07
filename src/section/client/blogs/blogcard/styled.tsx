@@ -1,5 +1,5 @@
 "use client";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { FlexContainer } from "@/styles/layout";
 import styled from "styled-components";
 
 export const BlogCardWrapper = styled(FlexContainer)`
@@ -130,6 +130,7 @@ export const Dot = styled.div<{ $color?: string; $scale?: number }>`
 export const RelativeBlogWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 12px;
   width: 100%;
   cursor: pointer;

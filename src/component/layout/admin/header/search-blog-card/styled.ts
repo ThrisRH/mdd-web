@@ -1,3 +1,4 @@
+import { theme } from "@/styles/theme";
 import styled, { keyframes } from "styled-components";
 
 // Search Blog Card
@@ -55,4 +56,8 @@ export const LoadingBar = styled.div`
     border-radius: inherit;
     animation: ${loading} 1.2s ease-in-out infinite;
   }
+`;
+
+export const BlogMainContentText = styled.p`
+  color: ${theme.colors.grey500};
 `;

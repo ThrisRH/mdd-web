@@ -4,6 +4,7 @@ import React from "react";
 import { RelativeBlogImageContainer, RelativeBlogWrapper } from "./styled";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Column } from "@/styles/common";
 
 const SmallPostCard = ({ title, publishedAt, cover, slug }: BlogDetails) => {
   const router = useRouter();
@@ -21,17 +22,19 @@ const SmallPostCard = ({ title, publishedAt, cover, slug }: BlogDetails) => {
 
   return (
     <RelativeBlogWrapper role="button" onClick={() => handleToBlog(slug)}>
-      <RelativeBlogImageContainer>
-        <Image
-          style={{ objectFit: "cover" }}
-          src={`${
-            cover.url.startsWith("https") ? cover.url : `/baseurl${cover.url}`
-          }`}
-          alt={"blogImage"}
-          fill
-        />
-      </RelativeBlogImageContainer>
-      <h4>{title}</h4>
+      <Column $gap="sm">
+        <RelativeBlogImageContainer>
+          <Image
+            style={{ objectFit: "cover" }}
+            src={`${
+              cover.url.startsWith("https") ? cover.url : `/baseurl${cover.url}`
+            }`}
+            alt={"blogImage"}
+            fill
+          />
+        </RelativeBlogImageContainer>
+        <h4>{title}</h4>
+      </Column>
       <p className="body-3">{formatDate(publishedAt)}</p>
     </RelativeBlogWrapper>
   );

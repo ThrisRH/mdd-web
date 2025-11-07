@@ -1,7 +1,6 @@
 "use client";
 import React, { ReactNode } from "react";
-import { Line } from "../../blogcard/styled";
-import { SectionBody, SectionWrapper } from "./styled";
+import { Line, SectionBody, SectionWrapper } from "./styled";
 
 interface Props {
   children: ReactNode;
@@ -12,7 +11,7 @@ interface Props {
 const Section = ({ children, flexDirection }: Props) => {
   return (
     <SectionWrapper>
-      {/* <Line $width={90}></Line> */}
+      <Line />
       <SectionBody $gap={24} $flexDirection={flexDirection}>
         {children}
       </SectionBody>

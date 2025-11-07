@@ -14,9 +14,9 @@ import SelectedIC from "@/assets/svg/interact/selected-square";
 import { CateProps } from "@/component/layout/client/header/items/desktop-nav";
 import { useRouter, useSearchParams } from "next/navigation";
 import ActionSection from "../../../component/layout/admin/action-bar/table-delete-bar";
-import { Body, Text } from "@/styles/theme/temp-typo";
 import { Row } from "@/styles/common";
 import TablePaginationBar from "@/component/pagination/admin-table-pagination";
+import { TitleBlogNoWrap } from "@/styles/typography";
 
 type TableItem = {
   title?: string;
@@ -102,6 +102,7 @@ const CateTable = ({
   return (
     <BodyContainer $align="center" $justify="center">
       <ActionSection forFeature="cates" selectedItems={selectedBlogs} />
+
       <TableWrapper>
         <thead>
           <tr>
@@ -111,7 +112,9 @@ const CateTable = ({
                 $topPosition={selectedBlogs.size !== 0 ? "156px" : "90px"}
               >
                 {item.title ? (
-                  <Body $whiteSpace="nowrap">{item.title}</Body>
+                  <TitleBlogNoWrap className="body-1">
+                    {item.title}
+                  </TitleBlogNoWrap>
                 ) : (
                   <IconContainer onClick={selectAll}>
                     {selectedBlogs.size !== 0 ? (
@@ -146,34 +149,28 @@ const CateTable = ({
                       handleToDetail(item.documentId);
                     }}
                   >
-                    <Text $variant="body4">{item.tile}</Text>
+                    <p className="body-3">{item.tile}</p>
                   </TableBodyCell>
                   <TableBodyCell
                     onClick={() => {
                       handleToDetail(item.documentId);
                     }}
                   >
-                    <Text $variant="body4" $size={14}>
-                      {formatDate(item.publishedAt)}
-                    </Text>
+                    <p className="body-3">{formatDate(item.publishedAt)}</p>
                   </TableBodyCell>
                   <TableBodyCell
                     onClick={() => {
                       handleToDetail(item.documentId);
                     }}
                   >
-                    <Text $variant="body4" $size={14}>
-                      {item.slug}
-                    </Text>
+                    <p className="body-3">{item.slug}</p>
                   </TableBodyCell>
                   <TableBodyCell
                     onClick={() => {
                       handleToDetail(item.documentId);
                     }}
                   >
-                    <Text $variant="body4" $size={14}>
-                      {item.blogs.length}
-                    </Text>
+                    <p className="body-3">{item.blogs.length}</p>
                   </TableBodyCell>
                 </RowContainer>
               ))}
@@ -192,7 +189,7 @@ const CateTable = ({
             <RowContainer>
               <TableBodyCell colSpan={6}>
                 <Row $justify="center">
-                  <Body>Bạn chưa có danh mục nào!</Body>
+                  <p className="body-1">Bạn chưa có danh mục nào!</p>
                 </Row>
               </TableBodyCell>
             </RowContainer>

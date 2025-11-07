@@ -1,14 +1,16 @@
 "use client";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import React, { useEffect, useState } from "react";
 
-import { CustomButton } from "@/component/button/styled";
+import { ButtonWrapper, CustomButton } from "@/component/button/styled";
 import { ActionContainer, BodyContainer } from "../styles/Page.styles";
 import { useToggleSelect } from "@/hooks/use-toggle-select";
 import FAQsSection from "./FAQsSection";
 import { FAQData } from "@/types/faq";
-import { Body, Caption } from "@/styles/theme/temp-typo";
 import { handleError } from "@/utils/handle-error";
+import { ActionBarText, WhiteText } from "@/styles/typography";
+import { FlexContainer } from "@/styles/layout";
+import { Row } from "@/styles/common";
+import { Loader } from "@/section/client/main/loading/styled";
 
 interface Props {
   faqs: FAQData;
@@ -16,7 +18,7 @@ interface Props {
 
 const faqBody = ({ faqs }: Props) => {
   const [data, setData] = useState(faqs);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
   const { selectedDeleteItems, toggleSelect } = useToggleSelect();
   const [selected, setSelected] = useState<number | null>(null);
   const [isChanged, setIsChanged] = useState(false);
@@ -39,7 +41,7 @@ const faqBody = ({ faqs }: Props) => {
 
   const handleUpdateFAQ = async () => {
     try {
-      setIsLoading(true);
+      setIsUpdating(true);
 
       const afterUpdatedData = data.questionAnswer.filter(
         (item) => !selectedDeleteItems.includes(item.id),
@@ -60,18 +62,18 @@ const faqBody = ({ faqs }: Props) => {
       });
 
       if (!response.ok) {
-        setIsLoading(false);
+        setIsUpdating(false);
         return null;
       }
 
       setTimeout(() => {
-        setIsLoading(false);
+        setIsUpdating(false);
         window.location.href = "/admin-panel/myfaqsetting";
       }, 1000);
     } catch (error: any) {
       handleError();
     } finally {
-      setIsLoading(false);
+      setIsUpdating(false);
     }
   };
 
@@ -90,19 +92,28 @@ const faqBody = ({ faqs }: Props) => {
           $flexDirection="row"
           style={{ alignItems: "center" }}
         >
-          <Caption $color="#fff">
+          <ActionBarText className="body-3">
             Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.
-          </Caption>
-          <CustomButton
-            $bgColor="transparent"
-            $border="2px solid rgba(22, 31, 57, 0.8)"
-            $width="fit"
-            $hoverBgColor="transparent"
-            $hoverBorder="2px solid #f1dbc4"
-            onClick={() => handleUpdateFAQ()}
-          >
-            <Body $color="#fff">Lưu thay đổi</Body>
-          </CustomButton>
+          </ActionBarText>
+          {isUpdating ? (
+            <ButtonWrapper $maxWidth={true} $variant="shadow" disabled={true}>
+              <Row $align="center" $justify="center">
+                <Loader />
+                <p className="body-3">Đang lưu</p>
+              </Row>
+            </ButtonWrapper>
+          ) : (
+            <CustomButton
+              $bgColor="#fff"
+              $border="2px solid rgba(22, 31, 57, 0.8)"
+              $width="fit"
+              $hoverBgColor="#ffffffeb"
+              $hoverBorder="2px solid #f1dbc4"
+              onClick={() => handleUpdateFAQ()}
+            >
+              <p className="body-2">Lưu thay đổi</p>
+            </CustomButton>
+          )}
         </FlexContainer>
       </ActionContainer>
       <BodyContainer $flexDirection="row" $isPadding={true}>

@@ -1,18 +1,16 @@
 "use client";
+import { theme } from "@/styles/theme";
 import styled from "styled-components";
 
 export const AboutWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2.5rem;
-  padding: 5.5rem 1rem;
+  margin-top: 40px;
+  padding: 100px 16px;
 
-  @media (min-width: 768px) {
-    padding: 7rem;
-  }
-  @media (min-width: 1024px) {
-    padding: 12rem;
+  @media (${theme.breakpoints.phone}) {
+    padding: 250px 24px 24px;
     margin-top: 0;
   }
 `;
@@ -21,26 +19,32 @@ export const Card = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  align-items: center;
+
+  padding: 120px 40px 40px 40px;
   max-width: 1058px;
+  width: 100%;
   height: fit-content;
-  padding: 10rem 2.5rem 2.5rem 2.5rem;
   gap: 1.5rem;
   border-radius: 40px;
+
   background-color: rgba(241, 219, 196, 0.3);
-  align-items: center;
+
+  @media (${theme.breakpoints.phone}) {
+    padding: 200px 40px 40px 40px;
+  }
 `;
 
 export const AvatarWrapper = styled.div`
   position: absolute;
   top: -100px;
-  width: 172px;
-  height: 172px;
+  width: 200px;
+  height: 200px;
 
-  @media (min-width: 1024px) {
-    top: -150px;
-    width: 280px;
-    height: 280px;
+  @media (${theme.breakpoints.phone}) {
+    top: -180px;
+    width: 346px;
+    height: 346px;
   }
 
   img {

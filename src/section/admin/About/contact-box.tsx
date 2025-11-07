@@ -1,17 +1,14 @@
-import {
-  BorderContainer,
-  FlexContainer,
-} from "@/styles/components/layout/Common.styles";
 import React from "react";
+import { AboutState } from "@/types/about";
 import { BodyContainer, IconContainer } from "../styles/Page.styles";
+import { Row } from "@/styles/common";
+
+import DropdownInput from "../blogs/inputs/dropdown-input";
 
 import DeleteIC from "@/assets/svg/interact/recycle-bin";
 import DropdownIC from "@/assets/svg/arrow-down";
-import BlogContentInput from "../Blogs/CreateInputs/BlogContentInput";
-import { Row } from "@/styles/common";
-import { AboutState } from "@/types/about";
-import { Text } from "@/styles/theme/temp-typo";
-import DropdownInput from "../Blogs/CreateInputs/DropdownInput";
+import { BorderContainer, FlexContainer } from "@/styles/layout";
+import BlogContentInput from "../blogs/inputs/blog-content-input";
 
 export interface AboutPageSectionProps {
   data: AboutState;
@@ -62,7 +59,7 @@ const ContactBox = ({
                 </FlexContainer>
               </IconContainer>
               <FlexContainer style={{ justifyContent: "center" }}>
-                <Text $variant="body2">{item.platform}</Text>
+                <p className="body-2">{item.platform}</p>
               </FlexContainer>
             </FlexContainer>
 

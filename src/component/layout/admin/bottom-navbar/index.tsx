@@ -2,7 +2,7 @@ import React from "react";
 import { NavbarWrapper } from "./styled";
 import { BlogDetailTabs, Tabs } from "@/config/tabs-config";
 import { usePathname, useRouter } from "next/navigation";
-import { TabContainer } from "@/styles/components/layout/Layout.styles";
+import { TabContainer } from "@/styles/layout";
 import { useBlogdetailcontext } from "@/context/blogdetailcontext";
 
 const BottomNavbar = () => {

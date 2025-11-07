@@ -2,12 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { DetailContainer, HeaderFormContainer } from "../styles/Page.styles";
 
-import CategorySelectionBox from "./CreateInputs/CategorySelectionBox";
-import BlogSlugInput from "./CreateInputs/BlogSlugInput";
-import BlogTitleInput from "./CreateInputs/BlogTitleInput";
-import BlogContentInput from "./CreateInputs/BlogContentInput";
-import CustomEditor from "./CreateInputs/CKEditorInput/CustomEditor";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import CustomEditor from "./inputs/ck-editor-input";
 import { BlogDetails } from "@/types/blog";
 import { CustomButton } from "@/component/button/styled";
 import { marked } from "marked";
@@ -16,7 +11,12 @@ import { CateProps } from "@/component/layout/client/header/items/desktop-nav";
 import { useRouter } from "next/navigation";
 
 import SaveIC from "@/assets/svg/interact/save-button";
-import { Body, Text } from "@/styles/theme/temp-typo";
+import { WhiteText } from "@/styles/typography";
+import { FlexContainer } from "@/styles/layout";
+import BlogTitleInput from "./inputs/blog-title-input";
+import BlogContentInput from "./inputs/blog-content-input";
+import BlogSlugInput from "./inputs/blog-slug-input";
+import CategorySelectionBox from "./inputs/category-selection-box";
 
 interface Props {
   blog: BlogDetails;
@@ -95,13 +95,11 @@ const UpdateBlog = ({ blog }: Props) => {
     <FlexContainer $flexDirection="row">
       <FlexContainer>
         <HeaderFormContainer>
-          <Text $variant="h1">Chỉnh sửa bài viết</Text>
+          <h1>Chỉnh sửa bài viết</h1>
           {isLoading ? (
-            <CustomButton $isDisable={true} $bgColor="#aeaeae" $width="150px">
+            <CustomButton disabled={true} $width="150px">
               <Loader />
-              <Body $color="#fff" $weight={600}>
-                Đang lưu
-              </Body>
+              <WhiteText className="body-1">Đang lưu</WhiteText>
             </CustomButton>
           ) : (
             <CustomButton
@@ -110,12 +108,12 @@ const UpdateBlog = ({ blog }: Props) => {
               onClick={() => handleUpdateBlog(form.documentId)}
             >
               <SaveIC />
-              <Body $color="#fff">Lưu thay đổi</Body>
+              <WhiteText className="body-1">Lưu thay đổi</WhiteText>
             </CustomButton>
           )}
         </HeaderFormContainer>
         <DetailContainer>
-          <Text $variant="body0">Chi tiết</Text>
+          <p className="body-1">Chi tiết</p>
 
           {/* Input title */}
           <BlogTitleInput

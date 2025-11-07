@@ -1,14 +1,16 @@
 import React from "react";
+
+import AddImageIC from "@/assets/svg/add-image";
+import { ImageContainer } from "@/section/client/blogs/blogcard/styled";
+
 import {
   ImageInput,
   ImageInputContainer,
   ImagePreview,
+  Label,
   LabelContainer,
   LabelImageContainer,
-} from "../../../../styles/components/inputs/Input.styles";
-import AddImageIC from "@/assets/svg/add-image";
-import { ImageContainer } from "@/section/client/blogs/blogcard/styled";
-import { Caption, Text } from "@/styles/theme/temp-typo";
+} from "./styled";
 
 interface Props {
   previewImage: string | null;
@@ -27,12 +29,10 @@ const BlogImageInput = ({ previewImage, setPreviewImage }: Props) => {
   return (
     <>
       <LabelContainer $padding="none">
-        <Text $variant="body0" $weight={600}>
-          Ảnh bìa của bài viết
-        </Text>
-        <Caption $color="#979797">
+        <p className="body-1">Ảnh bìa của bài viết</p>
+        <Label className="body-3">
           Chọn ảnh bìa nổi bật để thu hút sự chú ý của người xem.
-        </Caption>
+        </Label>
       </LabelContainer>
       <ImageInputContainer>
         <LabelImageContainer htmlFor="file-upload">
@@ -43,7 +43,7 @@ const BlogImageInput = ({ previewImage, setPreviewImage }: Props) => {
           ) : (
             <>
               <AddImageIC />
-              <Text $variant="body3">Tải tệp lên</Text>
+              <p className="body-3">Tải tệp lên</p>
             </>
           )}
         </LabelImageContainer>

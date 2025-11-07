@@ -1,6 +1,6 @@
 "use client"; // Error boundary luôn là client component
 
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { FlexContainer } from "@/styles/layout";
 import React from "react";
 
 export default function Error() {

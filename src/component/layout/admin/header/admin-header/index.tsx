@@ -7,13 +7,12 @@ import UploadIC from "@/assets/svg/interact/upload";
 import React, { useState } from "react";
 
 import Image from "next/image";
-import CreateBlog from "@/section/admin/Blogs/CreateBlog";
-import CreateCategory from "@/section/admin/Categories/CreateCate";
+import CreateBlog from "@/section/admin/blogs/blog-create-form";
+import CreateCategory from "@/section/admin/categories/cate-create-form";
 import Link from "next/link";
-import { TabContainer } from "@/styles/components/layout/Layout.styles";
+import { TabContainer } from "@/styles/layout";
 import { Row } from "@/styles/common";
 import { useRouter } from "next/navigation";
-import { Text } from "@/styles/theme/temp-typo";
 import Notification from "../notification";
 import SearchBarAdmin from "../searchbar";
 import {
@@ -22,7 +21,9 @@ import {
   DropdownCreateContainer,
   HeaderContainer,
   HeaderItemsGroup,
+  LogoText,
 } from "./styled";
+import { TextCanChangeColor } from "@/styles/typography";
 
 const Header = () => {
   const [isSelectionCreateOpen, setIsSelectionCreateOpen] = useState(false);
@@ -47,14 +48,7 @@ const Header = () => {
             }}
           >
             <Image src={LogoImg} width={28} height={28} alt="MddLogo" />
-            <Text
-              className="logoText"
-              $whiteSpace="nowrap"
-              $variant="h5"
-              $size={20}
-            >
-              MDD Blogs
-            </Text>
+            <LogoText className="logoText">MDD Blogs</LogoText>
           </Row>
         </HeaderItemsGroup>
 
@@ -64,11 +58,7 @@ const Header = () => {
 
         <HeaderItemsGroup>
           <Notification />
-          <Link href={"/"}>
-            <Text $variant="body5" $color="#4f6ffa">
-              Về trang người dùng
-            </Text>
-          </Link>
+          <Link href={"/"}>Về trang người dùng</Link>
           <ActionWrapper className="relative">
             <CreateBlogButton
               onClick={() => {
@@ -76,7 +66,7 @@ const Header = () => {
               }}
             >
               <WriteNewIC />
-              <Text $variant="body3">Tạo</Text>
+              <p className="body-3">Tạo</p>
             </CreateBlogButton>
             {isSelectionCreateOpen && (
               <DropdownCreateContainer>
@@ -88,9 +78,7 @@ const Header = () => {
                   $isSelected={false}
                 >
                   <UploadIC />
-                  <Text $variant="body4" $size={14}>
-                    Tạo bài viết mới
-                  </Text>
+                  <p className="body-3">Tạo bài viết mới</p>
                 </TabContainer>
 
                 <TabContainer
@@ -101,9 +89,7 @@ const Header = () => {
                   }}
                 >
                   <AddBlogIC />
-                  <Text $variant="body4" $size={14}>
-                    Tạo danh mục mới
-                  </Text>
+                  <p className="body-3">Tạo danh mục mới</p>
                 </TabContainer>
               </DropdownCreateContainer>
             )}

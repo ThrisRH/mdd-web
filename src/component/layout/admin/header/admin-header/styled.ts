@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 // Header
+export const LogoText = styled.h5`
+  font-size: 20px;
+  white-space: nowrap;
+`;
+
 export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;

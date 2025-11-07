@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   AvatarWrapper,
   Biography,
@@ -7,6 +7,8 @@ import {
   DetailsWrapper,
   Field,
   InfoWrapper,
+  InterestText,
+  NameText,
 } from "./styled";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,8 +23,12 @@ interface InfoCardProps {
 }
 
 const InfoCard = ({ isNavbar, isDetails }: InfoCardProps) => {
+  const [mounted, setMounted] = useState(false);
   const authorMDD = useAppSelector((state) => state.mainBlogAuthor);
   const info = authorMDD.data;
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
   if (info[0].documentId === "") return <Loading />;
 
@@ -45,29 +51,34 @@ const InfoCard = ({ isNavbar, isDetails }: InfoCardProps) => {
           </AvatarWrapper>
 
           <InfoWrapper>
-            <h2>my {item.fullname} diary</h2>
+            <NameText $isNavbar={isNavbar}>my {item.fullname} diary</NameText>
             <Field $isNavbar={isNavbar}>
               {item.interest.map((i, index) => (
-                <p className="body-3" key={index}>
-                  {" "}
+                <InterestText
+                  $isNavbar={isNavbar}
+                  className="body-3"
+                  key={index}
+                >
                   {i.interest}
                   {index === item.interest.length - 1 ? "" : ", "}
-                </p>
+                </InterestText>
               ))}
             </Field>
           </InfoWrapper>
-          <DetailsWrapper $isDetails={isDetails}>
-            <Biography>
-              <p className="body-3">{item.biography}</p>
-            </Biography>
-            <Field $gap={16}>
-              {item.contact.map((item, index) => (
-                <Link href={item.url} key={index}>
-                  {getSocialMediaIcon(item.platform)}
-                </Link>
-              ))}
-            </Field>
-          </DetailsWrapper>
+          {!isNavbar && (
+            <DetailsWrapper $isDetails={isDetails}>
+              <Biography>
+                <p className="body-3">{item.biography}</p>
+              </Biography>
+              <Field $gap={16}>
+                {item.contact.map((item, index) => (
+                  <Link href={item.url} key={index}>
+                    {getSocialMediaIcon(item.platform)}
+                  </Link>
+                ))}
+              </Field>
+            </DetailsWrapper>
+          )}
         </Container>
       ))}
     </>

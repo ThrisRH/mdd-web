@@ -60,15 +60,30 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 16px;
         font-weight: 500 !important;
     }
+
     .body-2{
         font-size: 16px;
     }
+
     .body-3{
         font-size: 14px;
     }
 
+    .body-4{
+        font-size: 12px
+    }
+    
+    .body-5{
+        font-size: 10px
+    }
+
     .h0, h1, h2, h3, h4, h5{
         color: ${theme.colors.black500};
+    }
+
+    a {
+        font-size: 14px;
+        color: ${theme.colors.blue500};
     }
 
 `;

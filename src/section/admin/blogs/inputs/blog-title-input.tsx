@@ -1,8 +1,4 @@
-import {
-  FormInput,
-  FormInputContainer,
-} from "../../../../styles/components/inputs/Input.styles";
-import { Text } from "@/styles/theme/temp-typo";
+import { FormInput, FormInputContainer, Label } from "./styled";
 
 interface Props {
   label: string;
@@ -26,14 +22,7 @@ const BlogTitleInput = ({
       value.length > maxLength || isEmpty ? "#ad3945" : "rgba(0,0,0,0.2)"
     }
   >
-    <Text
-      $variant="body5"
-      $size={12}
-      $color={isEmpty ? "#ad3945" : "#979797"}
-      $weight="500"
-    >
-      {label}
-    </Text>
+    <Label className="body-5">{label}</Label>
     <FormInput
       value={value}
       onChange={(e) => {
@@ -43,9 +32,9 @@ const BlogTitleInput = ({
       placeholder="Thêm tiêu đề mô tả bài viết của bạn"
       rows={2}
     />
-    <Text $variant="body5" $color="#979797">
+    <Label className="body-5">
       {value.length} / {maxLength}
-    </Text>
+    </Label>
   </FormInputContainer>
 );
 

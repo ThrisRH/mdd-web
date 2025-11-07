@@ -1,12 +1,11 @@
 import React from "react";
 import { BlogDetails } from "@/types/blog";
 import { Column } from "@/styles/common";
-import { Body, Text } from "@/styles/theme/temp-typo";
 import { MainContent } from "@/section/admin/styles/Page.styles";
 import { ImageContainer } from "@/section/client/blogs/blogcard/styled";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { SearchBlogCardWrapper } from "./styled";
+import { BlogMainContentText, SearchBlogCardWrapper } from "./styled";
 
 export type SearchBlogCardProps = {
   blog: BlogDetails;
@@ -42,11 +41,11 @@ const SearchBlogCard = ({
         />
       </ImageContainer>
       <Column $gap="none">
-        <Body>{blog.title}</Body>
+        <p className="body-1">{blog.title}</p>
         <MainContent>
-          <Text $variant="body4" color="#7a7a7a">
+          <BlogMainContentText className="body-3">
             {blog.mainContent}
-          </Text>
+          </BlogMainContentText>
         </MainContent>
       </Column>
     </SearchBlogCardWrapper>

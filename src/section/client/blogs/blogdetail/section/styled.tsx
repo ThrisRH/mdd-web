@@ -1,5 +1,7 @@
 "use client";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
+
+import { FlexContainer } from "@/styles/layout";
+import { theme } from "@/styles/theme";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -37,4 +39,11 @@ export const BlogGrid = styled.div`
   @media (min-width: 1024px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+`;
+
+export const Line = styled.div`
+  height: 2px;
+  width: 90px;
+
+  background-color: ${theme.colors.black500};
 `;

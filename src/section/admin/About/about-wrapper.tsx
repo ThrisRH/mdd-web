@@ -1,5 +1,4 @@
 "use client";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import React, { useEffect, useState } from "react";
 
 import {
@@ -10,14 +9,15 @@ import {
 } from "../styles/Page.styles";
 import { useToggleSelect } from "@/hooks/use-toggle-select";
 import ContactSection from "./contact-box";
-import CustomEditor from "../Blogs/CreateInputs/CKEditorInput/CustomEditor";
 import { ButtonWrapper, CustomButton } from "@/component/button/styled";
 import ProfileSection from "./profile-box";
 import { AboutState } from "@/types/about";
 import { Loader } from "../../client/main/loading/styled";
 import { Row } from "@/styles/common";
-import { Caption, Text } from "@/styles/theme/temp-typo";
 import { handleError } from "@/utils/handle-error";
+import { ActionBarText } from "@/styles/typography";
+import { FlexContainer } from "@/styles/layout";
+import CustomEditor from "../blogs/inputs/ck-editor-input";
 
 interface Props {
   about: AboutState;
@@ -44,7 +44,7 @@ async function updateAvatar(file: File | null) {
 
 async function updateAuthor(avatarId: string | null, contact: any[]) {
   const res = await fetch(
-    "/mmdblogsapi/authors/iy05sicekg9wxcfsmy3oxfzl?populate=*",
+    "/mmdblogsapi/authors/b9bgnwx05hy0tox20p5iosr2?populate=*",
     {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -160,9 +160,9 @@ const AboutBody = ({ about }: Props) => {
           $flexDirection="row"
           style={{ alignItems: "center" }}
         >
-          <Caption $color="#fff">
+          <ActionBarText className="body-3">
             Hãy kiểm tra kỹ các thay đổi trước khi lưu lại.
-          </Caption>
+          </ActionBarText>
 
           {isSaving ? (
             <ButtonWrapper
@@ -173,7 +173,7 @@ const AboutBody = ({ about }: Props) => {
             >
               <Row $align="center" $justify="center">
                 <Loader />
-                <Caption $variant="body3">Đang lưu</Caption>
+                <p className="body-3">Đang lưu</p>
               </Row>
             </ButtonWrapper>
           ) : (
@@ -198,7 +198,7 @@ const AboutBody = ({ about }: Props) => {
             setData={setData}
           />
           {/* For editing contact info (social media, etc..)  */}
-          <Text $variant="body0">Thông tin liên hệ</Text>
+          <p className="body-1">Thông tin liên hệ</p>
           {data.contact !== null ? (
             <ContactSection
               data={data}
@@ -219,7 +219,7 @@ const AboutBody = ({ about }: Props) => {
             Thêm liên hệ mới
           </CustomButton>
 
-          <Text $variant="body0">Mô tả về bản thân</Text>
+          <p className="body-1">Mô tả về bản thân</p>
           <CustomEditor
             value={data.aboutContent}
             onChange={(e) => setData((prev) => ({ ...prev, aboutContent: e }))}

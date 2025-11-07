@@ -2,10 +2,10 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Input from "../../../component/input";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import {} from "@/component/button/styled";
 import MainButton from "../../../component/button/main-button";
-import { ErrorText } from "@/styles/theme/temp-typo";
+import { ErrorText } from "@/styles/typography";
+import { FlexContainer } from "@/styles/layout";
 
 export default function SignInStrapi() {
   const [identifier, setIdentifier] = useState("");
@@ -86,7 +86,7 @@ export default function SignInStrapi() {
         label="Password"
         placeholder="Your password"
       />
-      <ErrorText>{error}</ErrorText>
+      <ErrorText className="body-3">{error}</ErrorText>
       <FlexContainer $flexDirection="row">
         <MainButton
           variant="secondary"

@@ -48,9 +48,9 @@ export const Column = styled(Flex)<{ $padding?: string }>`
 export const BlogContainer = styled(Column)`
   align-items: center;
   flex: 2;
-  gap: 40px;
+  gap: 24px;
 
   @media (min-width: 48rem) {
-    gap: 50px;
+    gap: 24px;
   }
 `;

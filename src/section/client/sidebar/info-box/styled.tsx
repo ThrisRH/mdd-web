@@ -1,3 +1,4 @@
+import { theme } from "@/styles/theme";
 import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div<{ $isNavbar?: boolean }>`
@@ -16,13 +17,9 @@ export const Container = styled.div<{ $isNavbar?: boolean }>`
 export const Field = styled.div<{ $isNavbar?: boolean; $gap?: number }>`
   width: 100%;
   display: flex;
-  justify-content: ${({ $isNavbar }) => (!$isNavbar ? "center" : "start")};
   flex-direction: row;
+  justify-content: ${(props) => (props.$isNavbar ? "start" : "center")};
   gap: ${(props) => props.$gap || 6}px;
-
-  @media (min-width: 40rem) {
-    justify-content: center;
-  }
 `;
 
 // Avatar wrapper
@@ -33,11 +30,11 @@ const reflect = keyframes`
 `;
 export const AvatarWrapper = styled.div`
   position: relative;
-  max-width: 220px;
+  max-width: 80px;
   width: 100%;
   aspect-ratio: 1/1;
 
-  @media (min-width: 640px) {
+  @media (${theme.breakpoints.tablet}) {
     max-width: 220px;
     width: 100%;
     aspect-ratio: 1/1;
@@ -78,4 +75,14 @@ export const DetailsWrapper = styled.div<{ $isDetails?: boolean }>`
 export const Biography = styled.div`
   max-width: 322px;
   text-align: center;
+`;
+
+export const NameText = styled.h2<{ $isNavbar?: boolean }>`
+  color: ${({ $isNavbar }) =>
+    $isNavbar ? `${theme.colors.white500}` : `${theme.colors.black500}`};
+`;
+
+export const InterestText = styled.p<{ $isNavbar?: boolean }>`
+  color: ${({ $isNavbar }) =>
+    $isNavbar ? `${theme.colors.white500}` : `${theme.colors.black500}`};
 `;

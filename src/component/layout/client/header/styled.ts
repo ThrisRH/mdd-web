@@ -2,9 +2,9 @@ import { theme } from "@/styles/theme";
 import styled from "styled-components";
 
 export const NavWrapper = styled.div`
-  display: hidden;
+  display: none;
 
-  @media (min-width: 48rem) {
+  @media (${theme.breakpoints.tablet}) {
     display: flex;
   }
 `;
@@ -25,10 +25,9 @@ export const HeaderMobileWrapper = styled.div`
   justify-content: space-between;
   padding-left: 1rem;
   padding-right: 1rem;
-  height: 58px;
   background-color: #000;
 
-  @media (min-width: 48rem) {
+  @media (${theme.breakpoints.tablet}) {
     display: none;
   }
 `;
@@ -46,10 +45,12 @@ export const MobileMenu = styled.div`
 
 export const NavList = styled.ul<{ $isVertical?: boolean }>`
   display: flex;
-  gap: ${({ $isVertical }) => ($isVertical ? "16px" : "63px")};
   flex-direction: ${({ $isVertical }) => ($isVertical ? "column" : "row")};
   align-items: ${({ $isVertical }) => ($isVertical ? "start" : "center")};
+
+  gap: ${({ $isVertical }) => ($isVertical ? "16px" : "63px")};
   width: 100%;
+  padding: 0px 16px;
   user-select: none;
 
   @media (min-width: 768px) {
@@ -72,10 +73,10 @@ export const Dropdown = styled.div<{ $relative?: boolean }>`
   ${({ $relative }) =>
     !$relative &&
     `
-    top: 100%;
-    left: 0;
-    margin-top: 24px;
-    width: 160px;
+    top: 50px;
+    left: 50%;  
+    transform: translateX(-50%);
+    width: 200px;
     background-color: black;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     padding: 8px 0;
@@ -86,8 +87,13 @@ export const Dropdown = styled.div<{ $relative?: boolean }>`
   color: white;
 `;
 
-export const DropdownItem = styled.div<{ $relative?: boolean }>`
+export const DropdownItem = styled.div<{
+  $relative?: boolean;
+  $haveBorder?: boolean;
+}>`
   padding: ${({ $relative }) => ($relative ? "16px 0px 0px 0px" : "8px 16px")};
+  border-bottom: ${({ $haveBorder }) =>
+    $haveBorder ? "1px solid rgba(255,255,255,0.2)" : "none"};
 
   cursor: pointer;
 
@@ -113,5 +119,6 @@ export const NavOverlay = styled.div`
 
 export const ActionArea = styled.div`
   width: 100%;
-  padding: 8px 16px;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 `;

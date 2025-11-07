@@ -2,9 +2,9 @@
 
 import Loading from "@/app/(user)/loading";
 import { CateProps } from "@/component/layout/client/header/items/desktop-nav";
-import UpdateCate from "@/section/admin/Categories/UpdateCate";
-import CateDetailSidebar from "@/section/admin/Sidebars/CateDetailSidebar";
-import { SidebarContainer } from "@/section/admin/Sidebars/styled";
+import UpdateCate from "@/section/admin/categories/cate-update-form";
+import CateDetailSidebar from "@/section/admin/sidebars/CateDetailSidebar";
+import { SidebarContainer } from "@/section/admin/sidebars/styled";
 import NotFound from "@/section/client/main/not-found";
 import { BodyWrapper } from "@/styles/layout";
 import React, { useEffect, useState } from "react";

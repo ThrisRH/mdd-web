@@ -1,7 +1,6 @@
 "use client";
 import FavoriteArea from "@/assets/svg/favorite-area";
 import { useRouter } from "next/navigation";
-import { Text } from "@/styles/theme/temp-typo";
 import { BlogItem, BlogList } from "../styled";
 import { useEffect, useState } from "react";
 import { BlogDetails } from "@/types/blog";

@@ -1,11 +1,11 @@
 "use client";
 import Loading from "@/app/(user)/loading";
 import { TitleContainer } from "./styled";
-import BlogTable from "@/section/admin/Blogs/BlogTable";
-import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
+import BlogTable from "@/section/admin/blogs/blog-table";
 import { BlogDetails } from "@/types/blog";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { MainContentContainer } from "@/styles/layout";
 
 type Props = {
   blogs: BlogDetails[];

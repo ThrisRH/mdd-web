@@ -1,12 +1,11 @@
 "use client";
 import Loading from "@/app/(user)/loading";
-import UpdateBlog from "@/section/admin/Blogs/UpdateBlog";
+import UpdateBlog from "@/section/admin/blogs/blog-update-form";
 import NotFound from "@/section/client/main/not-found";
 import { useBlogdetailcontext } from "@/context/blogdetailcontext";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
 import { BlogDetails } from "@/types/blog";
 import React, { useEffect, useState } from "react";
+import { FlexContainer, MainContentContainer } from "@/styles/layout";
 
 type Props = {
   blogDetail: BlogDetails;

@@ -5,6 +5,7 @@ import InfoCard from "../../../../../section/client/sidebar/info-box";
 import { ActionArea, NavList, NavOverlay } from "../styled";
 import NavItems from "./nav-items";
 import { CateProps } from "./desktop-nav";
+import { Divider } from "@/app/screens/client/faq/styled";
 
 interface Props {
   cate: CateProps[];
@@ -38,6 +39,7 @@ const NavOverlayMenu: React.FC<Props> = ({
         <InfoCard isNavbar={true} isDetails={false} />
       </button>
       <NavList $isVertical={true}>
+        <Divider $color="rgba(255,255,255,0.5)" />
         <NavItems
           pathname={pathname}
           cate={cate}

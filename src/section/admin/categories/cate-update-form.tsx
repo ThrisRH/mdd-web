@@ -1,16 +1,17 @@
 "use client";
 import React, { useState } from "react";
 import { DetailContainer, HeaderFormContainer } from "../styles/Page.styles";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { CustomButton } from "@/component/button/styled";
 import { Loader } from "../../client/main/loading/styled";
 import { CateProps } from "@/component/layout/client/header/items/desktop-nav";
 import { useRouter } from "next/navigation";
-import BlogTitleInput from "../Blogs/CreateInputs/BlogTitleInput";
-import BlogSlugInput from "../Blogs/CreateInputs/BlogSlugInput";
-import { Body, Text } from "@/styles/theme/temp-typo";
+import BlogTitleInput from "../blogs/inputs/blog-title-input";
+import BlogSlugInput from "../blogs/inputs/blog-slug-input";
+
 import SaveIC from "@/assets/svg/interact/save-button";
 import { handleError } from "@/utils/handle-error";
+import { WhiteText } from "@/styles/typography";
+import { FlexContainer } from "@/styles/layout";
 
 interface Props {
   cate: CateProps;
@@ -69,11 +70,11 @@ const UpdateCate = ({ cate }: Props) => {
     <FlexContainer $flexDirection="row">
       <FlexContainer>
         <HeaderFormContainer>
-          <Text $variant="h1">Chỉnh sửa danh mục</Text>
+          <h1>Chỉnh sửa danh mục</h1>
           {isLoading ? (
-            <CustomButton $isDisable={true} $bgColor="#aeaeae" $width="150px">
+            <CustomButton disabled={true} $width="150px">
               <Loader />
-              <Body $weight={600}>Đang lưu</Body>
+              <p className="body-1">Đang lưu</p>
             </CustomButton>
           ) : (
             <CustomButton
@@ -82,12 +83,12 @@ const UpdateCate = ({ cate }: Props) => {
               onClick={() => handleUpdateCate(form.documentId)}
             >
               <SaveIC />
-              <Body $color="#fff">Lưu thay đổi</Body>
+              <WhiteText>Lưu thay đổi</WhiteText>
             </CustomButton>
           )}
         </HeaderFormContainer>
         <DetailContainer>
-          <Text $variant="body0">Chi tiết</Text>
+          <p className="body-1">Chi tiết</p>
 
           {/* Input title */}
           <BlogTitleInput

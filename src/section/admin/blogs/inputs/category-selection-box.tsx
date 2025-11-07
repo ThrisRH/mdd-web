@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-import {
-  CateListContainer,
-  FlexInputContainer,
-  LabelContainer,
-  SelectionBoxContainer,
-  SelectionTitleWrapper,
-  SelectionWrapper,
-} from "../../../../styles/components/inputs/Input.styles";
+
 import { ButtonContainer, FormFooter } from "../../styles/Page.styles";
 import { CateProps } from "@/component/layout/client/header/items/desktop-nav";
 
 import DropdownIC from "@/assets/svg/arrow-down";
 import MainButton from "@/component/button/main-button";
-import { Body, Caption, Text } from "@/styles/theme/temp-typo";
 import { HOST } from "@/config/host-env";
+import {
+  CateListContainer,
+  FlexInputContainer,
+  Label,
+  LabelContainer,
+  SelectionBoxContainer,
+  SelectionTitleWrapper,
+  SelectionWrapper,
+} from "./styled";
 
 interface CateSelectionProps {
   cateSelectedId: string;
@@ -57,35 +58,31 @@ const CategorySelectionBox = ({
   return (
     <SelectionWrapper>
       <LabelContainer $padding="none">
-        <Text $variant="body0" $weight={600}>
-          Chọn danh mục cho bài viết
-        </Text>
-        <Caption $color="#979797">
+        <p className="body-1">Chọn danh mục cho bài viết</p>
+        <Label className="body-3">
           Thêm video của bạn vào danh sách phát để sắp xếp nội dung cho người
           xem.
-        </Caption>
+        </Label>
       </LabelContainer>
       <FlexInputContainer
         $haveHover={true}
         onClick={() => setIsCateSelectionOpen(true)}
       >
         {cateSelectedName !== "" ? (
-          <Caption $color="#979797">{cateSelectedName}</Caption>
+          <Label className="body-3">{cateSelectedName}</Label>
         ) : (
-          <Caption $color="#979797">Chọn danh mục</Caption>
+          <Label className="body-3">Chọn danh mục</Label>
         )}
         <DropdownIC fill={"#000"} />
       </FlexInputContainer>
       {isCateSelectionOpen && (
         <SelectionBoxContainer>
           <SelectionTitleWrapper>
-            <Text $color="#4f4f4f" $variant="body0">
-              Danh sách danh mục của bạn
-            </Text>
+            <p className="body-1">Danh sách danh mục của bạn</p>
           </SelectionTitleWrapper>
           <CateListContainer>
             {data === null ? (
-              <p>Bạn chưa có danh mục nào</p>
+              <p className="body-1">Bạn chưa có danh mục nào</p>
             ) : (
               data.map((item) => (
                 <FlexInputContainer
@@ -108,7 +105,7 @@ const CategorySelectionBox = ({
                       setSelectedName(item.tile);
                     }}
                   />
-                  <Body>{item.tile}</Body>
+                  <p className="body-3">{item.tile}</p>
                 </FlexInputContainer>
               ))
             )}

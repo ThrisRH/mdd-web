@@ -1,14 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import { SocialMediaPlatform } from "@/config/social-media-dropdown";
-import {
-  Box,
-  DropdownInputWrapper,
-  Item,
-  List,
-} from "@/styles/components/inputs/Input.styles";
-import { Text } from "@/styles/theme/temp-typo";
+
 import DropdownIC from "@/assets/svg/arrow-down";
+import { Box, DropdownInputWrapper, Item, Label, List } from "./styled";
 
 type Props = {
   label: string;
@@ -36,9 +31,7 @@ const DropdownInput = ({ label, value, onChange }: Props) => {
 
   return (
     <DropdownInputWrapper>
-      <Text $variant="body5" $size={12} $color="#979797" $weight="500">
-        {label}
-      </Text>
+      <Label>{label}</Label>
       <Box
         onClick={() => {
           setIsOpen(!isOpen);
@@ -48,7 +41,6 @@ const DropdownInput = ({ label, value, onChange }: Props) => {
         {value || "-- Chọn nền tảng mạng xã hội --"}
         <DropdownIC fill={"#979797"} />
       </Box>
-      <Text></Text>
       {isOpen ? (
         <List>
           {SocialMediaPlatform.map((item, index) => (

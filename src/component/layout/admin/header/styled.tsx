@@ -67,3 +67,7 @@ export const DotAlarmAbsolute = styled.div`
   position: absolute;
   right: -2px;
 `;
+
+export const DateTimeText = styled.p`
+  color: rgba(0, 0, 0, 0.5);
+`;

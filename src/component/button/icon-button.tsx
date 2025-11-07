@@ -19,7 +19,7 @@ const IconButton = ({
   return (
     <ButtonWrapper $variant={variant} onClick={onClick} disabled={isDisable}>
       {icon}
-      <h2>{children}</h2>
+      <p className="body-2">{children}</p>
     </ButtonWrapper>
   );
 };

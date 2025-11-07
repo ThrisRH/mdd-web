@@ -2,7 +2,6 @@
 import React from "react";
 import { ArrowButton, PageNumber, PaginationContainer } from "./styled";
 import Arrow from "@/assets/svg/arrow-down";
-import { Text } from "@/styles/theme/temp-typo";
 
 interface Props {
   currentPage: number;
@@ -27,7 +26,7 @@ const PaginationBar = ({ currentPage, totalPages, onPageChange }: Props) => {
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
       >
-        <Arrow fill="#000" />
+        <Arrow fill={currentPage === 1 ? "#CBCBCB" : "#000"} />
       </ArrowButton>
 
       {pages.map((page) => (
@@ -36,9 +35,7 @@ const PaginationBar = ({ currentPage, totalPages, onPageChange }: Props) => {
           $active={page === currentPage}
           onClick={() => onPageChange(page)}
         >
-          <Text $variant="body2" color="#000">
-            {page}
-          </Text>
+          <p className="body-2">{page}</p>
         </PageNumber>
       ))}
 
@@ -47,7 +44,7 @@ const PaginationBar = ({ currentPage, totalPages, onPageChange }: Props) => {
         disabled={currentPage === totalPages}
         onClick={() => onPageChange(currentPage + 1)}
       >
-        <Arrow fill="#000" />
+        <Arrow fill={currentPage === totalPages ? "#CBCBCB" : "#000"} />
       </ArrowButton>
     </PaginationContainer>
   );

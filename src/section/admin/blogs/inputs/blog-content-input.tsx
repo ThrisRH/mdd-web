@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  FormInput,
-  FormInputContainer,
-} from "../../../../styles/components/inputs/Input.styles";
-import { Text } from "@/styles/theme/temp-typo";
+import { FormInput, FormInputContainer, Label } from "./styled";
 
 interface Props {
   label: string;
@@ -27,9 +23,7 @@ const BlogContentInput = ({
       $maxHeight={maxHeight}
       $borderColor={value.length > maxLength ? "#ad3945" : "rgba(0, 0, 0, 0.2)"}
     >
-      <Text $variant="body5" $color="#979797">
-        {label}
-      </Text>
+      <Label className="body-5">{label}</Label>
       <FormInput
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -37,9 +31,9 @@ const BlogContentInput = ({
         $minHeight="100px"
         $canOverflow={canOverflow}
       />
-      <Text $variant="body5" $color="#979797">
+      <Label className="body-5">
         {value.length} / {maxLength}
-      </Text>
+      </Label>
     </FormInputContainer>
   );
 };

@@ -1,10 +1,8 @@
 "use client";
 import React, { ReactNode } from "react";
-import {
-  Container,
-  ContentWrapper,
-} from "@/styles/components/layout/Layout.styles";
+
 import Sidebar from "@/section/client/sidebar";
+import { Container, ContentWrapper } from "./styled";
 
 interface PostProps {
   children: ReactNode;

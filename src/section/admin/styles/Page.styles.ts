@@ -1,4 +1,4 @@
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
+import { FlexContainer } from "@/styles/layout";
 import styled from "styled-components";
 
 export const TableWrapper = styled.table`

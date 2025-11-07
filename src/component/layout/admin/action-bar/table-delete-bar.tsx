@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import { ActionContainer } from "../../../../section/admin/styles/Page.styles";
 import BinIC from "@/assets/svg/interact/recycle-bin";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import { Loader } from "../../../../section/client/main/loading/styled";
 import { CustomButton } from "@/component/button/styled";
 import IconButton from "@/component/button/icon-button";
-import { Body, Text } from "@/styles/theme/temp-typo";
 import { handleError } from "@/utils/handle-error";
+import { ActionBarText, WhiteText } from "@/styles/typography";
+import { FlexContainer } from "@/styles/layout";
 
 interface Props {
   selectedItems: Set<string>;
@@ -48,9 +48,9 @@ const TableActionBar = ({ selectedItems, forFeature }: Props) => {
 
   return (
     <ActionContainer $visible={selectedItems.size !== 0}>
-      <Text $variant="body3" $color="#fff">
+      <ActionBarText className="body3">
         Đã chọn: {selectedItems.size}
-      </Text>
+      </ActionBarText>
       <FlexContainer $width="fit" $flexDirection="row">
         {/* Nút xóa hoặc hủy thao tác */}
         {!isDeleteMode ? (
@@ -63,15 +63,15 @@ const TableActionBar = ({ selectedItems, forFeature }: Props) => {
           </IconButton>
         ) : (
           <CustomButton
-            $bgColor="transparent"
+            $bgColor="#fff"
             $border="2px solid rgba(22, 31, 57, 0.8)"
             $width="fit"
-            $hoverBgColor="transparent"
+            $hoverBgColor="#ffffffeb"
             $hoverBorder="2px solid #f1dbc4"
             onClick={() => setIsDeleteMode(false)}
           >
             <BinIC />
-            <Body $color="#fff">Hủy</Body>
+            <p className="body-2">Hủy</p>
           </CustomButton>
         )}
 
@@ -86,11 +86,9 @@ const TableActionBar = ({ selectedItems, forFeature }: Props) => {
             onClick={() => handleDeleteBlog()}
           >
             {!hover ? (
-              <Body $color="#fff">Bạn chắc chắn chứ?</Body>
+              <WhiteText>Bạn chắc chắn chứ?</WhiteText>
             ) : (
-              <Body $color="#fff" $weight={600}>
-                Chắc chắn!
-              </Body>
+              <WhiteText className="body-1">Chắc chắn!</WhiteText>
             )}
           </CustomButton>
         )}
@@ -104,9 +102,7 @@ const TableActionBar = ({ selectedItems, forFeature }: Props) => {
             $hoverBgColor="#f45c5c"
           >
             <Loader />
-            <Body $color="#fff" $weight={600}>
-              Đang xóa
-            </Body>
+            <WhiteText className="body-1">Đang xóa</WhiteText>
           </CustomButton>
         )}
       </FlexContainer>

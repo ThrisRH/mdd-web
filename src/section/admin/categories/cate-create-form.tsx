@@ -10,17 +10,14 @@ import {
 
 import CloseIC from "@/assets/svg/cancel";
 
-import {
-  FlexContainer,
-  FormContainer,
-} from "@/styles/components/layout/Common.styles";
 import { CustomButton } from "@/component/button/styled";
-import BlogTitleInput from "../Blogs/CreateInputs/BlogTitleInput";
-import BlogSlugInput from "../Blogs/CreateInputs/BlogSlugInput";
-import { Body, Text } from "@/styles/theme/temp-typo";
+import BlogTitleInput from "../blogs/inputs/blog-title-input";
+import BlogSlugInput from "../blogs/inputs/blog-slug-input";
 import { Loader } from "../../client/main/loading/styled";
 import { Row } from "@/styles/common";
 import { handleError } from "@/utils/handle-error";
+import { ErrorText } from "@/styles/typography";
+import { FlexContainer, FormContainer } from "@/styles/layout";
 
 const CreateCategory = ({
   setIsCreateCatePopupOpen,
@@ -72,13 +69,13 @@ const CreateCategory = ({
     <FormWrapper>
       <FormContainer>
         <HeaderFormContainer>
-          <Text $variant="h1">Tạo danh mục mới</Text>
+          <h1>Tạo danh mục mới</h1>
           <CloseIconContainer onClick={() => setIsCreateCatePopupOpen(false)}>
             <CloseIC fill={"#000"} />
           </CloseIconContainer>
         </HeaderFormContainer>
         <DetailContainer>
-          <Body $weight={600}>Chi tiết</Body>
+          <p className="body-1">Chi tiết</p>
 
           <FlexContainer $flexDirection="row">
             {/* Input title */}
@@ -104,22 +101,16 @@ const CreateCategory = ({
 
         {/* Form footer */}
         <FormFooter>
-          {errorMessage !== "" ? (
-            <Body $color="#8f4242">{errorMessage}</Body>
-          ) : (
-            <Body />
-          )}
+          {errorMessage !== "" ? <ErrorText>{errorMessage}</ErrorText> : <p />}
           {isLoading ? (
             <CustomButton
               $width="200px"
               onClick={() => handlePublish()}
-              $bgColor="#CDCDCD"
-              $isDisable={true}
               disabled={true}
             >
               <Row $align="center" $justify="center">
                 <Loader />
-                <Body>Đang tạo</Body>
+                <p className="body-1">Đang tạo</p>
               </Row>
             </CustomButton>
           ) : (
@@ -128,7 +119,7 @@ const CreateCategory = ({
               onClick={() => handlePublish()}
               $bgColor="#F1DBC4"
             >
-              <Body $whiteSpace="nowrap">Tạo danh mục</Body>
+              <p className="body-1">Tạo danh mục</p>
             </CustomButton>
           )}
         </FormFooter>

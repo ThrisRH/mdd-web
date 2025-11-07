@@ -1,13 +1,11 @@
 "use client";
 import Loading from "@/app/(user)/loading";
 import Comment from "@/section/admin/comment";
-import NotFound from "@/section/client/main/not-found";
 import { useBlogdetailcontext } from "@/context/blogdetailcontext";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { MainContentContainer } from "@/styles/components/layout/Layout.styles";
 import { BlogDetails } from "@/types/blog";
 import { CommentProps } from "@/types/comment";
 import React, { useEffect, useState } from "react";
+import { FlexContainer, MainContentContainer } from "@/styles/layout";
 
 type Props = {
   comments: CommentProps[];

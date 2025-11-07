@@ -10,6 +10,7 @@ export const ButtonWrapper = styled.button<{
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 6px;
 
   max-width: ${(props) => (props.$maxWidth ? "150px" : "none")};
   height: 48px;
@@ -70,7 +71,6 @@ export const ButtonWrapper = styled.button<{
 export const CustomButton = styled.button<{
   $width?: string;
   $bgColor?: string;
-  $isDisable?: boolean;
   $border?: string;
   $hoverBgColor?: string;
   $hoverBorder?: string;
@@ -84,17 +84,17 @@ export const CustomButton = styled.button<{
   background-color: ${(props) => (props.$bgColor ? props.$bgColor : "#000")};
   border-radius: 8px;
   padding: 12px;
-  cursor: ${(props) => (props.$isDisable ? "not-allowed" : "pointer")};
+  cursor: pointer;
   gap: 16px;
 
-  ${({ $isDisable = false, $hoverBgColor, $hoverBorder }) =>
-    !$isDisable &&
-    `
-    &:hover {
-      background-color: ${$hoverBgColor || "#f1dbc49a"};
-      border: ${$hoverBorder || "none"}
-    }
-  `}
+  &:disabled {
+    cursor: not-allowed;
+    background-color: ${theme.colors.grey500};
+  }
+
+  &:hover {
+    background-color: ${(props) => props.$hoverBgColor};
+  }
 
   @media (min-width: 768px) {
     height: 48px;

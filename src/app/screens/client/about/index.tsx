@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   AboutWrapper,
@@ -12,9 +13,9 @@ import ReactMarkDown from "react-markdown";
 import Image from "next/image";
 import rehypeRaw from "rehype-raw";
 import { About } from "@/types/about";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
 import Link from "next/link";
 import { getSocialMediaIcon } from "@/utils/get-social-media-icon";
+import { FlexContainer } from "@/styles/layout";
 
 type Props = {
   about: About;

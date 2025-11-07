@@ -14,8 +14,7 @@ import {
 } from "../blogcard/styled";
 import { BlogDetails } from "@/types/blog";
 import Image from "next/image";
-import { FlexContainer } from "@/styles/components/layout/Common.styles";
-import { Body, Caption, Text } from "@/styles/theme/temp-typo";
+import { FlexContainer } from "@/styles/layout";
 
 function PostDetailComponent({
   title,

@@ -5,7 +5,6 @@ import {
 } from "@/section/admin/styles/Page.styles";
 import React from "react";
 
-import { Text } from "@/styles/theme/temp-typo";
 import { PageNumber, PaginationContainer } from "../styled";
 import { PaginationButton, PaginationControls } from "./styled";
 
@@ -38,7 +37,7 @@ const TablePaginationBar = ({
                 $active={currentPage === i + 1}
                 onClick={() => handleChangePage(i + 1)}
               >
-                <Text $variant="body2">{i + 1}</Text>
+                <p className="body-2">{i + 1}</p>
               </PageNumber>
             ))}
 
