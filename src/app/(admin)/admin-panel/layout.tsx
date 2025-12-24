@@ -1,5 +1,5 @@
 "use client";
-import AdminPanelSidebar from "@/section/admin/sidebars/AdminPanelSidebar";
+import AdminPanelSidebar from "@/section/admin/Sidebars/AdminPanelSidebar";
 import { BodyWrapper } from "@/styles/layout";
 import React from "react";
 

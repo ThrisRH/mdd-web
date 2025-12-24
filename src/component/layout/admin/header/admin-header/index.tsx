@@ -2,7 +2,7 @@
 import WriteNewIC from "@/assets/svg/writing-blog";
 import LogoImg from "@/assets/image/logo.png";
 import AddBlogIC from "@/assets/svg/interact/add-article";
-import UploadIC from "@/assets/svg/interact/upload";
+import UploadIC from "@/assets/svg/Interact/upload";
 
 import React, { useState } from "react";
 

@@ -1,11 +1,11 @@
 "use client";
 import Loading from "@/app/(user)/loading";
-import AboutBody from "@/section/admin/about/about-wrapper";
 import NotFound from "@/section/client/main/not-found";
 import { AboutState } from "@/types/about";
 import React, { useEffect, useState } from "react";
 import { TitleContainer } from "./styled";
 import { FlexContainer, MainContentContainer } from "@/styles/layout";
+import AboutBody from "@/section/admin/About/about-wrapper";
 
 type Props = {
   about: AboutState;
