@@ -1,4 +1,4 @@
-import ReloadIC from "@/assets/svg/Interact/reload";
+
 import { formatSlug } from "../../../../utils/handle-slug";
 import { IconContainer } from "../../styles/Page.styles";
 import { FormInput, FormInputContainer, Label, LabelContainer } from "./styled";
@@ -25,9 +25,7 @@ const BlogSlugInput = ({ label, slug, setSlug, title, maxLength }: Props) => {
         $justifyContent="space-between"
       >
         <Label className="body-5">{label}</Label>
-        <IconContainer onClick={handleAuto}>
-          <ReloadIC />
-        </IconContainer>
+   
       </LabelContainer>
       <FormInput
         value={slug}
