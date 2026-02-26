@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { buttonHoverAnimation } from "@/styles/animations";
 
 export const PaginationContainer = styled.div`
   display: flex;
@@ -18,14 +19,30 @@ export const PageNumber = styled.button<{ $active?: boolean }>`
   padding: 4px 8px;
   border-radius: 6px;
   cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: ${({ $active }) => ($active ? "#F1DBC4" : "rgba(241, 219, 196, 0.3)")};
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 `;
 
 export const ArrowButton = styled.button<{ $rotate: number }>`
   transform: rotate(${(props) => props.$rotate}deg);
   cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    transform: rotate(${(props) => props.$rotate}deg) scale(1.1);
+  }
 
   &:disabled {
     cursor: not-allowed;
+    opacity: 0.5;
   }
 `;
 

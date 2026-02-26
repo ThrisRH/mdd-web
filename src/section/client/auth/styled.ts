@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fadeInUp } from "@/styles/animations";
 
 export const AuthBodyContainer = styled.div`
   display: flex;
@@ -7,4 +8,5 @@ export const AuthBodyContainer = styled.div`
   justify-content: center;
   min-height: calc(100vh - 404px);
   padding: 40px 10px;
+  animation: ${fadeInUp} 0.6s ease-out;
 `;

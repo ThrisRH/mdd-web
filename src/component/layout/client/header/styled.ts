@@ -1,5 +1,6 @@
 import { theme } from "@/styles/theme";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { slideDown, linkHoverAnimation } from "@/styles/animations";
 
 export const NavWrapper = styled.div`
   display: none;
@@ -17,6 +18,7 @@ export const HeaderContainer = styled.header`
   padding: 16px 0;
   align-items: center;
   justify-content: center;
+  animation: ${slideDown} 0.5s ease-out;
 `;
 
 export const HeaderMobileWrapper = styled.div`
@@ -64,6 +66,8 @@ export const NavList = styled.ul<{ $isVertical?: boolean }>`
 export const NavItem = styled.li`
   cursor: pointer;
   position: relative;
+  ${linkHoverAnimation}
+  color: white;
 `;
 
 export const Dropdown = styled.div<{ $relative?: boolean }>`
@@ -72,17 +76,17 @@ export const Dropdown = styled.div<{ $relative?: boolean }>`
 
   ${({ $relative }) =>
     !$relative &&
-    `
-    top: 50px;
-    left: 50%;  
-    transform: translateX(-50%);
-    width: 200px;
-    background-color: black;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    padding: 8px 0;
-    border-radius: 16px;
-    z-index: 50;
-  `}
+    css`
+      top: 50px;
+      left: 50%;  
+      transform: translateX(-50%);
+      width: 200px;
+      background-color: black;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      padding: 8px 0;
+      border-radius: 16px;
+      z-index: 50;
+    `}
 
   color: white;
 `;
@@ -96,6 +100,7 @@ export const DropdownItem = styled.div<{
     $haveBorder ? "1px solid rgba(255,255,255,0.2)" : "none"};
 
   cursor: pointer;
+  transition: color 0.3s ease;
 
   &:hover {
     color: #ea8e31;
@@ -115,6 +120,7 @@ export const NavOverlay = styled.div`
   align-items: center;
   justify-content: start;
   gap: 24px;
+  animation: ${slideDown} 0.4s ease-out;
 `;
 
 export const ActionArea = styled.div`

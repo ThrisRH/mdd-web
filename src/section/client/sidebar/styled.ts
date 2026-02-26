@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fadeInUp } from "@/styles/animations";
 
 // Send content
 export const InputWrapper = styled.div`
@@ -12,12 +13,18 @@ export const InputWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+
+  &:focus-within {
+    box-shadow: 0 4px 12px rgba(234, 142, 49, 0.15);
+  }
 `;
 
 export const Input = styled.input`
   width: 100%;
   height: 100%;
   outline: none;
+  transition: color 0.3s ease;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -29,6 +36,16 @@ export const ButtonWrapper = styled.div`
 export const Select = styled.select`
   flex: 1;
   outline: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(234, 142, 49, 0.05);
+  }
+
+  &:focus {
+    background-color: rgba(234, 142, 49, 0.1);
+  }
 `;
 
 // Favorite
@@ -46,6 +63,12 @@ export const BlogList = styled.ul`
 export const BlogItem = styled.li`
   cursor: pointer;
   width: 100%;
+  transition: all 0.3s ease;
+  animation: ${fadeInUp} 0.6s ease-out;
+
+  &:hover {
+    transform: translateX(4px);
+  }
 `;
 
 // Sidebar main
@@ -61,3 +84,4 @@ export const SideBarWrapper = styled.div`
     margin-top: 110px;
   }
 `;
+

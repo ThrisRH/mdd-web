@@ -1,6 +1,7 @@
 "use client";
 import { FlexContainer } from "@/styles/layout";
 import styled from "styled-components";
+import { fadeInUp } from "@/styles/animations";
 
 export const BlogCardWrapper = styled(FlexContainer)`
   flex-direction: column;
@@ -27,6 +28,13 @@ export const ImageContainer = styled.div<{
 }>`
   position: relative;
   border-radius: 16px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
 
   ${({ $variant }) => {
     switch ($variant) {
@@ -134,6 +142,12 @@ export const RelativeBlogWrapper = styled.div`
   gap: 12px;
   width: 100%;
   cursor: pointer;
+  animation: ${fadeInUp} 0.6s ease-out;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateX(4px);
+  }
 `;
 
 export const RelativeBlogImageContainer = styled.div`
@@ -141,4 +155,11 @@ export const RelativeBlogImageContainer = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
 `;
+

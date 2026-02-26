@@ -1,5 +1,6 @@
 import { theme } from "@/styles/theme";
 import styled from "styled-components";
+import { buttonHoverAnimation } from "@/styles/animations";
 
 // Button chính 2 màu primary và secondary
 export const ButtonWrapper = styled.button<{
@@ -19,7 +20,7 @@ export const ButtonWrapper = styled.button<{
   border-radius: 8px;
 
   cursor: pointer;
-  transition: all 0.1s ease-in-out;
+  ${buttonHoverAnimation}
 
   &:disabled {
     background-color: #cbcbcb;
@@ -86,6 +87,7 @@ export const CustomButton = styled.button<{
   padding: 12px;
   cursor: pointer;
   gap: 16px;
+  ${buttonHoverAnimation}
 
   &:disabled {
     cursor: not-allowed;

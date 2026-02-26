@@ -1,6 +1,7 @@
 "use client";
 import { theme } from "@/styles/theme";
 import styled from "styled-components";
+import { fadeInUp } from "@/styles/animations";
 
 export const AboutWrapper = styled.div`
   display: flex;
@@ -29,6 +30,7 @@ export const Card = styled.div`
   border-radius: 40px;
 
   background-color: rgba(241, 219, 196, 0.3);
+  animation: ${fadeInUp} 0.6s ease-out;
 
   @media (${theme.breakpoints.phone}) {
     padding: 200px 40px 40px 40px;
@@ -40,6 +42,7 @@ export const AvatarWrapper = styled.div`
   top: -100px;
   width: 200px;
   height: 200px;
+  transition: all 0.3s ease;
 
   @media (${theme.breakpoints.phone}) {
     top: -180px;
@@ -50,6 +53,11 @@ export const AvatarWrapper = styled.div`
   img {
     border-radius: 50%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
   }
 `;
 
@@ -70,3 +78,4 @@ export const ContactSection = styled.div`
 export const FooterSection = styled.div`
   width: 100%;
 `;
+
